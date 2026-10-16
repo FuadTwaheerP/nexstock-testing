@@ -1,0 +1,138 @@
+[
+  {
+    "name": "productsRoute",
+    "path": "/products",
+    "component": "ProductsPage",
+    "protected": true,
+    "dynamic": false,
+    "source": "web/src/app/router.tsx"
+  },
+  {
+    "name": "productDetailsRoute",
+    "path": "/products/$productId",
+    "component": "",
+    "protected": true,
+    "dynamic": true,
+    "source": "web/src/app/router.tsx"
+  },
+  {
+    "name": "stockAdjustmentsRoute",
+    "path": "/inventory/adjustments",
+    "component": "StockAdjustmentsPage",
+    "protected": true,
+    "dynamic": false,
+    "source": "web/src/app/router.tsx"
+  },
+  {
+    "name": "storesRoute",
+    "path": "/stores",
+    "component": "StoresPage",
+    "protected": true,
+    "dynamic": false,
+    "source": "web/src/app/router.tsx"
+  },
+  {
+    "name": "customersRoute",
+    "path": "/customers",
+    "component": "CustomersPage",
+    "protected": true,
+    "dynamic": false,
+    "source": "web/src/app/router.tsx"
+  },
+  {
+    "name": "customerDetailsRoute",
+    "path": "/customers/$customerId",
+    "component": "CustomerDetailsPage",
+    "protected": true,
+    "dynamic": true,
+    "source": "web/src/app/router.tsx"
+  },
+  {
+    "name": "suppliersRoute",
+    "path": "/suppliers",
+    "component": "SuppliersPage",
+    "protected": true,
+    "dynamic": false,
+    "source": "web/src/app/router.tsx"
+  },
+  {
+    "name": "supplierDetailsRoute",
+    "path": "/suppliers/$supplierId",
+    "component": "SupplierDetailsPage",
+    "protected": true,
+    "dynamic": true,
+    "source": "web/src/app/router.tsx"
+  },
+  {
+    "name": "posRoute",
+    "path": "/pos",
+    "component": "POSPage",
+    "protected": true,
+    "dynamic": false,
+    "source": "web/src/app/router.tsx"
+  },
+  {
+    "name": "invoicesRoute",
+    "path": "/invoicing",
+    "component": "InvoicesPage",
+    "protected": true,
+    "dynamic": false,
+    "source": "web/src/app/router.tsx"
+  },
+  {
+    "name": "invoiceDetailsRoute",
+    "path": "/invoicing/$invoiceId",
+    "component": "InvoiceDetailsPage",
+    "protected": true,
+    "dynamic": true,
+    "source": "web/src/app/router.tsx"
+  },
+  {
+    "name": "createInvoiceRoute",
+    "path": "/create-invoice",
+    "component": "CreateInvoicePage",
+    "protected": true,
+    "dynamic": false,
+    "source": "web/src/app/router.tsx"
+  },
+  {
+    "name": "settingsRoute",
+    "path": "/settings",
+    "component": "SettingsPage",
+    "protected": true,
+    "dynamic": false,
+    "source": "web/src/app/router.tsx"
+  },
+  {
+    "name": "privacyPolicyRoute",
+    "path": "/privacy-policy",
+    "component": "PrivacyPolicyPage",
+    "protected": true,
+    "dynamic": false,
+    "source": "web/src/app/router.tsx"
+  },
+  {
+    "name": "termsConditionsRoute",
+    "path": "/terms-conditions",
+    "component": "TermsConditionsPage",
+    "protected": true,
+    "dynamic": false,
+    "source": "web/src/app/router.tsx"
+  },
+  {
+    "name": "profileRoute",
+    "path": "/profile",
+    "component": "ProfilePage",
+    "protected": true,
+    "dynamic": false,
+    "source": "web/src/app/router.tsx"
+  },
+  {
+    "name": "storeInventoryRoute",
+    "path": "/store-inventory",
+    "component": "function",
+    "protected": true,
+    "dynamic": false,
+    "source": "web/src/app/router.tsx"
+  }
+]

@@ -1,0 +1,632 @@
+[
+  {
+    "id": "P1-001",
+    "feature": "F24-a",
+    "title": "Valid sign-in",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "Use a dedicated active account; sign in, refresh and open a protected deep link.",
+    "expected": "Account reaches its permitted business and stays signed in after refresh.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-002",
+    "feature": "F24-a",
+    "title": "Wrong password",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "Use a dedicated test account once with a wrong password.",
+    "expected": "Clear error; no authenticated session; no sensitive information in message.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-003",
+    "feature": "F24-a",
+    "title": "Empty login",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "Leave both fields blank and submit.",
+    "expected": "Both fields show errors; no login POST is sent.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-004",
+    "feature": "F24-a",
+    "title": "Password boundaries",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "In isolated signup/reset flow try 7 chars, missing uppercase, digit or symbol, and an 8-character valid value.",
+    "expected": "Checklist and API agree; login still permits nonempty legacy passwords without applying new-password complexity.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-005",
+    "feature": "F24-b",
+    "title": "Reset password",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "Use test mailbox; request code; try invalid/expired code, then valid code; log in with new password.",
+    "expected": "Invalid codes cannot reset; valid code works once; old password rejected. No real user account used.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-006",
+    "feature": "F24-c",
+    "title": "Session timeout",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "Agree configured inactivity threshold; leave test session idle beyond it; attempt stock change.",
+    "expected": "Login required and change not saved; distinguish inactivity timeout from JWT expiry. Requirement pending configuration confirmation.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-007",
+    "feature": "F24-a",
+    "title": "Logout and back navigation",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "Log out; press Back; reload a protected page.",
+    "expected": "No authenticated data or write access after logout.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-008",
+    "feature": "F02-a",
+    "title": "Physical product",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "Create unique QA SKU with cost 40 and sale price 100; reopen detail.",
+    "expected": "Name, SKU, price and inventory flags persist.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-009",
+    "feature": "F02-a",
+    "title": "Required and duplicate fields",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "Submit blank name/SKU; then reuse another QA SKU and barcode.",
+    "expected": "Validation identifies offending field; no duplicate or 500 response.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-010",
+    "feature": "F02-b",
+    "title": "Edit product",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "Change QA price 100 to 125 and description; save; reload.",
+    "expected": "New values persist; historical invoice values stay unchanged.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-011",
+    "feature": "F02-c",
+    "title": "Archive referenced product",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "Sell a QA product, archive it, then open prior invoice and search active catalogue.",
+    "expected": "Prior transaction remains readable; archived item is excluded from active sale selection. Confirm desired archive semantics.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-012",
+    "feature": "F02-d",
+    "title": "Independent variants",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "Create red/S and blue/M variants with different SKUs/prices; sell red/S.",
+    "expected": "Only selected variant stock decreases; parent and sibling remain unchanged.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-013",
+    "feature": "F02-e",
+    "title": "Category hierarchy and tags",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "Create parent and child category; assign product and tag; filter and reopen.",
+    "expected": "Correct hierarchy and grouping persist; circular parent choice is rejected or unavailable.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-014",
+    "feature": "F02-f",
+    "title": "Barcode matching",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "Use a barcode with leading zeros; search exact value and then nonexistent value.",
+    "expected": "Correct product found; leading zeros preserved; unknown barcode does not add a random item.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-015",
+    "feature": "F02-g",
+    "title": "Units of measure",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "Assign pcs and kg; attempt a 0.5 kg POS quantity.",
+    "expected": "Record requirement gap: supplied source POS accepts integers only. Fractional sale acceptance must be agreed before marking this pass.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-016",
+    "feature": "F02-h",
+    "title": "VAT classifications",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "Configure 15%, zero-rated and exempt QA items; sell one of each.",
+    "expected": "Each line retains correct classification; tax total agrees with configured pricing mode.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-017",
+    "feature": "F02-h",
+    "title": "Inclusive/exclusive tax",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "Sell quantity 2 at 100 exclusive of 15% VAT; then quantity 2 at 115 inclusive.",
+    "expected": "Both totals 230 with tax 30, assuming agreed per-line rounding and no discounts.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-018",
+    "feature": "F02-i",
+    "title": "Product image",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "Upload permitted image; reload; try unsupported type and oversized file.",
+    "expected": "Valid image persists; rejected uploads show validation; no broken thumbnails. Record actual size/type limits first.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-019",
+    "feature": "F03-a",
+    "title": "Create branch",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "Create unique branch code with address/phone/timezone using admin account.",
+    "expected": "Details persist; branch belongs only to chosen business; quota failures are explicit.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-020",
+    "feature": "F03-b",
+    "title": "Edit branch",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "Change phone and receipt header details; reload and preview receipt.",
+    "expected": "Updated fields persist and receipt uses chosen branch details.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-021",
+    "feature": "F03-c",
+    "title": "Branch isolation",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "Seed same SKU as A=10 and B=20; sell 2 in A; inspect both.",
+    "expected": "A=8 and B=20; totals and movements reference A only.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-022",
+    "feature": "F03-d",
+    "title": "Branch switch",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "Switch A to B in header; inspect inventory, POS and invoice; refresh.",
+    "expected": "Every relevant view uses B; no cached A data shown as B.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-023",
+    "feature": "F04-a",
+    "title": "Positive/negative adjustment",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "For new SKU apply +10 then -3 in same branch.",
+    "expected": "Stock becomes 10 then 7; one movement per operation.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-024",
+    "feature": "F04-a",
+    "title": "Overdraw rejection",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "Seed 2 units and request -3.",
+    "expected": "Source contract returns INSUFFICIENT_STOCK with 400; stock stays 2.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-025",
+    "feature": "F04-b",
+    "title": "Reasons and notes",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "Adjust with damage reason and distinctive QA note.",
+    "expected": "Reason and note retained with correct product, branch and signed quantity.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-026",
+    "feature": "F04-c",
+    "title": "Valuation",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "On empty SKU add 10 at cost 40; remove 3.",
+    "expected": "Stock value becomes 400 then 280, subject to average-cost policy; no sale-price valuation.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-027",
+    "feature": "F04-d",
+    "title": "Attribution",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "Save adjustment as a named test user and inspect history.",
+    "expected": "Actor, timestamp, before/after quantities and justification match operation.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-028",
+    "feature": "F08-a",
+    "title": "POS search and scan",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "Search SKU, name and scan barcode with Enter suffix.",
+    "expected": "Correct item selected; one scan adds one unit; search results scoped to active branch.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-029",
+    "feature": "F08-b",
+    "title": "Product grid",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "Select each category and no-match category.",
+    "expected": "Tiles belong to category; out-of-stock policy is correctly represented.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-030",
+    "feature": "F08-c",
+    "title": "Cart controls",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "Add same item twice, reduce quantity, override permitted price, remove line.",
+    "expected": "Quantity, subtotal and total recalculate once per action; prohibited override refused.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-031",
+    "feature": "F08-c",
+    "title": "Clear cart confirmation",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "Build cart; click Clear; cancel; repeat and confirm.",
+    "expected": "Cancel preserves lines; confirm empties cart and totals.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-032",
+    "feature": "F08-d",
+    "title": "Customer association",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "Complete separate walk-in and named-customer sales.",
+    "expected": "Each receipt and history belong to correct customer; no stale customer between sales.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-033",
+    "feature": "F08-e",
+    "title": "Discount arithmetic",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "Sell 2 x 100 with 10% discount, no VAT; repeat with fixed 20 discount.",
+    "expected": "Total 180 in both cases; invalid negative or excessive discount rejected. Discount/tax ordering needs owner confirmation.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-034",
+    "feature": "F08-f",
+    "title": "Mixed VAT cart",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "Use taxed, zero-rated and exempt lines plus discount.",
+    "expected": "Line and grand totals match approved rounding rules; invoice agrees with receipt.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-035",
+    "feature": "F08-g",
+    "title": "Cash/card/Juice recording",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "Use sandbox methods for separate sales; inspect invoice and payment ledger.",
+    "expected": "Recorded method and reference match; selecting Juice/card does not itself prove real provider settlement.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-036",
+    "feature": "F08-g",
+    "title": "Split tender",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "On total 200, tender card 150 and cash 100.",
+    "expected": "Paid amount 200; change 50; ledger records card 150 + cash 50.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-037",
+    "feature": "F08-h",
+    "title": "Cash change",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "On total 200 tender 250.",
+    "expected": "Change 50; amountPaid 200; revenue is not 250.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-038",
+    "feature": "F08-g",
+    "title": "Duplicate checkout",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "Submit identical client_reference twice against QA SKU stock 10, quantity 2.",
+    "expected": "Same invoice ID; one payment; stock 8, never 6.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-039",
+    "feature": "F08-i",
+    "title": "Receipt content",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "Complete QA sale; preview receipt and compare with invoice.",
+    "expected": "Items, quantity, discount, VAT, change, business and branch agree; no clipped totals.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-040",
+    "feature": "F12-a",
+    "title": "Create invoice",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "Create invoice with two units at 100 and valid customer details.",
+    "expected": "Persisted lines and totals match; unique invoice number is displayed.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-041",
+    "feature": "F12-a",
+    "title": "Number sequencing",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "Create two invoices, cancel one, then create another.",
+    "expected": "Numbers are unique and cancelled number is not reused; confirm permitted gaps.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-042",
+    "feature": "F12-b",
+    "title": "Partial payment",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "Invoice 200; record 50; refresh; then record remaining 150.",
+    "expected": "First paid=50/due=150; then paid=200/due=0; payment status follows balance.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-043",
+    "feature": "F12-c",
+    "title": "Due dates",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "Create due-on-receipt, Net 15 and Net 30 invoices near month boundary.",
+    "expected": "Dates match agreed calendar-day rules; due before issue date rejected or logged as requirement gap.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-044",
+    "feature": "F12-d",
+    "title": "Lifecycle",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "Create draft, issue, part-pay, settle; exercise permitted cancellation; inspect overdue invoice.",
+    "expected": "Document, payment and fulfilment states remain distinct; no invented single combined status enum.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-045",
+    "feature": "F12-e",
+    "title": "PDF integrity",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "Download QA invoice; open and compare with screen.",
+    "expected": "Valid PDF, correct number/customer/BRN/VAT/banking details; page breaks do not drop lines.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-046",
+    "feature": "F18-a",
+    "title": "Create supplier",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "Create unique supplier with contacts, BRN and address; reopen.",
+    "expected": "Supported fields round-trip without being silently discarded.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-047",
+    "feature": "F18-b",
+    "title": "Edit/deactivate supplier",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "Update contact info then deactivate a QA supplier.",
+    "expected": "Edits persist; existing purchases remain available; inactive supplier is handled consistently.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-048",
+    "feature": "F18-c",
+    "title": "Credit terms",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "Save Net 30 and credit amount; reopen and select supplier on purchase form.",
+    "expected": "Saved terms shown; enforcement beyond specification is not assumed.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-049",
+    "feature": "F19-a",
+    "title": "Create customer",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "Create individual and business with BRN/VAT; reopen both.",
+    "expected": "Correct type and identity fields retained; malformed email rejected.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-050",
+    "feature": "F19-b",
+    "title": "Edit/archive customer",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "Edit QA customer then archive one with prior invoice.",
+    "expected": "Historical invoice remains accessible; archived customer absent from active picker.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-051",
+    "feature": "F19-c",
+    "title": "Outstanding balance",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "Invoice 200, payment 50; view statement and customer balance.",
+    "expected": "Outstanding 150; statement links correct invoice and receipt.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-052",
+    "feature": "F19-d",
+    "title": "Purchase history",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "Create one POS sale and one invoice for QA customer; inspect history.",
+    "expected": "Both records appear under that customer only; totals reconcile.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-053",
+    "feature": "F27-a",
+    "title": "58mm receipt print",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "Print a multi-line receipt on physical 58mm printer.",
+    "expected": "No clipping; readable VAT/totals; paper layout correct. Manual hardware check.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-054",
+    "feature": "F27-a",
+    "title": "80mm receipt print",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "Print same receipt on physical 80mm printer and cancel a subsequent print dialog.",
+    "expected": "Correct layout; cancel does not cancel sale or duplicate payment.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-055",
+    "feature": "F27-b",
+    "title": "USB/BT scanner",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "Scan same leading-zero barcode with USB and Bluetooth HID devices, including rapid repeated scans.",
+    "expected": "Exact barcode captured; expected count; no lost or doubled scan; keyboard remains usable.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-056",
+    "feature": "F28-a",
+    "title": "Company legal identity",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "Edit QA company BRN/VAT/address as owner; reload; preview invoice.",
+    "expected": "Identity persists and renders correctly; unauthorized staff cannot change it.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-057",
+    "feature": "F28-b",
+    "title": "MUR formatting",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "Inspect 0, 0.01, 1000.50 and large amount in list, POS, invoice and PDF.",
+    "expected": "Consistent Rs/MUR and two-decimal accuracy; no currency conversion implied.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-058",
+    "feature": "F28-c",
+    "title": "Tax defaults",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "Change disposable company's default tax; create new product/sale and reopen old invoice.",
+    "expected": "New records use setting as specified; prior invoice tax does not change.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-059",
+    "feature": "F28-d",
+    "title": "Themes",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "Select light/dark/system; inspect forms, dialogs, tables and print preview.",
+    "expected": "Readable content and visible focus; preference persists according to account policy.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-060",
+    "feature": "F28-e",
+    "title": "English/French",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "Switch languages; inspect labels, validations and document language, then reload.",
+    "expected": "No raw translation keys; intended preference persists; numbers remain accurate.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-061",
+    "feature": "F30-a",
+    "title": "Terms access and version",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "Open Terms from login and in-app help; compare approved text/version.",
+    "expected": "Correct accessible document opens; owner/legal reviewer confirms wording. Automation does not certify compliance.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-062",
+    "feature": "F30-b",
+    "title": "Privacy access",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "Open Privacy from login and in-app; use keyboard and mobile view.",
+    "expected": "Readable approved policy with correct version; legal approval is a separate prerequisite.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  },
+  {
+    "id": "P1-063",
+    "feature": "F30-c",
+    "title": "Build identity",
+    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "steps": "Open version/build surface and compare deployed commit with release record.",
+    "expected": "Version identifies actual deployed build; missing surface recorded as gap.",
+    "status": "Not executed",
+    "automation": "Manual / automation backlog"
+  }
+]

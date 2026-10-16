@@ -1,0 +1,104 @@
+Listing tests:
+  [chromium-smoke] › phase1/auth.ui.spec.ts:3:1 › AUTH-001 @phase1 @smoke Login fields and primary actions are accessible
+  [chromium-smoke] › phase1/auth.ui.spec.ts:8:1 › AUTH-002 @phase1 Empty submission reports both field errors without an auth request
+  [chromium-smoke] › phase1/auth.ui.spec.ts:16:1 › AUTH-003 @phase1 Forgotten-password navigation stays inside app mount
+  [chromium-smoke] › phase1/auth.ui.spec.ts:20:1 › AUTH-004 @phase1 Registration navigation stays inside app mount
+  [chromium-smoke] › phase1/auth.ui.spec.ts:24:1 › LOC-001 @phase1 French selection updates document and saved preference
+  [chromium-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-001 @phase1 Anonymous access redirects /products
+  [chromium-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-002 @phase1 Anonymous access redirects /products/$productId
+  [chromium-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-003 @phase1 Anonymous access redirects /inventory/adjustments
+  [chromium-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-004 @phase1 Anonymous access redirects /stores
+  [chromium-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-005 @phase1 Anonymous access redirects /customers
+  [chromium-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-006 @phase1 Anonymous access redirects /customers/$customerId
+  [chromium-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-007 @phase1 Anonymous access redirects /suppliers
+  [chromium-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-008 @phase1 Anonymous access redirects /suppliers/$supplierId
+  [chromium-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-009 @phase1 Anonymous access redirects /pos
+  [chromium-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-010 @phase1 Anonymous access redirects /invoicing
+  [chromium-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-011 @phase1 Anonymous access redirects /invoicing/$invoiceId
+  [chromium-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-012 @phase1 Anonymous access redirects /create-invoice
+  [chromium-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-013 @phase1 Anonymous access redirects /settings
+  [chromium-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-014 @phase1 Anonymous access redirects /privacy-policy
+  [chromium-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-015 @phase1 Anonymous access redirects /terms-conditions
+  [chromium-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-016 @phase1 Anonymous access redirects /profile
+  [chromium-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-017 @phase1 Anonymous access redirects /store-inventory
+  [firefox-smoke] › phase1/auth.ui.spec.ts:3:1 › AUTH-001 @phase1 @smoke Login fields and primary actions are accessible
+  [firefox-smoke] › phase1/auth.ui.spec.ts:8:1 › AUTH-002 @phase1 Empty submission reports both field errors without an auth request
+  [firefox-smoke] › phase1/auth.ui.spec.ts:16:1 › AUTH-003 @phase1 Forgotten-password navigation stays inside app mount
+  [firefox-smoke] › phase1/auth.ui.spec.ts:20:1 › AUTH-004 @phase1 Registration navigation stays inside app mount
+  [firefox-smoke] › phase1/auth.ui.spec.ts:24:1 › LOC-001 @phase1 French selection updates document and saved preference
+  [firefox-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-001 @phase1 Anonymous access redirects /products
+  [firefox-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-002 @phase1 Anonymous access redirects /products/$productId
+  [firefox-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-003 @phase1 Anonymous access redirects /inventory/adjustments
+  [firefox-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-004 @phase1 Anonymous access redirects /stores
+  [firefox-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-005 @phase1 Anonymous access redirects /customers
+  [firefox-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-006 @phase1 Anonymous access redirects /customers/$customerId
+  [firefox-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-007 @phase1 Anonymous access redirects /suppliers
+  [firefox-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-008 @phase1 Anonymous access redirects /suppliers/$supplierId
+  [firefox-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-009 @phase1 Anonymous access redirects /pos
+  [firefox-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-010 @phase1 Anonymous access redirects /invoicing
+  [firefox-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-011 @phase1 Anonymous access redirects /invoicing/$invoiceId
+  [firefox-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-012 @phase1 Anonymous access redirects /create-invoice
+  [firefox-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-013 @phase1 Anonymous access redirects /settings
+  [firefox-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-014 @phase1 Anonymous access redirects /privacy-policy
+  [firefox-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-015 @phase1 Anonymous access redirects /terms-conditions
+  [firefox-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-016 @phase1 Anonymous access redirects /profile
+  [firefox-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-017 @phase1 Anonymous access redirects /store-inventory
+  [webkit-smoke] › phase1/auth.ui.spec.ts:3:1 › AUTH-001 @phase1 @smoke Login fields and primary actions are accessible
+  [webkit-smoke] › phase1/auth.ui.spec.ts:8:1 › AUTH-002 @phase1 Empty submission reports both field errors without an auth request
+  [webkit-smoke] › phase1/auth.ui.spec.ts:16:1 › AUTH-003 @phase1 Forgotten-password navigation stays inside app mount
+  [webkit-smoke] › phase1/auth.ui.spec.ts:20:1 › AUTH-004 @phase1 Registration navigation stays inside app mount
+  [webkit-smoke] › phase1/auth.ui.spec.ts:24:1 › LOC-001 @phase1 French selection updates document and saved preference
+  [webkit-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-001 @phase1 Anonymous access redirects /products
+  [webkit-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-002 @phase1 Anonymous access redirects /products/$productId
+  [webkit-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-003 @phase1 Anonymous access redirects /inventory/adjustments
+  [webkit-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-004 @phase1 Anonymous access redirects /stores
+  [webkit-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-005 @phase1 Anonymous access redirects /customers
+  [webkit-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-006 @phase1 Anonymous access redirects /customers/$customerId
+  [webkit-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-007 @phase1 Anonymous access redirects /suppliers
+  [webkit-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-008 @phase1 Anonymous access redirects /suppliers/$supplierId
+  [webkit-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-009 @phase1 Anonymous access redirects /pos
+  [webkit-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-010 @phase1 Anonymous access redirects /invoicing
+  [webkit-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-011 @phase1 Anonymous access redirects /invoicing/$invoiceId
+  [webkit-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-012 @phase1 Anonymous access redirects /create-invoice
+  [webkit-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-013 @phase1 Anonymous access redirects /settings
+  [webkit-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-014 @phase1 Anonymous access redirects /privacy-policy
+  [webkit-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-015 @phase1 Anonymous access redirects /terms-conditions
+  [webkit-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-016 @phase1 Anonymous access redirects /profile
+  [webkit-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-017 @phase1 Anonymous access redirects /store-inventory
+  [mobile-smoke] › phase1/auth.ui.spec.ts:3:1 › AUTH-001 @phase1 @smoke Login fields and primary actions are accessible
+  [mobile-smoke] › phase1/auth.ui.spec.ts:8:1 › AUTH-002 @phase1 Empty submission reports both field errors without an auth request
+  [mobile-smoke] › phase1/auth.ui.spec.ts:16:1 › AUTH-003 @phase1 Forgotten-password navigation stays inside app mount
+  [mobile-smoke] › phase1/auth.ui.spec.ts:20:1 › AUTH-004 @phase1 Registration navigation stays inside app mount
+  [mobile-smoke] › phase1/auth.ui.spec.ts:24:1 › LOC-001 @phase1 French selection updates document and saved preference
+  [mobile-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-001 @phase1 Anonymous access redirects /products
+  [mobile-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-002 @phase1 Anonymous access redirects /products/$productId
+  [mobile-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-003 @phase1 Anonymous access redirects /inventory/adjustments
+  [mobile-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-004 @phase1 Anonymous access redirects /stores
+  [mobile-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-005 @phase1 Anonymous access redirects /customers
+  [mobile-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-006 @phase1 Anonymous access redirects /customers/$customerId
+  [mobile-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-007 @phase1 Anonymous access redirects /suppliers
+  [mobile-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-008 @phase1 Anonymous access redirects /suppliers/$supplierId
+  [mobile-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-009 @phase1 Anonymous access redirects /pos
+  [mobile-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-010 @phase1 Anonymous access redirects /invoicing
+  [mobile-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-011 @phase1 Anonymous access redirects /invoicing/$invoiceId
+  [mobile-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-012 @phase1 Anonymous access redirects /create-invoice
+  [mobile-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-013 @phase1 Anonymous access redirects /settings
+  [mobile-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-014 @phase1 Anonymous access redirects /privacy-policy
+  [mobile-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-015 @phase1 Anonymous access redirects /terms-conditions
+  [mobile-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-016 @phase1 Anonymous access redirects /profile
+  [mobile-smoke] › phase1/routes.ui.spec.ts:5:3 › GUARD-017 @phase1 Anonymous access redirects /store-inventory
+  [api-read] › phase1/catalog.read.spec.ts:4:3 › READ-products @phase1 authenticated products returns a list envelope
+  [api-read] › phase1/catalog.read.spec.ts:4:3 › READ-customers @phase1 authenticated customers returns a list envelope
+  [api-read] › phase1/catalog.read.spec.ts:4:3 › READ-suppliers @phase1 authenticated suppliers returns a list envelope
+  [api-read] › phase1/catalog.read.spec.ts:4:3 › READ-branches @phase1 authenticated branches returns a list envelope
+  [api-read] › phase1/catalog.read.spec.ts:4:3 › READ-sales/invoices @phase1 authenticated sales/invoices returns a list envelope
+  [api-write] › phase1/business.write.spec.ts:23:1 › PROD-001 @phase1 @write Product creation persists correct SKU and price
+  [api-write] › phase1/business.write.spec.ts:30:3 › CONTACT-customers @phase1 @write Create and update customers
+  [api-write] › phase1/business.write.spec.ts:30:3 › CONTACT-suppliers @phase1 @write Create and update suppliers
+  [api-write] › phase1/business.write.spec.ts:40:1 › STOCK-001 @phase1 @write Plus ten then minus three leaves seven units
+  [api-write] › phase1/business.write.spec.ts:46:1 › POS-001 @phase1 @write Retried cash sale is billed and deducted once
+  [api-write] › phase1/business.write.spec.ts:63:1 › PROD-002 @phase1 @write Duplicate SKU is validation error, not server error
+  [api-write] › phase1/business.write.spec.ts:70:1 › STOCK-002 @phase1 @write Insufficient-stock adjustment preserves balance
+  [api-write] › phase1/business.write.spec.ts:81:1 › BRANCH-001 @phase1 @write Branch contact details persist after creation
+  [api-write] › phase1/business.write.spec.ts:89:1 › INV-001 @phase1 @write Invoice partial payment leaves correct outstanding balance
+Total: 102 tests in 4 files

@@ -1,0 +1,1402 @@
+[
+  {
+    "id": "F01-a",
+    "module": "Dashboard & Executive Analytics",
+    "feature": "KPI Metric Cards",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F01-b",
+    "module": "Dashboard & Executive Analytics",
+    "feature": "Revenue & Sales Velocity Charts",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F01-c",
+    "module": "Dashboard & Executive Analytics",
+    "feature": "Top-Selling & Fast-Moving Products",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F01-d",
+    "module": "Dashboard & Executive Analytics",
+    "feature": "Low Stock Alert Panel",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F01-e",
+    "module": "Dashboard & Executive Analytics",
+    "feature": "Recent Transaction Feed",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F01-f",
+    "module": "Dashboard & Executive Analytics",
+    "feature": "Multi-Branch Scope Switcher",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F02-a",
+    "module": "Products & Catalog Management",
+    "feature": "Add Product",
+    "phase": 1,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F02-b",
+    "module": "Products & Catalog Management",
+    "feature": "Edit Product",
+    "phase": 1,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F02-c",
+    "module": "Products & Catalog Management",
+    "feature": "Delete / Archive Product",
+    "phase": 1,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F02-d",
+    "module": "Products & Catalog Management",
+    "feature": "Product Variants & Attributes",
+    "phase": 1,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F02-e",
+    "module": "Products & Catalog Management",
+    "feature": "Categories & Organization",
+    "phase": 1,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F02-f",
+    "module": "Products & Catalog Management",
+    "feature": "Barcode Scanning & Management",
+    "phase": 1,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F02-g",
+    "module": "Products & Catalog Management",
+    "feature": "Units of Measure (UOM)",
+    "phase": 1,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F02-h",
+    "module": "Products & Catalog Management",
+    "feature": "Pricing Rules & Taxes",
+    "phase": 1,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F02-i",
+    "module": "Products & Catalog Management",
+    "feature": "Media & Product Photography",
+    "phase": 1,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F02-j",
+    "module": "Products & Catalog Management",
+    "feature": "Bulk Catalog Operations",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F02-k",
+    "module": "Products & Catalog Management",
+    "feature": "Product Bundles & Kits (BOM / Composite Items)",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F02-l",
+    "module": "Products & Catalog Management",
+    "feature": "Custom Category Fields",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F03-a",
+    "module": "Stores & Branches (Multi-Location)",
+    "feature": "Add Branch / Store / Warehouse",
+    "phase": 1,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F03-b",
+    "module": "Stores & Branches (Multi-Location)",
+    "feature": "Edit Branch Settings",
+    "phase": 1,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F03-c",
+    "module": "Stores & Branches (Multi-Location)",
+    "feature": "Independent Branch Stock Levels",
+    "phase": 1,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F03-d",
+    "module": "Stores & Branches (Multi-Location)",
+    "feature": "Switch Active Branch",
+    "phase": 1,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F03-e",
+    "module": "Stores & Branches (Multi-Location)",
+    "feature": "Branch Staff Assignment",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F03-f",
+    "module": "Stores & Branches (Multi-Location)",
+    "feature": "Deactivate / Close Branch",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F03-g",
+    "module": "Stores & Branches (Multi-Location)",
+    "feature": "Comparative Branch Performance Analytics",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F04-a",
+    "module": "Stock Adjustments",
+    "feature": "Create Stock Adjustment",
+    "phase": 1,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F04-b",
+    "module": "Stock Adjustments",
+    "feature": "Reason Code Tracking",
+    "phase": 1,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F04-c",
+    "module": "Stock Adjustments",
+    "feature": "Inventory Valuation Impact",
+    "phase": 1,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F04-d",
+    "module": "Stock Adjustments",
+    "feature": "Adjustment History & Audit Trail",
+    "phase": 1,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F04-e",
+    "module": "Stock Adjustments",
+    "feature": "Multi-Item Batch Adjustment Vouchers",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F05-a",
+    "module": "Stock Transfers (Inter-Branch)",
+    "feature": "Create Transfer Request",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F05-b",
+    "module": "Stock Transfers (Inter-Branch)",
+    "feature": "In-Transit Workflow Tracking",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F05-c",
+    "module": "Stock Transfers (Inter-Branch)",
+    "feature": "Receiving Stock Transfer",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F05-d",
+    "module": "Stock Transfers (Inter-Branch)",
+    "feature": "Transfer Ledger & Audit History",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F05-e",
+    "module": "Stock Transfers (Inter-Branch)",
+    "feature": "Printable Dispatch Manifests & Delivery Slips",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F05-f",
+    "module": "Stock Transfers (Inter-Branch)",
+    "feature": "Transit Damage & Discrepancy Dispute Logging",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F06-a",
+    "module": "Stock Counts (Physical Inventory Audits)",
+    "feature": "Physical Stock Count Entry",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F06-b",
+    "module": "Stock Counts (Physical Inventory Audits)",
+    "feature": "Discrepancy & Variance Calculation",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F06-c",
+    "module": "Stock Counts (Physical Inventory Audits)",
+    "feature": "One-Click Reconciliation",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F06-d",
+    "module": "Stock Counts (Physical Inventory Audits)",
+    "feature": "Scheduled Cycle Count Audits by Category",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F06-e",
+    "module": "Stock Counts (Physical Inventory Audits)",
+    "feature": "Live Barcode Scanner Count Auditing",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F07-a",
+    "module": "Shelf Life & Expiry Tracking (Batches & Lots)",
+    "feature": "Batch / Lot Number Assignment",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F07-b",
+    "module": "Shelf Life & Expiry Tracking (Batches & Lots)",
+    "feature": "Expiry Date Tracking",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F07-c",
+    "module": "Shelf Life & Expiry Tracking (Batches & Lots)",
+    "feature": "Expiry Warning System",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F07-d",
+    "module": "Shelf Life & Expiry Tracking (Batches & Lots)",
+    "feature": "FIFO / FEFO Inventory Rules",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F07-e",
+    "module": "Shelf Life & Expiry Tracking (Batches & Lots)",
+    "feature": "Expired Stock Disposal Workflow",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F08-a",
+    "module": "Point of Sale (POS) & Checkout",
+    "feature": "High-Speed Barcode Scanning & Search",
+    "phase": 1,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F08-b",
+    "module": "Point of Sale (POS) & Checkout",
+    "feature": "Visual Product Grid",
+    "phase": 1,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F08-c",
+    "module": "Point of Sale (POS) & Checkout",
+    "feature": "Cart Operations",
+    "phase": 1,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F08-d",
+    "module": "Point of Sale (POS) & Checkout",
+    "feature": "Customer Linking",
+    "phase": 1,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F08-e",
+    "module": "Point of Sale (POS) & Checkout",
+    "feature": "Discounts & Promotions",
+    "phase": 1,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F08-f",
+    "module": "Point of Sale (POS) & Checkout",
+    "feature": "Tax Engine",
+    "phase": 1,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F08-g",
+    "module": "Point of Sale (POS) & Checkout",
+    "feature": "Multi-Tender Payments",
+    "phase": 1,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F08-h",
+    "module": "Point of Sale (POS) & Checkout",
+    "feature": "Change Calculator",
+    "phase": 1,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F08-i",
+    "module": "Point of Sale (POS) & Checkout",
+    "feature": "Thermal Receipt Printing",
+    "phase": 1,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F08-j",
+    "module": "Point of Sale (POS) & Checkout",
+    "feature": "Park / Hold Orders",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F08-k",
+    "module": "Point of Sale (POS) & Checkout",
+    "feature": "Cash Sale vs Invoice Conversion",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F08-l",
+    "module": "Point of Sale (POS) & Checkout",
+    "feature": "Offline Resilience (IndexedDB)",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F08-m",
+    "module": "Point of Sale (POS) & Checkout",
+    "feature": "Customer Loyalty Points Redemptions at POS",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F09-a",
+    "module": "Cash Register & Shift Management",
+    "feature": "Open Register / Shift",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F09-b",
+    "module": "Cash Register & Shift Management",
+    "feature": "Cash In / Cash Out (Pay-Ins & Pay-Outs)",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F09-c",
+    "module": "Cash Register & Shift Management",
+    "feature": "Close Register / Shift",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F09-d",
+    "module": "Cash Register & Shift Management",
+    "feature": "Thermal X-Reports & Z-Reports",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F09-e",
+    "module": "Cash Register & Shift Management",
+    "feature": "Shift Reconciliation History",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F10-a",
+    "module": "Orders Queue (Workshop / Kitchen Processing)",
+    "feature": "Live Order Queue Display",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F10-b",
+    "module": "Orders Queue (Workshop / Kitchen Processing)",
+    "feature": "Ticket Assignment",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F10-c",
+    "module": "Orders Queue (Workshop / Kitchen Processing)",
+    "feature": "Kitchen / Work Order Thermal Printing",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F11-a",
+    "module": "Quotations & Cost Estimates",
+    "feature": "Create Quotation",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F11-b",
+    "module": "Quotations & Cost Estimates",
+    "feature": "Negotiated Pricing & Commercial Terms",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F11-c",
+    "module": "Quotations & Cost Estimates",
+    "feature": "Branded PDF Generation & Printing",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F11-d",
+    "module": "Quotations & Cost Estimates",
+    "feature": "Status Pipeline",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F11-e",
+    "module": "Quotations & Cost Estimates",
+    "feature": "One-Click Conversion",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F12-a",
+    "module": "Invoicing & Commercial Sales Billing",
+    "feature": "Create Tax Invoice",
+    "phase": 1,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F12-b",
+    "module": "Invoicing & Commercial Sales Billing",
+    "feature": "Installment & Partial Payments",
+    "phase": 1,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F12-c",
+    "module": "Invoicing & Commercial Sales Billing",
+    "feature": "Due Dates & Commercial Payment Terms",
+    "phase": 1,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F12-d",
+    "module": "Invoicing & Commercial Sales Billing",
+    "feature": "Invoice Lifecycle Tracking",
+    "phase": 1,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F12-e",
+    "module": "Invoicing & Commercial Sales Billing",
+    "feature": "Branded PDF Export & Print",
+    "phase": 1,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F12-f",
+    "module": "Invoicing & Commercial Sales Billing",
+    "feature": "Automated Recurring Invoicing",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F12-g",
+    "module": "Invoicing & Commercial Sales Billing",
+    "feature": "Multi-Currency Billing",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F12-h",
+    "module": "Invoicing & Commercial Sales Billing",
+    "feature": "Automated Overdue Payment Email Reminders",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F13-a",
+    "module": "Credit Notes",
+    "feature": "Issue Credit Note",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F13-b",
+    "module": "Credit Notes",
+    "feature": "Return Reason Logging",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F13-c",
+    "module": "Credit Notes",
+    "feature": "Inventory Restock Integration",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F13-d",
+    "module": "Credit Notes",
+    "feature": "Credit Allocation",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F13-e",
+    "module": "Credit Notes",
+    "feature": "Credit Note PDF Export & Print",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F13-f",
+    "module": "Credit Notes",
+    "feature": "Standalone Credit Notes without Invoice Link",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F14-a",
+    "module": "Debit Notes",
+    "feature": "Issue Debit Note",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F14-b",
+    "module": "Debit Notes",
+    "feature": "Invoice Reference Linking",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F14-c",
+    "module": "Debit Notes",
+    "feature": "PDF Generation & Dispatch",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F15-a",
+    "module": "Purchasing & Purchase Orders (PO)",
+    "feature": "Create Purchase Order",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F15-b",
+    "module": "Purchasing & Purchase Orders (PO)",
+    "feature": "Status Lifecycle",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F15-c",
+    "module": "Purchasing & Purchase Orders (PO)",
+    "feature": "Purchase Order PDF Export",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F15-d",
+    "module": "Purchasing & Purchase Orders (PO)",
+    "feature": "Fulfillment Tracking",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F15-e",
+    "module": "Purchasing & Purchase Orders (PO)",
+    "feature": "Automated Low-Stock Reordering",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F15-f",
+    "module": "Purchasing & Purchase Orders (PO)",
+    "feature": "Direct Supplier Email Transmission",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F16-a",
+    "module": "Goods Receipt Notes (GRN)",
+    "feature": "Receive Goods",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F16-b",
+    "module": "Goods Receipt Notes (GRN)",
+    "feature": "Partial Shipment Support",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F16-c",
+    "module": "Goods Receipt Notes (GRN)",
+    "feature": "Automatic Inventory Increment",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F16-d",
+    "module": "Goods Receipt Notes (GRN)",
+    "feature": "Damage & Shortage Logging",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F16-e",
+    "module": "Goods Receipt Notes (GRN)",
+    "feature": "Batch & Expiry Capture at Ingestion",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F17-a",
+    "module": "Bills & Accounts Payable (AP)",
+    "feature": "Create Vendor Bill",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F17-b",
+    "module": "Bills & Accounts Payable (AP)",
+    "feature": "Record Bill Payments",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F17-c",
+    "module": "Bills & Accounts Payable (AP)",
+    "feature": "Payables Aging & Due Dates",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F17-d",
+    "module": "Bills & Accounts Payable (AP)",
+    "feature": "3-Way Reconciliation (PO vs GRN vs Bill)",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F18-a",
+    "module": "Suppliers & Vendor Management",
+    "feature": "Add Supplier",
+    "phase": 1,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F18-b",
+    "module": "Suppliers & Vendor Management",
+    "feature": "Edit / Deactivate Supplier",
+    "phase": 1,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F18-c",
+    "module": "Suppliers & Vendor Management",
+    "feature": "Credit Terms & Payment Conditions",
+    "phase": 1,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F18-d",
+    "module": "Suppliers & Vendor Management",
+    "feature": "Supplier Transaction History",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F18-e",
+    "module": "Suppliers & Vendor Management",
+    "feature": "Supplier Product Catalogs & Preferred Vendor SKUs",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F18-f",
+    "module": "Suppliers & Vendor Management",
+    "feature": "Supplier Account Statement Export",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F19-a",
+    "module": "Customers & Accounts Receivable (AR)",
+    "feature": "Add Customer",
+    "phase": 1,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F19-b",
+    "module": "Customers & Accounts Receivable (AR)",
+    "feature": "Edit / Archive Customer",
+    "phase": 1,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F19-c",
+    "module": "Customers & Accounts Receivable (AR)",
+    "feature": "Outstanding Balances & Statements",
+    "phase": 1,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F19-d",
+    "module": "Customers & Accounts Receivable (AR)",
+    "feature": "Complete Purchase History",
+    "phase": 1,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F19-e",
+    "module": "Customers & Accounts Receivable (AR)",
+    "feature": "Customer Groups & Tiers (Retail, Wholesale, VIP)",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F19-f",
+    "module": "Customers & Accounts Receivable (AR)",
+    "feature": "Strict Credit Limit Blocking",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F20-a",
+    "module": "Reports & Business Intelligence",
+    "feature": "Sales Summary Reports",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F20-b",
+    "module": "Reports & Business Intelligence",
+    "feature": "Product Sales Performance Reports",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F20-c",
+    "module": "Reports & Business Intelligence",
+    "feature": "Inventory Valuation Reports",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F20-d",
+    "module": "Reports & Business Intelligence",
+    "feature": "Low Stock & Stockout Reports",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F20-e",
+    "module": "Reports & Business Intelligence",
+    "feature": "Tax & Fiscal VAT Reports",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F20-f",
+    "module": "Reports & Business Intelligence",
+    "feature": "Data Export Formats",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F20-g",
+    "module": "Reports & Business Intelligence",
+    "feature": "Gross Profit & Net Margin Deep-Dive",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F20-h",
+    "module": "Reports & Business Intelligence",
+    "feature": "Stock Movement & Velocity Ledger",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F20-i",
+    "module": "Reports & Business Intelligence",
+    "feature": "Customer & Supplier Aging Debtors/Creditors Analysis",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F21-a",
+    "module": "Custom Report Builder & Scheduled Delivery",
+    "feature": "Visual Custom Report Builder",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F21-b",
+    "module": "Custom Report Builder & Scheduled Delivery",
+    "feature": "Saved Report Templates",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F21-c",
+    "module": "Custom Report Builder & Scheduled Delivery",
+    "feature": "Automated Scheduled Reports via Cron Email",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F22-a",
+    "module": "Document Builder & Visual Template Designer",
+    "feature": "Brand Theme Customization",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F22-b",
+    "module": "Document Builder & Visual Template Designer",
+    "feature": "Header & Footer Notes",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F22-c",
+    "module": "Document Builder & Visual Template Designer",
+    "feature": "Standard Template Presets",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F22-d",
+    "module": "Document Builder & Visual Template Designer",
+    "feature": "Real-Time Document Preview",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F22-e",
+    "module": "Document Builder & Visual Template Designer",
+    "feature": "Drag-and-Drop Visual Canvas Designer",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F22-f",
+    "module": "Document Builder & Visual Template Designer",
+    "feature": "Custom Font Upload & Management",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F23-a",
+    "module": "Users, Roles & Access Control (RBAC)",
+    "feature": "Invite / Add Users",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F23-b",
+    "module": "Users, Roles & Access Control (RBAC)",
+    "feature": "Edit User Profiles & Password Reset",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F23-c",
+    "module": "Users, Roles & Access Control (RBAC)",
+    "feature": "Deactivate / Revoke User Access",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F23-d",
+    "module": "Users, Roles & Access Control (RBAC)",
+    "feature": "Built-In Predefined Roles",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F23-e",
+    "module": "Users, Roles & Access Control (RBAC)",
+    "feature": "Branch-Level Scoping",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F23-f",
+    "module": "Users, Roles & Access Control (RBAC)",
+    "feature": "Granular Custom Permission Matrix Builder",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F24-a",
+    "module": "Security, Sessions & Authentication",
+    "feature": "Secure Authentication & Password Policies",
+    "phase": 1,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F24-b",
+    "module": "Security, Sessions & Authentication",
+    "feature": "Password Reset & Update",
+    "phase": 1,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F24-c",
+    "module": "Security, Sessions & Authentication",
+    "feature": "Session Inactivity Timeout",
+    "phase": 1,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F24-d",
+    "module": "Security, Sessions & Authentication",
+    "feature": "Two-Factor Authentication (2FA / TOTP)",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F24-e",
+    "module": "Security, Sessions & Authentication",
+    "feature": "Backup Recovery Codes",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F24-f",
+    "module": "Security, Sessions & Authentication",
+    "feature": "Remote Active Session Revocation",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F25-a",
+    "module": "Audit Logs & System Activity",
+    "feature": "Comprehensive Activity Stream",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F25-b",
+    "module": "Audit Logs & System Activity",
+    "feature": "Filtering & Search",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F25-c",
+    "module": "Audit Logs & System Activity",
+    "feature": "Before-and-After Value Diffs",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F25-d",
+    "module": "Audit Logs & System Activity",
+    "feature": "Compliance Export (CSV/JSON)",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F26-a",
+    "module": "Integrations, REST API & Webhooks",
+    "feature": "API Key Management",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F26-b",
+    "module": "Integrations, REST API & Webhooks",
+    "feature": "Scoped Permissions per Key",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F26-c",
+    "module": "Integrations, REST API & Webhooks",
+    "feature": "Full RESTful API Documentation",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F26-d",
+    "module": "Integrations, REST API & Webhooks",
+    "feature": "Real-Time Webhooks",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F26-e",
+    "module": "Integrations, REST API & Webhooks",
+    "feature": "Webhook Delivery Logs & Manual Retries",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F27-a",
+    "module": "Hardware & Printer Configuration",
+    "feature": "Browser-Based Thermal Printing",
+    "phase": 1,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F27-b",
+    "module": "Hardware & Printer Configuration",
+    "feature": "Barcode Scanner Compatibility",
+    "phase": 1,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F27-c",
+    "module": "Hardware & Printer Configuration",
+    "feature": "Direct ESC/POS Network & Serial Drivers",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F27-d",
+    "module": "Hardware & Printer Configuration",
+    "feature": "Cash Drawer RJ11 Auto-Kick Pulse",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F27-e",
+    "module": "Hardware & Printer Configuration",
+    "feature": "Adhesive Barcode Label Roll Printers",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F28-a",
+    "module": "System Settings & Localization",
+    "feature": "Company Profile & Legal Identity",
+    "phase": 1,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F28-b",
+    "module": "System Settings & Localization",
+    "feature": "Currency & Financial Formatting",
+    "phase": 1,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F28-c",
+    "module": "System Settings & Localization",
+    "feature": "Fiscal Tax Settings",
+    "phase": 1,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F28-d",
+    "module": "System Settings & Localization",
+    "feature": "Theme Settings",
+    "phase": 1,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F28-e",
+    "module": "System Settings & Localization",
+    "feature": "Multi-Language Support (i18n)",
+    "phase": 1,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F28-f",
+    "module": "System Settings & Localization",
+    "feature": "Automated Database Backup & JSON Dump Export",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F29-a",
+    "module": "Notifications & Alerts Center",
+    "feature": "In-App Notification Center",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F29-b",
+    "module": "Notifications & Alerts Center",
+    "feature": "Low Stock & Out-of-Stock Alerts",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F29-c",
+    "module": "Notifications & Alerts Center",
+    "feature": "Overdue Invoice Alerts",
+    "phase": 2,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F29-d",
+    "module": "Notifications & Alerts Center",
+    "feature": "Outgoing Email & SMS Gateway Delivery",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F30-a",
+    "module": "Help Center, Legal & Compliance",
+    "feature": "Terms of Service",
+    "phase": 1,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F30-b",
+    "module": "Help Center, Legal & Compliance",
+    "feature": "Privacy Policy",
+    "phase": 1,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F30-c",
+    "module": "Help Center, Legal & Compliance",
+    "feature": "System Version & Build Information",
+    "phase": 1,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F30-d",
+    "module": "Help Center, Legal & Compliance",
+    "feature": "Interactive Searchable Knowledge Base & Video Guides",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  },
+  {
+    "id": "F30-e",
+    "module": "Help Center, Legal & Compliance",
+    "feature": "System Changelog & Release Notes Feed",
+    "phase": 3,
+    "status": "Not executed",
+    "automation": "Backlog; see Phase 1 cases for implemented subset"
+  }
+]

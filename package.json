@@ -1,0 +1,31 @@
+{
+  "name": "nexstock-testing",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "playwright test --project=chromium-smoke",
+    "test:phase1": "playwright test --project=chromium-smoke --grep @phase1",
+    "test:onboarding": "playwright test --project=chromium-onboarding",
+    "test:products": "playwright test --project=chromium-products",
+    "test:products:add": "playwright test --project=chromium-products add-product.ui.spec.ts",
+    "test:products:edit": "playwright test --project=chromium-products edit-product.ui.spec.ts",
+    "test:products:archive": "playwright test --project=chromium-products archive-product.ui.spec.ts",
+    "test:products:variants": "playwright test --project=chromium-products variants-attributes.ui.spec.ts",
+    "test:products:categories": "playwright test --project=chromium-products categories-organization.ui.spec.ts",
+    "test:products:barcode": "playwright test --project=chromium-products barcode-management.ui.spec.ts",
+    "test:products:uom": "playwright test --project=chromium-products units-of-measure.ui.spec.ts",
+    "test:products:pricing": "playwright test --project=chromium-products pricing-taxes.ui.spec.ts",
+    "test:products:media": "playwright test --project=chromium-products media-photography.ui.spec.ts",
+    "test:products:flow": "playwright test --project=chromium-products product-full-flow.ui.spec.ts",
+    "test:api": "playwright test --project=api-read",
+    "test:writes": "playwright test --project=api-write",
+    "test:cross-browser": "playwright test --project=firefox-smoke --project=webkit-smoke --project=mobile-smoke",
+    "test:list": "playwright test --list",
+    "test:guard": "node --test checks/safety.test.mjs",
+    "report": "playwright show-report"
+  },
+  "devDependencies": {
+    "playwright": "1.62.1"
+  }
+}

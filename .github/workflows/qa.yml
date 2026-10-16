@@ -1,0 +1,29 @@
+name: Nexstock QA
+on: workflow_dispatch
+permissions:
+  contents: read
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      BASE_URL: ${{ vars.QA_BASE_URL }}
+      ALLOWED_ORIGINS: ${{ vars.QA_ALLOWED_ORIGINS }}
+      TARGET_ENV: staging
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci --ignore-scripts
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:guard
+      - run: npm test
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: qa-results
+          path: |
+            playwright-report/
+            test-results/
+          retention-days: 7

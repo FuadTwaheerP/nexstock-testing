@@ -1,0 +1,16 @@
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
+import { validateTarget, validateOnboardingTarget, validateProductTestTarget, appPath } from '../helpers/safety.mjs';
+const base = { ALLOWED_ORIGINS: 'http://localhost:8080,https://nexstock.stylotech.mu', TARGET_ENV:'local', ALLOW_WRITES:'true', BUSINESS_ID:'42', DISPOSABLE_BUSINESS_ID:'42' };
+test('production cannot be relabelled as local to enable writes',()=> assert.throws(()=>validateTarget('https://nexstock.stylotech.mu/api/v1/',base,true)));
+test('unknown origins refused',()=>assert.throws(()=>validateTarget('https://unexpected.example',base)));
+test('writes require opt-in',()=>assert.throws(()=>validateTarget('http://localhost:8080',{...base,ALLOW_WRITES:'false'},true)));
+test('writes require matching disposable business',()=>assert.throws(()=>validateTarget('http://localhost:8080',{...base,DISPOSABLE_BUSINESS_ID:'43'},true)));
+test('explicit local disposable target admitted',()=>assert.equal(validateTarget('http://localhost:8080/api/v1/',base,true).hostname,'localhost'));
+test('onboarding refuses an account not marked disposable',()=>assert.throws(()=>validateOnboardingTarget('http://localhost:8080',{...base,ONBOARDING_ACCOUNT_DISPOSABLE:'false'})));
+test('onboarding admits an opted-in disposable account',()=>assert.equal(validateOnboardingTarget('http://localhost:8080',{...base,ONBOARDING_ACCOUNT_DISPOSABLE:'true'}).hostname,'localhost'));
+test('onboarding refuses production without a dedicated override',()=>assert.throws(()=>validateOnboardingTarget('https://nexstock.stylotech.mu',{...base,TARGET_ENV:'production',ONBOARDING_ACCOUNT_DISPOSABLE:'true'})));
+test('onboarding admits production only with the dedicated override',()=>assert.equal(validateOnboardingTarget('https://nexstock.stylotech.mu',{...base,TARGET_ENV:'production',ONBOARDING_ACCOUNT_DISPOSABLE:'true',ALLOW_PRODUCTION_ONBOARDING:'true'}).hostname,'nexstock.stylotech.mu'));
+test('product UI tests refuse production without a dedicated override',()=>assert.throws(()=>validateProductTestTarget('https://nexstock.stylotech.mu',{...base,TARGET_ENV:'production',PRODUCT_TEST_ACCOUNT_DISPOSABLE:'true'})));
+test('product UI tests admit production only with the dedicated override',()=>assert.equal(validateProductTestTarget('https://nexstock.stylotech.mu',{...base,TARGET_ENV:'production',PRODUCT_TEST_ACCOUNT_DISPOSABLE:'true',ALLOW_PRODUCTION_PRODUCT_TESTS:'true'}).hostname,'nexstock.stylotech.mu'));
+test('app mount is retained',()=>assert.equal(appPath('/login','https://nexstock.stylotech.mu/app/'),'https://nexstock.stylotech.mu/app/login'));

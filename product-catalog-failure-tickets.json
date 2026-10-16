@@ -1,0 +1,201 @@
+{
+  "module": "Products & Catalog Management",
+  "environment": {
+    "name": "Production",
+    "url": "https://nexstock.stylotech.mu/app",
+    "workspace": "Nexstock QA Company",
+    "browser": "Chromium"
+  },
+  "exportedDate": "2026-10-16",
+  "tickets": [
+    {
+      "id": 1,
+      "title": "Add Product does not provide a separate wholesale price field",
+      "environment": "Production — https://nexstock.stylotech.mu/app; Workspace — Nexstock QA Company; Browser — Chromium; Module — Products & Catalog → Add Product",
+      "priority": "Medium",
+      "steps": [
+        "Log in with the disposable test account.",
+        "Select Nexstock QA Company if the workspace selection screen appears.",
+        "Navigate to Products.",
+        "Click New Product.",
+        "Inspect the pricing fields in the Add Product dialog.",
+        "Look for a Wholesale Price field."
+      ],
+      "expectedResult": "The form should provide separate fields for cost price, standard selling price and wholesale price. The wholesale price should be saved with the product.",
+      "actualResult": "Only cost price and standard selling price are available. There is no separate wholesale-price field.",
+      "attachment": "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\test-results\\phase1-products-add-produc-9adfe-esale-price-phase1-products-chromium-products\\test-failed-1.png",
+      "comment": "Reproduced by the automated test: supports a separate wholesale price."
+    },
+    {
+      "id": 2,
+      "title": "Add Product does not support service or labour items without inventory tracking",
+      "environment": "Production — https://nexstock.stylotech.mu/app; Workspace — Nexstock QA Company; Browser — Chromium; Module — Products & Catalog → Add Product",
+      "priority": "Medium",
+      "steps": [
+        "Log in and select Nexstock QA Company.",
+        "Navigate to Products.",
+        "Click New Product.",
+        "Look for a Product Type or Item Type selector.",
+        "Attempt to select Service or Labour.",
+        "Attempt to create the item without stock tracking."
+      ],
+      "expectedResult": "The user should be able to select a service or labour product type. Inventory quantity and stock tracking should not be required for that type.",
+      "actualResult": "No product-type selector is available. Products can only be entered using the inventory-oriented form.",
+      "attachment": "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\test-results\\phase1-products-add-produc-174d0-ry-tracking-phase1-products-chromium-products\\test-failed-1.png",
+      "comment": "Reproduced by the automated test: creates a service or labour item without inventory tracking."
+    },
+    {
+      "id": 3,
+      "title": "Products module has no Archived view or status filter for recovering archived records",
+      "environment": "Production — https://nexstock.stylotech.mu/app; Workspace — Nexstock QA Company; Browser — Chromium; Module — Products & Catalog → Delete / Archive",
+      "priority": "High",
+      "steps": [
+        "Log in and select the test workspace.",
+        "Navigate to Products.",
+        "Create and save a new inventory product.",
+        "Open the product's actions menu.",
+        "Select the available Archive or Delete action.",
+        "Confirm the action.",
+        "Return to the Products page.",
+        "Look for an Archived status filter or archived-products view.",
+        "Attempt to search for the archived product by SKU."
+      ],
+      "expectedResult": "The product should be soft-deleted and retrievable from an Archived view. Its record should remain available for historical transactions.",
+      "actualResult": "The product disappears from the active list, but no Archived status filter or recovery view is available.",
+      "attachment": "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\test-results\\phase1-products-archive-pr-d1acd-ical-record-phase1-products-chromium-products\\test-failed-1.png",
+      "comment": "Active-list removal works. The failure concerns recovery and verification of the retained archived record."
+    },
+    {
+      "id": 4,
+      "title": "Barcode scanner mode removes the first character of the scanned barcode",
+      "environment": "Production — https://nexstock.stylotech.mu/app; Workspace — Nexstock QA Company; Browser — Chromium; Module — Products & Catalog → Barcode Management",
+      "priority": "High",
+      "steps": [
+        "Log in and navigate to Products.",
+        "Click New Product.",
+        "Locate the Barcode field in scanner mode.",
+        "Confirm that it displays the scanner-ready placeholder.",
+        "Scan or type 9123456789012 as keyboard-wedge input.",
+        "Send Enter, as a barcode scanner normally would.",
+        "Inspect the resulting barcode value."
+      ],
+      "expectedResult": "The Barcode field should contain exactly 9123456789012.",
+      "actualResult": "The first character is removed. The field contains 123456789012.",
+      "attachment": "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\test-results\\phase1-products-barcode-ma-0c178-rcode-input-phase1-products-chromium-products\\test-failed-1.png",
+      "comment": "Manual barcode entry and exact barcode lookup pass. The defect is specific to keyboard-wedge scanner mode."
+    },
+    {
+      "id": 5,
+      "title": "Product categories do not support parent and child hierarchy",
+      "environment": "Production — https://nexstock.stylotech.mu/app; Workspace — Nexstock QA Company; Browser — Chromium; Module — Settings → Products → Product Categories",
+      "priority": "Medium",
+      "steps": [
+        "Log in and select the test workspace.",
+        "Navigate to Settings.",
+        "Open the Products tab.",
+        "Create or identify an existing category to use as a parent.",
+        "Start creating another category.",
+        "Look for a Parent Category selector.",
+        "Attempt to assign the new category as a child of the existing category."
+      ],
+      "expectedResult": "Category creation should provide a parent-category selector and allow parent and child category relationships.",
+      "actualResult": "Only flat category creation is available. There is no parent-category selector.",
+      "attachment": "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\test-results\\phase1-products-categories-1b30e-y-hierarchy-phase1-products-chromium-products\\test-failed-1.png",
+      "comment": "Flat category creation works successfully. Only multi-level hierarchy is missing."
+    },
+    {
+      "id": 6,
+      "title": "Add Product does not provide tag assignment or tag grouping",
+      "environment": "Production — https://nexstock.stylotech.mu/app; Workspace — Nexstock QA Company; Browser — Chromium; Module — Products & Catalog → Categories & Organization",
+      "priority": "Low",
+      "steps": [
+        "Log in and navigate to Products.",
+        "Click New Product.",
+        "Inspect all sections and tabs in the product form.",
+        "Look for a Tags field or tag-assignment control.",
+        "Attempt to assign one or more tags to the product."
+      ],
+      "expectedResult": "The product form should allow tags to be assigned so products can be grouped and filtered by tags.",
+      "actualResult": "No tag-assignment control is available.",
+      "attachment": "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\test-results\\phase1-products-categories-908cc-ag-grouping-phase1-products-chromium-products\\test-failed-1.png",
+      "comment": "Category assignment exists, but it does not replace the requested tag-grouping functionality."
+    },
+    {
+      "id": 7,
+      "title": "Edit Product does not allow VAT classification to be changed",
+      "environment": "Production — https://nexstock.stylotech.mu/app; Workspace — Nexstock QA Company; Browser — Chromium; Module — Products & Catalog → Edit Product",
+      "priority": "High",
+      "steps": [
+        "Log in and navigate to Products.",
+        "Create a standard inventory product.",
+        "Locate the product in the catalogue.",
+        "Open its actions menu and select Edit.",
+        "Inspect the pricing and tax fields.",
+        "Look for a Tax Classification, VAT Rate or VAT Class selector.",
+        "Attempt to change the product to Standard VAT 15%."
+      ],
+      "expectedResult": "The edit form should allow the product's VAT classification to be changed and saved.",
+      "actualResult": "No per-product VAT-classification field is available in the Edit Product dialog.",
+      "attachment": "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\test-results\\phase1-products-edit-produ-f1154-ssification-phase1-products-chromium-products\\test-failed-1.png",
+      "comment": "Editing the product name, selling price and barcode works. The failure is limited to tax classification."
+    },
+    {
+      "id": 8,
+      "title": "Product image disappears after saving the product",
+      "environment": "Production — https://nexstock.stylotech.mu/app; Workspace — Nexstock QA Company; Browser — Chromium; Module — Products & Catalog → Media & Photography",
+      "priority": "Medium",
+      "steps": [
+        "Log in and navigate to Products.",
+        "Click New Product.",
+        "Complete the required product fields.",
+        "Open the Images tab.",
+        "Upload a supported PNG or JPG image.",
+        "Confirm that the image preview appears.",
+        "Save the product.",
+        "Locate the saved product and select Edit.",
+        "Open the Images tab again."
+      ],
+      "expectedResult": "The uploaded image should remain attached to the product and should be visible after reopening it.",
+      "actualResult": "The image preview appears before saving, but no image is displayed after reopening the saved product.",
+      "attachment": "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\test-results\\phase1-products-media-phot-ea387-roduct-list-phase1-products-chromium-products\\test-failed-1.png",
+      "comment": "File selection and pre-save preview work. Persistence or retrieval of the saved image fails."
+    },
+    {
+      "id": 9,
+      "title": "Add Product does not provide Standard VAT, Zero-Rated and Exempt classifications",
+      "environment": "Production — https://nexstock.stylotech.mu/app; Workspace — Nexstock QA Company; Browser — Chromium; Module — Products & Catalog → Pricing Rules & Taxes",
+      "priority": "High",
+      "steps": [
+        "Log in and navigate to Products.",
+        "Click New Product.",
+        "Inspect the pricing and tax section.",
+        "Look for a tax-classification selector.",
+        "Attempt to select Standard VAT 15%.",
+        "Attempt to select Zero-Rated 0%.",
+        "Attempt to select Exempt."
+      ],
+      "expectedResult": "A per-product tax-classification selector should expose all three supported VAT classifications.",
+      "actualResult": "No per-product tax-classification selector is available.",
+      "attachment": "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\test-results\\phase1-products-pricing-ta-2c723-per-product-phase1-products-chromium-products\\test-failed-1.png",
+      "comment": "This ticket covers classification during product creation. Ticket 7 separately covers changing the classification while editing."
+    },
+    {
+      "id": 10,
+      "title": "Add Product does not allow tax-inclusive or tax-exclusive pricing selection",
+      "environment": "Production — https://nexstock.stylotech.mu/app; Workspace — Nexstock QA Company; Browser — Chromium; Module — Products & Catalog → Pricing Rules & Taxes",
+      "priority": "High",
+      "steps": [
+        "Log in and navigate to Products.",
+        "Click New Product.",
+        "Enter a standard selling price.",
+        "Inspect the pricing and tax section.",
+        "Look for a tax-inclusive or tax-exclusive switch or checkbox.",
+        "Attempt to change between tax-inclusive and tax-exclusive pricing."
+      ],
+      "expectedResult": "The form should provide a pricing-mode control and clearly indicate whether the entered selling price includes or excludes tax.",
+      "actualResult": "No tax-inclusive or tax-exclusive pricing control is available.",
+      "attachment": "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\test-results\\phase1-products-pricing-ta-14d6d-uct-pricing-phase1-products-chromium-products\\test-failed-1.png",
+      "comment": "Cost and standard selling prices persist successfully. The missing functionality is the tax treatment of those prices."
+    }
+  ]
+}
