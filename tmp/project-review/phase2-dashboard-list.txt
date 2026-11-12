@@ -1,0 +1,13 @@
+Listing tests:
+  [phase2-setup] › support\auth.setup.ts:4:1 › authenticate Phase 2 QA workspace
+  [phase2-dashboard] › dashboard\branch-scope.ui.spec.ts:2:1 › F01-f dashboard can isolate a branch instead of only comparing branches
+  [phase2-dashboard] › dashboard\dashboard-full-flow.ui.spec.ts:2:1 › Dashboard complete analytics flow @full-flow
+  [phase2-dashboard] › dashboard\kpi-metrics.ui.spec.ts:2:1 › F01-a revenue orders and AOV widgets bind hydrated values and reconcile the ratio
+  [phase2-dashboard] › dashboard\kpi-metrics.ui.spec.ts:3:1 › F01-a gross profit and net margin KPI metrics are available
+  [phase2-dashboard] › dashboard\low-stock.ui.spec.ts:2:1 › F01-d low stock rows independently breach their displayed thresholds
+  [phase2-dashboard] › dashboard\recent-activity.ui.spec.ts:2:1 › F01-e recent feed includes sales and stock activity
+  [phase2-dashboard] › dashboard\revenue-trends.ui.spec.ts:2:1 › F01-b saved revenue trend renders the selected sales data source
+  [phase2-dashboard] › dashboard\revenue-trends.ui.spec.ts:3:1 › F01-b daily weekly and monthly sales periods can be selected
+  [phase2-dashboard] › dashboard\top-products.ui.spec.ts:2:1 › F01-c top products exposes quantity and revenue performance
+  [phase2-cleanup] › support\cleanup.teardown.ts:4:1 › audit Phase 2 write scope and log out QA session
+Total: 11 tests in 9 files

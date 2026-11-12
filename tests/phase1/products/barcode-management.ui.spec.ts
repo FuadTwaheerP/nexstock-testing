@@ -28,5 +28,14 @@ test.describe('Products & Catalog — Barcode Scanning & Management', () => {
     await page.keyboard.type(barcode);
     await page.keyboard.press('Enter');
     await expect(barcodeField).toHaveValue(barcode);
+    await expect(dialog).toBeVisible();
+    await dialog.getByRole('button', { name: 'Manual', exact: true }).click();
+    await barcodeField.fill('');
+    await dialog.getByRole('button', { name: 'Scanner', exact: true }).click();
+    await expect(barcodeField, 'Selecting Scanner must focus the field').toBeFocused();
+    await page.keyboard.type('0123456789012');
+    await page.keyboard.press('Enter');
+    await expect(barcodeField).toHaveValue('0123456789012');
+    await expect(dialog).toBeVisible();
   });
 });

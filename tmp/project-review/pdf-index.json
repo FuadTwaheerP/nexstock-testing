@@ -1,0 +1,698 @@
+[
+  {
+    "path": "output/pdf/NexStock-Phase1-Round2-Retest-Summary-2026-10-26.pdf",
+    "pages": 1,
+    "textCharacters": 2389,
+    "bytes": 3893
+  },
+  {
+    "path": "output/pdf/NexStock-QA-Release-Retest-2026-10-24.pdf",
+    "pages": 1,
+    "textCharacters": 2026,
+    "bytes": 3611
+  },
+  {
+    "path": "output/pdf/NexStock-Release-Fix-Retest-Summary-2026-11-04.pdf",
+    "pages": 1,
+    "textCharacters": 2699,
+    "bytes": 4187
+  },
+  {
+    "path": "blob-report/archive/phase1-round2-2026-10-26/invoicing-1/artifacts/phase1-invoicing-branded-p-66ece-nd-amounts-phase1-invoicing-chromium-invoicing/invoice.pdf",
+    "pages": 1,
+    "textCharacters": 541,
+    "bytes": 879187
+  },
+  {
+    "path": "blob-report/archive/phase1-round2-2026-10-26/invoicing-1/artifacts/phase1-invoicing-branded-p-e129f-ported-PDF-phase1-invoicing-chromium-invoicing/branded-invoice.pdf",
+    "pages": 1,
+    "textCharacters": 541,
+    "bytes": 879189
+  },
+  {
+    "path": "blob-report/archive/phase1-round2-2026-10-26/invoicing-1/artifacts/phase1-invoicing-invoicing-fedcf--phase1-invoicing-full-flow-chromium-invoicing/full-flow-invoice.pdf",
+    "pages": 1,
+    "textCharacters": 579,
+    "bytes": 879226
+  },
+  {
+    "path": "blob-report/archive/phase1-round2-2026-10-26/invoicing-1/artifacts/phase1-invoicing-branded-p-66ece-nd-amounts-phase1-invoicing-chromium-invoicing/attachments/invoice-pdf-7714f9937b7ae39b15705411e09864b237a85dd8.pdf",
+    "pages": 1,
+    "textCharacters": 541,
+    "bytes": 879187
+  },
+  {
+    "path": "blob-report/archive/phase1-round2-2026-10-26/invoicing-1/artifacts/phase1-invoicing-branded-p-e129f-ported-PDF-phase1-invoicing-chromium-invoicing/attachments/branded-invoice-pdf-c8cee256b441d509b5e4041608f64411b605fd8a.pdf",
+    "pages": 1,
+    "textCharacters": 541,
+    "bytes": 879189
+  },
+  {
+    "path": "blob-report/archive/phase1-round2-2026-10-26/invoicing-1/artifacts/phase1-invoicing-invoicing-fedcf--phase1-invoicing-full-flow-chromium-invoicing/attachments/full-flow-pdf-3476eee1cca9a5a9c9e1952883297a517e418472.pdf",
+    "pages": 1,
+    "textCharacters": 579,
+    "bytes": 879226
+  },
+  {
+    "path": "blob-report/archive/phase1-round2-2026-10-26/invoicing-1/playwright-report/data/11db36ca4d450beaedbb1946ed4d86821cf64e88.pdf",
+    "pages": 1,
+    "textCharacters": 579,
+    "bytes": 879226
+  },
+  {
+    "path": "blob-report/archive/phase1-round2-2026-10-26/invoicing-1/playwright-report/data/353832bbe82651904eb7a1f7798dbe8bb31ca508.pdf",
+    "pages": 1,
+    "textCharacters": 541,
+    "bytes": 879189
+  },
+  {
+    "path": "blob-report/archive/phase1-round2-2026-10-26/invoicing-1/playwright-report/data/87f62c80c121af2ad5e3dde20c67da8828f47034.pdf",
+    "pages": 1,
+    "textCharacters": 541,
+    "bytes": 879187
+  },
+  {
+    "path": "blob-report/archive/phase1-round2-2026-10-26/invoicing-2/artifacts/phase1-invoicing-branded-p-66ece-nd-amounts-phase1-invoicing-chromium-invoicing/invoice.pdf",
+    "pages": 1,
+    "textCharacters": 541,
+    "bytes": 879190
+  },
+  {
+    "path": "blob-report/archive/phase1-round2-2026-10-26/invoicing-2/artifacts/phase1-invoicing-branded-p-e129f-ported-PDF-phase1-invoicing-chromium-invoicing/branded-invoice.pdf",
+    "pages": 1,
+    "textCharacters": 541,
+    "bytes": 879190
+  },
+  {
+    "path": "blob-report/archive/phase1-round2-2026-10-26/invoicing-2/artifacts/phase1-invoicing-invoicing-fedcf--phase1-invoicing-full-flow-chromium-invoicing/full-flow-invoice.pdf",
+    "pages": 1,
+    "textCharacters": 579,
+    "bytes": 879224
+  },
+  {
+    "path": "blob-report/archive/phase1-round2-2026-10-26/invoicing-2/artifacts/phase1-invoicing-branded-p-66ece-nd-amounts-phase1-invoicing-chromium-invoicing/attachments/invoice-pdf-774f1c2e28c89307680a260f427f231ab5e186bb.pdf",
+    "pages": 1,
+    "textCharacters": 541,
+    "bytes": 879190
+  },
+  {
+    "path": "blob-report/archive/phase1-round2-2026-10-26/invoicing-2/artifacts/phase1-invoicing-branded-p-e129f-ported-PDF-phase1-invoicing-chromium-invoicing/attachments/branded-invoice-pdf-df57617531f248e694c0723e4a109e1b4ee26600.pdf",
+    "pages": 1,
+    "textCharacters": 541,
+    "bytes": 879190
+  },
+  {
+    "path": "blob-report/archive/phase1-round2-2026-10-26/invoicing-2/artifacts/phase1-invoicing-invoicing-fedcf--phase1-invoicing-full-flow-chromium-invoicing/attachments/full-flow-pdf-a762fce14d96bdfffbd4a372a5f65764d0b95d94.pdf",
+    "pages": 1,
+    "textCharacters": 579,
+    "bytes": 879224
+  },
+  {
+    "path": "blob-report/archive/phase1-round2-2026-10-26/invoicing-2/playwright-report/data/3702c161090d5a2a1c080cd0fe2954bd4861aa78.pdf",
+    "pages": 1,
+    "textCharacters": 579,
+    "bytes": 879224
+  },
+  {
+    "path": "blob-report/archive/phase1-round2-2026-10-26/invoicing-2/playwright-report/data/a6ddf56350def5c9681a55608a6c6acbee28904c.pdf",
+    "pages": 1,
+    "textCharacters": 541,
+    "bytes": 879190
+  },
+  {
+    "path": "blob-report/archive/phase1-round2-2026-10-26/invoicing-2/playwright-report/data/ae5565e907c2af8321f06b06d5a18976e22197e5.pdf",
+    "pages": 1,
+    "textCharacters": 541,
+    "bytes": 879190
+  },
+  {
+    "path": "blob-report/archive/phase2-2026-10-25/credit-notes-2/artifacts/credit-notes-pdf-print.ui--91314-redit-voucher-print-and-PDF-phase2-credit-notes/credit-note-print-view.pdf",
+    "pages": 1,
+    "textCharacters": 312,
+    "bytes": 106269
+  },
+  {
+    "path": "blob-report/archive/phase2-2026-10-25/credit-notes-2/artifacts/credit-notes-pdf-print.ui--91314-redit-voucher-print-and-PDF-phase2-credit-notes/attachments/credit-note-print-view-pdf-845ad8f524db93f7a05dc00460ddc38e2949ac98.pdf",
+    "pages": 1,
+    "textCharacters": 312,
+    "bytes": 106269
+  },
+  {
+    "path": "blob-report/archive/phase2-2026-10-25/credit-notes-2/playwright-report/data/5790123e016f36080fb095600916034e11f2348d.pdf",
+    "pages": 1,
+    "textCharacters": 312,
+    "bytes": 106269
+  },
+  {
+    "path": "blob-report/archive/phase2-2026-10-25/credit-notes-3/artifacts/credit-notes-pdf-print.ui--91314-redit-voucher-print-and-PDF-phase2-credit-notes/credit-note-print-view.pdf",
+    "pages": 1,
+    "textCharacters": 312,
+    "bytes": 106561
+  },
+  {
+    "path": "blob-report/archive/phase2-2026-10-25/credit-notes-3/artifacts/credit-notes-pdf-print.ui--91314-redit-voucher-print-and-PDF-phase2-credit-notes/attachments/credit-note-print-view-pdf-d5704c0f5c10404fdfa99a1bd9ee32647e16063c.pdf",
+    "pages": 1,
+    "textCharacters": 312,
+    "bytes": 106561
+  },
+  {
+    "path": "blob-report/archive/phase2-2026-10-25/credit-notes-3/playwright-report/data/5733994bd76b6db26fb7f5579ba1b068cb6c53c6.pdf",
+    "pages": 1,
+    "textCharacters": 312,
+    "bytes": 106561
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-10-30/phase2/purchase-orders-2/artifacts/purchase-orders-pdf-export-6fb1c-l-purchase-order-PDF-export-phase2-purchase-orders/purchase-order.pdf",
+    "pages": 1,
+    "textCharacters": 457,
+    "bytes": 879317
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-10-30/phase2/purchase-orders-2/artifacts/purchase-orders-pdf-export-6fb1c-l-purchase-order-PDF-export-phase2-purchase-orders/attachments/purchase-order-pdf-54d3b97f83eb98d40daecd39eeea259fa6353988.pdf",
+    "pages": 1,
+    "textCharacters": 457,
+    "bytes": 879317
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-10-30/phase2/purchase-orders-2/playwright-report/data/c733d56eefc7f5433403f7862d3a8d3f013d21e4.pdf",
+    "pages": 1,
+    "textCharacters": 457,
+    "bytes": 879317
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-04/evidence/P2-QUOTE-002.pdf",
+    "pages": 1,
+    "textCharacters": 550,
+    "bytes": 879250
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-04/evidence/REL-DN-001.pdf",
+    "pages": 1,
+    "textCharacters": 283,
+    "bytes": 100973
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-04/evidence/RET-002-missing-company-branding.pdf",
+    "pages": 1,
+    "textCharacters": 541,
+    "bytes": 879189
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-04/phase1/invoicing-2/artifacts/phase1-invoicing-branded-p-66ece-nd-amounts-phase1-invoicing-chromium-invoicing/invoice.pdf",
+    "pages": 1,
+    "textCharacters": 541,
+    "bytes": 879188
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-04/phase1/invoicing-2/artifacts/phase1-invoicing-branded-p-e129f-ported-PDF-phase1-invoicing-chromium-invoicing/branded-invoice.pdf",
+    "pages": 1,
+    "textCharacters": 541,
+    "bytes": 879189
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-04/phase1/invoicing-2/artifacts/phase1-invoicing-branded-p-66ece-nd-amounts-phase1-invoicing-chromium-invoicing/attachments/invoice-pdf-8463aade733d4610eaee16f07b05a5ae1e40bb3a.pdf",
+    "pages": 1,
+    "textCharacters": 541,
+    "bytes": 879188
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-04/phase1/invoicing-2/artifacts/phase1-invoicing-branded-p-e129f-ported-PDF-phase1-invoicing-chromium-invoicing/attachments/branded-invoice-pdf-ec9e986a8395370b82e72ed33b354a4e4dc40164.pdf",
+    "pages": 1,
+    "textCharacters": 541,
+    "bytes": 879189
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-04/phase1/invoicing-2/playwright-report/data/263005bfc024959b3261b5586f14ef1f939c5556.pdf",
+    "pages": 1,
+    "textCharacters": 541,
+    "bytes": 879189
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-04/phase1/invoicing-2/playwright-report/data/8e67be69f77217ca846f8932cbfe0dc121c23ea1.pdf",
+    "pages": 1,
+    "textCharacters": 541,
+    "bytes": 879188
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-04/phase1/invoicing-3/artifacts/phase1-invoicing-branded-p-e129f-ported-PDF-phase1-invoicing-chromium-invoicing/branded-invoice.pdf",
+    "pages": 1,
+    "textCharacters": 541,
+    "bytes": 879187
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-04/phase1/invoicing-3/artifacts/phase1-invoicing-invoicing-fedcf--phase1-invoicing-full-flow-chromium-invoicing/full-flow-invoice.pdf",
+    "pages": 1,
+    "textCharacters": 579,
+    "bytes": 879222
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-04/phase1/invoicing-3/artifacts/phase1-invoicing-branded-p-e129f-ported-PDF-phase1-invoicing-chromium-invoicing/attachments/branded-invoice-pdf-8a02287b89c572239852ecfba93ae653f576d88e.pdf",
+    "pages": 1,
+    "textCharacters": 541,
+    "bytes": 879187
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-04/phase1/invoicing-3/artifacts/phase1-invoicing-invoicing-fedcf--phase1-invoicing-full-flow-chromium-invoicing/attachments/full-flow-pdf-776603985565d1d9d948be8cc62b2b036f43e5ce.pdf",
+    "pages": 1,
+    "textCharacters": 579,
+    "bytes": 879222
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-04/phase1/invoicing-3/playwright-report/data/ad79a41e32c1367173dccec402ff5d79b8737bed.pdf",
+    "pages": 1,
+    "textCharacters": 541,
+    "bytes": 879187
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-04/phase1/invoicing-3/playwright-report/data/b48e7ccbf05c6e5491e14a7bb3a8350e2de2335f.pdf",
+    "pages": 1,
+    "textCharacters": 579,
+    "bytes": 879222
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-04/phase2/credit-notes-2/artifacts/credit-notes-pdf-print.ui--91314-redit-voucher-print-and-PDF-phase2-credit-notes/credit-note-print-view.pdf",
+    "pages": 1,
+    "textCharacters": 376,
+    "bytes": 68663
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-04/phase2/credit-notes-2/artifacts/credit-notes-pdf-print.ui--91314-redit-voucher-print-and-PDF-phase2-credit-notes/attachments/credit-note-print-view-pdf-f61438f92f8a4acba651e7fc99a2df4f07754b56.pdf",
+    "pages": 1,
+    "textCharacters": 376,
+    "bytes": 68663
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-04/phase2/credit-notes-2/playwright-report/data/578c4f6ce20f843b1021410d7fe78ae3619a50ae.pdf",
+    "pages": 1,
+    "textCharacters": 376,
+    "bytes": 68663
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-04/phase2/credit-notes-4/artifacts/credit-notes-pdf-print.ui--91314-redit-voucher-print-and-PDF-phase2-credit-notes/credit-note-print-view.pdf",
+    "pages": 1,
+    "textCharacters": 376,
+    "bytes": 68528
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-04/phase2/credit-notes-4/artifacts/credit-notes-release-debit-67f82-nticated-printable-document-phase2-credit-notes/debit-note-print-view.pdf",
+    "pages": 1,
+    "textCharacters": 283,
+    "bytes": 101845
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-04/phase2/credit-notes-4/artifacts/credit-notes-pdf-print.ui--91314-redit-voucher-print-and-PDF-phase2-credit-notes/attachments/credit-note-print-view-pdf-657dcd0f44560afa3f977fb69eb697ad61d9133e.pdf",
+    "pages": 1,
+    "textCharacters": 376,
+    "bytes": 68528
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-04/phase2/credit-notes-4/artifacts/credit-notes-release-debit-67f82-nticated-printable-document-phase2-credit-notes/attachments/debit-note-print-view-a023c1eb11689549950e21538c91db887440a512.pdf",
+    "pages": 1,
+    "textCharacters": 283,
+    "bytes": 101845
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-04/phase2/credit-notes-5/artifacts/credit-notes-release-debit-67f82-nticated-printable-document-phase2-credit-notes/debit-note-print-view.pdf",
+    "pages": 1,
+    "textCharacters": 283,
+    "bytes": 100973
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-04/phase2/credit-notes-5/artifacts/credit-notes-release-debit-67f82-nticated-printable-document-phase2-credit-notes/attachments/debit-note-print-view-b7b07e9d92afe7c3f52b02379f53bdf2418de746.pdf",
+    "pages": 1,
+    "textCharacters": 283,
+    "bytes": 100973
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-04/phase2/credit-notes-5/playwright-report/data/c612cb3b787174cf7ea03afcde26f5c4f85b64f7.pdf",
+    "pages": 1,
+    "textCharacters": 283,
+    "bytes": 100973
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-04/phase2/document-templates-1/artifacts/document-templates-brand-t-c0d13-generated-actual-QA-invoice-phase2-document-templates/themed-invoice.pdf",
+    "pages": 1,
+    "textCharacters": 523,
+    "bytes": 879516
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-04/phase2/document-templates-1/artifacts/document-templates-brand-t-c0d13-generated-actual-QA-invoice-phase2-document-templates/attachments/themed-invoice-pdf-1accd70165bacbdac1d541923cb898da09c56e5f.pdf",
+    "pages": 1,
+    "textCharacters": 523,
+    "bytes": 879516
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-04/phase2/document-templates-1/playwright-report/data/2b0484e531b74d801d872e44b5171df7abcf6e43.pdf",
+    "pages": 1,
+    "textCharacters": 523,
+    "bytes": 879516
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-04/phase2/document-templates-2/artifacts/document-templates-brand-t-c0d13-generated-actual-QA-invoice-phase2-document-templates/themed-invoice.pdf",
+    "pages": 1,
+    "textCharacters": 523,
+    "bytes": 879519
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-04/phase2/document-templates-2/artifacts/document-templates-brand-t-c0d13-generated-actual-QA-invoice-phase2-document-templates/attachments/themed-invoice-pdf-3afb032b07a0de663699066832ee6ff80db37f7e.pdf",
+    "pages": 1,
+    "textCharacters": 523,
+    "bytes": 879519
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-04/phase2/document-templates-2/playwright-report/data/c8fa1ffbb036eb4549c6e8b046a0802a3b1c4596.pdf",
+    "pages": 1,
+    "textCharacters": 523,
+    "bytes": 879519
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-04/phase2/document-templates-3/artifacts/document-templates-brand-t-c0d13-generated-actual-QA-invoice-phase2-document-templates/themed-invoice.pdf",
+    "pages": 1,
+    "textCharacters": 523,
+    "bytes": 879520
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-04/phase2/document-templates-3/artifacts/document-templates-brand-t-c0d13-generated-actual-QA-invoice-phase2-document-templates/attachments/themed-invoice-pdf-0adafa0039ab5875ab3c916967b701d527aba16f.pdf",
+    "pages": 1,
+    "textCharacters": 523,
+    "bytes": 879520
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-04/phase2/document-templates-3/playwright-report/data/0f6a5bde4ba11ffc0457b6feb536251a6c79aa8f.pdf",
+    "pages": 1,
+    "textCharacters": 523,
+    "bytes": 879520
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-04/phase2/pos-extensions-1/artifacts/pos-extensions-formal-invo-eced5-eneration-for-a-QA-POS-sale-phase2-pos-extensions/pos-formal-invoice.pdf",
+    "pages": 1,
+    "textCharacters": 469,
+    "bytes": 879028
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-04/phase2/pos-extensions-1/artifacts/pos-extensions-formal-invo-eced5-eneration-for-a-QA-POS-sale-phase2-pos-extensions/attachments/formal-invoice-pdf-8109035ae19016b50d9dc2c6b447edaf3be83ce2.pdf",
+    "pages": 1,
+    "textCharacters": 469,
+    "bytes": 879028
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-04/phase2/pos-extensions-1/playwright-report/data/d5eff5bc80970e645b95e2e27a12c7ed75b232f2.pdf",
+    "pages": 1,
+    "textCharacters": 469,
+    "bytes": 879028
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-04/phase2/pos-extensions-2/artifacts/pos-extensions-pos-extensi-d216b-invoice-full-flow-full-flow-phase2-pos-extensions/pos-formal-invoice.pdf",
+    "pages": 1,
+    "textCharacters": 469,
+    "bytes": 879032
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-04/phase2/pos-extensions-2/artifacts/pos-extensions-pos-extensi-d216b-invoice-full-flow-full-flow-phase2-pos-extensions/attachments/formal-invoice-pdf-11bf3b8eb9d168665f03ff35f7a1a5add9503655.pdf",
+    "pages": 1,
+    "textCharacters": 469,
+    "bytes": 879032
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-04/phase2/pos-extensions-2/playwright-report/data/2ecd5dcdb7d27c62d55eac2622f7aca0d6845602.pdf",
+    "pages": 1,
+    "textCharacters": 469,
+    "bytes": 879032
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-04/phase2/purchase-orders-1/artifacts/purchase-orders-pdf-export-6fb1c-l-purchase-order-PDF-export-phase2-purchase-orders/purchase-order.pdf",
+    "pages": 1,
+    "textCharacters": 457,
+    "bytes": 879314
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-04/phase2/purchase-orders-1/artifacts/purchase-orders-pdf-export-6fb1c-l-purchase-order-PDF-export-phase2-purchase-orders/attachments/purchase-order-pdf-ff4a6bafa9950c29ad48ccb96c6ca0be33f15a3a.pdf",
+    "pages": 1,
+    "textCharacters": 457,
+    "bytes": 879314
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-04/phase2/purchase-orders-1/playwright-report/data/e46d88fc03486d8c0f131ff9fca3466e21405e22.pdf",
+    "pages": 1,
+    "textCharacters": 457,
+    "bytes": 879314
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-04/phase2/quotations-1/artifacts/quotations-commercial-term-1a79b-d-individual-line-discounts-phase2-quotations/quotation.pdf",
+    "pages": 1,
+    "textCharacters": 550,
+    "bytes": 879247
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-04/phase2/quotations-1/artifacts/quotations-pdf-print.ui-F1-510f1-d-PDF-and-print-entry-point-phase2-quotations/quotation.pdf",
+    "pages": 1,
+    "textCharacters": 520,
+    "bytes": 879197
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-04/phase2/quotations-1/artifacts/quotations-quotations-full-f5cda-version-full-flow-full-flow-phase2-quotations/quotation.pdf",
+    "pages": 1,
+    "textCharacters": 550,
+    "bytes": 879247
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-04/phase2/quotations-1/artifacts/quotations-commercial-term-1a79b-d-individual-line-discounts-phase2-quotations/attachments/quotation-pdf-c4c27577dc43b9ca5a8308e76b02ee363dafceb3.pdf",
+    "pages": 1,
+    "textCharacters": 550,
+    "bytes": 879247
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-04/phase2/quotations-1/artifacts/quotations-pdf-print.ui-F1-510f1-d-PDF-and-print-entry-point-phase2-quotations/attachments/quotation-pdf-a28f63538b9e46a0b651d2ba3860828253f51de4.pdf",
+    "pages": 1,
+    "textCharacters": 520,
+    "bytes": 879197
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-04/phase2/quotations-1/artifacts/quotations-quotations-full-f5cda-version-full-flow-full-flow-phase2-quotations/attachments/quotation-pdf-9008f54fd830fde0b31e42623956f5e116d6cc6b.pdf",
+    "pages": 1,
+    "textCharacters": 550,
+    "bytes": 879247
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-04/phase2/quotations-1/playwright-report/data/9b03f06937d4f02a8186819b0879b9ea3818b98e.pdf",
+    "pages": 1,
+    "textCharacters": 550,
+    "bytes": 879247
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-04/phase2/quotations-1/playwright-report/data/a30ccff76da6b59a7a537fddb63611205e20962b.pdf",
+    "pages": 1,
+    "textCharacters": 550,
+    "bytes": 879247
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-04/phase2/quotations-1/playwright-report/data/cc28d170c62f704a1dd8ea40fd335be7b9889589.pdf",
+    "pages": 1,
+    "textCharacters": 520,
+    "bytes": 879197
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-04/phase2/quotations-2/artifacts/quotations-commercial-term-1a79b-d-individual-line-discounts-phase2-quotations/quotation.pdf",
+    "pages": 1,
+    "textCharacters": 550,
+    "bytes": 879250
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-04/phase2/quotations-2/artifacts/quotations-quotations-full-f5cda-version-full-flow-full-flow-phase2-quotations/quotation.pdf",
+    "pages": 1,
+    "textCharacters": 550,
+    "bytes": 879250
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-04/phase2/quotations-2/artifacts/quotations-commercial-term-1a79b-d-individual-line-discounts-phase2-quotations/attachments/quotation-pdf-eaa33e3c6628b2042f41760d035ab5e8c6fb7493.pdf",
+    "pages": 1,
+    "textCharacters": 550,
+    "bytes": 879250
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-04/phase2/quotations-2/artifacts/quotations-quotations-full-f5cda-version-full-flow-full-flow-phase2-quotations/attachments/quotation-pdf-51ab90a40cc57461b6469de7a49dbffab1568308.pdf",
+    "pages": 1,
+    "textCharacters": 550,
+    "bytes": 879250
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-04/phase2/quotations-2/playwright-report/data/eab48414ad28370188f00f71e373005ca98b3506.pdf",
+    "pages": 1,
+    "textCharacters": 550,
+    "bytes": 879250
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-04/phase2/quotations-2/playwright-report/data/f163ccb9b4ec964525dfbbcf1e6dcaad256145bf.pdf",
+    "pages": 1,
+    "textCharacters": 550,
+    "bytes": 879250
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-05/evidence/P2-DOC-004-classic.pdf",
+    "pages": 1,
+    "textCharacters": 523,
+    "bytes": 879515
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-05/evidence/P2-QUOTE-002.pdf",
+    "pages": 1,
+    "textCharacters": 550,
+    "bytes": 879251
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-05/evidence/REL-DN-001.pdf",
+    "pages": 1,
+    "textCharacters": 283,
+    "bytes": 102245
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-05/evidence/RET-002-invoice.pdf",
+    "pages": 1,
+    "textCharacters": 541,
+    "bytes": 879189
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-05/phase1/invoicing-1/artifacts/phase1-invoicing-branded-p-66ece-nd-amounts-phase1-invoicing-chromium-invoicing/invoice.pdf",
+    "pages": 1,
+    "textCharacters": 541,
+    "bytes": 879188
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-05/phase1/invoicing-1/artifacts/phase1-invoicing-branded-p-e129f-ported-PDF-phase1-invoicing-chromium-invoicing/branded-invoice.pdf",
+    "pages": 1,
+    "textCharacters": 541,
+    "bytes": 879189
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-05/phase1/invoicing-1/artifacts/phase1-invoicing-invoicing-fedcf--phase1-invoicing-full-flow-chromium-invoicing/full-flow-invoice.pdf",
+    "pages": 1,
+    "textCharacters": 579,
+    "bytes": 879227
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-05/phase1/invoicing-1/artifacts/phase1-invoicing-branded-p-66ece-nd-amounts-phase1-invoicing-chromium-invoicing/attachments/invoice-pdf-f7097cabf4ddabdf84843fa26386368319284677.pdf",
+    "pages": 1,
+    "textCharacters": 541,
+    "bytes": 879188
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-05/phase1/invoicing-1/artifacts/phase1-invoicing-branded-p-e129f-ported-PDF-phase1-invoicing-chromium-invoicing/attachments/branded-invoice-pdf-582f4a7561cb74bf664716571c2914bea8517fb1.pdf",
+    "pages": 1,
+    "textCharacters": 541,
+    "bytes": 879189
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-05/phase1/invoicing-1/artifacts/phase1-invoicing-invoicing-fedcf--phase1-invoicing-full-flow-chromium-invoicing/attachments/full-flow-pdf-bcbb5076529c463a6f7b5be6435f05d15861094a.pdf",
+    "pages": 1,
+    "textCharacters": 579,
+    "bytes": 879227
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-05/phase1/invoicing-1/playwright-report/data/1cbbe809eca558c4afb9f5cc695d204b5674c7f1.pdf",
+    "pages": 1,
+    "textCharacters": 541,
+    "bytes": 879189
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-05/phase1/invoicing-1/playwright-report/data/9f3544cd5188ca5d34adc6d586cd8f78766b0750.pdf",
+    "pages": 1,
+    "textCharacters": 579,
+    "bytes": 879227
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-05/phase1/invoicing-1/playwright-report/data/c4e10b6d4d134c3ce715846577d1536de5fb8610.pdf",
+    "pages": 1,
+    "textCharacters": 541,
+    "bytes": 879188
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-05/phase2/credit-notes-1/artifacts/credit-notes-release-debit-67f82-nticated-printable-document-phase2-credit-notes/debit-note-print-view.pdf",
+    "pages": 1,
+    "textCharacters": 283,
+    "bytes": 102245
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-05/phase2/credit-notes-1/artifacts/credit-notes-release-debit-67f82-nticated-printable-document-phase2-credit-notes/attachments/debit-note-print-view-bd375e00f894d018f958c679da5f5160a2de948b.pdf",
+    "pages": 1,
+    "textCharacters": 283,
+    "bytes": 102245
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-05/phase2/credit-notes-1/playwright-report/data/e925c889d958a607a1e0f5f7ba4836c7b4bf146e.pdf",
+    "pages": 1,
+    "textCharacters": 283,
+    "bytes": 102245
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-05/phase2/document-templates-1/artifacts/document-templates-brand-t-c0d13-generated-actual-QA-invoice-phase2-document-templates/themed-invoice.pdf",
+    "pages": 1,
+    "textCharacters": 523,
+    "bytes": 879515
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-05/phase2/document-templates-1/artifacts/document-templates-brand-t-c0d13-generated-actual-QA-invoice-phase2-document-templates/attachments/themed-invoice-pdf-2bda62f2c1edea7e463339968155298642db5749.pdf",
+    "pages": 1,
+    "textCharacters": 523,
+    "bytes": 879515
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-05/phase2/document-templates-1/playwright-report/data/9ae0bead482edd393846255e94aa589f9b2e16cb.pdf",
+    "pages": 1,
+    "textCharacters": 523,
+    "bytes": 879515
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-05/phase2/quotations-1/artifacts/quotations-commercial-term-1a79b-d-individual-line-discounts-phase2-quotations/quotation.pdf",
+    "pages": 1,
+    "textCharacters": 550,
+    "bytes": 879251
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-05/phase2/quotations-1/artifacts/quotations-pdf-print.ui-F1-510f1-d-PDF-and-print-entry-point-phase2-quotations/quotation.pdf",
+    "pages": 1,
+    "textCharacters": 520,
+    "bytes": 879205
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-05/phase2/quotations-1/artifacts/quotations-quotations-full-f5cda-version-full-flow-full-flow-phase2-quotations/quotation.pdf",
+    "pages": 1,
+    "textCharacters": 550,
+    "bytes": 879251
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-05/phase2/quotations-1/artifacts/quotations-commercial-term-1a79b-d-individual-line-discounts-phase2-quotations/attachments/quotation-pdf-a2c5fc7dc740eeb742e0af58084dcd2d332ec74f.pdf",
+    "pages": 1,
+    "textCharacters": 550,
+    "bytes": 879251
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-05/phase2/quotations-1/artifacts/quotations-pdf-print.ui-F1-510f1-d-PDF-and-print-entry-point-phase2-quotations/attachments/quotation-pdf-dfbab3cb8a9d7a93f49154bd8eac08fdb20370ff.pdf",
+    "pages": 1,
+    "textCharacters": 520,
+    "bytes": 879205
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-05/phase2/quotations-1/artifacts/quotations-quotations-full-f5cda-version-full-flow-full-flow-phase2-quotations/attachments/quotation-pdf-040d6aab6f6e9692b83df6d466a943c088e14238.pdf",
+    "pages": 1,
+    "textCharacters": 550,
+    "bytes": 879251
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-05/phase2/quotations-1/playwright-report/data/3eb395ad5b7999e94dbc9ed8d8f436f357a7b889.pdf",
+    "pages": 1,
+    "textCharacters": 520,
+    "bytes": 879205
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-05/phase2/quotations-1/playwright-report/data/686d270d3f4487e8327737f8ddf82a5aac4d515f.pdf",
+    "pages": 1,
+    "textCharacters": 550,
+    "bytes": 879251
+  },
+  {
+    "path": "blob-report/archive/release-verification-2026-11-05/phase2/quotations-1/playwright-report/data/f5adc2d5b727b7c023d457d4831708a94dfc11ea.pdf",
+    "pages": 1,
+    "textCharacters": 550,
+    "bytes": 879251
+  }
+]

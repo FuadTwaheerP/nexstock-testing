@@ -1,0 +1,61 @@
+NexStock QA | Release fix verification | 4 November 2026 | page 1
+NexStock
+Release Fix Retest Summary
+4 November 2026 | Production | Nexstock QA Company | Chromium / Windows Phase 1 Round 2, separate Help fix and
+Phase 2 release claims
+Outcome
+Retesting is complete. Five confirmed application issues remain, including one additional debit-document finding. The
+user confirmed that Classic dark mode must preserve the chosen brand colour.
+Scope
+Reviewed outcome
+Phase 1 Round 2 - 4 tickets
+2 fixed (RET-001, RET-004); RET-002 partially fixed; RET-003 open.
+Separate Help fix
+HELP-001 fixed: public Terms/Privacy work on desktop and mobile without submitting login.
+Phase 2 - 24 addressed tickets
+21 fixed; 3 partially fixed. Another 10 tickets were explicitly not included by the developer.
+Confirmed issues and required follow-up
+ Ticket
+Remaining behaviour
+Required follow-up
+RET-002 Partial
+Invoice PDFs omit the saved Company Settings header and
+banking/payment notes. Downloads and invoice identity work.
+Connect the retained settings to PDF
+export and define configuration
+precedence.
+RET-003 Open
+Variant content covers the Add to order footer at 1920 x 1080
+and 1440 x 900.
+Constrain the scrolling viewport and keep
+the footer readable and clickable.
+P2-QUOTE-002
+Partial
+Customer-facing Notes persist/display on the quotation but
+are missing from its PDF. Terms, discounts and conversion
+work.
+Include the saved quotation Notes in the
+customer PDF.
+P2-DOC-004
+Partial
+Classic dark invoice, quotation and credit-note views replace
+the chosen brand colour. Modern and native Classic PDF
+colour work.
+Preserve the configured brand colour in
+Classic dark views.
+REL-DN-001
+Additional
+The corrected debit print route opens, but its selected product
+appears as Item 4 with no SKU.
+Preserve product name and SKU in
+debit-line persistence/view mapping.
+Explicit partial delivery
+P2-CN-004: partial/final refunds and balance checks pass. Credit allocation is explicitly not delivered; refund
+date/method history is not certified.
+Execution and scope
+Final scoped cases: 58 passed, 8 application-failing cases (5 unique issues). No policy checks remain blocked. All 38
+setup/cleanup checks and 76 local safety/classification checks pass. Automation errors were corrected and rerun; no
+final scoped case was intentionally skipped.
+Captured QA stock, VAT, invoice branding, document template and notification preferences were restored. Synthetic records remain as
+evidence. This is web verification; mobile, legal approval, cross-company isolation and an authoritative deployed commit are not certified.
+Detailed tickets, full ticket matrix and evidence: docs/release-verification-2026-11-04/README.md

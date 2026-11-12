@@ -1,0 +1,73 @@
+{
+  "module": "Quotations & Cost Estimates",
+  "testDate": "25 October 2026",
+  "limits": [
+    "Creation validates the QA customer, two items at Rs 93.25, document discount 10%, total Rs 167.85, explicit 17-day validity and saved draft/accepted status. It does not certify the missing custom terms/notes capability.",
+    "Status transitions and accepted-quote conversion stop at the confirmed broken saved-document route. These downstream steps have not passed.",
+    "No emails were dispatched. Native PDF content, branding and physical printing are not certified because the actual export opens 404.",
+    "Saved synthetic quotations remain as evidence; no historical records were deleted."
+  ],
+  "automation": [
+    "The first detail diagnostic looked only for a loading image. The eventual server-backed state is Invoice Not Found. The adapter now waits for that explicit state or document controls; all three affected cases were rerun.",
+    "The quotation save button is a menu; tests use Save as Draft or Mark Accepted & Save, never Save & Dispatch Email."
+  ],
+  "bugs": [
+    {
+      "id": "P2-QUOTE-001",
+      "title": "Saved quotation View opens an invoice route and displays Invoice Not Found",
+      "priority": "High",
+      "features": [
+        "F11-a",
+        "F11-d",
+        "F11-e"
+      ],
+      "steps": [
+        "Sign in to Nexstock QA Company and open Quotations.",
+        "Create a quotation for QA Billing Automation Customer, select QA add mv9rtxw1-3b087e, set quantity 2, price Rs 93.25, 10% discount and a future expiry.",
+        "Save as Draft; confirm the record and Rs 167.85 total appear in the list.",
+        "Click the saved row's eye/View button.",
+        "Repeat with a newly created quotation using Mark Accepted & Save."
+      ],
+      "expected": "View displays the saved quotation and its commercial details, status workflow, and invoice conversion action for accepted quotations.",
+      "actual": "The eye action navigates to /app/invoicing/<quotation-id>. The page displays Invoice Not Found instead of the quotation; both draft and accepted records reproduce it.",
+      "comment": "Fix the quotation row route/document resolver and provide its status and conversion actions. Retest all lifecycle branches and verify a converted invoice preserves items, prices, customer and totals. Multiple dependent failures are grouped here; no separate status/conversion defect is assumed."
+    },
+    {
+      "id": "P2-QUOTE-002",
+      "title": "Quotation editor has no custom payment terms, notes or per-line discount fields",
+      "priority": "Medium",
+      "features": [
+        "F11-a",
+        "F11-b"
+      ],
+      "steps": [
+        "Open Quotations > New Quotation.",
+        "Select the QA billing customer and add a product row.",
+        "Inspect row pricing, customer details and Billing totals for commercial fields.",
+        "Try to set separate line discounts, custom payment terms and a negotiated note."
+      ],
+      "expected": "Each line supports its own discount, and the quotation allows custom payment terms and notes that persist after saving.",
+      "actual": "The editor exposes editable unit prices and a single document-level discount. No custom payment terms, notes or line discount controls are present. Deployed client payload sets notes to an empty string and generates fixed validity terms.",
+      "comment": "Add the required editable commercial fields to creation/editing, persist them, and include them in the quotation output. The verified editable unit price/document discount is not a substitute for these explicit requirements."
+    },
+    {
+      "id": "RET-002",
+      "title": "Quotation PDF export reproduces the existing document export 404",
+      "priority": "High",
+      "features": [
+        "F11-c"
+      ],
+      "steps": [
+        "Create and save an isolated QA quotation.",
+        "In Quotations, click Download PDF on its row.",
+        "Inspect the actual popup URL and content."
+      ],
+      "expected": "The action opens or downloads the selected quotation's branded, printable document.",
+      "actual": "It opens public /invoicing/<quotation-id>?print=true outside /app and displays 404 / That page is not here.",
+      "comment": "Update the existing RET-002 ticket rather than creating another export ticket. Correct both the application base path and quotation document routing; then validate actual output branding, content and printing.",
+      "evidenceNames": [
+        "quotation-export-popup"
+      ]
+    }
+  ]
+}

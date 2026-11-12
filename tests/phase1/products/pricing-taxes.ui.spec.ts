@@ -17,20 +17,23 @@ test.describe('Products & Catalog — Pricing Rules & Taxes', () => {
     await expect(dialog.getByLabel(/^Selling Price/i)).toHaveValue('100');
   });
 
-  test('supports Standard VAT 15%, Zero-Rated and Exempt classifications per product @phase1 @products', async ({ page }) => {
+  test('supports company-rate Standard VAT, Zero-Rated and Exempt classifications per product @phase1 @products', async ({ page }) => {
     const dialog = await openNewProduct(page);
-    const taxClassification = dialog.getByLabel(/Tax Classification|VAT (?:Rate|Class)/i);
+    const taxClassification = dialog.getByLabel('VAT', { exact: true });
     await expect(taxClassification, 'Add Product must expose a per-product tax-classification selector').toBeVisible();
     await taxClassification.click();
-    await expect(page.getByRole('option', { name: /Standard.*15%/i })).toBeVisible();
+    await expect(page.getByRole('option', { name: /Standard.*[\d.]+%/i })).toBeVisible();
     await expect(page.getByRole('option', { name: /Zero.?Rated.*0%/i })).toBeVisible();
     await expect(page.getByRole('option', { name: /Exempt/i })).toBeVisible();
   });
 
   test('supports tax-inclusive and tax-exclusive product pricing @phase1 @products', async ({ page }) => {
     const dialog = await openNewProduct(page);
-    const pricingMode = dialog.getByRole('switch', { name: /Tax.*Inclusive|Inclusive.*Tax/i })
-      .or(dialog.getByRole('checkbox', { name: /Tax.*Inclusive|Inclusive.*Tax/i })).first();
+    const pricingMode = dialog.getByLabel('Price includes VAT', { exact: true });
     await expect(pricingMode, 'Add Product must expose a tax-inclusive/exclusive pricing toggle').toBeVisible();
+    await pricingMode.click();
+    for (const mode of ['Company default (prices exclude VAT)', 'Yes, the price includes VAT', 'No, VAT is added on top']) {
+      await expect(page.getByRole('option', { name: mode, exact: true })).toBeVisible();
+    }
   });
 });

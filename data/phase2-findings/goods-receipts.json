@@ -1,0 +1,61 @@
+{
+  "module": "Goods Receipt Notes",
+  "testDate": "25–26 October 2026",
+  "limits": [
+    "Four independent PO-linked receipt checks remain blocked by P2-PO-001: no approved/ordered QA PO can be created because the form omits required delivery branch. Acceptance, multiple deliveries, PO-linked stock increment and rejection persistence remain unverified.",
+    "The existing standalone Store Inventory > Restock workflow was exercised independently of PO creation. Exactly one QA item is allowed by a payload guard; one intended branch increases by one, all other QA branches remain unchanged, and stock is restored.",
+    "The user confirmed a separate no-PO supplier GRN, with only supplier, product and quantity mandatory; all other user-entered receipt details are optional. Existing stock-only Restock is not GRN acceptance. No standalone GRN entry is exposed in the inspected UI, so minimum-input save, mandatory omissions and optional-blank acceptance remain unverified.",
+    "The cost estimate is inspected separately without confirming a stock change. The real product has cost40 and selling100; the dialog shows line/total100 for quantity1.",
+    "The integrated flow includes required standalone GRN availability, existing Restock, cost inspection and the PO-dependent path. Its confirmed failures and upstream blocker are recorded separately. Phase3 lot/expiry/three-way matching is excluded."
+  ],
+  "automation": [
+    "Shared PO selectors were corrected and reviewed in Purchasing before the GRN run.",
+    "Confirmed upstream branchId validation is annotated BLOCKED in dependent modules; it is not converted into a new GRN ticket or a pass.",
+    "Independent scenarios plus a main full-flow script are present. No test.skip, expected failures, manufactured PO IDs or direct API provisioning are used.",
+    "Added an independent no-PO Restock scenario instead of letting the PO fixture prevent all investigation of ad-hoc intake. Deselect all default items, select the exact QA SKU, validate the outgoing payload before forwarding, then reconcile every branch and compensate the owned quantity.",
+    "Compared the displayed estimate against independently read product cost and selling values. Captured the actual dialog before cancelling; this is not a source-only hypothesis.",
+    "Recorded the user's explicit standalone GRN contract in data/phase2-grn-contract.json and added an independent check plus full-flow step. Supplier, product and quantity are the only required user inputs; no extra mandatory fields are inferred.",
+    "Removed an optional deployed-script download from the availability check after it caused an unrelated timeout. Reruns use actual navigation and purchasing/supplier/inventory UI evidence. No unseen backend capability or individual field-validation behavior is asserted.",
+    "Nested submodule checks preserve the full flow's larger timeout instead of reducing its remaining budget."
+  ],
+  "bugs": [
+    {
+      "id": "P2-GRN-002",
+      "title": "Standalone Restock estimates purchase cost using the product selling price",
+      "priority": "Medium",
+      "features": [
+        "F16-a"
+      ],
+      "steps": [
+        "Sign in to Nexstock QA Company.",
+        "Open Products and inspect QA-ADD-mv9rtxw1-3b087e: cost price Rs40 and selling price Rs100.",
+        "Open Store Inventory for QA Inspection Store 20261017, then click Restock.",
+        "Deselect all items and search the exact QA SKU.",
+        "Select only that item and set quantity to 1.",
+        "Read its Cost amount and Estimated restock cost; cancel without confirming."
+      ],
+      "expected": "For quantity1, line cost and estimated restocking cost use the product's purchase/cost price, Rs40, rather than its selling price.",
+      "actual": "The line Cost and estimated total both show100 for one item, matching its selling price100 instead of its stored cost40. The same result reproduces in the independent check and integrated flow.",
+      "comment": "Calculate estimates from the applicable unit purchase/cost value and format them with the company currency. Preserve the independently passing stock-quantity behavior. This ticket concerns the visible estimate; no incorrect ledger or stock valuation is claimed. The read-only reproduction never confirms a restock."
+    },
+    {
+      "id": "P2-GRN-003",
+      "title": "No standalone supplier GRN can be created without a Purchase Order",
+      "priority": "High",
+      "features": [
+        "F16-a"
+      ],
+      "steps": [
+        "Sign in to Nexstock QA Company.",
+        "Open Purchasing > Purchase Orders and look for a way to receive a shipment without creating or selecting a Purchase Order.",
+        "Open Suppliers and inspect the available receiving actions.",
+        "Open Store Inventory and select Restock.",
+        "Try to record a separate Goods Receipt Note by selecting a supplier, product and received quantity, leaving all other details blank."
+      ],
+      "expected": "A separate GRN can be created without a Purchase Order. Supplier, product and quantity are the only mandatory user inputs; delivery-note/reference number, dates, notes and all other details are optional. Saving retains the supplier receipt and posts the received inventory.",
+      "actual": "The inspected Purchasing, Suppliers and Inventory screens expose no standalone GRN entry. The available Restock dialog selects products and quantities but has no supplier input or supplier-receipt form. The required minimum-input GRN cannot be created through this UI.",
+      "comment": "Add a separate GRN flow with supplier selection and product/quantity lines, persistence and stock posting. Allow all other user-entered details to remain blank/defaulted; do not require a Purchase Order. This is one missing-workflow ticket. Required-field, optional-field, saved-receipt and stock-posting assertions are unverified until the form becomes available. No claim is made that an unpublished backend endpoint is absent."
+    }
+  ],
+  "observations": []
+}

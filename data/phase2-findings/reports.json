@@ -1,0 +1,114 @@
+{
+  "module": "Standard Reports & Analytics",
+  "testDate": "25 October 2026",
+  "limits": [
+    "Current catalogue cost valuation reconciles across all 71 products. A real +1 initialized QA stock adjustment increases cost value by Rs 40 and is restored. Later-page initial-balance valuation remains blocked by P2-COUNT-005; this is not a confirmed valuation defect.",
+    "Low Stock completeness fails: 53 required depleted/critical SKUs are omitted while the report loads only its first 15 products. CSV download and history pass for that loaded subset; this does not certify full catalogue export completeness.",
+    "Preset periods and branch controls exist. Missing custom date/cashier/payment-method controls are verified; existing filter wiring and unavailable tax/performance calculations are not certified.",
+    "All temporary stock changes are restored across the five QA branches. Synthetic counts/adjustments remain as evidence."
+  ],
+  "automation": [
+    "Replaced premature count hydration assumptions with saved/reopened values and independent physical snapshot verification. This exposed P2-COUNT-005, reported in Stock Counts.",
+    "Separated current valuation, a positive initialized balance control and blocked later-page initialization. The full flow uses the independent initialized fixture to avoid a slow unrelated prerequisite.",
+    "Reviewed final composite reruns: no unresolved automation errors."
+  ],
+  "bugs": [
+    {
+      "id": "P2-REP-001",
+      "title": "Sales reporting lacks custom date, cashier and payment-method filters",
+      "priority": "Medium",
+      "features": [
+        "F20-a"
+      ],
+      "steps": [
+        "Sign in to the production Nexstock QA Company.",
+        "Open Reports > Business & Sales",
+        "Inspect Reporting Horizon, branch controls and available filters."
+      ],
+      "expected": "Sales reporting supports custom start/end dates, cashier and payment-method filtering.",
+      "actual": "Only preset reporting horizons and branch controls are available. Custom date inputs, cashier and payment-method controls are absent.",
+      "comment": "Add the missing dimensions and verify them against non-zero QA sales. Existing branch/preset wiring is not declared broken."
+    },
+    {
+      "id": "P2-REP-002",
+      "title": "Product sales performance report is unavailable",
+      "priority": "Medium",
+      "features": [
+        "F20-b"
+      ],
+      "steps": [
+        "Sign in to the production Nexstock QA Company.",
+        "Open Reports",
+        "Inspect Report Focus choices and Business & Sales content."
+      ],
+      "expected": "A product performance report ranks products by quantity sold and revenue contribution.",
+      "actual": "There is no product performance/top-seller report; a revenue trend and stock movement do not provide ranked product revenue.",
+      "comment": "Implement the required report and reconcile quantities and revenue with known sales."
+    },
+    {
+      "id": "P2-REP-003",
+      "title": "Low Stock report omits products beyond the first catalogue page",
+      "priority": "High",
+      "features": [
+        "F20-d"
+      ],
+      "steps": [
+        "Sign in to the production Nexstock QA Company.",
+        "Paginate the Products catalogue to collect all 71 active products",
+        "Identify inventory items at or below reorder point",
+        "Open Reports > Low Stock and compare their SKUs."
+      ],
+      "expected": "Every eligible low-stock/out-of-stock catalogue item appears in the report.",
+      "actual": "53 eligible depleted/critical SKUs are absent. Reporting loads 15 of 71 products. Current cost valuation still reconciles because omitted items have no positive verified stock.",
+      "comment": "Load the complete applicable dataset or aggregate server-side. Do not infer an incorrect asset total from zero-stock omissions; later-page positive initialization is separately blocked by P2-COUNT-005."
+    },
+    {
+      "id": "P2-REP-004",
+      "title": "VAT and fiscal reporting is unavailable",
+      "priority": "Medium",
+      "features": [
+        "F20-e"
+      ],
+      "steps": [
+        "Sign in to the production Nexstock QA Company.",
+        "Open Reports",
+        "Inspect Report Focus choices and Business & Sales tax content."
+      ],
+      "expected": "Fiscal reporting distinguishes standard VAT, zero-rated sales and net tax liability.",
+      "actual": "Only aggregate tax-collected text exists; no VAT/fiscal report is available.",
+      "comment": "Provide the required tax breakdown and reconcile it against eligible transactions. No guessed tax calculation is reported as a bug."
+    },
+    {
+      "id": "P2-REP-005",
+      "title": "Reports use dollar prefix for MUR financial values",
+      "priority": "Medium",
+      "features": [
+        "F20-a"
+      ],
+      "steps": [
+        "Sign in to the production Nexstock QA Company.",
+        "Open Reports in Nexstock QA Company",
+        "Read the Stock Cost Value and other monetary KPI cards."
+      ],
+      "expected": "MUR amounts use the confirmed Rs prefix.",
+      "actual": "Financial KPI cards display dollar-prefixed amounts, for example $500.00.",
+      "comment": "Use company currency formatting consistently, preserving the configured decimal preference."
+    },
+    {
+      "id": "P2-REP-006",
+      "title": "Standard report PDF export is missing",
+      "priority": "Medium",
+      "features": [
+        "F20-f"
+      ],
+      "steps": [
+        "Sign in to the production Nexstock QA Company.",
+        "Open Reports",
+        "Open Download Format and inspect all options."
+      ],
+      "expected": "Standard reports can be exported to PDF.",
+      "actual": "Only CSV and Excel choices are available; PDF is absent.",
+      "comment": "Implement PDF export and validate actual downloaded content, layout and complete data."
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "module": "Credit Notes",
+  "testDate": "25 October 2026",
+  "limits": [
+    "Each saved-credit scenario creates its own paid Rs 100 QA invoice and invoice-linked credit, verifies the saved customer/invoice/amount/remaining credit, and retains synthetic fiscal records as evidence.",
+    "Missing return reasons, restock selection and allocation/refund controls prevent their end-to-end business effects from being certified.",
+    "Both document Print and PDF buttons invoke the browser print workflow. The actual application print view was captured as a one-page A4 PDF and visually inspected; no native file download or physical printer is certified.",
+    "QA product stock is captured across five branches and restored. The first diagnostic's invalid baseline parser was corrected; no NaN adjustment reached the server."
+  ],
+  "automation": [
+    "Changed stock-cell parsing from Number('0 Out') to the established numeric parser, added finite-value guards before baseline capture/restoration/writes, and reran the full module. The earlier owned +3 seed was restored using its exact write journal, last verified branch baseline and current matrix; other branches were unchanged.",
+    "Restoration reads the matrix once before compensation and once after; each changed QA branch is verified against the captured baseline.",
+    "Added actual PDF text/media-box validation and a focused print rerun. The generated app print-view PDF was rendered with Poppler and visually checked."
+  ],
+  "bugs": [
+    {
+      "id": "P2-CN-002",
+      "title": "Credit Note editor does not support return or adjustment reason logging",
+      "priority": "Medium",
+      "features": [
+        "F13-b"
+      ],
+      "steps": [
+        "Sign in to Nexstock QA Company and open Credit Notes > Create Credit Note.",
+        "Select QA Billing Automation Customer and add a product line.",
+        "Look for a return reason or adjustment type such as Product return, Billing correction or Price concession.",
+        "Save an invoice-linked QA credit and reopen its detail."
+      ],
+      "expected": "A user can record the return/adjustment reason and see it retained with the credit note.",
+      "actual": "There is no reason input or reason selection in the editor. The save payload sends reason and reasonCode as empty strings; the saved QA credit retains an empty reason.",
+      "comment": "Add a reason field/type, preserve it in the saved record and show it on the official voucher/history. This ticket covers the missing capability rather than inventing mandatory validation or reason-code policy."
+    },
+    {
+      "id": "P2-CN-003",
+      "title": "Credit Note has no optional return-to-stock or warehouse selection",
+      "priority": "High",
+      "features": [
+        "F13-c"
+      ],
+      "steps": [
+        "Open Credit Notes > Create Credit Note in the QA company.",
+        "Select a QA customer and an inventory product line.",
+        "Inspect all creation controls for return-to-stock and receiving warehouse options.",
+        "Inspect the saved credit's available actions."
+      ],
+      "expected": "A product return can optionally restock the selected warehouse; leaving the option off should preserve stock.",
+      "actual": "Creation has customer, linked invoice, dates, product/quantity/price and discount controls, but no restock toggle or warehouse selector. Saved detail offers printing only.",
+      "comment": "Implement the optional restock workflow and preserve location/quantity linkage. Retest both enabled/disabled cases and branch isolation; no stock effect is claimed passed from this missing-UI check."
+    },
+    {
+      "id": "P2-CN-004",
+      "title": "Saved invoice-linked credit has no allocation or cash-refund action",
+      "priority": "High",
+      "features": [
+        "F13-d"
+      ],
+      "steps": [
+        "Create an isolated paid Rs 100 QA invoice for QA Billing Automation Customer.",
+        "Create a Rs 100 Credit Note linked to that exact invoice using the available Save as Draft action.",
+        "Confirm the saved record exists with status open and remaining balance Rs 100.",
+        "Open its eye/View action and inspect available controls."
+      ],
+      "expected": "The available credit can be applied through an invoice allocation workflow or settled as an explicitly recorded cash refund.",
+      "actual": "The saved detail exposes Print and PDF only. There is no apply-credit, allocation, activation/issue transition or cash-refund action, leaving the recorded Rs 100 credit inaccessible for settlement.",
+      "comment": "Add the credit lifecycle and allocation/refund controls with balance updates and audit linkage. Saved open credit was observed; do not assume money moved or log a separate cash-refund processing defect without an accessible action."
+    }
+  ]
+}

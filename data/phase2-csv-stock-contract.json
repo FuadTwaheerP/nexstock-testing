@@ -1,0 +1,6 @@
+{
+  "confirmedOn": "2026-10-25",
+  "source": "Direct user clarification during Phase 2 product export testing",
+  "expected": "Add one stock column for each branch, display all branches, and add a total stock column across all branches.",
+  "oracle": "Read actual branch names and stock balances from the QA Stores inventory matrix; do not hard-code branch identifiers or infer that legacy Stock is the company total."
+}

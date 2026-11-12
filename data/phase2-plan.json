@@ -1,0 +1,631 @@
+{
+  "started": "2026-10-25",
+  "target": "Production Nexstock QA Company only",
+  "scope": "All phase===2 feature-matrix entries; Phase 3 excluded",
+  "workflow": "For each module inspect UI, implement independent submodule scripts plus full flow, execute, fix automation, report grouped confirmed bugs separately, then proceed. Never call blocked/unverified checks passed.",
+  "staffApproval": "25 Oct 2026 user permits isolated QA staff creation/login/edit/deactivation only; no existing owner/staff changes or real invitations/payments",
+  "staffMockAuthorization": "25 Oct 2026 user requests mock data and a fake join URL. Add clearly labelled mocked invitation/join UI checks; do not count mocked authorization responses as production RBAC enforcement. Real staff login/branch enforcement remains unverified without an activated QA identity.",
+  "modules": [
+    {
+      "module": "Dashboard & Executive Analytics",
+      "features": [
+        {
+          "id": "F01-a",
+          "title": "KPI Metric Cards"
+        },
+        {
+          "id": "F01-b",
+          "title": "Revenue & Sales Velocity Charts"
+        },
+        {
+          "id": "F01-c",
+          "title": "Top-Selling & Fast-Moving Products"
+        },
+        {
+          "id": "F01-d",
+          "title": "Low Stock Alert Panel"
+        },
+        {
+          "id": "F01-e",
+          "title": "Recent Transaction Feed"
+        },
+        {
+          "id": "F01-f",
+          "title": "Multi-Branch Scope Switcher"
+        }
+      ],
+      "slug": "dashboard",
+      "status": "executed/reviewed - 4 confirmed bugs, no unresolved automation errors; not acceptance passed",
+      "attempts": [
+        "dashboard-1",
+        "dashboard-2",
+        "dashboard-3",
+        "dashboard-4"
+      ],
+      "bugsFile": "docs/phase2/bugs/dashboard.md",
+      "supersededTests": [
+        "F01-b revenue trend renders in the preview without saving the layout"
+      ],
+      "bugIds": [
+        "P2-DASH-001",
+        "P2-DASH-002",
+        "P2-DASH-003",
+        "P2-DASH-004"
+      ]
+    },
+    {
+      "module": "Products & Catalog Management",
+      "features": [
+        {
+          "id": "F02-j",
+          "title": "Bulk Catalog Operations"
+        }
+      ],
+      "slug": "products-bulk",
+      "status": "executed/reviewed - 2 confirmed bugs; no unresolved automation errors; not acceptance passed",
+      "attempts": [
+        "products-bulk-1",
+        "products-bulk-2",
+        "products-bulk-3",
+        "products-bulk-4",
+        "products-bulk-5",
+        "products-bulk-6",
+        "products-bulk-7"
+      ],
+      "bugsFile": "docs/phase2/bugs/products-bulk.md",
+      "bugIds": [
+        "P2-BULK-001",
+        "P2-BULK-004"
+      ]
+    },
+    {
+      "module": "Stores & Branches (Multi-Location)",
+      "features": [
+        {
+          "id": "F03-e",
+          "title": "Branch Staff Assignment"
+        },
+        {
+          "id": "F03-f",
+          "title": "Deactivate / Close Branch"
+        }
+      ],
+      "slug": "stores-lifecycle",
+      "status": "executed/reviewed - 4 live/setup/cleanup passes, 2 unconfirmed mock-based staff observations; no confirmed Stores bugs or unresolved automation errors; QA branch restored Active",
+      "attempts": [
+        "stores-lifecycle-1",
+        "stores-lifecycle-2",
+        "stores-lifecycle-3",
+        "stores-lifecycle-4",
+        "stores-lifecycle-5",
+        "stores-lifecycle-6",
+        "stores-lifecycle-7"
+      ],
+      "bugsFile": "docs/phase2/bugs/stores-lifecycle.md",
+      "bugIds": [],
+      "mockObservations": [
+        "P2-STAFF-OBS-002"
+      ]
+    },
+    {
+      "module": "Stock Transfers (Inter-Branch)",
+      "features": [
+        {
+          "id": "F05-a",
+          "title": "Create Transfer Request"
+        },
+        {
+          "id": "F05-b",
+          "title": "In-Transit Workflow Tracking"
+        },
+        {
+          "id": "F05-c",
+          "title": "Receiving Stock Transfer"
+        },
+        {
+          "id": "F05-d",
+          "title": "Transfer Ledger & Audit History"
+        }
+      ],
+      "slug": "stock-transfers",
+      "status": "executed/reviewed - 7 composite passes, no confirmed bugs; selector ticket withdrawn; real lifecycle and both branch balances verified",
+      "attempts": [
+        "stock-transfers-1",
+        "stock-transfers-2",
+        "stock-transfers-3",
+        "stock-transfers-4",
+        "stock-transfers-5",
+        "stock-transfers-6",
+        "stock-transfers-7",
+        "stock-transfers-8",
+        "stock-transfers-9",
+        "stock-transfers-10",
+        "stock-transfers-11",
+        "stock-transfers-12",
+        "stock-transfers-13"
+      ],
+      "bugsFile": "docs/phase2/bugs/stock-transfers.md"
+    },
+    {
+      "module": "Stock Counts (Physical Inventory Audits)",
+      "features": [
+        {
+          "id": "F06-a",
+          "title": "Physical Stock Count Entry"
+        },
+        {
+          "id": "F06-b",
+          "title": "Discrepancy & Variance Calculation"
+        },
+        {
+          "id": "F06-c",
+          "title": "One-Click Reconciliation"
+        }
+      ],
+      "slug": "stock-counts",
+      "status": "executed/reviewed - 3 passes, 6 failing cases grouped into 3 bugs including first-balance reconciliation regression; no unresolved automation errors",
+      "supersededTests": [
+        "F06-a open an isolated QA physical count and inspect expected quantities"
+      ],
+      "attempts": [
+        "stock-counts-1",
+        "stock-counts-2",
+        "stock-counts-3",
+        "stock-counts-4",
+        "stock-counts-5",
+        "stock-counts-6",
+        "stock-counts-7"
+      ],
+      "bugsFile": "docs/phase2/bugs/stock-counts.md",
+      "bugIds": [
+        "P2-COUNT-002",
+        "P2-COUNT-004",
+        "P2-COUNT-005"
+      ]
+    },
+    {
+      "module": "Point of Sale (POS) & Checkout",
+      "features": [
+        {
+          "id": "F08-j",
+          "title": "Park / Hold Orders"
+        },
+        {
+          "id": "F08-k",
+          "title": "Cash Sale vs Invoice Conversion"
+        }
+      ],
+      "slug": "pos-extensions",
+      "status": "executed/reviewed - 1 new held-order bug and known RET-002 reproduced; receipt/formal view/printing verified; no unresolved automation errors",
+      "supersededTests": [
+        "F08-k QA cash sale exposes receipt and formal invoice actions"
+      ],
+      "attempts": [
+        "pos-extensions-1",
+        "pos-extensions-2",
+        "pos-extensions-3",
+        "pos-extensions-4",
+        "pos-extensions-5",
+        "pos-extensions-6"
+      ],
+      "bugsFile": "docs/phase2/bugs/pos-extensions.md",
+      "bugIds": [
+        "P2-POS-002",
+        "RET-002"
+      ]
+    },
+    {
+      "module": "Cash Register & Shift Management",
+      "features": [
+        {
+          "id": "F09-a",
+          "title": "Open Register / Shift"
+        },
+        {
+          "id": "F09-b",
+          "title": "Cash In / Cash Out (Pay-Ins & Pay-Outs)"
+        },
+        {
+          "id": "F09-c",
+          "title": "Close Register / Shift"
+        },
+        {
+          "id": "F09-d",
+          "title": "Thermal X-Reports & Z-Reports"
+        },
+        {
+          "id": "F09-e",
+          "title": "Shift Reconciliation History"
+        }
+      ],
+      "slug": "cash-register",
+      "status": "executed/reviewed - 7 passes, 5 failing cases grouped into 2 UI capability bugs; no unresolved automation errors; all owned shifts closed",
+      "attempts": [
+        "cash-register-1",
+        "cash-register-2"
+      ],
+      "bugsFile": "docs/phase2/bugs/cash-register.md",
+      "bugIds": [
+        "P2-REG-001",
+        "P2-REG-002"
+      ]
+    },
+    {
+      "module": "Quotations & Cost Estimates",
+      "features": [
+        {
+          "id": "F11-a",
+          "title": "Create Quotation"
+        },
+        {
+          "id": "F11-b",
+          "title": "Negotiated Pricing & Commercial Terms"
+        },
+        {
+          "id": "F11-c",
+          "title": "Branded PDF Generation & Printing"
+        },
+        {
+          "id": "F11-d",
+          "title": "Status Pipeline"
+        },
+        {
+          "id": "F11-e",
+          "title": "One-Click Conversion"
+        }
+      ],
+      "slug": "quotations",
+      "status": "executed/reviewed - 3 passes, 5 failing cases grouped into 2 new bugs and known RET-002; no unresolved automation errors; downstream status/conversion unverified",
+      "attempts": [
+        "quotations-1",
+        "quotations-2"
+      ],
+      "bugsFile": "docs/phase2/bugs/quotations.md",
+      "bugIds": [
+        "P2-QUOTE-001",
+        "P2-QUOTE-002",
+        "RET-002"
+      ]
+    },
+    {
+      "module": "Credit Notes",
+      "features": [
+        {
+          "id": "F13-a",
+          "title": "Issue Credit Note"
+        },
+        {
+          "id": "F13-b",
+          "title": "Return Reason Logging"
+        },
+        {
+          "id": "F13-c",
+          "title": "Inventory Restock Integration"
+        },
+        {
+          "id": "F13-d",
+          "title": "Credit Allocation"
+        },
+        {
+          "id": "F13-e",
+          "title": "Credit Note PDF Export & Print"
+        }
+      ],
+      "slug": "credit-notes",
+      "status": "executed/reviewed - 4 passes, 4 failing cases grouped into 3 missing-capability bugs; no unresolved automation errors; actual A4 print document parsed and visually verified",
+      "attempts": [
+        "credit-notes-1",
+        "credit-notes-2",
+        "credit-notes-3"
+      ],
+      "bugsFile": "docs/phase2/bugs/credit-notes.md",
+      "bugIds": [
+        "P2-CN-002",
+        "P2-CN-003",
+        "P2-CN-004"
+      ]
+    },
+    {
+      "module": "Purchasing & Purchase Orders (PO)",
+      "features": [
+        {
+          "id": "F15-a",
+          "title": "Create Purchase Order"
+        },
+        {
+          "id": "F15-b",
+          "title": "Status Lifecycle"
+        },
+        {
+          "id": "F15-c",
+          "title": "Purchase Order PDF Export"
+        },
+        {
+          "id": "F15-d",
+          "title": "Fulfillment Tracking"
+        }
+      ],
+      "slug": "purchase-orders",
+      "status": "executed/reviewed - 2 setup/cleanup passes, 6 failing cases grouped into one confirmed creation blocker; no unresolved automation errors; downstream lifecycle/PDF/receipts unverified",
+      "attempts": [
+        "purchase-orders-1",
+        "purchase-orders-2",
+        "purchase-orders-3",
+        "purchase-orders-4"
+      ],
+      "bugsFile": "docs/phase2/bugs/purchase-orders.md",
+      "bugIds": [
+        "P2-PO-001"
+      ]
+    },
+    {
+      "module": "Goods Receipt Notes (GRN)",
+      "features": [
+        {
+          "id": "F16-a",
+          "title": "Receive Goods"
+        },
+        {
+          "id": "F16-b",
+          "title": "Partial Shipment Support"
+        },
+        {
+          "id": "F16-c",
+          "title": "Automatic Inventory Increment"
+        },
+        {
+          "id": "F16-d",
+          "title": "Damage & Shortage Logging"
+        }
+      ],
+      "slug": "goods-receipts",
+      "status": "executed/reviewed - 3 passed, 3 application-failing cases grouped into P2-GRN-002 cost estimate and P2-GRN-003 missing standalone supplier GRN; 4 PO-dependent blockers; no unresolved automation errors; QA stock restored",
+      "attempts": [
+        "goods-receipts-1",
+        "goods-receipts-2",
+        "goods-receipts-3",
+        "goods-receipts-4",
+        "goods-receipts-5"
+      ],
+      "bugsFile": "docs/phase2/bugs/goods-receipts.md",
+      "dependencyBugIds": [
+        "P2-PO-001"
+      ],
+      "bugIds": [
+        "P2-GRN-002",
+        "P2-GRN-003"
+      ]
+    },
+    {
+      "module": "Bills & Accounts Payable (AP)",
+      "features": [
+        {
+          "id": "F17-a",
+          "title": "Create Vendor Bill"
+        },
+        {
+          "id": "F17-b",
+          "title": "Record Bill Payments"
+        },
+        {
+          "id": "F17-c",
+          "title": "Payables Aging & Due Dates"
+        }
+      ],
+      "slug": "bills-payable",
+      "status": "executed/reviewed - 5 passed, 1 application failure (missing transaction reference), 2 blocked by PO creation; no unresolved automation errors",
+      "attempts": [
+        "bills-payable-1"
+      ],
+      "bugsFile": "docs/phase2/bugs/bills-payable.md",
+      "bugIds": [
+        "P2-AP-002"
+      ],
+      "dependencyBugIds": [
+        "P2-PO-001"
+      ]
+    },
+    {
+      "module": "Suppliers & Vendor Management",
+      "features": [
+        {
+          "id": "F18-d",
+          "title": "Supplier Transaction History"
+        }
+      ],
+      "slug": "supplier-history",
+      "status": "executed/reviewed - 2 setup/cleanup passes, 3 application failures grouped into missing complete ledger, 2 PO/GRN prerequisite blockers; no unresolved automation errors",
+      "attempts": [
+        "supplier-history-1",
+        "supplier-history-2"
+      ],
+      "bugsFile": "docs/phase2/bugs/supplier-history.md",
+      "bugIds": [
+        "P2-SUPH-001"
+      ],
+      "dependencyBugIds": [
+        "P2-PO-001"
+      ]
+    },
+    {
+      "module": "Reports & Business Intelligence",
+      "features": [
+        {
+          "id": "F20-a",
+          "title": "Sales Summary Reports"
+        },
+        {
+          "id": "F20-b",
+          "title": "Product Sales Performance Reports"
+        },
+        {
+          "id": "F20-c",
+          "title": "Inventory Valuation Reports"
+        },
+        {
+          "id": "F20-d",
+          "title": "Low Stock & Stockout Reports"
+        },
+        {
+          "id": "F20-e",
+          "title": "Tax & Fiscal VAT Reports"
+        },
+        {
+          "id": "F20-f",
+          "title": "Data Export Formats"
+        }
+      ],
+      "slug": "reports",
+      "status": "executed/reviewed - 5 passed, 7 application-failing cases grouped into 6 bugs, 1 Stock Counts prerequisite blocked; no unresolved automation errors",
+      "attempts": [
+        "reports-1",
+        "reports-2",
+        "reports-3",
+        "reports-4",
+        "reports-5",
+        "reports-6"
+      ],
+      "bugsFile": "docs/phase2/bugs/reports.md",
+      "bugIds": [
+        "P2-REP-001",
+        "P2-REP-002",
+        "P2-REP-003",
+        "P2-REP-004",
+        "P2-REP-005",
+        "P2-REP-006"
+      ],
+      "dependencyBugIds": [
+        "P2-COUNT-005"
+      ]
+    },
+    {
+      "module": "Document Builder & Visual Template Designer",
+      "features": [
+        {
+          "id": "F22-a",
+          "title": "Brand Theme Customization"
+        },
+        {
+          "id": "F22-b",
+          "title": "Header & Footer Notes"
+        },
+        {
+          "id": "F22-c",
+          "title": "Standard Template Presets"
+        },
+        {
+          "id": "F22-d",
+          "title": "Real-Time Document Preview"
+        }
+      ],
+      "slug": "document-templates",
+      "status": "executed/reviewed - 6 passed, 3 application failures grouped into 2 bugs, 1 quotation-output blocker; no unresolved automation errors; original template restored",
+      "attempts": [
+        "document-templates-1",
+        "document-templates-2"
+      ],
+      "bugsFile": "docs/phase2/bugs/document-templates.md",
+      "bugIds": [
+        "P2-DOC-001",
+        "P2-DOC-004"
+      ],
+      "dependencyBugIds": [
+        "P2-QUOTE-001",
+        "RET-002"
+      ]
+    },
+    {
+      "module": "Users, Roles & Access Control (RBAC)",
+      "features": [
+        {
+          "id": "F23-a",
+          "title": "Invite / Add Users"
+        },
+        {
+          "id": "F23-b",
+          "title": "Edit User Profiles & Password Reset"
+        },
+        {
+          "id": "F23-c",
+          "title": "Deactivate / Revoke User Access"
+        },
+        {
+          "id": "F23-d",
+          "title": "Built-In Predefined Roles"
+        },
+        {
+          "id": "F23-e",
+          "title": "Branch-Level Scoping"
+        }
+      ],
+      "slug": "users-rbac",
+      "status": "executed/reviewed - 3 live/setup/cleanup passes, 4 mock UI passes, 2 unconfirmed mock observations; real staff enforcement unverified; no confirmed bugs or unresolved automation errors",
+      "attempts": [
+        "users-rbac-1"
+      ],
+      "bugsFile": "docs/phase2/bugs/users-rbac.md",
+      "bugIds": [],
+      "dependencyBugIds": []
+    },
+    {
+      "module": "Audit Logs & System Activity",
+      "features": [
+        {
+          "id": "F25-a",
+          "title": "Comprehensive Activity Stream"
+        },
+        {
+          "id": "F25-b",
+          "title": "Filtering & Search"
+        }
+      ],
+      "slug": "audit-logs",
+      "status": "executed/reviewed - 6 passed, 5 application-failing cases grouped into 3 bugs; no unresolved automation errors; scoped live create/update/delete and module query/reset pass",
+      "attempts": [
+        "audit-logs-1",
+        "audit-logs-2",
+        "audit-logs-3"
+      ],
+      "bugsFile": "docs/phase2/bugs/audit-logs.md",
+      "bugIds": [
+        "P2-AUD-001",
+        "P2-AUD-003",
+        "P2-AUD-004"
+      ]
+    },
+    {
+      "module": "Notifications & Alerts Center",
+      "features": [
+        {
+          "id": "F29-a",
+          "title": "In-App Notification Center"
+        },
+        {
+          "id": "F29-b",
+          "title": "Low Stock & Out-of-Stock Alerts"
+        },
+        {
+          "id": "F29-c",
+          "title": "Overdue Invoice Alerts"
+        }
+      ],
+      "slug": "notifications",
+      "status": "executed/reviewed - 7 passed, 2 application-failing cases grouped into one overdue alert bug; no unresolved automation errors; stock/preferences restored and owned invoices cancelled",
+      "attempts": [
+        "notifications-1",
+        "notifications-2",
+        "notifications-3"
+      ],
+      "bugsFile": "docs/phase2/bugs/notifications.md",
+      "bugIds": [
+        "P2-NOT-002"
+      ]
+    }
+  ],
+  "phase2ExpectedOnProduction": "User confirmed 25 October 2026",
+  "csvStockContract": "data/phase2-csv-stock-contract.json",
+  "notificationContract": "data/phase2-notification-contract.json",
+  "adHocReceivingContract": "data/phase2-grn-contract.json — user confirmed separate no-PO GRN; only supplier, product and quantity mandatory, all other user details optional. Restock is not GRN acceptance.",
+  "reviewCompleted": "2026-10-26",
+  "completionMeaning": "All 18 module test cycles reviewed; defects, prerequisites and mocked/unverified scope remain. Not 100% feature acceptance."
+}

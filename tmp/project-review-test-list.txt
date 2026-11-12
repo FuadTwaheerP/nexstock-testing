@@ -1,0 +1,240 @@
+Listing tests:
+  [chromium-onboarding] › phase1\auth\onboarding-process.ui.spec.ts:34:1 › Onboarding process @phase1 @auth @write
+  [chromium-products] › phase1\products\add-product.ui.spec.ts:7:3 › Products & Catalog — Add Product › creates a standard inventory product with catalog, pricing and barcode data @phase1 @products
+  [chromium-products] › phase1\products\add-product.ui.spec.ts:22:3 › Products & Catalog — Add Product › supports a separate wholesale price @phase1 @products
+  [chromium-products] › phase1\products\add-product.ui.spec.ts:35:3 › Products & Catalog — Add Product › creates a service or labour item without inventory tracking @phase1 @products
+  [chromium-products] › phase1\products\archive-product.ui.spec.ts:7:3 › Products & Catalog — Delete / Archive Product › archives a product and removes it from the active product list @phase1 @products
+  [chromium-products] › phase1\products\archive-product.ui.spec.ts:17:3 › Products & Catalog — Delete / Archive Product › preserves an archived product as a recoverable historical record @phase1 @products
+  [chromium-products] › phase1\products\barcode-management.ui.spec.ts:7:3 › Products & Catalog — Barcode Scanning & Management › accepts manual barcode entry and finds the product by exact barcode @phase1 @products
+  [chromium-products] › phase1\products\barcode-management.ui.spec.ts:21:3 › Products & Catalog — Barcode Scanning & Management › scanner mode accepts keyboard-wedge barcode input @phase1 @products
+  [chromium-products] › phase1\products\categories-organization.ui.spec.ts:6:3 › Products & Catalog — Categories & Organization › creates a category and exposes it in the product form @phase1 @products
+  [chromium-products] › phase1\products\categories-organization.ui.spec.ts:17:3 › Products & Catalog — Categories & Organization › supports multi-level parent and child category hierarchy @phase1 @products
+  [chromium-products] › phase1\products\categories-organization.ui.spec.ts:27:3 › Products & Catalog — Categories & Organization › supports product tag grouping @phase1 @products
+  [chromium-products] › phase1\products\edit-product.ui.spec.ts:7:3 › Products & Catalog — Edit Product › updates product information, selling price and barcode @phase1 @products
+  [chromium-products] › phase1\products\edit-product.ui.spec.ts:31:3 › Products & Catalog — Edit Product › updates per-product VAT classification @phase1 @products
+  [chromium-products] › phase1\products\media-photography.ui.spec.ts:10:3 › Products & Catalog — Media & Product Photography › uploads a product image and displays it in the product list @phase1 @products
+  [chromium-products] › phase1\products\pricing-taxes.ui.spec.ts:7:3 › Products & Catalog — Pricing Rules & Taxes › persists product cost and standard selling price @phase1 @products
+  [chromium-products] › phase1\products\pricing-taxes.ui.spec.ts:20:3 › Products & Catalog — Pricing Rules & Taxes › supports company-rate Standard VAT, Zero-Rated and Exempt classifications per product @phase1 @products
+  [chromium-products] › phase1\products\pricing-taxes.ui.spec.ts:30:3 › Products & Catalog — Pricing Rules & Taxes › supports tax-inclusive and tax-exclusive product pricing @phase1 @products
+  [chromium-products] › phase1\products\product-full-flow.ui.spec.ts:11:3 › Products & Catalog — Full Product Flow › creates, enriches, finds, edits and archives a catalog product @phase1 @products @full-flow
+  [chromium-products] › phase1\products\release-persistence.ui.spec.ts:3:1 › release product description and barcode can be cleared after reload
+  [chromium-products] › phase1\products\release-persistence.ui.spec.ts:19:1 › release product inclusive VAT override survives save and full navigation
+  [chromium-products] › phase1\products\units-of-measure.ui.spec.ts:6:3 › Products & Catalog — Units of Measure › adds pieces, boxes, kg, meters and liters and exposes them to products @phase1 @products
+  [chromium-products] › phase1\products\variants-attributes.ui.spec.ts:7:3 › Products & Catalog — Product Variants & Attributes › creates Size, Color and Material combinations with independent SKUs and prices @phase1 @products
+  [stores-setup] › phase1\stores\stores-auth.setup.ts:11:1 › authenticate Stores suite once
+  [chromium-stores] › phase1\stores\add-branch.ui.spec.ts:6:3 › Stores & Branches — Add Branch / Store / Warehouse › creates a branch with code, type, address and contact details @phase1 @stores
+  [chromium-stores] › phase1\stores\add-branch.ui.spec.ts:19:3 › Stores & Branches — Add Branch / Store / Warehouse › captures branch tax registration details @phase1 @stores
+  [chromium-stores] › phase1\stores\add-branch.ui.spec.ts:50:3 › Stores & Branches — Add Branch / Store / Warehouse › offers retail store, warehouse and workshop branch types @phase1 @stores
+  [chromium-stores] › phase1\stores\edit-branch-settings.ui.spec.ts:6:3 › Stores & Branches — Edit Branch Settings › updates branch contact information and address @phase1 @stores
+  [chromium-stores] › phase1\stores\edit-branch-settings.ui.spec.ts:23:3 › Stores & Branches — Edit Branch Settings › updates branch receipt header details @phase1 @stores
+  [chromium-stores] › phase1\stores\edit-branch-settings.ui.spec.ts:45:3 › Stores & Branches — Edit Branch Settings › assigns registers to a branch @phase1 @stores
+  [chromium-stores] › phase1\stores\independent-stock-levels.ui.spec.ts:27:3 › Stores & Branches — Independent Branch Stock Levels › shows separate stock columns and branch-specific inventory views @phase1 @stores
+  [chromium-stores] › phase1\stores\independent-stock-levels.ui.spec.ts:45:3 › Stores & Branches — Independent Branch Stock Levels › adjusting stock in one branch leaves the other branch unchanged @phase1 @stores
+  [chromium-stores] › phase1\stores\stores-full-flow.ui.spec.ts:7:3 › Stores & Branches — Full Store Flow › creates, edits and inspects branch inventory @phase1 @stores @full-flow
+  [adjustments-setup] › phase1\stock-adjustments\adjustments-auth.setup.ts:5:1 › authenticate Stock Adjustments suite once
+  [chromium-adjustments] › phase1\stock-adjustments\create-adjustment.ui.spec.ts:4:3 › Stock Adjustments — Create Adjustment › applies positive and negative quantities and persists exact balances @phase1 @stock-adjustments
+  [chromium-adjustments] › phase1\stock-adjustments\create-adjustment.ui.spec.ts:11:3 › Stock Adjustments — Create Adjustment › rejects removal greater than available branch stock @phase1 @stock-adjustments
+  [chromium-adjustments] › phase1\stock-adjustments\create-adjustment.ui.spec.ts:22:3 › Stock Adjustments — Create Adjustment › rejects a zero quantity without creating history @phase1 @stock-adjustments
+  [chromium-adjustments] › phase1\stock-adjustments\history-audit-trail.ui.spec.ts:4:3 › Stock Adjustments — History & Audit Trail › persists one completed history record with the correct user and timestamp @phase1 @stock-adjustments
+  [chromium-adjustments] › phase1\stock-adjustments\history-audit-trail.ui.spec.ts:20:3 › Stock Adjustments — History & Audit Trail › exposes product, signed quantity and before/after balances for an adjustment @phase1 @stock-adjustments
+  [chromium-adjustments] › phase1\stock-adjustments\inventory-valuation.ui.spec.ts:4:3 › Stock Adjustments — Inventory Valuation Impact › updates stock-on-hand value at cost after positive and negative adjustments @phase1 @stock-adjustments
+  [chromium-adjustments] › phase1\stock-adjustments\reason-code-tracking.ui.spec.ts:5:5 › Stock Adjustments — Reason Code Tracking › retains damaged stock as the adjustment reason @phase1 @stock-adjustments
+  [chromium-adjustments] › phase1\stock-adjustments\reason-code-tracking.ui.spec.ts:5:5 › Stock Adjustments — Reason Code Tracking › retains shrinkage as the adjustment reason @phase1 @stock-adjustments
+  [chromium-adjustments] › phase1\stock-adjustments\reason-code-tracking.ui.spec.ts:5:5 › Stock Adjustments — Reason Code Tracking › retains theft as the adjustment reason @phase1 @stock-adjustments
+  [chromium-adjustments] › phase1\stock-adjustments\reason-code-tracking.ui.spec.ts:5:5 › Stock Adjustments — Reason Code Tracking › retains expired lot as the adjustment reason @phase1 @stock-adjustments
+  [chromium-adjustments] › phase1\stock-adjustments\reason-code-tracking.ui.spec.ts:5:5 › Stock Adjustments — Reason Code Tracking › retains opening balance correction as the adjustment reason @phase1 @stock-adjustments
+  [chromium-adjustments] › phase1\stock-adjustments\reason-code-tracking.ui.spec.ts:15:3 › Stock Adjustments — Reason Code Tracking › retains justification notes for later inspection @phase1 @stock-adjustments
+  [chromium-adjustments] › phase1\stock-adjustments\stock-adjustments-full-flow.ui.spec.ts:4:3 › Stock Adjustments — Full Flow › adds opening stock, records a loss, checks valuation and verifies audit evidence @phase1 @stock-adjustments @full-flow
+  [pos-setup] › phase1\pos\pos-auth.setup.ts:6:1 › authenticate and prepare disposable POS fixtures
+  [chromium-pos] › phase1\pos\barcode-search.ui.spec.ts:4:3 › POS — Barcode Scanning & Search › finds the correct product by SKU and product name @phase1 @pos
+  [chromium-pos] › phase1\pos\barcode-search.ui.spec.ts:15:3 › POS — Barcode Scanning & Search › one keyboard-wedge barcode scan adds exactly one unit @phase1 @pos
+  [chromium-pos] › phase1\pos\barcode-search.ui.spec.ts:25:3 › POS — Barcode Scanning & Search › unknown barcode does not add an unrelated product @phase1 @pos
+  [chromium-pos] › phase1\pos\cart-operations.ui.spec.ts:4:3 › POS — Cart Operations › merges repeated items, changes quantity, removes the line and recalculates @phase1 @pos
+  [chromium-pos] › phase1\pos\cart-operations.ui.spec.ts:19:3 › POS — Cart Operations › allows an administrator to override the unit selling price @phase1 @pos
+  [chromium-pos] › phase1\pos\cart-operations.ui.spec.ts:34:3 › POS — Cart Operations › asks for confirmation before clearing and preserves cart on cancel @phase1 @pos
+  [chromium-pos] › phase1\pos\change-calculator.ui.spec.ts:5:5 › POS — Change Calculator › calculates cash change of 0 @phase1 @pos
+  [chromium-pos] › phase1\pos\change-calculator.ui.spec.ts:5:5 › POS — Change Calculator › calculates cash change of 50 @phase1 @pos
+  [chromium-pos] › phase1\pos\change-calculator.ui.spec.ts:17:3 › POS — Change Calculator › prevents completing an underpaid cash sale @phase1 @pos
+  [chromium-pos] › phase1\pos\customer-linking.ui.spec.ts:4:3 › POS — Customer Linking › starts a fresh order with the walk-in customer @phase1 @pos
+  [chromium-pos] › phase1\pos\customer-linking.ui.spec.ts:10:3 › POS — Customer Linking › finds and links an existing customer to checkout @phase1 @pos
+  [chromium-pos] › phase1\pos\customer-linking.ui.spec.ts:16:3 › POS — Customer Linking › offers customer quick-add from the POS customer picker @phase1 @pos
+  [chromium-pos] › phase1\pos\discounts-promotions.ui.spec.ts:5:5 › POS — Discounts & Promotions › recalculates an overall percentage discount @phase1 @pos
+  [chromium-pos] › phase1\pos\discounts-promotions.ui.spec.ts:5:5 › POS — Discounts & Promotions › recalculates an overall fixed amount discount @phase1 @pos
+  [chromium-pos] › phase1\pos\discounts-promotions.ui.spec.ts:11:3 › POS — Discounts & Promotions › supports independent line percentage and fixed discounts @phase1 @pos
+  [chromium-pos] › phase1\pos\discounts-promotions.ui.spec.ts:22:3 › POS — Discounts & Promotions › does not turn a negative discount into a surcharge @phase1 @pos
+  [chromium-pos] › phase1\pos\discounts-promotions.ui.spec.ts:27:3 › POS — Discounts & Promotions › rejects an excessive discount instead of creating a negative payable total @phase1 @pos
+  [chromium-pos] › phase1\pos\multi-tender-payments.ui.spec.ts:5:5 › POS — Multi-Tender Payments › records a completed Cash sale @phase1 @pos
+  [chromium-pos] › phase1\pos\multi-tender-payments.ui.spec.ts:5:5 › POS — Multi-Tender Payments › records a completed Card sale @phase1 @pos
+  [chromium-pos] › phase1\pos\multi-tender-payments.ui.spec.ts:5:5 › POS — Multi-Tender Payments › records a completed MCB Juice sale @phase1 @pos
+  [chromium-pos] › phase1\pos\multi-tender-payments.ui.spec.ts:5:5 › POS — Multi-Tender Payments › records a completed Bank Transfer sale @phase1 @pos
+  [chromium-pos] › phase1\pos\multi-tender-payments.ui.spec.ts:12:3 › POS — Multi-Tender Payments › splits payment between card and cash and accounts for cash change @phase1 @pos
+  [chromium-pos] › phase1\pos\pos-full-flow.ui.spec.ts:4:3 › POS & Checkout — Full Flow › searches, builds an order, links a customer, discounts, checks out and reviews receipt @phase1 @pos @full-flow
+  [chromium-pos] › phase1\pos\release-catalogue-availability.ui.spec.ts:3:1 › release POS finds a QA catalogue item beyond the first product page
+  [chromium-pos] › phase1\pos\release-receipt-content.ui.spec.ts:3:1 › release till receipt prints branch header footer and inherited company VAT number
+  [chromium-pos] › phase1\pos\release-service-sale.ui.spec.ts:3:1 › release service can be sold without inventory and retains No stock kept
+  [chromium-pos] › phase1\pos\tax-engine.ui.spec.ts:4:3 › POS — Tax Engine › calculates the configured 15 percent VAT and restores company settings @phase1 @pos
+  [chromium-pos] › phase1\pos\tax-engine.ui.spec.ts:11:3 › POS — Tax Engine › offers tax exemption and recalculates the taxable order @phase1 @pos
+  [chromium-pos] › phase1\pos\thermal-receipt.ui.spec.ts:6:5 › POS — Thermal Receipt Printing › previews 58mm receipt content and invokes printing @phase1 @pos
+  [chromium-pos] › phase1\pos\thermal-receipt.ui.spec.ts:6:5 › POS — Thermal Receipt Printing › previews 80mm receipt content and invokes printing @phase1 @pos
+  [chromium-pos] › phase1\pos\visual-product-grid.ui.spec.ts:4:3 › POS — Visual Product Grid › uses the catalog category for product tiles and category navigation @phase1 @pos
+  [chromium-pos] › phase1\pos\visual-product-grid.ui.spec.ts:14:3 › POS — Visual Product Grid › marks out-of-stock tiles unavailable and keeps stocked items selectable @phase1 @pos
+  [pos-cleanup] › phase1\pos\pos-cleanup.teardown.ts:4:1 › restore QA stock after POS tests
+  [invoicing-setup] › phase1\invoicing\invoicing-auth.setup.ts:6:1 › authenticate and prepare disposable invoice fixtures
+  [chromium-invoicing] › phase1\invoicing\branded-pdf-print.ui.spec.ts:5:3 › Invoicing — Branded PDF Export & Print › can clear previously saved invoice header and payment instructions @phase1 @invoicing
+  [chromium-invoicing] › phase1\invoicing\branded-pdf-print.ui.spec.ts:18:3 › Invoicing — Branded PDF Export & Print › exports a valid PDF matching the saved invoice identity and amounts @phase1 @invoicing
+  [chromium-invoicing] › phase1\invoicing\branded-pdf-print.ui.spec.ts:29:3 › Invoicing — Branded PDF Export & Print › includes configured banking instructions and payment notes in the exported PDF @phase1 @invoicing
+  [chromium-invoicing] › phase1\invoicing\branded-pdf-print.ui.spec.ts:42:3 › Invoicing — Branded PDF Export & Print › invokes browser printing for a saved invoice without a physical print job @phase1 @invoicing
+  [chromium-invoicing] › phase1\invoicing\create-tax-invoice.ui.spec.ts:4:3 › Invoicing — Create Tax Invoice › builds two units at 100 and recalculates quantity, price and cart discount @phase1 @invoicing
+  [chromium-invoicing] › phase1\invoicing\create-tax-invoice.ui.spec.ts:13:3 › Invoicing — Create Tax Invoice › requires a customer before saving @phase1 @invoicing
+  [chromium-invoicing] › phase1\invoicing\create-tax-invoice.ui.spec.ts:21:3 › Invoicing — Create Tax Invoice › requires invoice items before saving @phase1 @invoicing
+  [chromium-invoicing] › phase1\invoicing\create-tax-invoice.ui.spec.ts:28:3 › Invoicing — Create Tax Invoice › requires a due date before saving @phase1 @invoicing
+  [chromium-invoicing] › phase1\invoicing\create-tax-invoice.ui.spec.ts:37:3 › Invoicing — Create Tax Invoice › persists a draft with its fiscal reference, customer and total after reload @phase1 @invoicing
+  [chromium-invoicing] › phase1\invoicing\create-tax-invoice.ui.spec.ts:45:3 › Invoicing — Create Tax Invoice › supports customer BRN for fiscal invoice identity @phase1 @invoicing
+  [chromium-invoicing] › phase1\invoicing\create-tax-invoice.ui.spec.ts:53:3 › Invoicing — Create Tax Invoice › persists a paid invoice using record-only Mark Paid and Save @phase1 @invoicing
+  [chromium-invoicing] › phase1\invoicing\create-tax-invoice.ui.spec.ts:59:3 › Invoicing — Create Tax Invoice › calculates 15 percent VAT and persists the taxable total @phase1 @invoicing
+  [chromium-invoicing] › phase1\invoicing\due-dates-payment-terms.ui.spec.ts:5:5 › Invoicing — Due Dates & Commercial Terms › calculates Due on receipt across a month boundary @phase1 @invoicing
+  [chromium-invoicing] › phase1\invoicing\due-dates-payment-terms.ui.spec.ts:5:5 › Invoicing — Due Dates & Commercial Terms › calculates Net 15 across a month boundary @phase1 @invoicing
+  [chromium-invoicing] › phase1\invoicing\due-dates-payment-terms.ui.spec.ts:5:5 › Invoicing — Due Dates & Commercial Terms › calculates Net 30 across a month boundary @phase1 @invoicing
+  [chromium-invoicing] › phase1\invoicing\due-dates-payment-terms.ui.spec.ts:5:5 › Invoicing — Due Dates & Commercial Terms › calculates Net 60 across a month boundary @phase1 @invoicing
+  [chromium-invoicing] › phase1\invoicing\due-dates-payment-terms.ui.spec.ts:15:3 › Invoicing — Due Dates & Commercial Terms › persists a manually selected due date @phase1 @invoicing
+  [chromium-invoicing] › phase1\invoicing\due-dates-payment-terms.ui.spec.ts:24:3 › Invoicing — Due Dates & Commercial Terms › rejects a due date earlier than the issue date @phase1 @invoicing
+  [chromium-invoicing] › phase1\invoicing\installment-partial-payments.ui.spec.ts:4:3 › Invoicing — Installments & Partial Payments › retains a 50 deposit and settles the remaining 150 after reload @phase1 @invoicing
+  [chromium-invoicing] › phase1\invoicing\installment-partial-payments.ui.spec.ts:19:5 › Invoicing — Installments & Partial Payments › rejects invalid installment 0 on a 200 invoice @phase1 @invoicing
+  [chromium-invoicing] › phase1\invoicing\installment-partial-payments.ui.spec.ts:19:5 › Invoicing — Installments & Partial Payments › rejects invalid installment -10 on a 200 invoice @phase1 @invoicing
+  [chromium-invoicing] › phase1\invoicing\invoice-lifecycle.ui.spec.ts:4:3 › Invoicing — Invoice Lifecycle › progresses draft to unpaid, partially paid and paid @phase1 @invoicing
+  [chromium-invoicing] › phase1\invoicing\invoice-lifecycle.ui.spec.ts:13:3 › Invoicing — Invoice Lifecycle › cancels a draft while preserving its invoice reference @phase1 @invoicing
+  [chromium-invoicing] › phase1\invoicing\invoice-lifecycle.ui.spec.ts:19:3 › Invoicing — Invoice Lifecycle › marks an issued unpaid invoice overdue using persisted past dates @phase1 @invoicing
+  [chromium-invoicing] › phase1\invoicing\invoice-lifecycle.ui.spec.ts:24:3 › Invoicing — Invoice Lifecycle › allocates increasing references and never reuses a cancelled number @phase1 @invoicing
+  [chromium-invoicing] › phase1\invoicing\invoicing-full-flow.ui.spec.ts:5:3 › Invoicing & Commercial Sales Billing — Full Flow › creates a Net 30 tax invoice, issues, part-pays, settles and exports/prints @phase1 @invoicing @full-flow
+  [chromium-invoicing] › phase1\invoicing\release-accounts-receivable.ui.spec.ts:4:1 › release non-zero AR reconciles issued invoice payment aging statement CSV and print
+  [chromium-invoicing] › phase1\invoicing\release-quotations.ui.spec.ts:3:1 › release quotation saves after reload and uses Valid Until rather than invoice Due Date
+  [invoicing-cleanup] › phase1\invoicing\invoicing-cleanup.teardown.ts:5:1 › restore invoice QA stock and company VAT settings
+  [suppliers-setup] › phase1\suppliers\suppliers-auth.setup.ts:6:1 › authenticate Suppliers suite and select disposable company
+  [chromium-suppliers] › phase1\suppliers\add-supplier.ui.spec.ts:4:3 › Suppliers — Add Supplier › stores optional BRN separately from Tax ID on creation @phase1 @suppliers
+  [chromium-suppliers] › phase1\suppliers\add-supplier.ui.spec.ts:18:3 › Suppliers — Add Supplier › persists company, contact, identifier, address and commercial details @phase1 @suppliers
+  [chromium-suppliers] › phase1\suppliers\add-supplier.ui.spec.ts:23:3 › Suppliers — Add Supplier › supports name-only creation as advertised by the form @phase1 @suppliers
+  [chromium-suppliers] › phase1\suppliers\add-supplier.ui.spec.ts:35:3 › Suppliers — Add Supplier › rejects a missing supplier name @phase1 @suppliers
+  [chromium-suppliers] › phase1\suppliers\add-supplier.ui.spec.ts:44:3 › Suppliers — Add Supplier › rejects a malformed email before creating a supplier @phase1 @suppliers
+  [chromium-suppliers] › phase1\suppliers\add-supplier.ui.spec.ts:53:3 › Suppliers — Add Supplier › cancel leaves no new supplier record @phase1 @suppliers
+  [chromium-suppliers] › phase1\suppliers\credit-terms-payment-conditions.ui.spec.ts:5:5 › Suppliers — Credit Terms & Payment Conditions › persists Net 15 and its allowed credit period @phase1 @suppliers
+  [chromium-suppliers] › phase1\suppliers\credit-terms-payment-conditions.ui.spec.ts:5:5 › Suppliers — Credit Terms & Payment Conditions › persists Net 30 and its allowed credit period @phase1 @suppliers
+  [chromium-suppliers] › phase1\suppliers\credit-terms-payment-conditions.ui.spec.ts:5:5 › Suppliers — Credit Terms & Payment Conditions › persists Net 60 and its allowed credit period @phase1 @suppliers
+  [chromium-suppliers] › phase1\suppliers\credit-terms-payment-conditions.ui.spec.ts:23:3 › Suppliers — Credit Terms & Payment Conditions › persists a credit limit when adding a supplier @phase1 @suppliers
+  [chromium-suppliers] › phase1\suppliers\credit-terms-payment-conditions.ui.spec.ts:36:3 › Suppliers — Credit Terms & Payment Conditions › persists an edited supplier credit limit @phase1 @suppliers
+  [chromium-suppliers] › phase1\suppliers\credit-terms-payment-conditions.ui.spec.ts:44:3 › Suppliers — Credit Terms & Payment Conditions › observes negative credit days without assuming configured terms equal overdue days @phase1 @suppliers
+  [chromium-suppliers] › phase1\suppliers\edit-deactivate-supplier.ui.spec.ts:4:3 › Suppliers — Edit / Deactivate Supplier › edits and clears optional BRN independently of Tax ID @phase1 @suppliers
+  [chromium-suppliers] › phase1\suppliers\edit-deactivate-supplier.ui.spec.ts:19:3 › Suppliers — Edit / Deactivate Supplier › updates name, contact, fiscal identifier and address after reload @phase1 @suppliers
+  [chromium-suppliers] › phase1\suppliers\edit-deactivate-supplier.ui.spec.ts:34:3 › Suppliers — Edit / Deactivate Supplier › clears optional contact and address fields without restoring stale values @phase1 @suppliers
+  [chromium-suppliers] › phase1\suppliers\edit-deactivate-supplier.ui.spec.ts:46:3 › Suppliers — Edit / Deactivate Supplier › deactivates without deleting identity and respects status filters @phase1 @suppliers
+  [chromium-suppliers] › phase1\suppliers\edit-deactivate-supplier.ui.spec.ts:55:3 › Suppliers — Edit / Deactivate Supplier › reactivates the same supplier identity rather than creating a duplicate @phase1 @suppliers
+  [chromium-suppliers] › phase1\suppliers\release-vendor-availability.ui.spec.ts:3:1 › release purchase-order vendor picker excludes inactive supplier with an active positive control
+  [chromium-suppliers] › phase1\suppliers\suppliers-full-flow.ui.spec.ts:4:3 › Suppliers & Vendor Management — Full Flow › creates, edits, configures commercial terms, selects and deactivates a vendor @phase1 @suppliers @full-flow
+  [suppliers-cleanup] › phase1\suppliers\suppliers-cleanup.teardown.ts:4:1 › verify newly created QA suppliers are retained inactive
+  [customers-setup] › phase1\customers\customers-auth.setup.ts:6:1 › authenticate Customers suite and select disposable company
+  [chromium-customers] › phase1\customers\add-customer.ui.spec.ts:4:3 › @phase1 F19-a create Individual and reopen identity/contact/address
+  [chromium-customers] › phase1\customers\add-customer.ui.spec.ts:4:3 › @phase1 F19-a create Business and reopen identity/contact/address
+  [chromium-customers] › phase1\customers\add-customer.ui.spec.ts:10:1 › @phase1 F19-a corporate BRN and VAT identifiers are separate persisted fields
+  [chromium-customers] › phase1\customers\add-customer.ui.spec.ts:29:1 › @phase1 F19-a missing name and malformed email are rejected
+  [chromium-customers] › phase1\customers\add-customer.ui.spec.ts:45:1 › @phase1 F19-a cancelling customer creation creates no record
+  [chromium-customers] › phase1\customers\customers-full-flow.ui.spec.ts:3:1 › @phase1 @full-flow Customers and AR create edit history balances archive lifecycle
+  [chromium-customers] › phase1\customers\edit-archive-customer.ui.spec.ts:3:1 › @phase1 F19-b update customer identity contact address and type
+  [chromium-customers] › phase1\customers\edit-archive-customer.ui.spec.ts:12:1 › @phase1 F19-b clear optional company phone and address
+  [chromium-customers] › phase1\customers\edit-archive-customer.ui.spec.ts:23:1 › @phase1 F19-b retain inactive customer filter and reactivate
+  [chromium-customers] › phase1\customers\edit-archive-customer.ui.spec.ts:32:1 › @phase1 F19-b inactive customer is not offered for a new invoice
+  [chromium-customers] › phase1\customers\edit-archive-customer.ui.spec.ts:42:1 › @phase1 F19-b later-sorting active customer remains selectable for billing
+  [chromium-customers] › phase1\customers\edit-archive-customer.ui.spec.ts:48:1 › @phase1 F19-b inactive customer retains its historical draft invoice
+  [chromium-customers] › phase1\customers\outstanding-balances-statements.ui.spec.ts:4:1 › @phase1 F19-c customer-specific outstanding balance
+  [chromium-customers] › phase1\customers\outstanding-balances-statements.ui.spec.ts:11:1 › @phase1 F19-c empty profile export or named statement has an explicit empty state
+  [chromium-customers] › phase1\customers\outstanding-balances-statements.ui.spec.ts:24:1 › @phase1 F19-c aging buckets are available for the customer
+  [chromium-customers] › phase1\customers\outstanding-balances-statements.ui.spec.ts:29:1 › @phase1 F19-c reconcile independently seeded invoice payment and overdue balances
+  [chromium-customers] › phase1\customers\purchase-history.ui.spec.ts:4:1 › @phase1 F19-d fresh customer has no purchase history or spend
+  [chromium-customers] › phase1\customers\purchase-history.ui.spec.ts:12:1 › @phase1 F19-d saved invoice history is scoped to its customer
+  [chromium-customers] › phase1\customers\purchase-history.ui.spec.ts:24:1 › @phase1 F19-d existing QA POS receipt appears in customer history
+  [chromium-customers] › phase1\customers\purchase-history.ui.spec.ts:44:1 › @phase1 F19-d saved QA quotation appears in customer history
+  [customers-cleanup] › phase1\customers\customers-cleanup.teardown.ts:4:1 › retain synthetic customers inactive without deleting history
+  [security-setup] › phase1\security\security-auth.setup.ts:6:1 › validate disposable security scope without rotating credentials
+  [chromium-security] › phase1\security\password-reset-update.ui.spec.ts:3:1 › @phase1 release SEC-004 removes unenforced company security controls
+  [chromium-security] › phase1\security\password-reset-update.ui.spec.ts:15:1 › @phase1 F24-b self-service reset form and return to login are accessible
+  [chromium-security] › phase1\security\password-reset-update.ui.spec.ts:22:1 › @phase1 F24-b empty and malformed reset emails are rejected without dispatch
+  [chromium-security] › phase1\security\password-reset-update.ui.spec.ts:36:1 › @phase1 F24-b password update controls are masked and remain untouched
+  [chromium-security] › phase1\security\password-reset-update.ui.spec.ts:50:1 › @phase1 F24-b self-service security profile belongs to the signed-in account
+  [chromium-security] › phase1\security\password-reset-update.ui.spec.ts:56:1 › @phase1 F24-b reset completion and update require isolated-account human handoff
+  [chromium-security] › phase1\security\secure-authentication-password-policies.ui.spec.ts:5:1 › @phase1 F24-a valid sign-in selects QA company survives refresh and protected deep link
+  [chromium-security] › phase1\security\secure-authentication-password-policies.ui.spec.ts:12:1 › @phase1 F24-a anonymous protected UI and API are denied
+  [chromium-security] › phase1\security\secure-authentication-password-policies.ui.spec.ts:32:1 › @phase1 F24-a empty login is rejected without authentication POST
+  [chromium-security] › phase1\security\secure-authentication-password-policies.ui.spec.ts:50:1 › @phase1 F24-a malformed email is rejected locally
+  [chromium-security] › phase1\security\secure-authentication-password-policies.ui.spec.ts:60:1 › @phase1 F24-a one wrong password is rejected by server without imposing new-password length on login
+  [chromium-security] › phase1\security\secure-authentication-password-policies.ui.spec.ts:75:1 › @phase1 F24-a login password is masked and optional reveal can be reversed
+  [chromium-security] › phase1\security\secure-authentication-password-policies.ui.spec.ts:88:1 › @phase1 F24-a login uses POST without credentials in URL or response password fields
+  [chromium-security] › phase1\security\secure-authentication-password-policies.ui.spec.ts:112:1 › @phase1 F24-a logout blocks back reload and direct protected navigation
+  [chromium-security] › phase1\security\secure-authentication-password-policies.ui.spec.ts:120:1 › @phase1 F24-a logout removes access from another tab in the same browser context
+  [chromium-security] › phase1\security\secure-authentication-password-policies.ui.spec.ts:139:3 › @phase1 F24-a signup feedback seven characters fail minimum
+  [chromium-security] › phase1\security\secure-authentication-password-policies.ui.spec.ts:139:3 › @phase1 F24-a signup feedback eight compliant characters pass published checklist
+  [chromium-security] › phase1\security\secure-authentication-password-policies.ui.spec.ts:139:3 › @phase1 F24-a signup feedback missing uppercase fails uppercase
+  [chromium-security] › phase1\security\secure-authentication-password-policies.ui.spec.ts:139:3 › @phase1 F24-a signup feedback missing number fails number
+  [chromium-security] › phase1\security\secure-authentication-password-policies.ui.spec.ts:139:3 › @phase1 F24-a signup feedback eight characters without optional symbol satisfy mandatory indicators
+  [chromium-security] › phase1\security\secure-authentication-password-policies.ui.spec.ts:145:1 › @phase1 F24-a signup feedback requires lowercase and rejects uppercase-only candidate
+  [chromium-security] › phase1\security\secure-authentication-password-policies.ui.spec.ts:158:1 › @phase1 F24-a signup communicates symbols as optional rather than mandatory
+  [chromium-security] › phase1\security\secure-authentication-password-policies.ui.spec.ts:167:1 › @phase1 F24-a signup strength bar increases to strongest when symbol is added
+  [chromium-security] › phase1\security\secure-authentication-password-policies.ui.spec.ts:185:1 › @phase1 F24-a backend bcrypt verification needs deployment-matched audit evidence
+  [chromium-security] › phase1\security\security-full-flow.ui.spec.ts:3:1 › @phase1 @full-flow Security authentication account recovery inactivity and logout lifecycle
+  [chromium-security] › phase1\security\session-inactivity-timeout.ui.spec.ts:3:1 › @phase1 F24-c read inactivity policy without changing security settings
+  [chromium-security] › phase1\security\session-inactivity-timeout.ui.spec.ts:13:1 › @phase1 F24-c obsolete Auto-logout control is removed
+  [chromium-security] › phase1\security\session-inactivity-timeout.ui.spec.ts:19:1 › @phase1 F24-c user security settings expose configurable inactivity PIN lock
+  [chromium-security] › phase1\security\session-inactivity-timeout.ui.spec.ts:28:1 › @phase1 F24-c user-provisioned PIN lock after 30 minutes with activity calibration and reload
+  [security-cleanup] › phase1\security\security-cleanup.teardown.ts:5:1 › verify unattended run did not attempt credential or policy changes
+  [hardware-setup] › phase1\hardware\hardware-auth.setup.ts:6:1 › authenticate Hardware suite and discover existing read-only QA fixtures
+  [chromium-hardware] › phase1\hardware\barcode-scanner-compatibility.ui.spec.ts:4:1 › @phase1 release basic-variant customization Add to Order remains reachable on desktop
+  [chromium-hardware] › phase1\hardware\barcode-scanner-compatibility.ui.spec.ts:4:1 › @phase1 release basic-variant customization remains reachable at 1440 x 900
+  [chromium-hardware] › phase1\hardware\barcode-scanner-compatibility.ui.spec.ts:31:3 › @phase1 @hardware F27-b keyboard HID emulation 0ms key cadence retains leading zeros and adds one unit
+  [chromium-hardware] › phase1\hardware\barcode-scanner-compatibility.ui.spec.ts:31:3 › @phase1 @hardware F27-b keyboard HID emulation 5ms key cadence retains leading zeros and adds one unit
+  [chromium-hardware] › phase1\hardware\barcode-scanner-compatibility.ui.spec.ts:31:3 › @phase1 @hardware F27-b keyboard HID emulation 25ms key cadence retains leading zeros and adds one unit
+  [chromium-hardware] › phase1\hardware\barcode-scanner-compatibility.ui.spec.ts:38:1 › @phase1 @hardware F27-b repeated confirmed scan bursts merge to exactly three units
+  [chromium-hardware] › phase1\hardware\barcode-scanner-compatibility.ui.spec.ts:43:1 › @phase1 @hardware F27-b unknown barcode leaves the order empty
+  [chromium-hardware] › phase1\hardware\barcode-scanner-compatibility.ui.spec.ts:51:1 › @phase1 @hardware F27-b Scan action focuses the scanner input
+  [chromium-hardware] › phase1\hardware\barcode-scanner-compatibility.ui.spec.ts:56:1 › @phase1 @hardware F27-b manual keyboard search remains usable after a scanner input
+  [chromium-hardware] › phase1\hardware\barcode-scanner-compatibility.ui.spec.ts:66:1 › @phase1 @hardware F27-b manual product click calibration opens customization with one unit
+  [chromium-hardware] › phase1\hardware\barcode-scanner-compatibility.ui.spec.ts:83:1 › @phase1 @hardware F27-b real USB and Bluetooth devices need physical acceptance evidence
+  [chromium-hardware] › phase1\hardware\browser-thermal-printing.ui.spec.ts:4:3 › @phase1 @hardware F27-a select 58mm paper and render sample receipt preview without saving
+  [chromium-hardware] › phase1\hardware\browser-thermal-printing.ui.spec.ts:4:3 › @phase1 @hardware F27-a select 80mm paper and render sample receipt preview without saving
+  [chromium-hardware] › phase1\hardware\browser-thermal-printing.ui.spec.ts:10:1 › @phase1 @hardware F27-a unsaved width edits do not change persisted receipt configuration
+  [chromium-hardware] › phase1\hardware\browser-thermal-printing.ui.spec.ts:16:1 › @phase1 @hardware F27-a existing QA receipt requests browser printing exactly once
+  [chromium-hardware] › phase1\hardware\browser-thermal-printing.ui.spec.ts:20:1 › @phase1 @hardware F27-a actual 58mm 80mm native-dialog and paper acceptance needs hardware evidence
+  [chromium-hardware] › phase1\hardware\hardware-full-flow.ui.spec.ts:3:1 › @phase1 @hardware @full-flow Hardware paper widths HID scans existing receipt print and baseline verification
+  [hardware-cleanup] › phase1\hardware\hardware-cleanup.teardown.ts:5:1 › verify unchanged configuration and stock no application writes then log out
+  [settings-setup] › phase1\settings\settings-auth.setup.ts:6:1 › authenticate Settings suite select QA company and capture recoverable baseline
+  [chromium-settings] › phase1\settings\company-profile-legal-identity.ui.spec.ts:4:1 › F28-a saves company name contact and registered address then restores @phase1 @settings
+  [chromium-settings] › phase1\settings\company-profile-legal-identity.ui.spec.ts:10:1 › F28-a saves company email after reload @phase1 @settings
+  [chromium-settings] › phase1\settings\company-profile-legal-identity.ui.spec.ts:16:1 › F28-a saves independent BRN and Tax ID fields without changing tax registration @phase1 @settings
+  [chromium-settings] › phase1\settings\company-profile-legal-identity.ui.spec.ts:25:1 › F28-a exposes separate Tax ID and VAT number for a registered company @phase1 @settings
+  [chromium-settings] › phase1\settings\currency-financial-formatting.ui.spec.ts:3:1 › F28-b MUR currency agrees between company and localization and persists @phase1 @settings
+  [chromium-settings] › phase1\settings\currency-financial-formatting.ui.spec.ts:11:1 › F28-b QA two-decimal POS display places Rs before the amount @phase1 @settings
+  [chromium-settings] › phase1\settings\currency-financial-formatting.ui.spec.ts:17:1 › F28-b Company settings exposes decimal display enable disable control @phase1 @settings
+  [chromium-settings] › phase1\settings\fiscal-tax-settings.ui.spec.ts:3:1 › F28-c enables and persists default VAT 15 percent and POS reflects the rate @phase1 @settings
+  [chromium-settings] › phase1\settings\fiscal-tax-settings.ui.spec.ts:6:1 › F28-c disabling tax registration persists without deleting legal identity @phase1 @settings
+  [chromium-settings] › phase1\settings\fiscal-tax-settings.ui.spec.ts:12:1 › F28-c system settings expose tax inclusive exclusive pricing mode @phase1 @settings
+  [chromium-settings] › phase1\settings\multi-language-support.ui.spec.ts:3:1 › F28-e switches English French and translates main navigation and settings @phase1 @settings
+  [chromium-settings] › phase1\settings\multi-language-support.ui.spec.ts:13:1 › F28-e French persists on save reload and route navigation @phase1 @settings
+  [chromium-settings] › phase1\settings\multi-language-support.ui.spec.ts:22:1 › F28-e French interface updates document language for assistive technology @phase1 @settings
+  [chromium-settings] › phase1\settings\multi-language-support.ui.spec.ts:29:1 › F28-e French company form labels contain translated text not raw keys @phase1 @settings
+  [chromium-settings] › phase1\settings\release-persistence.ui.spec.ts:3:1 › release company website saves and optional Tax ID can be cleared
+  [chromium-settings] › phase1\settings\release-persistence.ui.spec.ts:12:1 › release decimal display off and on persists and changes POS amount formatting
+  [chromium-settings] › phase1\settings\release-persistence.ui.spec.ts:35:1 › release company inclusive VAT preference persists independently of registration
+  [chromium-settings] › phase1\settings\settings-full-flow.ui.spec.ts:4:1 › System Settings and Localization integrated flow @phase1 @settings @full-flow
+  [chromium-settings] › phase1\settings\theme-settings.ui.spec.ts:3:35 › F28-d light theme persists through reload and leaves forms usable @phase1 @settings
+  [chromium-settings] › phase1\settings\theme-settings.ui.spec.ts:3:35 › F28-d dark theme persists through reload and leaves forms usable @phase1 @settings
+  [chromium-settings] › phase1\settings\theme-settings.ui.spec.ts:14:1 › F28-d exposes System Default appearance alongside light and dark @phase1 @settings
+  [settings-cleanup] › phase1\settings\settings-cleanup.teardown.ts:5:1 › restore original QA settings verify journal and log out
+  [help-setup] › phase1\help\help-auth.setup.ts:5:1 › authenticate Help suite and select disposable QA company
+  [chromium-help] › phase1\help\help-full-flow.ui.spec.ts:2:1 › Help Center is reachable from app navigation without altering the QA company @phase1 @help
+  [chromium-help] › phase1\help\help-full-flow.ui.spec.ts:10:1 › Help Center Legal and Compliance integrated flow @phase1 @help @full-flow
+  [chromium-help] › phase1\help\privacy-policy.ui.spec.ts:2:1 › F30-b public Privacy opens without submitting login @phase1 @help
+  [chromium-help] › phase1\help\privacy-policy.ui.spec.ts:5:1 › F30-b Privacy supports mobile keyboard access and document focus return @phase1 @help
+  [chromium-help] › phase1\help\privacy-policy.ui.spec.ts:8:1 › F30-b platform Privacy is accessible from authenticated Help Center @phase1 @help
+  [chromium-help] › phase1\help\system-version-build.ui.spec.ts:2:1 › F30-c public login displays NexStock copyright and year @phase1 @help
+  [chromium-help] › phase1\help\system-version-build.ui.spec.ts:8:1 › F30-c active platform version and commit are visible @phase1 @help
+  [chromium-help] › phase1\help\terms-of-service.ui.spec.ts:2:1 › F30-a public Terms opens without submitting login @phase1 @help
+  [chromium-help] › phase1\help\terms-of-service.ui.spec.ts:5:1 › F30-a Terms supports mobile keyboard access and document focus return @phase1 @help
+  [chromium-help] › phase1\help\terms-of-service.ui.spec.ts:8:1 › F30-a platform Terms is accessible from authenticated Help Center @phase1 @help
+  [help-cleanup] › phase1\help\help-cleanup.teardown.ts:4:1 › verify read-only Help journal and end QA session
+Total: 238 tests in 88 files

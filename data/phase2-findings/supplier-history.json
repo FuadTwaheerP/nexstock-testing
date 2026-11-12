@@ -1,0 +1,34 @@
+{
+  "module": "Supplier Transaction History",
+  "testDate": "25 October 2026",
+  "limits": [
+    "New QA vendor bills and a Rs 20 manual cash payment were verified in AP before inspecting the same supplier's history. Those non-zero transactions are absent from the supplier page.",
+    "PO and GRN history cases execute but are blocked by Purchasing P2-PO-001, so their populated history/receipt linkage is unverified.",
+    "Supplier history exposes a Catalog Products tab and a Purchase Orders tab only. The missing complete ledger is one grouped capability ticket, not separate speculative PO/GRN defects.",
+    "No existing supplier details were edited. Synthetic bill/payment records remain as evidence; no real payment was executed."
+  ],
+  "automation": [
+    "The supplier page repeats its name in an h1 and a card h4. The first run hit strict-mode ambiguity; the locator now requires heading level 1. All three affected bill/payment/full-flow cases were rerun.",
+    "Dependent PO/GRN cases remain clearly BLOCKED. No fabricated purchasing records or skipped tests are used."
+  ],
+  "bugs": [
+    {
+      "id": "P2-SUPH-001",
+      "title": "Supplier transaction history omits real bills and outgoing payments",
+      "priority": "High",
+      "features": [
+        "F18-d"
+      ],
+      "steps": [
+        "Sign in to Nexstock QA Company and select the active isolated supplier QA P2 Vendor mvo2d41l.",
+        "Create a direct QA vendor bill in Bills (AP): subtotal Rs 97, tax Rs 10, total Rs 107, future due date and a unique QA reference.",
+        "For the payment scenario, record a manual cash installment of Rs 20 and verify paid Rs 20 / due Rs 87 in AP.",
+        "Open that supplier's details and inspect all history tabs.",
+        "Open Purchase Orders history and search visually for the newly recorded bill/payment."
+      ],
+      "expected": "The supplier has a complete transaction ledger with its POs, received shipments, vendor bills and outgoing payments, including amounts and document linkage.",
+      "actual": "The page exposes Catalog Products and Purchase Orders only. The exact newly saved QA bill references, balances and Rs 20 payment are absent, with no Bills/Payments ledger view. Independent unpaid and partially paid fixtures reproduce the omission.",
+      "comment": "Add the supplier's bill/payment ledger and integrate receipt/purchase-order linkage. Use the saved QA references and payment events when retesting. Populated PO/GRN history cannot yet be certified because P2-PO-001 prevents provisioning; no separate defect is assumed for those blocked paths."
+    }
+  ]
+}

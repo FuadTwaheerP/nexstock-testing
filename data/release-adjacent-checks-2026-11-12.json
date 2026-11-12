@@ -1,0 +1,6 @@
+{
+  "jobs": [
+    ["phase2", "document-templates", "brand-theme.ui.spec.ts", "release-contrast.ui.spec.ts", "release-pdf-precedence.ui.spec.ts", "--grep", "saved primary theme|P2-DOC-004|RET-002"],
+    ["phase2", "credit-notes", "release-debit-print.ui.spec.ts", "release-legacy-debit.ui.spec.ts"]
+  ]
+}

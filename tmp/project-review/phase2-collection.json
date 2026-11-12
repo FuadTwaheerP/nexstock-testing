@@ -1,0 +1,110 @@
+[
+  {
+    "module": "dashboard",
+    "exitCode": 0,
+    "summary": "Total: 11 tests in 9 files",
+    "stderr": ""
+  },
+  {
+    "module": "products-bulk",
+    "exitCode": 0,
+    "summary": "Total: 9 tests in 6 files",
+    "stderr": ""
+  },
+  {
+    "module": "stores-lifecycle",
+    "exitCode": 0,
+    "summary": "Total: 6 tests in 5 files",
+    "stderr": ""
+  },
+  {
+    "module": "stock-transfers",
+    "exitCode": 0,
+    "summary": "Total: 7 tests in 7 files",
+    "stderr": ""
+  },
+  {
+    "module": "stock-counts",
+    "exitCode": 0,
+    "summary": "Total: 9 tests in 7 files",
+    "stderr": ""
+  },
+  {
+    "module": "pos-extensions",
+    "exitCode": 0,
+    "summary": "Total: 6 tests in 6 files",
+    "stderr": ""
+  },
+  {
+    "module": "cash-register",
+    "exitCode": 0,
+    "summary": "Total: 12 tests in 8 files",
+    "stderr": ""
+  },
+  {
+    "module": "quotations",
+    "exitCode": 0,
+    "summary": "Total: 8 tests in 8 files",
+    "stderr": ""
+  },
+  {
+    "module": "credit-notes",
+    "exitCode": 0,
+    "summary": "Total: 10 tests in 10 files",
+    "stderr": ""
+  },
+  {
+    "module": "purchase-orders",
+    "exitCode": 0,
+    "summary": "Total: 10 tests in 9 files",
+    "stderr": ""
+  },
+  {
+    "module": "goods-receipts",
+    "exitCode": 0,
+    "summary": "Total: 10 tests in 10 files",
+    "stderr": ""
+  },
+  {
+    "module": "bills-payable",
+    "exitCode": 0,
+    "summary": "Total: 8 tests in 6 files",
+    "stderr": ""
+  },
+  {
+    "module": "supplier-history",
+    "exitCode": 0,
+    "summary": "Total: 7 tests in 7 files",
+    "stderr": ""
+  },
+  {
+    "module": "reports",
+    "exitCode": 0,
+    "summary": "Total: 13 tests in 9 files",
+    "stderr": ""
+  },
+  {
+    "module": "document-templates",
+    "exitCode": 0,
+    "summary": "Total: 10 tests in 7 files",
+    "stderr": ""
+  },
+  {
+    "module": "users-rbac",
+    "exitCode": 0,
+    "summary": "Total: 9 tests in 8 files",
+    "stderr": ""
+  },
+  {
+    "module": "audit-logs",
+    "exitCode": 0,
+    "summary": "Total: 11 tests in 5 files",
+    "stderr": ""
+  },
+  {
+    "module": "notifications",
+    "exitCode": 0,
+    "summary": "Total: 9 tests in 6 files",
+    "stderr": ""
+  }
+]

@@ -1,0 +1,30 @@
+{
+ "module":"Point of Sale - Hold Orders and Formal Invoice Output",
+ "testDate":"2026-10-25",
+ "limits":[
+  "QA service items are used so no stock is consumed. Cash entries are fictional QA bookkeeping with no payment gateway, printer hardware connection or external payment. Resulting paid POS records are retained as evidence.",
+  "Cash checkout, linked QA Billing Automation Customer, receipt identity/amounts and print invocation pass. A corresponding formal paid invoice can be opened from Invoices and its Print action works. PDF content/page-size validation is blocked by the known export 404, so no A4 PDF is certified.",
+  "Held cart persistence is confirmed by an own-order POST response and a same-session fresh GET containing the owned ID. The dialog remains empty after a 12-second UI rendering wait, preventing resume/restore/discard. The combined hold-to-checkout flow stops there; independent checkout cases cover the reachable fiscal path.",
+  "Owned held orders remain as QA evidence because the defective empty dialog offers no row-level resume/discard controls. No invented deletion endpoint is called. The helper blocks re-certification if rows become visible until the newly reachable controls are inspected and restoration assertions completed.",
+  "The still-populated post-Hold cart is retained as an unconfirmed UX observation, not a separate assumed bug. Branch/context or response mapping is a possible investigation path for the empty list, not a verified root cause."
+ ],
+ "automation":[
+  "Removed an assumed immediate-cart-clear assertion from the initial probe. The confirmed failure now compares actual saved/read-back IDs with the dialog after a bounded rendering wait.",
+  "The formal invoice exists and is reachable through Invoices. Missing A4 buttons in the thermal receipt alone is not reported as a defect.",
+  "Context-wide print observation catches calls in popups/frames without submitting any physical print job. No gateway, hardware connection, email or refund action is triggered.",
+  "The initial completion-screen probe is superseded by meaningful receipt-print and formal-document cases. A preliminary reachable-view blocker was resolved by inspecting and testing the actual Print/PDF controls."
+ ],
+ "bugs":[{
+  "id":"P2-POS-002","title":"Held Orders says no orders are on hold although the saved QA cart is returned by the API","priority":"High","features":["F08-j"],
+  "steps":["Sign in to Nexstock QA Company and open Point of Sale.","Add two units of the QA service product QA-SERVICE-mvmgbd15-fba79b; the cart total is Rs 200.00.","Click Hold and confirm the successful save response contains a held-order ID and the two-unit cart.","Reload POS in the same signed-in session and wait for the held-orders GET to finish.","Confirm that response contains the just-created ID, then open Held.","Wait at least 12 seconds and attempt to find and resume the saved order."],
+  "expected":"The held cart appears in Held Orders and can be resumed with its products, quantity and prices restored. A successful save must result in a usable saved-cart entry for its branch/context.",
+  "actual":"The POST saves the cart and its ID is present in the successful fresh GET, but Held Orders displays No orders on hold and provides no Resume/Discard row. The combined hold-resume-checkout flow cannot continue.",
+  "comment":"Verified with live production QA data and a rendering wait, not inferred from a save timeout or an assumed cart-clear policy. Investigate the frontend's response/branch filtering and ensure save, list and resume use consistent context. Keep the saved QA records for investigation or remove only their recorded owned IDs after the UI is repaired."
+ },{
+  "id":"RET-002","title":"Known Round 1 issue: invoice PDF export opens a public 404 page for POS-generated invoices","priority":"High","features":["F08-k"],"evidenceNames":["invoice-export-popup"],
+  "steps":["In Nexstock QA Company, open POS and select QA Billing Automation Customer.","Sell one QA service item for Rs 100.00 using Cash, recording exactly Rs 100.00 received.","Verify the receipt and paid transaction, then open Invoices and find the newly saved invoice ID.","Open its detail view and verify the customer, service item, Rs 100.00 total and zero amount due. Its Print action invokes browser printing.","Return to the invoice list and click the saved record's download/PDF action.","Inspect the export popup and attempt to obtain the formal invoice PDF."],
+  "expected":"Export opens a usable invoice print view or downloads the correct formal PDF. The generated document can be checked for invoice identity, customer, amounts and A4 output.",
+  "actual":"The invoice is saved, paid and viewable, but export opens the public 404 page instead of an invoice document. No valid PDF is produced for content/page-size verification.",
+  "comment":"This is the existing RET-002 from the Round 1 release retest, reproduced through the new Phase 2 POS scenario. Update/reopen the original ticket rather than log a duplicate. Fix application-prefix/export routing and retest authenticated invoice export. The test does not rewrite the broken URL or substitute a manufactured PDF for application output."
+ }]
+}

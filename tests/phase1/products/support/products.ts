@@ -39,7 +39,20 @@ export function uniqueProduct(prefix: string): ProductInput {
   };
 }
 
-export const test = base;
+// Reuse one selected-company session per worker. Repeated valid logins for
+// every catalogue assertion unnecessarily trigger the production rate limiter.
+export const test = base.extend<{}, { qaSession: Awaited<ReturnType<import('playwright/test').BrowserContext['storageState']>> }>({
+  qaSession: [async ({ browser }, use) => {
+    validateProductTestTarget(required('BASE_URL'));
+    const context = await browser.newContext({ serviceWorkers: 'block' });
+    const page = await context.newPage();
+    await page.goto(appPath('/login', required('BASE_URL')), { waitUntil: 'commit' });
+    await signInFromLoginPage(page);
+    await use(await context.storageState());
+    await context.close();
+  }, { scope: 'worker' }],
+  storageState: async ({ qaSession }, use) => { await use(qaSession); },
+});
 export { expect };
 
 async function chooseBusinessIfRequired(page: Page) {
@@ -94,8 +107,7 @@ test.beforeEach(async ({ page }, testInfo) => {
   const baseURL = required('BASE_URL');
   validateProductTestTarget(baseURL);
 
-  await page.goto(appPath('/login', baseURL));
-  await signInFromLoginPage(page);
+  await openProducts(page);
 });
 
 export async function openProducts(page: Page) {
@@ -105,7 +117,12 @@ export async function openProducts(page: Page) {
 
 export async function openProductSettings(page: Page) {
   const heading = page.getByRole('heading', { name: 'Settings', exact: true });
+  const loaded = page.waitForResponse(response => response.request().method() === 'GET' && new URL(response.url()).pathname === '/app/api/v1/settings');
   await gotoAuthenticated(page, '/settings', heading);
+  const response = await loaded;
+  expect(response.ok(), `Catalogue fixture checks require hydrated company settings, not initial placeholders (HTTP ${response.status()})`).toBe(true);
+  await response.finished();
+  await expect(page.getByLabel('Company Name', { exact: true })).toHaveValue(setting('PRODUCT_TEST_COMPANY', 'Nexstock QA Company'));
   await page.getByRole('tab', { name: 'Products', exact: true }).click();
   await expect(page.getByRole('heading', { name: 'Product Categories', exact: true })).toBeVisible();
 }
@@ -233,7 +250,11 @@ export async function populateGeneratedVariants(page: Page, skuPrefix: string, p
 export async function uploadProductImage(page: Page, filePath: string) {
   const dialog = page.getByRole('dialog', { name: /Add New Product|Edit Product/ });
   await dialog.getByRole('tab', { name: 'Images', exact: true }).click();
-  await dialog.locator('input[type="file"]').setInputFiles(filePath);
+  // PNG is supported by the deployed upload endpoint; do not assume SVG is.
+  await dialog.locator('input[type="file"]').setInputFiles(filePath.endsWith('.svg') ? {
+    name: 'qa-product-image.png', mimeType: 'image/png',
+    buffer: Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jZAAAAABJRU5ErkJggg==', 'base64'),
+  } : filePath);
   await expect(dialog.getByRole('tabpanel', { name: 'Images' }).getByRole('img').first()).toBeVisible();
 }
 

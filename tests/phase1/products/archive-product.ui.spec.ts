@@ -24,14 +24,18 @@ test.describe('Products & Catalog — Delete / Archive Product', () => {
     await archiveProduct(page, product.sku);
 
     await openProducts(page);
-    const statusFilter = page.getByRole('main').getByRole('combobox', { name: /Status/i })
-      .or(page.getByRole('main').getByLabel(/Status/i)).first();
-    await expect(statusFilter, 'Products must provide an Archived status/filter for soft-deleted records').toBeVisible();
-    await statusFilter.click();
-    await page.getByRole('option', { name: /Archived/i }).click();
+    await page.getByRole('tab', { name: 'Archived', exact: true }).click();
     const search = page.getByRole('main').getByPlaceholder('Search...', { exact: true });
     await search.fill(product.sku);
     await page.getByRole('main').getByRole('button', { name: 'Filter', exact: true }).click();
     await expect(productRow(page, product.sku), 'Archived product must remain available as a historical record').toBeVisible();
+    await productRow(page, product.sku).getByRole('button').click();
+    await page.getByRole('menuitem', { name: 'Restore', exact: true }).click();
+    await expect(productRow(page, product.sku)).toBeHidden();
+    await page.getByRole('tab', { name: 'Catalogue', exact: true }).click();
+    await search.fill(product.sku);
+    await page.getByRole('main').getByRole('button', { name: 'Filter', exact: true }).click();
+    await expect(productRow(page, product.sku)).toContainText('Active');
+    await archiveProduct(page, product.sku);
   });
 });

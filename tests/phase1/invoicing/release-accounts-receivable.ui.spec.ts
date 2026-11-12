@@ -1,0 +1,77 @@
+import { readFileSync } from 'node:fs';
+import { test, expect, route, main, createInvoice, issueInvoice, cancelInvoice, recordPayment, submitPayment, datePlus, stock } from './support/invoicing';
+
+test('release non-zero AR reconciles issued invoice payment aging statement CSV and print', async ({ page, invoice }, info) => {
+  info.setTimeout(180_000);
+  const token = Date.now().toString(36);
+  const name = `QA 000 Release AR ${token}`;
+  const email = `qa.release.ar.${token}@example.invalid`;
+  await route(page, '/customers');
+  await main(page).getByRole('button', { name: 'New Customer', exact: true }).click();
+  let form = page.getByRole('dialog', { name: 'Add New Customer', exact: true });
+  await form.getByLabel('Customer Name *', { exact: true }).fill(name);
+  await form.getByLabel('Email *', { exact: true }).fill(email);
+  await form.getByLabel('Billing Address', { exact: true }).fill('QA AR reconciliation address');
+  await form.getByRole('button', { name: 'Add Customer', exact: true }).click();
+  await expect(form).toBeHidden();
+  await main(page).getByPlaceholder('Search...', { exact: true }).fill(email);
+  const customerRow = main(page).getByRole('row').filter({ hasText: email });
+  await customerRow.getByRole('button').click();
+  await page.getByRole('menuitem', { name: 'View Details', exact: true }).click();
+  await expect(main(page).getByRole('heading', { name, exact: true }).first()).toBeVisible();
+  const profileUrl = page.url();
+  try {
+    const baseline = await stock(page, invoice.sku, invoice.branch);
+    const ref = await createInvoice(page, { ...invoice, customer: name, email }, 'Save as Draft', { issue: datePlus(-45), due: datePlus(-15) });
+    expect(await stock(page, invoice.sku, invoice.branch), 'Draft invoices must not deduct stock').toBe(baseline);
+    await page.goto(profileUrl);
+    const balance = main(page).locator('[data-slot="card"]').filter({ has: page.getByRole('heading', { name: 'Outstanding Balance', exact: true }) });
+    await expect(balance.getByRole('paragraph').filter({ hasText: /^Rs\s*0\.00$/ }).first(), 'A draft must not enter AR outstanding').toBeVisible();
+    await issueInvoice(page, ref);
+    expect(await stock(page, invoice.sku, invoice.branch), 'Issuing two units must deduct exactly two').toBe(baseline - 2);
+    await submitPayment(page, await recordPayment(page, ref, 50));
+    await page.goto(profileUrl);
+    await expect(balance).toContainText('150.00');
+    // dt exposes its visible label as text, not an accessible role name.
+    await expect(balance.getByText(/^1.30 days$/i).locator('..').getByRole('definition')).toContainText('150.00');
+    const cancelled = await createInvoice(page, { ...invoice, customer: name, email }, 'Save as Draft', { quantity: 1, price: 777 });
+    await cancelInvoice(page, cancelled);
+    await page.goto(profileUrl);
+    await expect(balance).toContainText('150.00');
+    await expect(balance).not.toContainText('927.00');
+    await main(page).getByRole('tab', { name: 'Statement', exact: true }).click();
+    const statement = main(page).getByRole('tabpanel', { name: 'Statement', exact: true });
+    const invoiceRow = statement.getByRole('row').filter({ has: page.getByRole('cell', { name: 'Invoice', exact: true }) });
+    const paymentRow = statement.getByRole('row').filter({ has: page.getByRole('cell', { name: /Payment received/ }) });
+    await expect(invoiceRow).toHaveCount(1);
+    await expect(invoiceRow).toContainText('200.00');
+    await expect(paymentRow).toHaveCount(1);
+    await expect(paymentRow).toContainText('50.00');
+    const closing = statement.getByRole('row').filter({ hasText: 'Closing balance' });
+    await expect(closing.getByRole('cell').last()).toContainText('150.00');
+    const download = page.waitForEvent('download');
+    await statement.getByRole('button', { name: 'Export CSV', exact: true }).click();
+    const file = await download, path = info.outputPath('qa-ar-statement.csv');
+    await file.saveAs(path);
+    const csv = readFileSync(path, 'utf8');
+    expect(csv).toContain('200'); expect(csv).toContain('50'); expect(csv).toContain('150');
+    await info.attach('qa-ar-statement', { path, contentType: 'text/csv' });
+    const printCalls = async () => (await Promise.all(page.context().pages().map(p => p.evaluate(() => (window as any).__qaPrintCalls || 0).catch(() => 0)))).reduce((a,b) => a+b,0);
+    const before = await printCalls();
+    await statement.getByRole('button', { name: 'Print', exact: true }).click();
+    await expect.poll(printCalls).toBeGreaterThan(before);
+    const proof = info.outputPath('reconciled-qa-ar-statement.png');
+    await page.screenshot({ path: proof, fullPage: true });
+    await info.attach('reconciled-qa-ar-statement', { path: proof, contentType: 'image/png' });
+    await info.attach('independent-ar-oracle', { body: JSON.stringify({ invoiceRef: ref, invoiceAmount: 200, paymentAmount: 50, expectedOutstanding: 150, daysOverdue: 15 }), contentType: 'application/json' });
+  } finally {
+    await page.goto(profileUrl);
+    await main(page).getByRole('button', { name: 'Edit Profile', exact: true }).click();
+    form = page.getByRole('dialog', { name: 'Edit Customer', exact: true });
+    await expect(form.getByLabel('Email *', { exact: true })).toHaveValue(email);
+    await form.getByRole('combobox', { name: 'Status', exact: true }).click();
+    await page.getByRole('option', { name: 'Inactive', exact: true }).click();
+    await form.getByRole('button', { name: 'Save Changes', exact: true }).click();
+    await expect(form).toBeHidden();
+  }
+});

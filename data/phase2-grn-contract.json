@@ -1,0 +1,8 @@
+{
+  "confirmedBy": "User, GRN clarification received 26 October 2026 (Indian/Mauritius)",
+  "workflow": "A separate Goods Receipt Note can receive goods without an existing Purchase Order. Store Inventory > Restock alone does not satisfy this requirement.",
+  "requiredUserInputs": ["supplier", "product", "quantity"],
+  "optionalUserInputs": "All other receipt details, including delivery-note/reference number, dates, notes, damage/rejection details and attachments, are optional.",
+  "minimumScenario": "Receive one QA product from a QA supplier using only supplier, product and quantity; leave every optional input blank/default. Verify the saved receipt and stock increment.",
+  "validationScope": "Mandatory-field and optional-field acceptance checks require a reachable standalone GRN form; do not claim those checks passed if that form is unavailable."
+}

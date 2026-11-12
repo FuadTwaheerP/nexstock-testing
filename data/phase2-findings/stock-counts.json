@@ -1,0 +1,77 @@
+{
+  "module": "Stock Counts (Physical Inventory Audits)",
+  "testDate": "2026-10-25",
+  "limits": [
+    "Core cases use the previously stocked simple QA product at the zero-stock QA Inspection Store: seed three units, save/reopen surplus/shortage, reconcile and restore both branch balances. An additional regression uses active physical QA-ARCHIVE-mv9s9v7r-b9c0c9, which has no displayed branch-stock row, and verifies commitment through an independently opened fresh count.",
+    "Saved but uncommitted test counts are abandoned. Committed count/adjustment records remain as QA evidence; no fiscal or inventory history is deleted.",
+    "This scope does not certify concurrent live sales during an open count, every product type or Phase 3 scheduled/barcode audits.",
+    "The first-positive-balance regression reproduces a real reconciliation failure; the earlier successful QA-ADD fixture does not certify every item/initial balance. Non-zero later-page reporting preparation is blocked by this new P2-COUNT-005."
+  ],
+  "automation": [
+    "The initial adjustment write guard used a collection endpoint while the deployed form posts to /inventory/branches/1/adjustments. Those seed requests were blocked, so they changed no stock. The scope was corrected to the exact observed QA branch endpoint and the tests rerun.",
+    "The count detail is local selected-record state. Persistence reopens the exact count reference through the count list instead of assuming a reload retains the selected detail view.",
+    "The preliminary count-open probe was superseded by the saved-count test. Setup and cleanup are not counted as feature coverage.",
+    "The new regression waits for detail hydration, saves and reopens counted quantity 1 before commitment, records the actual PUT payload/native positive-variance confirmation, and verifies a separate fresh count plus fresh catalogue search. Empty product branch-stock DTOs alone are not used as proof. Cleanup commits/restores the original zero and verifies it with a fresh count; snapshot probes are abandoned."
+  ],
+  "bugs": [
+    {
+      "id": "P2-COUNT-004",
+      "title": "Committed physical counts change stock without a Stock Adjustments history entry",
+      "priority": "High",
+      "features": [
+        "F06-c"
+      ],
+      "steps": [
+        "In Nexstock QA Company, establish three units of a simple QA product at QA Inspection Store 20261017. Record the original balance for later restoration.",
+        "Open Stock Adjustments for that branch and note the latest adjustment references.",
+        "Start a Stock Count for the same QA branch, enter counted quantity 5 for the QA product, and save it.",
+        "Commit the count and verify that branch stock changes from 3 to 5 while the comparison branch is unchanged.",
+        "Return to Stock Adjustments for the counted branch. Refresh/read its latest history repeatedly for at least 20 seconds and compare the references with the pre-commit list.",
+        "Repeat with a shortage count, then restore the original stock using a separately labelled QA adjustment."
+      ],
+      "expected": "One-click reconciliation generates an attributable stock adjustment for the counted difference. The history exposes the affected product, signed quantity and originating count so that the movement can be traced.",
+      "actual": "Count commitment updates the QA product's stock correctly, but the successful branch adjustment-history reads contain no new adjustment reference for the count. The list continues to show the earlier manual QA seed/restore records. The count movement cannot be located in Stock Adjustments.",
+      "comment": "The test compares the same branch's latest history before and after commitment, with no other test writes between those reads, and allows a 20-second refresh window. This is separate from the missing monetary variance display. It concerns the required generated adjustment record, not a claim that stock reconciliation itself failed. Generate/link a count adjustment and expose it in the stock adjustment trail; verify both surplus and shortage."
+    },
+    {
+      "id": "P2-COUNT-002",
+      "title": "Stock counts show quantity variance but omit its cost-based monetary value",
+      "priority": "Medium",
+      "features": [
+        "F06-b"
+      ],
+      "steps": [
+        "Sign in to Nexstock QA Company and note a simple QA product's cost and stock in a QA branch. The automated example uses cost Rs 40.00 at QA Inspection Store 20261017.",
+        "Use a labelled QA stock adjustment to establish three units at that branch, noting the original balance for restoration.",
+        "Open Stock Counts and start a count for that QA branch.",
+        "Locate the QA product: expected quantity is 3. Enter counted quantity 5, a surplus of 2.",
+        "Save counts, reopen the same reference and inspect the line variance and summary. Commit the count and reopen it again.",
+        "Repeat independently with expected 3 and counted 2 to check a shortage of 1. Inspect the calculated monetary variance in both the saved and committed views.",
+        "After the checks, restore the original QA stock balance with a labelled adjustment."
+      ],
+      "expected": "The count shows quantity variance and its value at product cost. A surplus of 2 at Rs 40.00 is Rs 80.00; a shortage of 1 is Rs -40.00. Users can assess the financial effect before or after reconciliation.",
+      "actual": "Saved and committed count sheets expose Product, Expected, Counted and Variance quantity columns plus a Net variance quantity summary. The quantity calculations and stock reconciliation work, but no cost-based variance amount is displayed for either surplus or shortage.",
+      "comment": "This is a missing monetary variance result in the count UI, not a claim that the underlying stock quantities are wrong or that backend accounting calculations were inspected. Add line and summary valuation based on cost, format the amounts as company currency, and verify positive/negative values and totals. The integrated flow can reach and verify reconciliation despite this display gap."
+    },
+    {
+      "id": "P2-COUNT-005",
+      "title": "A committed first positive count leaves an active QA item's branch stock at zero",
+      "priority": "High",
+      "features": [
+        "F06-c"
+      ],
+      "steps": [
+        "In Nexstock QA Company, open active physical product QA archive mv9s9v7r-b9c0c9 (SKU QA-ARCHIVE-mv9s9v7r-b9c0c9). Confirm it has zero stock and no displayed branch-stock entry.",
+        "Start a count for QA Inspection Store 20261017; the product's frozen expected quantity is 0.",
+        "Enter counted quantity 1 for that exact product and save counts.",
+        "Reopen the saved count and confirm counted quantity 1 persists.",
+        "Click Commit and accept Apply 1 variance(s) to stock? The completion request returns HTTP 200.",
+        "Start a separate fresh count for the same branch and inspect the same SKU; also search the product in a fresh catalogue view.",
+        "Abandon the fresh verification snapshot. Restore/verify the original zero balance using an owned count."
+      ],
+      "expected": "Committing counted quantity 1 reconciles this branch to 1, creating its balance row if necessary. A fresh count and catalogue read show the updated stock.",
+      "actual": "The save payload contains product_id 19 / counted_quantity 1, reopening retains 1, and completion succeeds with a positive-variance confirmation. A separate newly opened count still freezes expected quantity 0; the fresh catalogue also reports stock 0. Repeated independent execution reproduces it.",
+      "comment": "Investigate commitment for a product/branch pair without an existing stock row; missing balance initialization is a hypothesis, not a verified backend cause. The previously stocked QA-ADD product reconciles successfully, so this is a distinct data-state regression. Fix and retest first surplus/shortage and existing-balance paths. Reporting's later-page positive-stock test remains blocked until this prerequisite works."
+    }
+  ]
+}

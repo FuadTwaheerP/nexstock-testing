@@ -1,0 +1,1 @@
+{"jobs":[["phase1","hardware","--grep","release basic-variant"],["phase1","invoicing","branded-pdf-print.ui.spec.ts","invoicing-full-flow.ui.spec.ts"],["phase2","quotations"],["phase2","document-templates","--grep","saved primary theme"],["phase2","credit-notes","--grep","debit-note list opens"]]}

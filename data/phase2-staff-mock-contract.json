@@ -1,0 +1,8 @@
+{
+  "authorizedByUser": "Use mock data; fake a join URL and test",
+  "scope": "Deployed invitation/member UI with in-memory intercepted company API responses",
+  "fakeJoinUrlExample": "https://nexstock.stylotech.mu/app/users-roles?qa_mock_join=QA-MOCK-ONLY",
+  "handoff": "The test harness simulates invitation acceptance on navigation, then renders the deployed Members page. It is not a discovered production invitation-acceptance endpoint.",
+  "doesNotVerify": ["real invitation delivery or token validation", "staff credential creation/login", "server-side Cashier/Manager permission enforcement", "real revocation of an active staff session"],
+  "safety": "No real invitation/member mutation reaches production; existing owner/member records stay unchanged. Mock passes are reported separately."
+}

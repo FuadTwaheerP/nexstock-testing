@@ -4,48 +4,54 @@
     "module": "Dashboard & Executive Analytics",
     "feature": "KPI Metric Cards",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — confirmed defect(s): P2-DASH-001, P2-DASH-003; see scoped results/limits",
+    "automation": "tests/phase2/dashboard/*.ui.spec.ts; node scripts/run-phase2.mjs dashboard",
+    "evidence": "docs/phase2/bugs/dashboard.md"
   },
   {
     "id": "F01-b",
     "module": "Dashboard & Executive Analytics",
     "feature": "Revenue & Sales Velocity Charts",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — confirmed defect(s): P2-DASH-002, P2-DASH-003; see scoped results/limits",
+    "automation": "tests/phase2/dashboard/*.ui.spec.ts; node scripts/run-phase2.mjs dashboard",
+    "evidence": "docs/phase2/bugs/dashboard.md"
   },
   {
     "id": "F01-c",
     "module": "Dashboard & Executive Analytics",
     "feature": "Top-Selling & Fast-Moving Products",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — confirmed defect(s): P2-DASH-003; see scoped results/limits",
+    "automation": "tests/phase2/dashboard/*.ui.spec.ts; node scripts/run-phase2.mjs dashboard",
+    "evidence": "docs/phase2/bugs/dashboard.md"
   },
   {
     "id": "F01-d",
     "module": "Dashboard & Executive Analytics",
     "feature": "Low Stock Alert Panel",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — scoped checks passed; see acceptance limits",
+    "automation": "tests/phase2/dashboard/*.ui.spec.ts; node scripts/run-phase2.mjs dashboard",
+    "evidence": "docs/phase2/bugs/dashboard.md"
   },
   {
     "id": "F01-e",
     "module": "Dashboard & Executive Analytics",
     "feature": "Recent Transaction Feed",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — scoped checks passed; see acceptance limits",
+    "automation": "tests/phase2/dashboard/*.ui.spec.ts; node scripts/run-phase2.mjs dashboard",
+    "evidence": "docs/phase2/bugs/dashboard.md"
   },
   {
     "id": "F01-f",
     "module": "Dashboard & Executive Analytics",
     "feature": "Multi-Branch Scope Switcher",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — confirmed defect(s): P2-DASH-004; see scoped results/limits",
+    "automation": "tests/phase2/dashboard/*.ui.spec.ts; node scripts/run-phase2.mjs dashboard",
+    "evidence": "docs/phase2/bugs/dashboard.md"
   },
   {
     "id": "F02-a",
@@ -124,8 +130,9 @@
     "module": "Products & Catalog Management",
     "feature": "Bulk Catalog Operations",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — confirmed defect(s): P2-BULK-001, P2-BULK-004; see scoped results/limits",
+    "automation": "tests/phase2/products-bulk/*.ui.spec.ts; node scripts/run-phase2.mjs products-bulk",
+    "evidence": "docs/phase2/bugs/products-bulk.md"
   },
   {
     "id": "F02-k",
@@ -148,48 +155,50 @@
     "module": "Stores & Branches (Multi-Location)",
     "feature": "Add Branch / Store / Warehouse",
     "phase": 1,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Tested - partial pass",
+    "automation": "Automated; branch-level tax registration currently fails"
   },
   {
     "id": "F03-b",
     "module": "Stores & Branches (Multi-Location)",
     "feature": "Edit Branch Settings",
     "phase": 1,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Tested - partial pass",
+    "automation": "Automated; receipt header fails and assigned-register requirement awaits developer classification"
   },
   {
     "id": "F03-c",
     "module": "Stores & Branches (Multi-Location)",
     "feature": "Independent Branch Stock Levels",
     "phase": 1,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Tested - passed",
+    "automation": "Automated matrix, branch inventory views, and isolated +1/-1 stock mutation with cleanup"
   },
   {
     "id": "F03-d",
     "module": "Stores & Branches (Multi-Location)",
     "feature": "Switch Active Branch",
     "phase": 1,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Not applicable",
+    "automation": "Removed per developer clarification; a global active-branch selector is not an intended requirement"
   },
   {
     "id": "F03-e",
     "module": "Stores & Branches (Multi-Location)",
     "feature": "Branch Staff Assignment",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Mock UI only — production account/branch enforcement unverified",
+    "automation": "tests/phase2/stores-lifecycle/*.ui.spec.ts; node scripts/run-phase2.mjs stores-lifecycle",
+    "evidence": "docs/phase2/bugs/stores-lifecycle.md"
   },
   {
     "id": "F03-f",
     "module": "Stores & Branches (Multi-Location)",
     "feature": "Deactivate / Close Branch",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — scoped checks passed; see acceptance limits",
+    "automation": "tests/phase2/stores-lifecycle/*.ui.spec.ts; node scripts/run-phase2.mjs stores-lifecycle",
+    "evidence": "docs/phase2/bugs/stores-lifecycle.md"
   },
   {
     "id": "F03-g",
@@ -204,32 +213,32 @@
     "module": "Stock Adjustments",
     "feature": "Create Stock Adjustment",
     "phase": 1,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Tested - passed",
+    "automation": "stock-adjustments/create-adjustment.ui.spec.ts: positive/negative balances, branch isolation, zero and overdraw rejection"
   },
   {
     "id": "F04-b",
     "module": "Stock Adjustments",
     "feature": "Reason Code Tracking",
     "phase": 1,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Tested - partial pass",
+    "automation": "stock-adjustments/reason-code-tracking.ui.spec.ts: five reasons pass; saved justification notes cannot be reviewed from history"
   },
   {
     "id": "F04-c",
     "module": "Stock Adjustments",
     "feature": "Inventory Valuation Impact",
     "phase": 1,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Tested - passed",
+    "automation": "stock-adjustments/inventory-valuation.ui.spec.ts: positive and negative unit-cost valuation passes"
   },
   {
     "id": "F04-d",
     "module": "Stock Adjustments",
     "feature": "Adjustment History & Audit Trail",
     "phase": 1,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Tested - partial pass",
+    "automation": "stock-adjustments/history-audit-trail.ui.spec.ts: actor/timestamp/status pass; SKU and movement details unavailable in history"
   },
   {
     "id": "F04-e",
@@ -244,32 +253,36 @@
     "module": "Stock Transfers (Inter-Branch)",
     "feature": "Create Transfer Request",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — scoped checks passed; see acceptance limits",
+    "automation": "tests/phase2/stock-transfers/*.ui.spec.ts; node scripts/run-phase2.mjs stock-transfers",
+    "evidence": "docs/phase2/bugs/stock-transfers.md"
   },
   {
     "id": "F05-b",
     "module": "Stock Transfers (Inter-Branch)",
     "feature": "In-Transit Workflow Tracking",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — scoped checks passed; see acceptance limits",
+    "automation": "tests/phase2/stock-transfers/*.ui.spec.ts; node scripts/run-phase2.mjs stock-transfers",
+    "evidence": "docs/phase2/bugs/stock-transfers.md"
   },
   {
     "id": "F05-c",
     "module": "Stock Transfers (Inter-Branch)",
     "feature": "Receiving Stock Transfer",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — scoped checks passed; see acceptance limits",
+    "automation": "tests/phase2/stock-transfers/*.ui.spec.ts; node scripts/run-phase2.mjs stock-transfers",
+    "evidence": "docs/phase2/bugs/stock-transfers.md"
   },
   {
     "id": "F05-d",
     "module": "Stock Transfers (Inter-Branch)",
     "feature": "Transfer Ledger & Audit History",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — scoped checks passed; see acceptance limits",
+    "automation": "tests/phase2/stock-transfers/*.ui.spec.ts; node scripts/run-phase2.mjs stock-transfers",
+    "evidence": "docs/phase2/bugs/stock-transfers.md"
   },
   {
     "id": "F05-e",
@@ -292,24 +305,27 @@
     "module": "Stock Counts (Physical Inventory Audits)",
     "feature": "Physical Stock Count Entry",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — scoped checks passed; see acceptance limits",
+    "automation": "tests/phase2/stock-counts/*.ui.spec.ts; node scripts/run-phase2.mjs stock-counts",
+    "evidence": "docs/phase2/bugs/stock-counts.md"
   },
   {
     "id": "F06-b",
     "module": "Stock Counts (Physical Inventory Audits)",
     "feature": "Discrepancy & Variance Calculation",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — confirmed defect(s): P2-COUNT-002; see scoped results/limits",
+    "automation": "tests/phase2/stock-counts/*.ui.spec.ts; node scripts/run-phase2.mjs stock-counts",
+    "evidence": "docs/phase2/bugs/stock-counts.md"
   },
   {
     "id": "F06-c",
     "module": "Stock Counts (Physical Inventory Audits)",
     "feature": "One-Click Reconciliation",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — confirmed defect(s): P2-COUNT-004, P2-COUNT-005; see scoped results/limits",
+    "automation": "tests/phase2/stock-counts/*.ui.spec.ts; node scripts/run-phase2.mjs stock-counts",
+    "evidence": "docs/phase2/bugs/stock-counts.md"
   },
   {
     "id": "F06-d",
@@ -372,88 +388,90 @@
     "module": "Point of Sale (POS) & Checkout",
     "feature": "High-Speed Barcode Scanning & Search",
     "phase": 1,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Tested — passed: SKU/name/barcode/no-match; physical scanner not verified",
+    "automation": "tests/phase1/pos/barcode-search.ui.spec.ts; run 2026-10-17"
   },
   {
     "id": "F08-b",
     "module": "Point of Sale (POS) & Checkout",
     "feature": "Visual Product Grid",
     "phase": 1,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Tested — partial pass: stock policy passes; catalog category ignored",
+    "automation": "tests/phase1/pos/visual-product-grid.ui.spec.ts; run 2026-10-17"
   },
   {
     "id": "F08-c",
     "module": "Point of Sale (POS) & Checkout",
     "feature": "Cart Operations",
     "phase": 1,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Tested — partial pass: quantities/removal/totals pass; override and clear confirmation missing",
+    "automation": "tests/phase1/pos/cart-operations.ui.spec.ts; run 2026-10-17"
   },
   {
     "id": "F08-d",
     "module": "Point of Sale (POS) & Checkout",
     "feature": "Customer Linking",
     "phase": 1,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Tested — partial pass: walk-in/existing pass; quick-add missing",
+    "automation": "tests/phase1/pos/customer-linking.ui.spec.ts; run 2026-10-17"
   },
   {
     "id": "F08-e",
     "module": "Point of Sale (POS) & Checkout",
     "feature": "Discounts & Promotions",
     "phase": 1,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Tested — partial pass: cart discounts pass; line controls and invalid-input handling fail",
+    "automation": "tests/phase1/pos/discounts-promotions.ui.spec.ts; run 2026-10-17"
   },
   {
     "id": "F08-f",
     "module": "Point of Sale (POS) & Checkout",
     "feature": "Tax Engine",
     "phase": 1,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Tested — partial pass: configured 15% VAT passes; exemption missing",
+    "automation": "tests/phase1/pos/tax-engine.ui.spec.ts; run 2026-10-17"
   },
   {
     "id": "F08-g",
     "module": "Point of Sale (POS) & Checkout",
     "feature": "Multi-Tender Payments",
     "phase": 1,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Automated — failed/blocked: configured tenders and split controls missing; no completed sale",
+    "automation": "tests/phase1/pos/multi-tender-payments.ui.spec.ts; run 2026-10-17"
   },
   {
     "id": "F08-h",
     "module": "Point of Sale (POS) & Checkout",
     "feature": "Change Calculator",
     "phase": 1,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Automated — blocked at missing Cash tender; calculator assertions not reached",
+    "automation": "tests/phase1/pos/change-calculator.ui.spec.ts; run 2026-10-17"
   },
   {
     "id": "F08-i",
     "module": "Point of Sale (POS) & Checkout",
     "feature": "Thermal Receipt Printing",
     "phase": 1,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Automated — blocked at missing Cash tender; receipt/print assertions not reached",
+    "automation": "tests/phase1/pos/thermal-receipt.ui.spec.ts; run 2026-10-17"
   },
   {
     "id": "F08-j",
     "module": "Point of Sale (POS) & Checkout",
     "feature": "Park / Hold Orders",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — confirmed defect(s): P2-POS-002; see scoped results/limits",
+    "automation": "tests/phase2/pos-extensions/*.ui.spec.ts; node scripts/run-phase2.mjs pos-extensions",
+    "evidence": "docs/phase2/bugs/pos-extensions.md"
   },
   {
     "id": "F08-k",
     "module": "Point of Sale (POS) & Checkout",
     "feature": "Cash Sale vs Invoice Conversion",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — confirmed defect(s): RET-002; see scoped results/limits",
+    "automation": "tests/phase2/pos-extensions/*.ui.spec.ts; node scripts/run-phase2.mjs pos-extensions",
+    "evidence": "docs/phase2/bugs/pos-extensions.md"
   },
   {
     "id": "F08-l",
@@ -476,40 +494,45 @@
     "module": "Cash Register & Shift Management",
     "feature": "Open Register / Shift",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — scoped checks passed; see acceptance limits",
+    "automation": "tests/phase2/cash-register/*.ui.spec.ts; node scripts/run-phase2.mjs cash-register",
+    "evidence": "docs/phase2/bugs/cash-register.md"
   },
   {
     "id": "F09-b",
     "module": "Cash Register & Shift Management",
     "feature": "Cash In / Cash Out (Pay-Ins & Pay-Outs)",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — confirmed defect(s): P2-REG-001; see scoped results/limits",
+    "automation": "tests/phase2/cash-register/*.ui.spec.ts; node scripts/run-phase2.mjs cash-register",
+    "evidence": "docs/phase2/bugs/cash-register.md"
   },
   {
     "id": "F09-c",
     "module": "Cash Register & Shift Management",
     "feature": "Close Register / Shift",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — scoped checks passed; see acceptance limits",
+    "automation": "tests/phase2/cash-register/*.ui.spec.ts; node scripts/run-phase2.mjs cash-register",
+    "evidence": "docs/phase2/bugs/cash-register.md"
   },
   {
     "id": "F09-d",
     "module": "Cash Register & Shift Management",
     "feature": "Thermal X-Reports & Z-Reports",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — confirmed defect(s): P2-REG-002; see scoped results/limits",
+    "automation": "tests/phase2/cash-register/*.ui.spec.ts; node scripts/run-phase2.mjs cash-register",
+    "evidence": "docs/phase2/bugs/cash-register.md"
   },
   {
     "id": "F09-e",
     "module": "Cash Register & Shift Management",
     "feature": "Shift Reconciliation History",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — scoped checks passed; see acceptance limits",
+    "automation": "tests/phase2/cash-register/*.ui.spec.ts; node scripts/run-phase2.mjs cash-register",
+    "evidence": "docs/phase2/bugs/cash-register.md"
   },
   {
     "id": "F10-a",
@@ -540,80 +563,85 @@
     "module": "Quotations & Cost Estimates",
     "feature": "Create Quotation",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — confirmed defect(s): P2-QUOTE-001, P2-QUOTE-002; see scoped results/limits",
+    "automation": "tests/phase2/quotations/*.ui.spec.ts; node scripts/run-phase2.mjs quotations",
+    "evidence": "docs/phase2/bugs/quotations.md"
   },
   {
     "id": "F11-b",
     "module": "Quotations & Cost Estimates",
     "feature": "Negotiated Pricing & Commercial Terms",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — confirmed defect(s): P2-QUOTE-002; see scoped results/limits",
+    "automation": "tests/phase2/quotations/*.ui.spec.ts; node scripts/run-phase2.mjs quotations",
+    "evidence": "docs/phase2/bugs/quotations.md"
   },
   {
     "id": "F11-c",
     "module": "Quotations & Cost Estimates",
     "feature": "Branded PDF Generation & Printing",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — confirmed defect(s): RET-002; see scoped results/limits",
+    "automation": "tests/phase2/quotations/*.ui.spec.ts; node scripts/run-phase2.mjs quotations",
+    "evidence": "docs/phase2/bugs/quotations.md"
   },
   {
     "id": "F11-d",
     "module": "Quotations & Cost Estimates",
     "feature": "Status Pipeline",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — confirmed defect(s): P2-QUOTE-001; see scoped results/limits",
+    "automation": "tests/phase2/quotations/*.ui.spec.ts; node scripts/run-phase2.mjs quotations",
+    "evidence": "docs/phase2/bugs/quotations.md"
   },
   {
     "id": "F11-e",
     "module": "Quotations & Cost Estimates",
     "feature": "One-Click Conversion",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — confirmed defect(s): P2-QUOTE-001; see scoped results/limits",
+    "automation": "tests/phase2/quotations/*.ui.spec.ts; node scripts/run-phase2.mjs quotations",
+    "evidence": "docs/phase2/bugs/quotations.md"
   },
   {
     "id": "F12-a",
     "module": "Invoicing & Commercial Sales Billing",
     "feature": "Create Tax Invoice",
     "phase": 1,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Tested — partial: editor arithmetic/required fields pass; save returns server error; customer BRN unavailable",
+    "automation": "tests/phase1/invoicing/create-tax-invoice.ui.spec.ts; run 2026-10-18"
   },
   {
     "id": "F12-b",
     "module": "Invoicing & Commercial Sales Billing",
     "feature": "Installment & Partial Payments",
     "phase": 1,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Automated — blocked by invoice creation failure; payment/balance assertions not reached",
+    "automation": "tests/phase1/invoicing/installment-partial-payments.ui.spec.ts; run 2026-10-18"
   },
   {
     "id": "F12-c",
     "module": "Invoicing & Commercial Sales Billing",
     "feature": "Due Dates & Commercial Payment Terms",
     "phase": 1,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Tested — terms controls missing; manual due date persistence blocked by creation failure",
+    "automation": "tests/phase1/invoicing/due-dates-payment-terms.ui.spec.ts; run 2026-10-18"
   },
   {
     "id": "F12-d",
     "module": "Invoicing & Commercial Sales Billing",
     "feature": "Invoice Lifecycle Tracking",
     "phase": 1,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Automated — blocked by invoice creation failure; transitions/cancellation/sequencing not reached",
+    "automation": "tests/phase1/invoicing/invoice-lifecycle.ui.spec.ts; run 2026-10-18"
   },
   {
     "id": "F12-e",
     "module": "Invoicing & Commercial Sales Billing",
     "feature": "Branded PDF Export & Print",
     "phase": 1,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Tested — branding clear persistence fails; PDF/print assertions blocked by invoice creation failure",
+    "automation": "tests/phase1/invoicing/branded-pdf-print.ui.spec.ts; run 2026-10-18"
   },
   {
     "id": "F12-f",
@@ -644,40 +672,45 @@
     "module": "Credit Notes",
     "feature": "Issue Credit Note",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — scoped checks passed; see acceptance limits",
+    "automation": "tests/phase2/credit-notes/*.ui.spec.ts; node scripts/run-phase2.mjs credit-notes",
+    "evidence": "docs/phase2/bugs/credit-notes.md"
   },
   {
     "id": "F13-b",
     "module": "Credit Notes",
     "feature": "Return Reason Logging",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — confirmed defect(s): P2-CN-002; see scoped results/limits",
+    "automation": "tests/phase2/credit-notes/*.ui.spec.ts; node scripts/run-phase2.mjs credit-notes",
+    "evidence": "docs/phase2/bugs/credit-notes.md"
   },
   {
     "id": "F13-c",
     "module": "Credit Notes",
     "feature": "Inventory Restock Integration",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — confirmed defect(s): P2-CN-003; see scoped results/limits",
+    "automation": "tests/phase2/credit-notes/*.ui.spec.ts; node scripts/run-phase2.mjs credit-notes",
+    "evidence": "docs/phase2/bugs/credit-notes.md"
   },
   {
     "id": "F13-d",
     "module": "Credit Notes",
     "feature": "Credit Allocation",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — confirmed defect(s): P2-CN-004; see scoped results/limits",
+    "automation": "tests/phase2/credit-notes/*.ui.spec.ts; node scripts/run-phase2.mjs credit-notes",
+    "evidence": "docs/phase2/bugs/credit-notes.md"
   },
   {
     "id": "F13-e",
     "module": "Credit Notes",
     "feature": "Credit Note PDF Export & Print",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — scoped checks passed; see acceptance limits",
+    "automation": "tests/phase2/credit-notes/*.ui.spec.ts; node scripts/run-phase2.mjs credit-notes",
+    "evidence": "docs/phase2/bugs/credit-notes.md"
   },
   {
     "id": "F13-f",
@@ -716,32 +749,36 @@
     "module": "Purchasing & Purchase Orders (PO)",
     "feature": "Create Purchase Order",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — confirmed defect(s): P2-PO-001; see scoped results/limits",
+    "automation": "tests/phase2/purchase-orders/*.ui.spec.ts; node scripts/run-phase2.mjs purchase-orders",
+    "evidence": "docs/phase2/bugs/purchase-orders.md"
   },
   {
     "id": "F15-b",
     "module": "Purchasing & Purchase Orders (PO)",
     "feature": "Status Lifecycle",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — confirmed defect(s): P2-PO-001; see scoped results/limits",
+    "automation": "tests/phase2/purchase-orders/*.ui.spec.ts; node scripts/run-phase2.mjs purchase-orders",
+    "evidence": "docs/phase2/bugs/purchase-orders.md"
   },
   {
     "id": "F15-c",
     "module": "Purchasing & Purchase Orders (PO)",
     "feature": "Purchase Order PDF Export",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — confirmed defect(s): P2-PO-001; see scoped results/limits",
+    "automation": "tests/phase2/purchase-orders/*.ui.spec.ts; node scripts/run-phase2.mjs purchase-orders",
+    "evidence": "docs/phase2/bugs/purchase-orders.md"
   },
   {
     "id": "F15-d",
     "module": "Purchasing & Purchase Orders (PO)",
     "feature": "Fulfillment Tracking",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — confirmed defect(s): P2-PO-001; see scoped results/limits",
+    "automation": "tests/phase2/purchase-orders/*.ui.spec.ts; node scripts/run-phase2.mjs purchase-orders",
+    "evidence": "docs/phase2/bugs/purchase-orders.md"
   },
   {
     "id": "F15-e",
@@ -764,32 +801,36 @@
     "module": "Goods Receipt Notes (GRN)",
     "feature": "Receive Goods",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — confirmed defects P2-GRN-002 and P2-GRN-003; separate supplier GRN required; only supplier/product/quantity mandatory; see limits",
+    "automation": "tests/phase2/goods-receipts/*.ui.spec.ts; node scripts/run-phase2.mjs goods-receipts",
+    "evidence": "docs/phase2/bugs/goods-receipts.md"
   },
   {
     "id": "F16-b",
     "module": "Goods Receipt Notes (GRN)",
     "feature": "Partial Shipment Support",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — prerequisite blocked; available scope in module register",
+    "automation": "tests/phase2/goods-receipts/*.ui.spec.ts; node scripts/run-phase2.mjs goods-receipts",
+    "evidence": "docs/phase2/bugs/goods-receipts.md"
   },
   {
     "id": "F16-c",
     "module": "Goods Receipt Notes (GRN)",
     "feature": "Automatic Inventory Increment",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — prerequisite blocked; available scope in module register",
+    "automation": "tests/phase2/goods-receipts/*.ui.spec.ts; node scripts/run-phase2.mjs goods-receipts",
+    "evidence": "docs/phase2/bugs/goods-receipts.md"
   },
   {
     "id": "F16-d",
     "module": "Goods Receipt Notes (GRN)",
     "feature": "Damage & Shortage Logging",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — prerequisite blocked; available scope in module register",
+    "automation": "tests/phase2/goods-receipts/*.ui.spec.ts; node scripts/run-phase2.mjs goods-receipts",
+    "evidence": "docs/phase2/bugs/goods-receipts.md"
   },
   {
     "id": "F16-e",
@@ -804,24 +845,27 @@
     "module": "Bills & Accounts Payable (AP)",
     "feature": "Create Vendor Bill",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — prerequisite blocked; available scope in module register",
+    "automation": "tests/phase2/bills-payable/*.ui.spec.ts; node scripts/run-phase2.mjs bills-payable",
+    "evidence": "docs/phase2/bugs/bills-payable.md"
   },
   {
     "id": "F17-b",
     "module": "Bills & Accounts Payable (AP)",
     "feature": "Record Bill Payments",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — confirmed defect(s): P2-AP-002; see scoped results/limits",
+    "automation": "tests/phase2/bills-payable/*.ui.spec.ts; node scripts/run-phase2.mjs bills-payable",
+    "evidence": "docs/phase2/bugs/bills-payable.md"
   },
   {
     "id": "F17-c",
     "module": "Bills & Accounts Payable (AP)",
     "feature": "Payables Aging & Due Dates",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — scoped checks passed; see acceptance limits",
+    "automation": "tests/phase2/bills-payable/*.ui.spec.ts; node scripts/run-phase2.mjs bills-payable",
+    "evidence": "docs/phase2/bugs/bills-payable.md"
   },
   {
     "id": "F17-d",
@@ -836,32 +880,33 @@
     "module": "Suppliers & Vendor Management",
     "feature": "Add Supplier",
     "phase": 1,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Tested — partial: supported creation/validation; separate optional BRN unavailable",
+    "automation": "tests/phase1/suppliers/add-supplier.ui.spec.ts; suppliers-full-flow.ui.spec.ts; see suppliers-failure-tickets.md"
   },
   {
     "id": "F18-b",
     "module": "Suppliers & Vendor Management",
     "feature": "Edit / Deactivate Supplier",
     "phase": 1,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Tested — partial: supported updates, optional-field clearing and status/retention pass; separate BRN unavailable",
+    "automation": "tests/phase1/suppliers/edit-deactivate-supplier.ui.spec.ts; suppliers-full-flow.ui.spec.ts; no Phase 2 financial history generated"
   },
   {
     "id": "F18-c",
     "module": "Suppliers & Vendor Management",
     "feature": "Credit Terms & Payment Conditions",
     "phase": 1,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Tested — partial: Net 15/30/60 and negative-period fresh-navigation recheck pass; credit-limit control unavailable",
+    "automation": "tests/phase1/suppliers/credit-terms-payment-conditions.ui.spec.ts; suppliers-full-flow.ui.spec.ts; purchase-form selection only, no order submitted"
   },
   {
     "id": "F18-d",
     "module": "Suppliers & Vendor Management",
     "feature": "Supplier Transaction History",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — confirmed defect(s): P2-SUPH-001; see scoped results/limits",
+    "automation": "tests/phase2/supplier-history/*.ui.spec.ts; node scripts/run-phase2.mjs supplier-history",
+    "evidence": "docs/phase2/bugs/supplier-history.md"
   },
   {
     "id": "F18-e",
@@ -884,32 +929,32 @@
     "module": "Customers & Accounts Receivable (AR)",
     "feature": "Add Customer",
     "phase": 1,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Tested — partial: supported Individual/Business creation and validation; BRN/VAT unavailable",
+    "automation": "tests/phase1/customers/add-customer.ui.spec.ts; customers-full-flow.ui.spec.ts; see customers-failure-tickets.md"
   },
   {
     "id": "F19-b",
     "module": "Customers & Accounts Receivable (AR)",
     "feature": "Edit / Archive Customer",
     "phase": 1,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Tested — partial: updates/status and active/inactive/late-sorting billing selection pass; optional clearing fails; historical retention blocked by draft save",
+    "automation": "tests/phase1/customers/edit-archive-customer.ui.spec.ts; independent active-selection positive control and later-sorting picker check; no permanent deletion"
   },
   {
     "id": "F19-c",
     "module": "Customers & Accounts Receivable (AR)",
     "feature": "Outstanding Balances & Statements",
     "phase": 1,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Tested — partial: empty-account UI/export observations; populated statement, payment arithmetic and aging blocked by missing verified QA ledger",
+    "automation": "tests/phase1/customers/outstanding-balances-statements.ui.spec.ts; CUSTOMER_AR_SEED_PATH contract; empty-state UI omissions are not proven financial calculation bugs"
   },
   {
     "id": "F19-d",
     "module": "Customers & Accounts Receivable (AR)",
     "feature": "Complete Purchase History",
     "phase": 1,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Tested — partial: empty history baseline; populated invoice/quotation paths blocked by prerequisites; no verified POS receipt seed",
+    "automation": "tests/phase1/customers/purchase-history.ui.spec.ts; customers-full-flow.ui.spec.ts; unified history accepted, no required dedicated source tabs"
   },
   {
     "id": "F19-e",
@@ -932,48 +977,54 @@
     "module": "Reports & Business Intelligence",
     "feature": "Sales Summary Reports",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — confirmed defect(s): P2-REP-001, P2-REP-005; see scoped results/limits",
+    "automation": "tests/phase2/reports/*.ui.spec.ts; node scripts/run-phase2.mjs reports",
+    "evidence": "docs/phase2/bugs/reports.md"
   },
   {
     "id": "F20-b",
     "module": "Reports & Business Intelligence",
     "feature": "Product Sales Performance Reports",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — confirmed defect(s): P2-REP-002; see scoped results/limits",
+    "automation": "tests/phase2/reports/*.ui.spec.ts; node scripts/run-phase2.mjs reports",
+    "evidence": "docs/phase2/bugs/reports.md"
   },
   {
     "id": "F20-c",
     "module": "Reports & Business Intelligence",
     "feature": "Inventory Valuation Reports",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — prerequisite blocked; available scope in module register",
+    "automation": "tests/phase2/reports/*.ui.spec.ts; node scripts/run-phase2.mjs reports",
+    "evidence": "docs/phase2/bugs/reports.md"
   },
   {
     "id": "F20-d",
     "module": "Reports & Business Intelligence",
     "feature": "Low Stock & Stockout Reports",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — confirmed defect(s): P2-REP-003; see scoped results/limits",
+    "automation": "tests/phase2/reports/*.ui.spec.ts; node scripts/run-phase2.mjs reports",
+    "evidence": "docs/phase2/bugs/reports.md"
   },
   {
     "id": "F20-e",
     "module": "Reports & Business Intelligence",
     "feature": "Tax & Fiscal VAT Reports",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — confirmed defect(s): P2-REP-004; see scoped results/limits",
+    "automation": "tests/phase2/reports/*.ui.spec.ts; node scripts/run-phase2.mjs reports",
+    "evidence": "docs/phase2/bugs/reports.md"
   },
   {
     "id": "F20-f",
     "module": "Reports & Business Intelligence",
     "feature": "Data Export Formats",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — confirmed defect(s): P2-REP-006; see scoped results/limits",
+    "automation": "tests/phase2/reports/*.ui.spec.ts; node scripts/run-phase2.mjs reports",
+    "evidence": "docs/phase2/bugs/reports.md"
   },
   {
     "id": "F20-g",
@@ -1028,32 +1079,36 @@
     "module": "Document Builder & Visual Template Designer",
     "feature": "Brand Theme Customization",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — confirmed defect(s): P2-DOC-001, P2-DOC-004; see scoped results/limits",
+    "automation": "tests/phase2/document-templates/*.ui.spec.ts; node scripts/run-phase2.mjs document-templates",
+    "evidence": "docs/phase2/bugs/document-templates.md"
   },
   {
     "id": "F22-b",
     "module": "Document Builder & Visual Template Designer",
     "feature": "Header & Footer Notes",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — scoped checks passed; see acceptance limits",
+    "automation": "tests/phase2/document-templates/*.ui.spec.ts; node scripts/run-phase2.mjs document-templates",
+    "evidence": "docs/phase2/bugs/document-templates.md"
   },
   {
     "id": "F22-c",
     "module": "Document Builder & Visual Template Designer",
     "feature": "Standard Template Presets",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — prerequisite blocked; available scope in module register",
+    "automation": "tests/phase2/document-templates/*.ui.spec.ts; node scripts/run-phase2.mjs document-templates",
+    "evidence": "docs/phase2/bugs/document-templates.md"
   },
   {
     "id": "F22-d",
     "module": "Document Builder & Visual Template Designer",
     "feature": "Real-Time Document Preview",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — confirmed defect(s): P2-DOC-004; see scoped results/limits",
+    "automation": "tests/phase2/document-templates/*.ui.spec.ts; node scripts/run-phase2.mjs document-templates",
+    "evidence": "docs/phase2/bugs/document-templates.md"
   },
   {
     "id": "F22-e",
@@ -1076,40 +1131,45 @@
     "module": "Users, Roles & Access Control (RBAC)",
     "feature": "Invite / Add Users",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Mock UI only — production account/branch enforcement unverified",
+    "automation": "tests/phase2/users-rbac/*.ui.spec.ts; node scripts/run-phase2.mjs users-rbac",
+    "evidence": "docs/phase2/bugs/users-rbac.md"
   },
   {
     "id": "F23-b",
     "module": "Users, Roles & Access Control (RBAC)",
     "feature": "Edit User Profiles & Password Reset",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Mock UI only — production account/branch enforcement unverified",
+    "automation": "tests/phase2/users-rbac/*.ui.spec.ts; node scripts/run-phase2.mjs users-rbac",
+    "evidence": "docs/phase2/bugs/users-rbac.md"
   },
   {
     "id": "F23-c",
     "module": "Users, Roles & Access Control (RBAC)",
     "feature": "Deactivate / Revoke User Access",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Mock UI only — production account/branch enforcement unverified",
+    "automation": "tests/phase2/users-rbac/*.ui.spec.ts; node scripts/run-phase2.mjs users-rbac",
+    "evidence": "docs/phase2/bugs/users-rbac.md"
   },
   {
     "id": "F23-d",
     "module": "Users, Roles & Access Control (RBAC)",
     "feature": "Built-In Predefined Roles",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — live role choices passed; permission enforcement unverified",
+    "automation": "tests/phase2/users-rbac/*.ui.spec.ts; node scripts/run-phase2.mjs users-rbac",
+    "evidence": "docs/phase2/bugs/users-rbac.md"
   },
   {
     "id": "F23-e",
     "module": "Users, Roles & Access Control (RBAC)",
     "feature": "Branch-Level Scoping",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Mock UI only — production account/branch enforcement unverified",
+    "automation": "tests/phase2/users-rbac/*.ui.spec.ts; node scripts/run-phase2.mjs users-rbac",
+    "evidence": "docs/phase2/bugs/users-rbac.md"
   },
   {
     "id": "F23-f",
@@ -1124,24 +1184,24 @@
     "module": "Security, Sessions & Authentication",
     "feature": "Secure Authentication & Password Policies",
     "phase": 1,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Partially tested - UI defects; backend evidence blocked",
+    "automation": "tests/phase1/security/secure-authentication-password-policies.ui.spec.ts; login/logout and client feedback executed. Confirmed lowercase/symbol-optional/strength UI gaps; bcrypt/server policy needs independent evidence. See security-failure-tickets.md."
   },
   {
     "id": "F24-b",
     "module": "Security, Sessions & Authentication",
     "feature": "Password Reset & Update",
     "phase": 1,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Partially tested - identity defect; credential handoff blocked",
+    "automation": "tests/phase1/security/password-reset-update.ui.spec.ts; reset entry/invalid email and masked controls checked. Full reset/update, admin update and token lifecycle not certified; separate human-owned account/mailbox required."
   },
   {
     "id": "F24-c",
     "module": "Security, Sessions & Authentication",
     "feature": "Session Inactivity Timeout",
     "phase": 1,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Partially tested - settings UI gaps; PIN timing blocked",
+    "automation": "tests/phase1/security/session-inactivity-timeout.ui.spec.ts; configurable 30-minute PIN lock, not logout; onboarding user-set PIN. Read-only policies tested; user-provisioned PIN, actual elapsed-time/unlock and locked API enforcement outstanding."
   },
   {
     "id": "F24-d",
@@ -1172,16 +1232,18 @@
     "module": "Audit Logs & System Activity",
     "feature": "Comprehensive Activity Stream",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — confirmed defect(s): P2-AUD-003; see scoped results/limits",
+    "automation": "tests/phase2/audit-logs/*.ui.spec.ts; node scripts/run-phase2.mjs audit-logs",
+    "evidence": "docs/phase2/bugs/audit-logs.md"
   },
   {
     "id": "F25-b",
     "module": "Audit Logs & System Activity",
     "feature": "Filtering & Search",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — confirmed defect(s): P2-AUD-001, P2-AUD-004; see scoped results/limits",
+    "automation": "tests/phase2/audit-logs/*.ui.spec.ts; node scripts/run-phase2.mjs audit-logs",
+    "evidence": "docs/phase2/bugs/audit-logs.md"
   },
   {
     "id": "F25-c",
@@ -1244,16 +1306,16 @@
     "module": "Hardware & Printer Configuration",
     "feature": "Browser-Based Thermal Printing",
     "phase": 1,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Partially tested - paper UI passes; receipt/device prerequisites blocked",
+    "automation": "tests/phase1/hardware/browser-thermal-printing.ui.spec.ts + hardware-full-flow.ui.spec.ts; 58/80mm sample previews, unsaved baseline. No QA sale exists for actual receipt reprint; native dialog and physical paper require human/device evidence."
   },
   {
     "id": "F27-b",
     "module": "Hardware & Printer Configuration",
     "feature": "Barcode Scanner Compatibility",
     "phase": 1,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Partially tested - emulated scan duplicate quantity; physical devices unverified",
+    "automation": "tests/phase1/hardware/barcode-scanner-compatibility.ui.spec.ts + hardware-full-flow.ui.spec.ts; leading-zero/HID timing, quantity, repeated/unknown input, focus/manual controls. Existing customizable QA fixture opens quantity 2 after one barcode + Enter. Actual USB/Bluetooth evidence outstanding."
   },
   {
     "id": "F27-c",
@@ -1284,40 +1346,40 @@
     "module": "System Settings & Localization",
     "feature": "Company Profile & Legal Identity",
     "phase": 1,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Partially tested - profile persistence passes; email, Tax ID, BRN clearing and separate VAT field defects",
+    "automation": "tests/phase1/settings/company-profile-legal-identity.ui.spec.ts; approved QA BRN baseline unblocks execution. Name/phone/address save and restoration pass. SET-001/002/003/008 remain. RBAC and invoice/PDF identity not certified. See settings-failure-tickets.md."
   },
   {
     "id": "F28-b",
     "module": "System Settings & Localization",
     "feature": "Currency & Financial Formatting",
     "phase": 1,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Partially tested - MUR and Rs/2dp zero total pass; decimal control missing",
+    "automation": "tests/phase1/settings/currency-financial-formatting.ui.spec.ts; MUR persistence and fixed Rs prefix/2dp zero-total display pass. SET-004 missing Company decimal toggle blocks on/off persistence and disabled output. Fresh-company default, nonzero financial boundaries and PDF outstanding."
   },
   {
     "id": "F28-c",
     "module": "System Settings & Localization",
     "feature": "Fiscal Tax Settings",
     "phase": 1,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Partially tested - VAT15 and disabled tax persist; pricing mode missing",
+    "automation": "tests/phase1/settings/fiscal-tax-settings.ui.spec.ts; VAT15/default POS rate and disabled-registration persistence pass. SET-005 missing inclusive/exclusive mode; cross-reference Products ticket 10. No real sale or historical-invoice certification."
   },
   {
     "id": "F28-d",
     "module": "System Settings & Localization",
     "feature": "Theme Settings",
     "phase": 1,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Partially tested - Dark persistence passes; Light reload and System Default defects",
+    "automation": "tests/phase1/settings/theme-settings.ui.spec.ts; Dark reload/focus/table smoke passes. SET-006 missing System Default; SET-010 explicit light preference returns to Dark after same-session reload despite HTTP 200. Fresh-browser startup appearance is restored separately, not treated as company-data drift. Contrast/print/full visual acceptance outstanding."
   },
   {
     "id": "F28-e",
     "module": "System Settings & Localization",
     "feature": "Multi-Language Support (i18n)",
     "phase": 1,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Partially tested - visible switching and French labels pass; saved-language and HTML-language defects",
+    "automation": "tests/phase1/settings/multi-language-support.ui.spec.ts; English/French switching and translated Company label pass. SET-007 HTML lang remains en in French; SET-009 saved French reverts to English on same-session reload. Reload readiness explicitly awaited; see settings-failure-tickets.md. Full translation/validation and cross-device policy not certified."
   },
   {
     "id": "F28-f",
@@ -1332,24 +1394,27 @@
     "module": "Notifications & Alerts Center",
     "feature": "In-App Notification Center",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — scoped checks passed; see acceptance limits",
+    "automation": "tests/phase2/notifications/*.ui.spec.ts; node scripts/run-phase2.mjs notifications",
+    "evidence": "docs/phase2/bugs/notifications.md"
   },
   {
     "id": "F29-b",
     "module": "Notifications & Alerts Center",
     "feature": "Low Stock & Out-of-Stock Alerts",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — scoped checks passed; see acceptance limits",
+    "automation": "tests/phase2/notifications/*.ui.spec.ts; node scripts/run-phase2.mjs notifications",
+    "evidence": "docs/phase2/bugs/notifications.md"
   },
   {
     "id": "F29-c",
     "module": "Notifications & Alerts Center",
     "feature": "Overdue Invoice Alerts",
     "phase": 2,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Executed — confirmed defect(s): P2-NOT-002; see scoped results/limits",
+    "automation": "tests/phase2/notifications/*.ui.spec.ts; node scripts/run-phase2.mjs notifications",
+    "evidence": "docs/phase2/bugs/notifications.md"
   },
   {
     "id": "F29-d",
@@ -1364,24 +1429,24 @@
     "module": "Help Center, Legal & Compliance",
     "feature": "Terms of Service",
     "phase": 1,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Partially tested - HELP-001 login-form submission; Terms delivery and approval blocked",
+    "automation": "tests/phase1/help/terms-of-service.ui.spec.ts; 25 Oct 2026: pointer/mobile keyboard reproduce HELP-001. In-app document is unavailable; developer says Terms will be generated after project completion. Reading, focus return and approved wording/version are not passed."
   },
   {
     "id": "F30-b",
     "module": "Help Center, Legal & Compliance",
     "feature": "Privacy Policy",
     "phase": 1,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Partially tested - HELP-001 login-form submission; Privacy delivery and approval unconfirmed",
+    "automation": "tests/phase1/help/privacy-policy.ui.spec.ts; 25 Oct 2026: pointer/mobile keyboard reproduce HELP-001. No authenticated platform document entry or approved Privacy version supplied. Availability/approval remains blocked/unconfirmed, not a new confirmed missing-document bug."
   },
   {
     "id": "F30-c",
     "module": "Help Center, Legal & Compliance",
     "feature": "System Version & Build Information",
     "phase": 1,
-    "status": "Not executed",
-    "automation": "Backlog; see Phase 1 cases for implemented subset"
+    "status": "Partially tested - copyright passed; production release identity verification blocked",
+    "automation": "tests/phase1/help/system-version-build.ui.spec.ts; 25 Oct 2026: copyright/year passes. Visible version/commit absent; developer says production release is not ready. No expected release value invented; build verification is blocked, not a confirmed new bug."
   },
   {
     "id": "F30-d",

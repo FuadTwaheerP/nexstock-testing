@@ -1,0 +1,38 @@
+{
+  "module": "Purchasing & Purchase Orders",
+  "testDate": "25 October 2026",
+  "limits": [
+    "Every independent case attempted creation through the actual UI. All six functional cases stop at the same delivery-branch validation failure; approval, ordering, receiving, fulfillment and PDF output remain unverified.",
+    "No purchase order was created by these attempts. No supplier email was sent and no stock was received. QA stock recovery verifies the five-branch baseline.",
+    "The isolated active QA supplier created for purchasing is retained for subsequent AP/history checks. Existing suppliers were not edited or reactivated.",
+    "GRN and PO-linked vendor-bill coverage depends on this creation defect. Those modules report prerequisite blockers rather than fabricated receipt/billing bugs."
+  ],
+  "automation": [
+    "Product search uses the deployed translated Search... placeholder, not the English fallback string found in source.",
+    "The supplier name cell includes initials/code; supplier readiness now targets its unique Actions for <exact QA name> row instead of an exact whole-cell label.",
+    "Inspected the saved failure response: HTTP 422 validation_failed, data.branchId, message Choose the branch the goods are delivered to. The adapter identifies this precise failure only when no branch/warehouse UI is present. Unrelated errors remain automation review."
+  ],
+  "bugs": [
+    {
+      "id": "P2-PO-001",
+      "title": "Purchase Order creation requires a delivery branch that the form does not let the user select",
+      "priority": "Critical",
+      "features": [
+        "F15-a",
+        "F15-b",
+        "F15-c",
+        "F15-d"
+      ],
+      "steps": [
+        "Sign in to Nexstock QA Company and open Purchase Orders > New Purchase Order.",
+        "Select an active isolated QA supplier (QA P2 Vendor mvo2d41l) and QA add mv9rtxw1-3b087e.",
+        "Enter quantity 4, unit cost Rs 25, tax Rs 10, discount Rs 5 and shipping Rs 2; total Rs 107.",
+        "Set currency MUR, a future expected delivery date and a QA note.",
+        "Inspect the form for a delivery branch or warehouse selector, then click Create Purchase Order."
+      ],
+      "expected": "The user can select the destination branch and save a valid draft PO for subsequent approval, receipt and PDF export.",
+      "actual": "No delivery branch/warehouse input is present and the form submits no branchId. The server rejects creation with HTTP 422 validation_failed: data.branchId = Choose the branch the goods are delivered to. All six independent/full-flow cases reproduce the same prerequisite failure.",
+      "comment": "Add a destination branch selector backed by active company branches, send its branchId and retain/display the delivery location. Then rerun PO lifecycle/export/fulfillment, GRN and PO-linked billing. Do not log duplicate downstream receipt, status or PDF defects before they become reachable."
+    }
+  ]
+}

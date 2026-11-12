@@ -1,0 +1,15 @@
+{
+  "jobs": [
+    ["phase1", "hardware", "--grep", "release basic-variant"],
+    ["phase1", "invoicing", "branded-pdf-print.ui.spec.ts", "invoicing-full-flow.ui.spec.ts"],
+    ["phase2", "quotations"]
+  ],
+  "scope": "Fresh 12 November verification of the five Phase 1/Phase 2 retest findings. Branding/debit and focused adjacent regressions run separately after adapter review.",
+  "developerContract": {
+    "RET-002": "PDF uses Document Builder note when nonempty, else Settings document header/footer, without mutating the saved template.",
+    "RET-003": "Scrollable flex body remains contained; normal Add to order click works at 1920x1080 and 1440x900.",
+    "P2-QUOTE-002": "Customer-facing quotation notes print with terms; invoice internal notes stay off customer PDFs.",
+    "P2-DOC-004": "Classic dark borders preserve exact brand color. Brand text uses the original color at contrast >=3:1, else least-lightened tint reaching 3:1. Developer example #17675e -> #236f66.",
+    "REL-DN-001": "New and legacy debit lines retain product name and SKU. Product and linked invoice IDs are tenant scoped; reasonCode maximum 50. IDs cast to string for DTO. Cross-tenant server enforcement is not certified without approved foreign fixtures."
+  }
+}

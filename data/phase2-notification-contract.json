@@ -1,0 +1,7 @@
+{
+  "confirmedByUser": "25 October 2026: Immediately",
+  "lowStock": "Notification expected immediately after the triggering change",
+  "overdueInvoice": "Notification expected immediately after the triggering change",
+  "duplicateRule": "Not specified; use unique QA records and compare newly created notification IDs to avoid assuming a duplicate policy",
+  "observationWindow": "Allow bounded UI/network delivery polling; record actual latency. Do not substitute a fabricated browser clock or a scheduled-job assumption."
+}

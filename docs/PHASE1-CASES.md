@@ -1,76 +1,90 @@
 # Phase 1 execution checklist
 
-These are designed cases, not test results. Use owner/admin for setup, staff for cashier flows, and manager for stock adjustments. Where policy is unresolved, use Blocked rather than Pass. Run every applicable case in English; repeat critical checkout and auth paths in French and supported browser/device profiles.
+Case definitions alone are not execution evidence. Recorded statuses identify executed subsets and outstanding checks; Not executed remains backlog. Use owner/admin for setup, staff for cashier flows, and manager for stock adjustments. Where policy or prerequisites are unresolved, use Blocked rather than Pass. Run every applicable case in English; repeat critical checkout and auth paths in French and supported browser/device profiles.
 
 ## P1-001 — Valid sign-in
 
-Requirement: **F24-a** · Status: **Not executed**
+Requirement: **F24-a** · Status: **Passed - Chromium QA login/refresh/deep link**
 
-Preconditions: Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.
+Preconditions: Explicitly opted-in disposable QA account/company; production HTTPS and origin/write guards. No account creation, agent credential changes or security policy writes.
 
 Steps/data: Use a dedicated active account; sign in, refresh and open a protected deep link.
 
 Expected: Account reaches its permitted business and stays signed in after refresh.
 
+Automation: tests/phase1/security/secure-authentication-password-policies.ui.spec.ts
+
 ## P1-002 — Wrong password
 
-Requirement: **F24-a** · Status: **Not executed**
+Requirement: **F24-a** · Status: **Passed - one server-rejected wrong password**
 
-Preconditions: Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.
+Preconditions: Explicitly opted-in disposable QA account/company; production HTTPS and origin/write guards. No account creation, agent credential changes or security policy writes.
 
 Steps/data: Use a dedicated test account once with a wrong password.
 
 Expected: Clear error; no authenticated session; no sensitive information in message.
 
+Automation: tests/phase1/security/secure-authentication-password-policies.ui.spec.ts; no brute force/lockout stress
+
 ## P1-003 — Empty login
 
-Requirement: **F24-a** · Status: **Not executed**
+Requirement: **F24-a** · Status: **Passed - both empty fields rejected locally; no authentication POST**
 
-Preconditions: Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.
+Preconditions: Explicitly opted-in disposable QA account/company; production HTTPS and origin/write guards. No account creation, agent credential changes or security policy writes.
 
 Steps/data: Leave both fields blank and submit.
 
 Expected: Both fields show errors; no login POST is sent.
 
+Automation: tests/phase1/security/secure-authentication-password-policies.ui.spec.ts; application-origin POST observer excludes telemetry
+
 ## P1-004 — Password boundaries
 
-Requirement: **F24-a** · Status: **Not executed**
+Requirement: **F24-a** · Status: **Failed UI feedback requirements; server enforcement blocked**
 
-Preconditions: Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.
+Preconditions: Explicitly opted-in disposable QA account/company; production HTTPS and origin/write guards. No account creation, agent credential changes or security policy writes.
 
-Steps/data: In isolated signup/reset flow try 7 chars, missing uppercase, digit or symbol, and an 8-character valid value.
+Steps/data: Without submitting signup, try 7/8 characters, missing lowercase/uppercase/number, optional symbol and strength progression. Human/backend tests must separately verify server policy.
 
-Expected: Checklist and API agree; login still permits nonempty legacy passwords without applying new-password complexity.
+Expected: Minimum 8 with lowercase, uppercase and number; symbol optional; strength bar strongest with symbol. Server enforcement agrees; not certified by feedback checks.
+
+Automation: tests/phase1/security/secure-authentication-password-policies.ui.spec.ts; no signup or credential mutation
 
 ## P1-005 — Reset password
 
-Requirement: **F24-b** · Status: **Not executed**
+Requirement: **F24-b** · Status: **Partially tested - profile identity defect; human credential workflow blocked**
 
-Preconditions: Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.
+Preconditions: Explicitly opted-in disposable QA account/company; production HTTPS and origin/write guards. No account creation, agent credential changes or security policy writes.
 
-Steps/data: Use test mailbox; request code; try invalid/expired code, then valid code; log in with new password.
+Steps/data: Automated: reset entry/return, empty/malformed email, untouched update controls and account identity. Human on isolated account: delivery/code lifecycle/reset/update/old-new password checks.
 
 Expected: Invalid codes cannot reset; valid code works once; old password rejected. No real user account used.
 
+Automation: tests/phase1/security/password-reset-update.ui.spec.ts; see module README for human handoff
+
 ## P1-006 — Session timeout
 
-Requirement: **F24-c** · Status: **Not executed**
+Requirement: **F24-c** · Status: **Partially tested - settings gaps; PIN fixture and real-time/unlock checks blocked**
 
-Preconditions: Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.
+Preconditions: Explicitly opted-in disposable QA account/company; production HTTPS and origin/write guards. No account creation, agent credential changes or security policy writes.
 
-Steps/data: Agree configured inactivity threshold; leave test session idle beyond it; attempt stock change.
+Steps/data: Require user-set onboarding PIN. Read user-configurable inactivity setting without saving; active calibration then 30-minute idle PIN lock and reload check. Verify unlock/locked write protection separately.
 
-Expected: Login required and change not saved; distinguish inactivity timeout from JWT expiry. Requirement pending configuration confirmation.
+Expected: After 30 minutes inactive require PIN, not login/logout; remove Auto-logout; user can configure duration. No lock bypass; distinguish absolute expiry/client-clock simulation.
+
+Automation: tests/phase1/security/session-inactivity-timeout.ui.spec.ts; SECURITY_PIN_PROVISIONED required; clock simulation not real elapsed-time proof
 
 ## P1-007 — Logout and back navigation
 
-Requirement: **F24-a** · Status: **Not executed**
+Requirement: **F24-a** · Status: **Passed - UI logout/back/reload/deep/shared-tab; not server revocation certification**
 
-Preconditions: Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.
+Preconditions: Explicitly opted-in disposable QA account/company; production HTTPS and origin/write guards. No account creation, agent credential changes or security policy writes.
 
 Steps/data: Log out; press Back; reload a protected page.
 
-Expected: No authenticated data or write access after logout.
+Expected: Protected UI reads denied after logout, back/reload/deep link and shared-tab reload. Server write/session-revocation enforcement needs backend coverage.
+
+Automation: tests/phase1/security/secure-authentication-password-policies.ui.spec.ts
 
 ## P1-008 — Physical product
 
@@ -214,13 +228,9 @@ Expected: A=8 and B=20; totals and movements reference A only.
 
 ## P1-022 — Branch switch
 
-Requirement: **F03-d** · Status: **Not executed**
+Requirement: **F03-d** · Status: **Not applicable**
 
-Preconditions: Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.
-
-Steps/data: Switch A to B in header; inspect inventory, POS and invoice; refresh.
-
-Expected: Every relevant view uses B; no cached A data shown as B.
+Developer clarification: A global active-branch selector is not an intended requirement. This case is retained only for traceability and is not part of the Stores automation suite.
 
 ## P1-023 — Positive/negative adjustment
 
@@ -394,7 +404,7 @@ Expected: Items, quantity, discount, VAT, change, business and branch agree; no 
 
 ## P1-040 — Create invoice
 
-Requirement: **F12-a** · Status: **Not executed**
+Requirement: **F12-a** · Status: **Attempted — editor calculations and required fields pass; valid save returns server error**
 
 Preconditions: Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.
 
@@ -404,7 +414,7 @@ Expected: Persisted lines and totals match; unique invoice number is displayed.
 
 ## P1-041 — Number sequencing
 
-Requirement: **F12-a** · Status: **Not executed**
+Requirement: **F12-a** · Status: **Automated — blocked by invoice creation failure; sequencing assertions not reached**
 
 Preconditions: Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.
 
@@ -414,7 +424,7 @@ Expected: Numbers are unique and cancelled number is not reused; confirm permitt
 
 ## P1-042 — Partial payment
 
-Requirement: **F12-b** · Status: **Not executed**
+Requirement: **F12-b** · Status: **Automated — blocked by invoice creation failure; payment assertions not reached**
 
 Preconditions: Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.
 
@@ -424,17 +434,17 @@ Expected: First paid=50/due=150; then paid=200/due=0; payment status follows bal
 
 ## P1-043 — Due dates
 
-Requirement: **F12-c** · Status: **Not executed**
+Requirement: **F12-c** · Status: **Attempted — term controls unavailable; manual persistence blocked; chronology validation requires retest**
 
 Preconditions: Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.
 
-Steps/data: Create due-on-receipt, Net 15 and Net 30 invoices near month boundary.
+Steps/data: Create due-on-receipt, Net 15, Net 30 and Net 60 invoices near month boundary.
 
 Expected: Dates match agreed calendar-day rules; due before issue date rejected or logged as requirement gap.
 
 ## P1-044 — Lifecycle
 
-Requirement: **F12-d** · Status: **Not executed**
+Requirement: **F12-d** · Status: **Automated — blocked by invoice creation failure; lifecycle assertions not reached**
 
 Preconditions: Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.
 
@@ -444,7 +454,7 @@ Expected: Document, payment and fulfilment states remain distinct; no invented s
 
 ## P1-045 — PDF integrity
 
-Requirement: **F12-e** · Status: **Not executed**
+Requirement: **F12-e** · Status: **Automated — blocked by invoice creation failure; no PDF generated or visually verified**
 
 Preconditions: Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.
 
@@ -454,107 +464,115 @@ Expected: Valid PDF, correct number/customer/BRN/VAT/banking details; page break
 
 ## P1-046 — Create supplier
 
-Requirement: **F18-a** · Status: **Not executed**
+Requirement: **F18-a** · Status: **Tested — supported creation/validation; separate optional BRN unavailable**
 
-Preconditions: Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.
+Preconditions: Disposable QA administrator/account, configured Nexstock QA Company, allowlisted target and explicit write opt-ins. Production requires the dedicated override in the ignored `.env`; never target a real supplier.
 
-Steps/data: Create unique supplier with contacts, BRN and address; reopen.
+Steps/data: Run `npm run test:suppliers:add`. Create/reopen synthetic supplier with contact, address and Tax ID; separately attempt optional BRN. Test name-only creation, missing name, malformed email and cancel.
 
-Expected: Supported fields round-trip without being silently discarded.
+Expected: Supported fields round-trip. BRN and Tax ID are separate and both optional (user confirmed 18 October 2026). Missing BRN is an ordinary failure, not a skip. This suite uses explicit production/disposable-account opt-ins and Nexstock QA Company only; see `tests/phase1/suppliers/README.md`.
 
 ## P1-047 — Edit/deactivate supplier
 
-Requirement: **F18-b** · Status: **Not executed**
+Requirement: **F18-b** · Status: **Tested — supported edits/optional clearing/status/retention pass; BRN missing**
 
-Preconditions: Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.
+Preconditions: Same supplier-suite safety controls as P1-046; each test creates its own synthetic supplier and leaves it inactive.
 
-Steps/data: Update contact info then deactivate a QA supplier.
+Steps/data: Run `npm run test:suppliers:edit`. Update identity/contact/Tax ID/address, clear optional fields, independently edit/clear BRN, deactivate/filter/reactivate a uniquely created QA supplier.
 
-Expected: Edits persist; existing purchases remain available; inactive supplier is handled consistently.
+Expected: Edits persist and cleared optional fields remain blank after reload. Deactivation retains the same profile and status filters agree. Cleanup leaves synthetic vendors inactive, never deleted. Historic purchase retention is not certified: no Phase 2 purchase history is generated by this suite.
 
 ## P1-048 — Credit terms
 
-Requirement: **F18-c** · Status: **Not executed**
+Requirement: **F18-c** · Status: **Tested — Net 15/30/60 pass; negative-period fresh-navigation recheck passes; credit-limit controls unavailable**
 
-Preconditions: Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.
+Preconditions: Same supplier-suite safety controls as P1-046. Purchase form selection is read-only; do not submit an order, bill or payment.
 
-Steps/data: Save Net 30 and credit amount; reopen and select supplier on purchase form.
+Steps/data: Run `npm run test:suppliers:terms`. Save/reopen Net 15/30/60 and matching periods, reject negative days, attempt create/edit credit-limit persistence, select active vendor on a purchase form without submitting. Full integrated flow: `npm run test:suppliers:flow`.
 
-Expected: Saved terms shown; enforcement beyond specification is not assumed.
+Expected: Terms/periods persist and credit limits can be maintained separately from minimum order value. Missing controls fail normally. A fresh-navigation recheck confirms -1 does not persist as an agreed credit period. Negative days remaining on an overdue transaction are a separate, legitimate concept per the user's clarification and are not alleged as a bug here. Order acceptance, credit enforcement, balances and inactive-vendor eligibility policy are not certified by read-only picker checks. Findings: `suppliers-failure-tickets.md`.
 
 ## P1-049 — Create customer
 
-Requirement: **F19-a** · Status: **Not executed**
+Requirement: **F19-a** · Status: **Automated — executed with fiscal-identity gap**
 
-Preconditions: Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.
+Preconditions: Disposable Nexstock QA Company, permitted QA administrator, configured allowlist/write/disposable-account guards and explicit production opt-in when production is targeted. Synthetic `QA CUST` names and `example.invalid` emails only.
 
-Steps/data: Create individual and business with BRN/VAT; reopen both.
+Steps/data: Run `npm run test:customers:add`. Create/reopen Individual and Business contacts with company, email, phone and address; inspect separate BRN/VAT; reject missing name/malformed email; cancel without persisting.
 
-Expected: Correct type and identity fields retained; malformed email rejected.
+Expected: Supported identity/contact fields persist and invalid/cancelled records do not save. Separate BRN/VAT checks fail normally when fields are absent. This does not impose unconfirmed mandatory/optional identifier policy. Findings: `customers-failure-tickets.md`.
 
 ## P1-050 — Edit/archive customer
 
-Requirement: **F19-b** · Status: **Not executed**
+Requirement: **F19-b** · Status: **Automated — partially verified, failures and history prerequisite blocker**
 
-Preconditions: Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.
+Preconditions: Same guarded disposable QA company. Each test creates its own customer; draft-history scenario needs an existing QA-prefixed product. More than fifteen records currently exist in the QA company, exercising the late-sorting picker boundary.
 
-Steps/data: Edit QA customer then archive one with prior invoice.
+Steps/data: Run `npm run test:customers:edit`. Edit all supported fields and type; clear company/phone/address and inspect each independently after reload; deactivate/filter/reactivate; prove active selection before excluding an inactive customer from billing; verify late-sorting active customer selection; attempt draft invoice then archive/history retention.
 
-Expected: Historical invoice remains accessible; archived customer absent from active picker.
+Expected: Values and inactive status persist; active customer can be selected, inactive cannot; historical reference survives archival. A failed draft save blocks historical retention rather than proving it broken. No Delete action, real payment or email dispatch is used. Cleanup retains saved QA customers inactive.
 
 ## P1-051 — Outstanding balance
 
-Requirement: **F19-c** · Status: **Not executed**
+Requirement: **F19-c** · Status: **Automated — empty-state observations; financial reconciliation blocked by test data**
 
-Preconditions: Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.
+Preconditions: Same guarded QA company. For non-zero checks provide an independently verified synthetic ledger using CUSTOMER_AR_SEED_PATH; see `tests/phase1/customers/README.md`. Inspection found no suitable existing partially paid/overdue account.
 
-Steps/data: Invoice 200, payment 50; view statement and customer balance.
+Steps/data: Run `npm run test:customers:balances`. Inspect zero-account balance/aging availability and explicit export empty state. Read-only seeded case: invoice 200, payment 50, expected outstanding 150; verify references, customer balance and the configured overdue bucket.
 
-Expected: Outstanding 150; statement links correct invoice and receipt.
+Expected: Real ledger reconciles independently, not from invented UI-derived expectations. Missing seed is an ordinary TEST DATA BLOCKER failure, not a skip/application bug. Empty-account UI observations do not prove non-zero calculation defects or absence of a populated statement; no specific button label is mandated. Multi-bucket boundary transitions and statement export content are not certified yet.
 
 ## P1-052 — Purchase history
 
-Requirement: **F19-d** · Status: **Not executed**
+Requirement: **F19-d** · Status: **Automated — empty baseline; populated history blocked by document/data prerequisites**
 
-Preconditions: Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.
+Preconditions: Same guarded QA company and existing QA catalogue item. POS-history check needs an independently verified posReference/customer in CUSTOMER_AR_SEED_PATH; no suitable receipt seed was found in the inspected company.
 
-Steps/data: Create one POS sale and one invoice for QA customer; inspect history.
+Steps/data: Run `npm run test:customers:history`. Verify empty invoice history and zero spend; attempt a safe invoice draft and check customer isolation; attempt a quotation draft and look for its actual saved reference; check a read-only seeded POS reference. Integrated attempt: `npm run test:customers:flow`.
 
-Expected: Both records appear under that customer only; totals reconcile.
+Expected: Saved references appear only under their linked customer. Unified history is acceptable; dedicated POS/quotation tabs are not mandatory. Draft-save failures block later assertions, not separate history defects. No actual POS payment or email dispatch occurs. Completed-sale retention, full historical totals and populated POS coverage remain unverified; Phase 3 groups/credit blocking are excluded.
 
 ## P1-053 — 58mm receipt print
 
-Requirement: **F27-a** · Status: **Not executed**
+Requirement: **F27-a** · Status: **Partially automated - width UI; actual receipt/native dialog/physical output blocked**
 
-Preconditions: Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.
+Preconditions: Opted-in disposable QA company; existing synthetic completed-sale receipt and actual 58mm printer required for physical acceptance. Browser suite never creates a sale or sends paper.
 
-Steps/data: Print a multi-line receipt on physical 58mm printer.
+Steps/data: Automate 58mm selection/sample-preview and unsaved baseline checks. With an existing approved QA receipt, validate actual receipt/print adapter. Human prints and checks wrapping, company/reference, quantities/tax/totals and clipping on 58mm paper.
 
 Expected: No clipping; readable VAT/totals; paper layout correct. Manual hardware check.
 
+Automation: tests/phase1/hardware/browser-thermal-printing.ui.spec.ts; HARDWARE_RECEIPT_REFERENCE and genuine physical acceptance evidence required; sample preview is not printed output
+
 ## P1-054 — 80mm receipt print
 
-Requirement: **F27-a** · Status: **Not executed**
+Requirement: **F27-a** · Status: **Partially automated - width UI; native dialog/cancel/physical output blocked**
 
-Preconditions: Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.
+Preconditions: Opted-in disposable QA company; existing synthetic receipt and actual 80mm printer; native dialog/cancellation must be checked by human.
 
-Steps/data: Print same receipt on physical 80mm printer and cancel a subsequent print dialog.
+Steps/data: Automate 80mm selection/sample-preview and discard-unsaved behavior. Human prints the existing receipt on 80mm paper, cancels a further native print dialog and verifies no sale/payment duplication or record change.
 
 Expected: Correct layout; cancel does not cancel sale or duplicate payment.
 
+Automation: tests/phase1/hardware/browser-thermal-printing.ui.spec.ts; intercepted window.print is invocation-only, not native-dialog or paper certification
+
 ## P1-055 — USB/BT scanner
 
-Requirement: **F27-b** · Status: **Not executed**
+Requirement: **F27-b** · Status: **Partially tested - emulated scan duplicate quantity finding; physical USB/Bluetooth unverified**
 
-Preconditions: Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.
+Preconditions: Existing in-stock QA-prefixed product with persisted leading-zero barcode; enough stock for scenario (no stock mutation). Actual USB/Bluetooth HID devices needed for acceptance.
 
-Steps/data: Scan same leading-zero barcode with USB and Bluetooth HID devices, including rapid repeated scans.
+Steps/data: Automate string-preserving keyboard events plus Enter at 0/5/25ms, exact quantity/line/subtotal, repeated bursts, unknown code, Scan focus and manual-click/keyboard controls. Human repeats with real USB/Bluetooth scanners and records actual counts.
 
 Expected: Exact barcode captured; expected count; no lost or doubled scan; keyboard remains usable.
 
+Automation: tests/phase1/hardware/barcode-scanner-compatibility.ui.spec.ts; hardware-full-flow.ui.spec.ts; key timing is not physical transport proof
+
 ## P1-056 — Company legal identity
 
-Requirement: **F28-a** · Status: **Not executed**
+Requirement: **F28-a** · Status: **Partially tested - profile persistence passes; email, Tax ID, BRN clearing and separate VAT field defects**
+
+Automation: tests/phase1/settings/company-profile-legal-identity.ui.spec.ts; approved QA BRN baseline unblocks execution. Name/phone/address save and restoration pass. SET-001/002/003/008 remain. RBAC and invoice/PDF identity not certified. See settings-failure-tickets.md.
 
 Preconditions: Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.
 
@@ -564,17 +582,21 @@ Expected: Identity persists and renders correctly; unauthorized staff cannot cha
 
 ## P1-057 — MUR formatting
 
-Requirement: **F28-b** · Status: **Not executed**
+Requirement: **F28-b** · Status: **Partially tested - MUR and Rs/2dp zero total pass; decimal control missing**
+
+Automation: tests/phase1/settings/currency-financial-formatting.ui.spec.ts; MUR persistence and fixed Rs prefix/2dp zero-total display pass. SET-004 missing Company decimal toggle blocks on/off persistence and disabled output. Fresh-company default, nonzero financial boundaries and PDF outstanding.
 
 Preconditions: Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.
 
-Steps/data: Inspect 0, 0.01, 1000.50 and large amount in list, POS, invoice and PDF.
+Steps/data: Inspect 0, 0.01, 1000.50 and a large amount in list, POS, invoice and PDF. Verify the Company decimal default on an approved fresh/default-state fixture; disable/save/reload, re-enable/save/reload, and restore the original setting.
 
-Expected: Consistent Rs/MUR and two-decimal accuracy; no currency conversion implied.
+Expected: Rs always prefixes amounts. Company decimals are enabled by default and fixed at 2dp when enabled; they can be disabled. No configurable symbol position/arbitrary precision or currency conversion is implied. Rounding policy is not assumed.
 
 ## P1-058 — Tax defaults
 
-Requirement: **F28-c** · Status: **Not executed**
+Requirement: **F28-c** · Status: **Partially tested - VAT15 and disabled tax persist; pricing mode missing**
+
+Automation: tests/phase1/settings/fiscal-tax-settings.ui.spec.ts; VAT15/default POS rate and disabled-registration persistence pass. SET-005 missing inclusive/exclusive mode; cross-reference Products ticket 10. No real sale or historical-invoice certification.
 
 Preconditions: Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.
 
@@ -584,7 +606,9 @@ Expected: New records use setting as specified; prior invoice tax does not chang
 
 ## P1-059 — Themes
 
-Requirement: **F28-d** · Status: **Not executed**
+Requirement: **F28-d** · Status: **Partially tested - Dark persistence passes; Light reload and System Default defects**
+
+Automation: tests/phase1/settings/theme-settings.ui.spec.ts; Dark reload/focus/table smoke passes. SET-006 missing System Default; SET-010 explicit light preference returns to Dark after same-session reload despite HTTP 200. Fresh-browser startup appearance is restored separately, not treated as company-data drift. Contrast/print/full visual acceptance outstanding.
 
 Preconditions: Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.
 
@@ -594,7 +618,9 @@ Expected: Readable content and visible focus; preference persists according to a
 
 ## P1-060 — English/French
 
-Requirement: **F28-e** · Status: **Not executed**
+Requirement: **F28-e** · Status: **Partially tested - visible switching and French labels pass; saved-language and HTML-language defects**
+
+Automation: tests/phase1/settings/multi-language-support.ui.spec.ts; English/French switching and translated Company label pass. SET-007 HTML lang remains en in French; SET-009 saved French reverts to English on same-session reload. Reload readiness explicitly awaited; see settings-failure-tickets.md. Full translation/validation and cross-device policy not certified.
 
 Preconditions: Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.
 
@@ -604,7 +630,9 @@ Expected: No raw translation keys; intended preference persists; numbers remain 
 
 ## P1-061 — Terms access and version
 
-Requirement: **F30-a** · Status: **Not executed**
+Requirement: **F30-a** · Status: **Partially tested - HELP-001 login-form submission; Terms delivery and approval blocked**
+
+Automation: tests/phase1/help/terms-of-service.ui.spec.ts; 25 Oct 2026: pointer/mobile keyboard reproduce HELP-001. In-app document is unavailable; developer says Terms will be generated after project completion. Reading, focus return and approved wording/version are not passed.
 
 Preconditions: Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.
 
@@ -614,7 +642,9 @@ Expected: Correct accessible document opens; owner/legal reviewer confirms wordi
 
 ## P1-062 — Privacy access
 
-Requirement: **F30-b** · Status: **Not executed**
+Requirement: **F30-b** · Status: **Partially tested - HELP-001 login-form submission; Privacy delivery and approval unconfirmed**
+
+Automation: tests/phase1/help/privacy-policy.ui.spec.ts; 25 Oct 2026: pointer/mobile keyboard reproduce HELP-001. No authenticated platform document entry or approved Privacy version supplied. Availability/approval remains blocked/unconfirmed, not a new confirmed missing-document bug.
 
 Preconditions: Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.
 
@@ -624,7 +654,9 @@ Expected: Readable approved policy with correct version; legal approval is a sep
 
 ## P1-063 — Build identity
 
-Requirement: **F30-c** · Status: **Not executed**
+Requirement: **F30-c** · Status: **Partially tested - copyright passed; production release identity verification blocked**
+
+Automation: tests/phase1/help/system-version-build.ui.spec.ts; 25 Oct 2026: copyright/year passes. Visible version/commit absent; developer says production release is not ready. No expected release value invented; build verification is blocked, not a confirmed new bug.
 
 Preconditions: Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.
 

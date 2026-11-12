@@ -1,0 +1,9 @@
+{
+  "confirmedOn": "2026-10-25",
+  "source": "User relayed developer response while resuming Help Center, Legal & Compliance",
+  "terms": "Terms of Service will be generated after project completion; no approved document/version is available yet.",
+  "privacy": "An approved Privacy Policy/version has not been supplied. The response does not separately confirm Privacy delivery readiness; do not assume approval or report its absence as a confirmed new defect.",
+  "release": "Developer says not yet released for production; no authoritative production release/version/commit reference was supplied for this module. This does not assert that the earlier application fixes were rolled back.",
+  "alwaysRequired": "Existing public legal controls must not submit or validate the login form, regardless of document readiness.",
+  "notCertified": ["approved legal wording and version", "legal/compliance approval", "actual deployed build comparison", "Phase 3 knowledge base and release feed"]
+}

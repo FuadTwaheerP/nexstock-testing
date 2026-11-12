@@ -1,0 +1,69 @@
+{
+  "module": "Audit Logs & System Activity",
+  "testDate": "25 October 2026",
+  "limits": [
+    "Real QA bill creation, a cash bookkeeping payment/update and deletion of only a newly created unpaid/unused bill are exercised. Fresh audit entries verify actor, module, timestamp and operation; update correlation uses an isolated writer window because the exposed DTO has no entity ID.",
+    "The Products filter sends the expected module query, excludes other modules and resets to the existing stream. Its response is empty in this company, so positive Products-event coverage is not claimed. The module choices omit actual Purchasing entries shown in the stream.",
+    "A real product CSV downloads successfully but produces no export audit event during fresh reads. Phase 3 audit CSV/JSON export and before/after diff requirements are excluded.",
+    "Owned QA bills/payments used for create/update remain as bookkeeping evidence. No real supplier funds are moved; no existing financial record is deleted."
+  ],
+  "automation": [
+    "Corrected update navigation: after capturing the baseline audit stream, return to Bills before paying the owned QA bill.",
+    "Corrected the raw paginator contract (total is a direct field) and stopped requiring a fresh request when resetting a React Query filter to cached unfiltered data.",
+    "Investigated repeated Chromium asset-loading timeouts. Fingerprinted same-origin JS/CSS are fetched over HTTP and cached as unchanged bytes per worker; source hashes/byte counts are recorded. Live documents and all API reads/writes are preserved. A read-only diagnostic reached the QA page in 4.4 seconds, and affected cases were rerun.",
+    "Actor search is repeated after a fresh unfiltered read proving the displayed actor exists; zero search results are not inferred from a single stale request."
+  ],
+  "bugs": [
+    {
+      "id": "P2-AUD-001",
+      "title": "Audit user, action and date filtering controls are incomplete",
+      "priority": "Medium",
+      "features": [
+        "F25-b"
+      ],
+      "steps": [
+        "Sign in to Nexstock QA Company and open Audit Logs.",
+        "Confirm the activity stream includes named actors and Purchasing records.",
+        "Inspect the User and Module selectors, then click Filters.",
+        "Select Custom Range in Date Range and look for start/end date inputs."
+      ],
+      "expected": "Users can filter the audit stream by an existing actor, recorded module, action type and a chosen date range.",
+      "actual": "User offers All Users only. There is no Action Type selector; Filters opens no additional controls. Custom Range displays no from/to inputs or date-range query. Module choices omit the Purchasing records visible in the stream.",
+      "comment": "Populate actual actors/modules and add action and date controls wired to the query. The existing Products query/reset is exercised separately; an empty Products result is not itself a defect."
+    },
+    {
+      "id": "P2-AUD-003",
+      "title": "Product CSV exports are absent from the audit activity stream",
+      "priority": "Medium",
+      "features": [
+        "F25-a"
+      ],
+      "steps": [
+        "Open Audit Logs and note the latest entry identifiers.",
+        "Open Products and download the actual standard CSV export.",
+        "Return to Audit Logs and inspect fresh activity repeatedly for at least 20 seconds.",
+        "Look for a new export event for the operation."
+      ],
+      "expected": "The completed product export creates an audit event with its actor, timestamp and export operation.",
+      "actual": "The real CSV file downloads, but no new export activity entry appears in fresh audit reads during the observation window.",
+      "comment": "Record the export operation in the audit stream, including actor, time and useful scope/reference. This ticket concerns logging product exports, not the Phase 3 audit-export capability."
+    },
+    {
+      "id": "P2-AUD-004",
+      "title": "Searching an actor shown in Audit Logs returns no matching entries",
+      "priority": "Medium",
+      "features": [
+        "F25-b"
+      ],
+      "steps": [
+        "Open Audit Logs in Nexstock QA Company.",
+        "Find an entry whose User is Fuad Peerbocus.",
+        "Enter Fuad Peerbocus into Search by user, action, or details.",
+        "Clear/reload the unfiltered page, confirm that actor still has entries, and repeat the exact search."
+      ],
+      "expected": "Searching the displayed actor name returns that actor's matching activity entries.",
+      "actual": "The exact displayed actor returns zero entries on two fresh attempts, while fresh unfiltered activity still contains that actor.",
+      "comment": "Include the displayed actor identity in backend search matching, with correct user joins/name handling. Keep tenant scoping and pagination intact. This is separate from the absent dedicated actor filter."
+    }
+  ]
+}

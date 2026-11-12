@@ -3,71 +3,71 @@
     "id": "P1-001",
     "feature": "F24-a",
     "title": "Valid sign-in",
-    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "preconditions": "Explicitly opted-in disposable QA account/company; production HTTPS and origin/write guards. No account creation, agent credential changes or security policy writes.",
     "steps": "Use a dedicated active account; sign in, refresh and open a protected deep link.",
     "expected": "Account reaches its permitted business and stays signed in after refresh.",
-    "status": "Not executed",
-    "automation": "Manual / automation backlog"
+    "status": "Passed - Chromium QA login/refresh/deep link",
+    "automation": "tests/phase1/security/secure-authentication-password-policies.ui.spec.ts"
   },
   {
     "id": "P1-002",
     "feature": "F24-a",
     "title": "Wrong password",
-    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "preconditions": "Explicitly opted-in disposable QA account/company; production HTTPS and origin/write guards. No account creation, agent credential changes or security policy writes.",
     "steps": "Use a dedicated test account once with a wrong password.",
     "expected": "Clear error; no authenticated session; no sensitive information in message.",
-    "status": "Not executed",
-    "automation": "Manual / automation backlog"
+    "status": "Passed - one server-rejected wrong password",
+    "automation": "tests/phase1/security/secure-authentication-password-policies.ui.spec.ts; no brute force/lockout stress"
   },
   {
     "id": "P1-003",
     "feature": "F24-a",
     "title": "Empty login",
-    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "preconditions": "Explicitly opted-in disposable QA account/company; production HTTPS and origin/write guards. No account creation, agent credential changes or security policy writes.",
     "steps": "Leave both fields blank and submit.",
     "expected": "Both fields show errors; no login POST is sent.",
-    "status": "Not executed",
-    "automation": "Manual / automation backlog"
+    "status": "Passed - both empty fields rejected locally; no authentication POST",
+    "automation": "tests/phase1/security/secure-authentication-password-policies.ui.spec.ts; application-origin POST observer excludes telemetry"
   },
   {
     "id": "P1-004",
     "feature": "F24-a",
     "title": "Password boundaries",
-    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
-    "steps": "In isolated signup/reset flow try 7 chars, missing uppercase, digit or symbol, and an 8-character valid value.",
-    "expected": "Checklist and API agree; login still permits nonempty legacy passwords without applying new-password complexity.",
-    "status": "Not executed",
-    "automation": "Manual / automation backlog"
+    "preconditions": "Explicitly opted-in disposable QA account/company; production HTTPS and origin/write guards. No account creation, agent credential changes or security policy writes.",
+    "steps": "Without submitting signup, try 7/8 characters, missing lowercase/uppercase/number, optional symbol and strength progression. Human/backend tests must separately verify server policy.",
+    "expected": "Minimum 8 with lowercase, uppercase and number; symbol optional; strength bar strongest with symbol. Server enforcement agrees; not certified by feedback checks.",
+    "status": "Failed UI feedback requirements; server enforcement blocked",
+    "automation": "tests/phase1/security/secure-authentication-password-policies.ui.spec.ts; no signup or credential mutation"
   },
   {
     "id": "P1-005",
     "feature": "F24-b",
     "title": "Reset password",
-    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
-    "steps": "Use test mailbox; request code; try invalid/expired code, then valid code; log in with new password.",
+    "preconditions": "Explicitly opted-in disposable QA account/company; production HTTPS and origin/write guards. No account creation, agent credential changes or security policy writes.",
+    "steps": "Automated: reset entry/return, empty/malformed email, untouched update controls and account identity. Human on isolated account: delivery/code lifecycle/reset/update/old-new password checks.",
     "expected": "Invalid codes cannot reset; valid code works once; old password rejected. No real user account used.",
-    "status": "Not executed",
-    "automation": "Manual / automation backlog"
+    "status": "Partially tested - profile identity defect; human credential workflow blocked",
+    "automation": "tests/phase1/security/password-reset-update.ui.spec.ts; see module README for human handoff"
   },
   {
     "id": "P1-006",
     "feature": "F24-c",
     "title": "Session timeout",
-    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
-    "steps": "Agree configured inactivity threshold; leave test session idle beyond it; attempt stock change.",
-    "expected": "Login required and change not saved; distinguish inactivity timeout from JWT expiry. Requirement pending configuration confirmation.",
-    "status": "Not executed",
-    "automation": "Manual / automation backlog"
+    "preconditions": "Explicitly opted-in disposable QA account/company; production HTTPS and origin/write guards. No account creation, agent credential changes or security policy writes.",
+    "steps": "Require user-set onboarding PIN. Read user-configurable inactivity setting without saving; active calibration then 30-minute idle PIN lock and reload check. Verify unlock/locked write protection separately.",
+    "expected": "After 30 minutes inactive require PIN, not login/logout; remove Auto-logout; user can configure duration. No lock bypass; distinguish absolute expiry/client-clock simulation.",
+    "status": "Partially tested - settings gaps; PIN fixture and real-time/unlock checks blocked",
+    "automation": "tests/phase1/security/session-inactivity-timeout.ui.spec.ts; SECURITY_PIN_PROVISIONED required; clock simulation not real elapsed-time proof"
   },
   {
     "id": "P1-007",
     "feature": "F24-a",
     "title": "Logout and back navigation",
-    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
+    "preconditions": "Explicitly opted-in disposable QA account/company; production HTTPS and origin/write guards. No account creation, agent credential changes or security policy writes.",
     "steps": "Log out; press Back; reload a protected page.",
-    "expected": "No authenticated data or write access after logout.",
-    "status": "Not executed",
-    "automation": "Manual / automation backlog"
+    "expected": "Protected UI reads denied after logout, back/reload/deep link and shared-tab reload. Server write/session-revocation enforcement needs backend coverage.",
+    "status": "Passed - UI logout/back/reload/deep/shared-tab; not server revocation certification",
+    "automation": "tests/phase1/security/secure-authentication-password-policies.ui.spec.ts"
   },
   {
     "id": "P1-008",
@@ -523,31 +523,31 @@
     "id": "P1-053",
     "feature": "F27-a",
     "title": "58mm receipt print",
-    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
-    "steps": "Print a multi-line receipt on physical 58mm printer.",
+    "preconditions": "Opted-in disposable QA company; existing synthetic completed-sale receipt and actual 58mm printer required for physical acceptance. Browser suite never creates a sale or sends paper.",
+    "steps": "Automate 58mm selection/sample-preview and unsaved baseline checks. With an existing approved QA receipt, validate actual receipt/print adapter. Human prints and checks wrapping, company/reference, quantities/tax/totals and clipping on 58mm paper.",
     "expected": "No clipping; readable VAT/totals; paper layout correct. Manual hardware check.",
-    "status": "Not executed",
-    "automation": "Manual / automation backlog"
+    "status": "Partially automated - width UI; actual receipt/native dialog/physical output blocked",
+    "automation": "tests/phase1/hardware/browser-thermal-printing.ui.spec.ts; HARDWARE_RECEIPT_REFERENCE and genuine physical acceptance evidence required; sample preview is not printed output"
   },
   {
     "id": "P1-054",
     "feature": "F27-a",
     "title": "80mm receipt print",
-    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
-    "steps": "Print same receipt on physical 80mm printer and cancel a subsequent print dialog.",
+    "preconditions": "Opted-in disposable QA company; existing synthetic receipt and actual 80mm printer; native dialog/cancellation must be checked by human.",
+    "steps": "Automate 80mm selection/sample-preview and discard-unsaved behavior. Human prints the existing receipt on 80mm paper, cancels a further native print dialog and verifies no sale/payment duplication or record change.",
     "expected": "Correct layout; cancel does not cancel sale or duplicate payment.",
-    "status": "Not executed",
-    "automation": "Manual / automation backlog"
+    "status": "Partially automated - width UI; native dialog/cancel/physical output blocked",
+    "automation": "tests/phase1/hardware/browser-thermal-printing.ui.spec.ts; intercepted window.print is invocation-only, not native-dialog or paper certification"
   },
   {
     "id": "P1-055",
     "feature": "F27-b",
     "title": "USB/BT scanner",
-    "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
-    "steps": "Scan same leading-zero barcode with USB and Bluetooth HID devices, including rapid repeated scans.",
+    "preconditions": "Existing in-stock QA-prefixed product with persisted leading-zero barcode; enough stock for scenario (no stock mutation). Actual USB/Bluetooth HID devices needed for acceptance.",
+    "steps": "Automate string-preserving keyboard events plus Enter at 0/5/25ms, exact quantity/line/subtotal, repeated bursts, unknown code, Scan focus and manual-click/keyboard controls. Human repeats with real USB/Bluetooth scanners and records actual counts.",
     "expected": "Exact barcode captured; expected count; no lost or doubled scan; keyboard remains usable.",
-    "status": "Not executed",
-    "automation": "Manual / automation backlog"
+    "status": "Partially tested - emulated scan duplicate quantity finding; physical USB/Bluetooth unverified",
+    "automation": "tests/phase1/hardware/barcode-scanner-compatibility.ui.spec.ts; hardware-full-flow.ui.spec.ts; key timing is not physical transport proof"
   },
   {
     "id": "P1-056",
@@ -556,18 +556,18 @@
     "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
     "steps": "Edit QA company BRN/VAT/address as owner; reload; preview invoice.",
     "expected": "Identity persists and renders correctly; unauthorized staff cannot change it.",
-    "status": "Not executed",
-    "automation": "Manual / automation backlog"
+    "status": "Partially tested - profile persistence passes; email, Tax ID, BRN clearing and separate VAT field defects",
+    "automation": "tests/phase1/settings/company-profile-legal-identity.ui.spec.ts; approved QA BRN baseline unblocks execution. Name/phone/address save and restoration pass. SET-001/002/003/008 remain. RBAC and invoice/PDF identity not certified. See settings-failure-tickets.md."
   },
   {
     "id": "P1-057",
     "feature": "F28-b",
     "title": "MUR formatting",
     "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
-    "steps": "Inspect 0, 0.01, 1000.50 and large amount in list, POS, invoice and PDF.",
-    "expected": "Consistent Rs/MUR and two-decimal accuracy; no currency conversion implied.",
-    "status": "Not executed",
-    "automation": "Manual / automation backlog"
+    "steps": "Inspect 0, 0.01, 1000.50 and a large amount in list, POS, invoice and PDF. In Company settings, verify decimals default enabled on an approved fresh/default-state fixture, disable/save/reload then re-enable/save/reload; restore the original setting.",
+    "expected": "Rs always prefixes the amount. Company decimal display is enabled by default, fixed at 2dp when enabled, and can be disabled. No symbol-position/arbitrary-precision selector or currency conversion is implied. Rounding policy is not assumed.",
+    "status": "Partially tested - MUR and Rs/2dp zero total pass; decimal control missing",
+    "automation": "tests/phase1/settings/currency-financial-formatting.ui.spec.ts; MUR persistence and fixed Rs prefix/2dp zero-total display pass. SET-004 missing Company decimal toggle blocks on/off persistence and disabled output. Fresh-company default, nonzero financial boundaries and PDF outstanding."
   },
   {
     "id": "P1-058",
@@ -576,8 +576,8 @@
     "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
     "steps": "Change disposable company's default tax; create new product/sale and reopen old invoice.",
     "expected": "New records use setting as specified; prior invoice tax does not change.",
-    "status": "Not executed",
-    "automation": "Manual / automation backlog"
+    "status": "Partially tested - VAT15 and disabled tax persist; pricing mode missing",
+    "automation": "tests/phase1/settings/fiscal-tax-settings.ui.spec.ts; VAT15/default POS rate and disabled-registration persistence pass. SET-005 missing inclusive/exclusive mode; cross-reference Products ticket 10. No real sale or historical-invoice certification."
   },
   {
     "id": "P1-059",
@@ -586,8 +586,8 @@
     "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
     "steps": "Select light/dark/system; inspect forms, dialogs, tables and print preview.",
     "expected": "Readable content and visible focus; preference persists according to account policy.",
-    "status": "Not executed",
-    "automation": "Manual / automation backlog"
+    "status": "Partially tested - Dark persistence passes; Light reload and System Default defects",
+    "automation": "tests/phase1/settings/theme-settings.ui.spec.ts; Dark reload/focus/table smoke passes. SET-006 missing System Default; SET-010 explicit light preference returns to Dark after same-session reload despite HTTP 200. Fresh-browser startup appearance is restored separately, not treated as company-data drift. Contrast/print/full visual acceptance outstanding."
   },
   {
     "id": "P1-060",
@@ -596,8 +596,8 @@
     "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
     "steps": "Switch languages; inspect labels, validations and document language, then reload.",
     "expected": "No raw translation keys; intended preference persists; numbers remain accurate.",
-    "status": "Not executed",
-    "automation": "Manual / automation backlog"
+    "status": "Partially tested - visible switching and French labels pass; saved-language and HTML-language defects",
+    "automation": "tests/phase1/settings/multi-language-support.ui.spec.ts; English/French switching and translated Company label pass. SET-007 HTML lang remains en in French; SET-009 saved French reverts to English on same-session reload. Reload readiness explicitly awaited; see settings-failure-tickets.md. Full translation/validation and cross-device policy not certified."
   },
   {
     "id": "P1-061",
@@ -606,8 +606,8 @@
     "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
     "steps": "Open Terms from login and in-app help; compare approved text/version.",
     "expected": "Correct accessible document opens; owner/legal reviewer confirms wording. Automation does not certify compliance.",
-    "status": "Not executed",
-    "automation": "Manual / automation backlog"
+    "status": "Partially tested - HELP-001 login-form submission; Terms delivery and approval blocked",
+    "automation": "tests/phase1/help/terms-of-service.ui.spec.ts; 25 Oct 2026: pointer/mobile keyboard reproduce HELP-001. In-app document is unavailable; developer says Terms will be generated after project completion. Reading, focus return and approved wording/version are not passed."
   },
   {
     "id": "P1-062",
@@ -616,8 +616,8 @@
     "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
     "steps": "Open Privacy from login and in-app; use keyboard and mobile view.",
     "expected": "Readable approved policy with correct version; legal approval is a separate prerequisite.",
-    "status": "Not executed",
-    "automation": "Manual / automation backlog"
+    "status": "Partially tested - HELP-001 login-form submission; Privacy delivery and approval unconfirmed",
+    "automation": "tests/phase1/help/privacy-policy.ui.spec.ts; 25 Oct 2026: pointer/mobile keyboard reproduce HELP-001. No authenticated platform document entry or approved Privacy version supplied. Availability/approval remains blocked/unconfirmed, not a new confirmed missing-document bug."
   },
   {
     "id": "P1-063",
@@ -626,7 +626,7 @@
     "preconditions": "Dedicated QA business and permitted role; seeded records as described. Mutations only in isolated local/staging environment.",
     "steps": "Open version/build surface and compare deployed commit with release record.",
     "expected": "Version identifies actual deployed build; missing surface recorded as gap.",
-    "status": "Not executed",
-    "automation": "Manual / automation backlog"
+    "status": "Partially tested - copyright passed; production release identity verification blocked",
+    "automation": "tests/phase1/help/system-version-build.ui.spec.ts; 25 Oct 2026: copyright/year passes. Visible version/commit absent; developer says production release is not ready. No expected release value invented; build verification is blocked, not a confirmed new bug."
   }
 ]

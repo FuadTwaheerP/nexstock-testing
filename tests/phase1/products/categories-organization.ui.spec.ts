@@ -9,7 +9,7 @@ test.describe('Products & Catalog — Categories & Organization', () => {
     const dialog = await openNewProduct(page);
     const categoryField = dialog.getByLabel(/^Category/i);
     await categoryField.click();
-    await expect(page.getByRole('option', { name: category, exact: true })).toBeVisible();
+    await expect(page.getByRole('option', { name: category, exact: true }).first()).toBeVisible();
     await page.keyboard.press('Escape');
     await dialog.getByRole('button', { name: 'Cancel', exact: true }).click();
   });
@@ -17,7 +17,8 @@ test.describe('Products & Catalog — Categories & Organization', () => {
   test('supports multi-level parent and child category hierarchy @phase1 @products', async ({ page }) => {
     await ensureCategory(page);
     await openProductSettings(page);
-    const parentCategory = page.getByLabel(/Parent Category/i);
+    // The deployed control has adjacent visible text, but no associated label.
+    const parentCategory = page.getByRole('tabpanel', { name: 'Products' }).getByRole('combobox');
     await expect(parentCategory, 'Category creation must expose a parent-category selector').toBeVisible();
     await parentCategory.click();
     await expect(page.getByRole('option').first(), 'Parent-category selector must list existing categories').toBeVisible();

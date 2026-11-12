@@ -1,0 +1,43 @@
+NexStock QA | Phase 1 Round 2 | page 1
+NexStock
+Phase 1 - Round 2 Retest
+26 October 2026 | Production | Nexstock QA Company https://nexstock.stylotech.mu/app | Chromium / Windows
+Outcome
+Fix verification is incomplete: 2 of the 4 original tickets are fixed, 1 is partially fixed and 1 remains open. The seven
+previously failing cases now have 4 passes and 3 application failures.
+Ticket
+Result
+Verified result
+RET-001
+FIXED
+Existing customer selection and the full POS checkout now pass, including receipt printing and
+a fresh empty order.
+RET-002
+PARTIAL
+PDF export no longer returns 404. Saved invoice identity and Rs 200 / Rs 230 totals pass.
+Saved header, banking instructions and payment notes are missing from exported PDFs.
+RET-003
+OPEN
+Dialog content overlaps the action footer and blocks a normal Add to order click at 1920 x 1080
+and 1440 x 900.
+RET-004
+FIXED
+The active QA supplier is selectable; the deactivated vendor is excluded. Cleanup retained
+both new QA vendors inactive.
+Required follow-up
+Correct the variant dialog height, scrolling and footer stacking so the action receives pointer events. Ensure invoice
+export includes the saved invoice header and banking/payment instructions, with consistent configuration
+precedence. Redeploy and rerun the affected checks.
+Separate Phase 1 Help check
+HELP-001 is fixed in the executed checks: public Terms and Privacy open on desktop and mobile without submitting
+or validating login. Authenticated Help document access and visible version/commit checks remain blocked. Legal
+wording/approval and a deployment-matched release reference are not certified.
+Execution and scope
+Automation fixes were rerun: updated dialog label casing, precise receipt Print/Close controls, child-window print
+tracking and canonical invoice-number validation. Final remaining failures are application findings; no scoped test
+was intentionally skipped.
+QA stock, VAT and temporary invoice header/footer settings were restored. Synthetic sales/invoices remain as
+evidence. No real payment charge, customer email or physical printing was performed. This targeted retest does not
+certify all Phase 1 or any Phase 2 requirements.
+A changed production frontend bundle was verified after deployment confirmation. No authoritative deployed commit was supplied. Detailed
+evidence: blob-report/archive/phase1-round2-2026-10-26/verification-register.json.

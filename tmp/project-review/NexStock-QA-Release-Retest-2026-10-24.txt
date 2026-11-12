@@ -1,0 +1,40 @@
+NexStock QA Release Retest - page 1
+NexStock
+QA Retest Summary
+Test date: 24 October 2026 | Production | Desktop Chromium
+https://nexstock.stylotech.mu/app | Nexstock QA Company
+Outcome
+Post-deployment retesting found substantial progress, but the release is not ready for full QA
+sign-off. Seven failing test cases relate to four confirmed application bugs; duplicate failures are
+grouped into single tickets.
+Final result
+Count
+Feature checks passed
+158
+Failing test cases / unique confirmed bugs
+7 / 4
+Requirement / policy observations
+2
+Setup and cleanup checks passed
+16
+Local automation safety checks passed
+67
+What happened
+Release-related checks ran across Products, Stores, Stock Adjustments, POS, Invoicing,
+Suppliers, Customers/AR, Security, Hardware and Settings.
+Test scripts were updated for deployed controls, saved-state readiness and child-window printing.
+Automation issues were corrected and affected cases rerun; rate-limited probes were rerun
+sequentially.
+Successful checks include product persistence, branch settings, stock details, checkout tenders,
+invoice/quotation saving, payment settlement, AR reconciliation and localization. A pass applies
+only to the assertions exercised, not an entire module.
+QA stock and temporary settings were restored. Synthetic transaction records remain as test
+evidence; no real payment charge, customer email or physical printing was performed.
+Next steps
+Use the separate Markdown tickets for the four confirmed bugs and all seven affected tests. After
+fixes are deployed, rerun those cases. Clarify the two policy observations and complete remaining
+fixture-dependent, security and physical-device verification. PIN locking and branch registers
+remain explicitly deferred.
+This revision only shortens the report; it does not represent a new test run. Detailed evidence remains in
+blob-report/archive/release-retest-2026-10-24/verification-register.json.
+Source releases: NexStock-QA-Fix-Release-Notes.pdf and NexStock-Features-Release-Notes.pdf (21 October 2026).

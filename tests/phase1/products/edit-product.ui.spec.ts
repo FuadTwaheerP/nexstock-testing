@@ -1,6 +1,6 @@
 import {
   test, expect, ensureCatalogFixtures, openNewProduct, fillBasicProduct, submitNewProduct,
-  openEditProduct, saveEditedProduct, productRow, uniqueProduct,
+  openEditProduct, saveEditedProduct, productRow, uniqueProduct, openProducts,
 } from './support/products';
 
 test.describe('Products & Catalog — Edit Product', () => {
@@ -37,9 +37,15 @@ test.describe('Products & Catalog — Edit Product', () => {
     await submitNewProduct(page, product);
 
     const dialog = await openEditProduct(page, product.sku);
-    const taxClassification = dialog.getByLabel(/Tax Classification|VAT (?:Rate|Class)/i);
+    const taxClassification = dialog.getByLabel('VAT', { exact: true });
     await expect(taxClassification, 'Edit Product must expose per-product VAT classification').toBeVisible();
     await taxClassification.click();
-    await expect(page.getByRole('option', { name: /Standard.*15%/i })).toBeVisible();
+    await page.getByRole('option', { name: 'Exempt', exact: true }).click();
+    await saveEditedProduct(page);
+    await openProducts(page);
+    await page.getByRole('main').getByPlaceholder('Search...', { exact: true }).fill(product.sku);
+    await page.getByRole('main').getByRole('button', { name: 'Filter', exact: true }).click();
+    await openEditProduct(page, product.sku);
+    await expect(taxClassification).toContainText('Exempt');
   });
 });

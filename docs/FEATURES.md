@@ -13,7 +13,7 @@
 | ------ | ------------------------------ | :---------------: | ----------------------------------------------------------------------------------------- |
 | **1**  | **Dashboard & Analytics**      |     🟡 Phase 2    | KPI cards, revenue graphs, top-selling items, low stock alerts, branch filter             |
 | **2**  | **Products & Catalog**         |     🔴 Phase 1    | Add/Edit/Delete products, variants, categories, barcode scan/input, VAT rates             |
-| **3**  | **Stores & Branches**          |     🔴 Phase 1    | Add/Edit branch, header branch switcher, isolated inventory levels                        |
+| **3**  | **Stores & Branches**          |     🔴 Phase 1    | Add/Edit branch and isolated inventory levels                                             |
 | **4**  | **Stock Adjustments**          |     🔴 Phase 1    | Manual +/- adjustments, reason codes (damage/theft/count), instant balance update         |
 | **5**  | **Stock Transfers**            |     🟡 Phase 2    | Inter-branch transfer requests, status flow (Pending/Transit/Received), ledger            |
 | **6**  | **Stock Counts & Audits**      |     🟡 Phase 2    | Physical stock count entry, discrepancy variance calculation, auto-reconciliation         |
@@ -108,8 +108,6 @@
   - 🔴 Contact info, receipt header details, assigned registers
 - 🔴 **c. Independent Branch Stock Levels**
   - 🔴 Separate, isolated inventory counts per location
-- 🔴 **d. Switch Active Branch**
-  - 🔴 Global branch selector in top header to toggle views
 - 🟡 **e. Branch Staff Assignment** *(Phase 2)*
   - 🟡 Restrict cashiers and managers to specific locations
 - 🟡 **f. Deactivate / Close Branch** *(Phase 2)*
@@ -336,7 +334,7 @@
 ### 18. Suppliers & Vendor Management 🔴 [Phase 1]
 
 - 🔴 **a. Add Supplier**
-  - 🔴 Company name, BRN, contact person, email, phone, physical address
+  - 🔴 Company name, BRN and Tax ID (separate, both optional), contact person, email, phone, physical address
 - 🔴 **b. Edit / Deactivate Supplier**
   - 🔴 Update vendor details or archive inactive suppliers
 - 🔴 **c. Credit Terms & Payment Conditions**
@@ -430,11 +428,11 @@
 ### 24. Security, Sessions & Authentication 🔴 [Phase 1]
 
 - 🔴 **a. Secure Authentication & Password Policies**
-  - 🔴 Bcrypt hashing, minimum password length, and complexity validation
+  - 🔴 Bcrypt hashing; minimum 8 characters with lowercase, uppercase and number; symbols optional; strength bar strongest with symbol (confirmed 19 October 2026)
 - 🔴 **b. Password Reset & Update**
   - 🔴 User self-service or admin-initiated password update
 - 🔴 **c. Session Inactivity Timeout**
-  - 🔴 Automatic logout on prolonged inactivity to protect registers
+  - 🔴 PIN lock after 30 minutes inactive, configurable in user settings; remove Auto-logout. User sets PIN during onboarding (latest user clarification, 19 October 2026).
 - 🟢 **d. Two-Factor Authentication (2FA / TOTP)** *(Phase 3)*
   - Time-based one-time password via Google / Microsoft Authenticator
 - 🟢 **e. Backup Recovery Codes** *(Phase 3)*
@@ -482,9 +480,9 @@
 ### 28. System Settings & Localization 🔴 [Phase 1]
 
 - 🔴 **a. Company Profile & Legal Identity**
-  - 🔴 Company Name, BRN, VAT number, registered office address, phone, emails
+  - 🔴 Company Name, BRN, separate Tax ID and VAT registration number fields, registered office address, phone, emails (user-confirmed 20 October 2026)
 - 🔴 **b. Currency & Financial Formatting**
-  - 🔴 Primary currency (MUR), currency symbol placement, decimal conventions
+  - 🔴 Primary currency (MUR); Rs always prefixes the amount. Company settings allows decimal display on/off: enabled by default, fixed at 2 decimal places when enabled (user-confirmed 20 October 2026). No configurable symbol placement or precision is required.
 - 🔴 **c. Fiscal Tax Settings**
   - 🔴 Default VAT rate (15%), tax-inclusive vs. tax-exclusive pricing toggle
 - 🔴 **d. Theme Settings**

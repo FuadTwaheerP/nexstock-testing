@@ -1,0 +1,30 @@
+{
+  "jobs": [
+    [
+      "phase2",
+      "credit-notes",
+      "--grep",
+      "debit-note list opens"
+    ],
+    [
+      "phase2",
+      "quotations",
+      "--grep",
+      "custom payment terms|Quotation creation review status conversion"
+    ],
+    [
+      "phase2",
+      "document-templates",
+      "--grep",
+      "saved primary theme"
+    ],
+    [
+      "phase1",
+      "invoicing",
+      "branded-pdf-print.ui.spec.ts",
+      "invoicing-full-flow.ui.spec.ts",
+      "--grep",
+      "includes configured banking|creates a Net 30"
+    ]
+  ]
+}

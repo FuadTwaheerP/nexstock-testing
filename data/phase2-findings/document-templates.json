@@ -1,0 +1,53 @@
+{
+  "module": "Document Builder & Visual Template Designer",
+  "testDate": "25 October 2026",
+  "limits": [
+    "Modern/Classic style, primary color, font and watermark save/reload pass. Header/footer notes with QA bank/terms/legal text persist and update the preview.",
+    "The actual newly generated QA invoice does not use the saved primary theme. Native invoice/quotation PDF export remains covered by the existing RET-002 blocker, not a new template PDF ticket.",
+    "A4 builder dimensions, A4 invoice paper option and 80mm receipt controls were verified across Builder and Settings > Customization. Quotation output remains blocked by P2-QUOTE-001/RET-002; no missing-80mm preset bug is claimed.",
+    "Company logo file selection/display is verified through Settings without Save Template; persisted logo and final output propagation remain unverified. No Phase 3 canvas dragging or custom-font uploads were tested.",
+    "Every saved template change is restored to its captured baseline and unrelated template fields are checked. Only new QA service sales are used for actual invoice checks; synthetic fiscal records remain as evidence."
+  ],
+  "automation": [
+    "Focused first run verified preview/style and restoration before broader template writes.",
+    "Inspected Settings > Customization as an alternate format/logo surface before classifying capabilities. Receipt 80mm and A4 controls exist there, so a missing-preset hypothesis was not logged.",
+    "The assessor distinguishes successful full-flow steps from step errors, supports known RET blockers, and separates authorized mocked staff UI results from real passes. This maintenance does not change actual assertion outcomes."
+  ],
+  "bugs": [
+    {
+      "id": "P2-DOC-001",
+      "title": "Document Builder has no secondary brand color control",
+      "priority": "Medium",
+      "features": [
+        "F22-a"
+      ],
+      "steps": [
+        "Sign in to Nexstock QA Company and open Document Builder.",
+        "Inspect Theme Settings and all available controls.",
+        "Try to configure distinct primary and secondary brand colors."
+      ],
+      "expected": "The document theme supports both primary and secondary brand colors.",
+      "actual": "Only a Primary Color input is present. There is no Secondary Color field or selector.",
+      "comment": "Add secondary color configuration, persistence, preview and document application. Primary-color persistence is independently tested; logo selection is available in Settings and is not assumed missing."
+    },
+    {
+      "id": "P2-DOC-004",
+      "title": "Saved document theme updates Builder preview but is ignored by actual invoices",
+      "priority": "High",
+      "features": [
+        "F22-a",
+        "F22-d"
+      ],
+      "steps": [
+        "In Document Builder, set primary color #17675e, Classic style and Roboto font; save.",
+        "Reload Builder and confirm the saved color/style/font remain.",
+        "Create a fresh Rs 100 QA service cash sale for QA Billing Automation Customer.",
+        "Open that exact sale's formal invoice through its actual /app/invoicing/<id> document.",
+        "Compare the invoice appearance to the saved theme and live preview."
+      ],
+      "expected": "The generated invoice uses the saved document theme, including its selected primary branding color.",
+      "actual": "Builder save/readback and live preview use #17675e, but the actual new invoice retains its fixed appearance. No document element uses the saved primary color. The deployed Invoice Details component reads the older invoice header/footer settings and does not consume the document-template query.",
+      "comment": "Connect actual document rendering to the persisted template configuration, then retest invoices, quotations and receipt output as applicable. Preserve saved content/branding and verify the exported document after RET-002 is repaired. All temporary template changes were restored."
+    }
+  ]
+}

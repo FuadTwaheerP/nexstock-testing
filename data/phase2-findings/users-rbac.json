@@ -1,0 +1,18 @@
+{
+  "module": "Users, Roles & Access Control (RBAC)",
+  "testDate": "25 October 2026",
+  "limits": [
+    "The user authorized mock data and a fake join URL. Member/invitation writes are intercepted in memory; no real invitation is sent and no existing member is edited. Each case removes the interception and verifies production members/invitations are unchanged.",
+    "The fake /app/users-roles?qa_mock_join=... URL is a labelled harness handoff using the owner session, not a production invitation acceptance handler. Production staff login, permission enforcement, branch isolation and session revocation remain unverified.",
+    "Live Admin/Manager/Staff invitation choices are checked without submitting. Role labels alone do not establish backend permissions or a missing Cashier role defect."
+  ],
+  "observations": [
+    "P2-STAFF-OBS-001: simulated active non-owner staff exposes role editing but no name/phone editor or password reset. This is a mock-based UI observation, not a confirmed account or credential defect.",
+    "P2-STAFF-OBS-002: invite/member screens and the QA branch editor expose no branch assignment selector with simulated Manager staff. Real branch restriction enforcement remains unverified."
+  ],
+  "automation": [
+    "Mocked results have separate MOCK PASS and MOCK OBSERVATION classifications. They cannot be promoted to live passes or confirmed application bugs.",
+    "Only explicitly recognized fake member/invitation mutations are fulfilled; unknown writes are prevented. Original production member/invitation identities, roles, status and email are checked after each case."
+  ],
+  "bugs": []
+}

@@ -1,0 +1,35 @@
+{
+  "module": "Bills & Accounts Payable",
+  "testDate": "25 October 2026",
+  "limits": [
+    "Direct QA vendor bill persistence passes: supplier, external reference, issue/due dates, subtotal Rs 97, entered tax Rs 10, total and balance Rs 107.",
+    "Manual bookkeeping-only Cash Rs 20, Bank Transfer Rs 30 and Cheque Rs 57 installments pass, including partial/paid statuses and decreasing balances to zero. No bank, gateway, real cheque or external funds transfer was initiated.",
+    "A bill due ten days earlier is explicitly marked Overdue; future due dates and pending liabilities are exercised independently. No assumed aging-bucket policy is imposed.",
+    "PO/received-shipment linkage and the integrated purchasing-to-bill flow are blocked by confirmed Purchasing P2-PO-001; direct bill coverage does not certify that linkage.",
+    "Synthetic bills and payment entries remain as QA evidence. No existing supplier or bill was modified/deleted; stock baselines remain restored."
+  ],
+  "automation": [
+    "Direct AP fixtures are independent of Purchasing so the real PO defect does not prevent payment and due-date coverage.",
+    "Two PO-linked cases execute the failing prerequisite and record BLOCKED instead of skips, passing coverage or duplicate AP defects.",
+    "The overdue oracle uses the actual explicit Overdue marker and outstanding amount. No missing date-bucket feature was inferred from labels."
+  ],
+  "bugs": [
+    {
+      "id": "P2-AP-002",
+      "title": "Vendor bill payment cannot record a transaction or cheque reference",
+      "priority": "Medium",
+      "features": [
+        "F17-b"
+      ],
+      "steps": [
+        "Sign in to Nexstock QA Company and open Bills (AP).",
+        "Create an isolated bill for QA P2 Vendor mvo2d41l with subtotal Rs 97, tax Rs 10 and a future due date.",
+        "Click Pay on that exact QA bill.",
+        "Select Bank Transfer or Cheque and inspect all payment inputs."
+      ],
+      "expected": "The manual payment can retain its amount, payment date, method and transaction/cheque reference for reconciliation.",
+      "actual": "Record Payment exposes Amount, Payment Date and Payment Method only. There is no reference or transaction field. The actual tested payment payloads include amount, paymentDate and paymentMethod, with no reference.",
+      "comment": "Add reference entry/persistence and expose it in the bill payment/supplier ledger. The amount arithmetic and Cash/Bank Transfer/Cheque bookkeeping paths pass; this ticket concerns the missing required reference capability."
+    }
+  ]
+}

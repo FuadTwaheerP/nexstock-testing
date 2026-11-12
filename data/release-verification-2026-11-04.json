@@ -1,0 +1,133 @@
+{
+  "target": "https://nexstock.stylotech.mu/app",
+  "company": "Nexstock QA Company",
+  "source": "C:/Users/amiirah/.codex/attachments/02db7b76-4f3a-4fac-9215-e964b585a2ed/Pasted text.txt",
+  "scope": "Verify developer claims for Phase 1 Round 2, the separate HELP-001 issue and Phase 2. Never mix historical evidence into fresh fix verdicts.",
+  "archive": "blob-report/archive/release-verification-2026-11-04",
+  "deployment": "Successful deployment confirmed by user 4 November 2026. Frontend fingerprint unchanged from interrupted run; all closure verdicts use fresh 4 November evidence.",
+  "phase1": [
+    "RET-001",
+    "RET-002",
+    "RET-003",
+    "RET-004",
+    "HELP-001"
+  ],
+  "phase2Claimed": {
+    "purchase-orders": [
+      "P2-PO-001"
+    ],
+    "pos-extensions": [
+      "P2-POS-002"
+    ],
+    "quotations": [
+      "P2-QUOTE-001",
+      "P2-QUOTE-002"
+    ],
+    "stock-counts": [
+      "P2-COUNT-002",
+      "P2-COUNT-004",
+      "P2-COUNT-005"
+    ],
+    "dashboard": [
+      "P2-DASH-003",
+      "P2-DASH-004"
+    ],
+    "reports": [
+      "P2-REP-002",
+      "P2-REP-003",
+      "P2-REP-005"
+    ],
+    "products-bulk": [
+      "P2-BULK-001",
+      "P2-BULK-004"
+    ],
+    "goods-receipts": [
+      "P2-GRN-002"
+    ],
+    "audit-logs": [
+      "P2-AUD-001",
+      "P2-AUD-003",
+      "P2-AUD-004"
+    ],
+    "document-templates": [
+      "P2-DOC-004"
+    ],
+    "notifications": [
+      "P2-NOT-002"
+    ],
+    "bills-payable": [
+      "P2-AP-002"
+    ],
+    "supplier-history": [
+      "P2-SUPH-001"
+    ],
+    "credit-notes": [
+      "P2-CN-002",
+      "P2-CN-004"
+    ]
+  },
+  "implicitClaims": {
+    "P2-DASH-004": "Branch filter mentioned under P2-DASH-003",
+    "P2-AUD-003": "Product exports explicitly said to be audited"
+  },
+  "partialDelivery": {
+    "P2-CN-004": "Refund action delivered; allocation explicitly not included. Refunds have no date/method history because there is no refund table. Do not call the whole ticket fixed."
+  },
+  "notIncluded": [
+    "P2-DASH-001",
+    "P2-DASH-002",
+    "P2-REG-001",
+    "P2-REG-002",
+    "P2-CN-003",
+    "P2-GRN-003",
+    "P2-REP-001",
+    "P2-REP-004",
+    "P2-REP-006",
+    "P2-DOC-001"
+  ],
+  "additionalClaims": [
+    "Invoice/quotation PDF company currency symbol",
+    "New Supplier Order uses entered tax amount, not flat 10 percent",
+    "Bill payment dialog starts with the selected bill's due amount"
+  ],
+  "limits": [
+    "Web Chromium and observed API-backed effects only; mobile update not certified",
+    "Only QA fixtures and manual record-only payments/refunds; no real gateways or supplier/customer dispatch",
+    "No cross-company mutation or second-company provisioning; do not certify tenant isolation from one-company exports",
+    "Approved legal wording/release commit remain unverified unless authoritative references are supplied"
+  ],
+  "remainingWork": [],
+  "resumedFrom": "blob-report/archive/release-verification-2026-10-30",
+  "executionDate": "2026-11-04",
+  "status": "complete",
+  "results": {
+    "phase1Round2": {
+      "FIXED": 2,
+      "PARTIAL": 1,
+      "OPEN": 1
+    },
+    "help": "FIXED",
+    "phase2Claimed": {
+      "FIXED": 21,
+      "PARTIAL": 3
+    },
+    "phase2Excluded": 10,
+    "functional": {
+      "APPLICATION FAIL": 8,
+      "PASS": 58
+    },
+    "support": {
+      "PASS": 38
+    }
+  },
+  "confirmedBugs": [
+    "RET-003",
+    "RET-002",
+    "P2-QUOTE-002",
+    "P2-DOC-004",
+    "REL-DN-001"
+  ],
+  "policyObservation": "Resolved: Classic dark mode must preserve the chosen brand colour; classify verified mismatch as P2-DOC-004.",
+  "darkBrandingPolicy": "preserve",
+  "darkBrandingPolicyConfirmation": "User explicitly confirmed: Preserve the brand colour."
+}

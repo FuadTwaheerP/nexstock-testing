@@ -1,0 +1,38 @@
+{
+  "module": "Products & Catalog - Bulk Catalog Operations",
+  "testDate": "2026-10-25",
+  "limits": [
+    "CSV completeness is checked against every active SKU through actual UI pagination. Archived inclusions are allowed; no requirement to exclude archived products was assumed.",
+    "Two-row valid CSV, invalid missing-name rows, quoted commas/quotes, CRLF, decimal prices/cost and leading-zero barcodes are exercised. This does not certify every encoding/size, conflicting duplicate-ID strategy, variants/media/new-field schema or rollback policy.",
+    "Per-branch CSV inventory columns and total were explicitly required by the user on 25 October. Missing columns block numerical reconciliation; those later assertions are not passed.",
+    "All created CSV fixtures are uniquely QA-prefixed and archived after inspection. No existing product or stock balance is edited by imports."
+  ],
+  "automation": [
+    "The current workspace's accessible name disappears when a Radix modal aria-hides the background. The scope check now validates the uniquely identified, previously observed QA header DOM text behind the modal; it is not a tenant-check bypass.",
+    "Archive and Delete are distinct menu actions. Cleanup now explicitly chooses reversible Archive rather than an ambiguous Archive-or-Delete locator. Four exact owned fixtures left active by the initial adapter failure were recovered and archived; the recovery queue is empty.",
+    "The catalogue total describes active products while CSV may include archived rows. Completeness now checks every active SKU through UI pagination, not a guessed equality between active and all-record counts. An initial count-only CSV failure is not an application ticket.",
+    "Although the import preview's raw CRLF/quote representation looked suspicious, reopened product values passed the persistence assertions. No parsing-corruption bug was invented from preview formatting alone."
+  ],
+  "bugs": [
+    {
+      "id": "P2-BULK-001",
+      "title": "Full-data JSON catalogue export omits products beyond the visible page",
+      "priority": "High",
+      "features": ["F02-j"],
+      "steps": ["Open Products in Nexstock QA Company with more than 15 active products.", "Confirm the catalogue total and navigate beyond the first page to establish that additional active SKUs exist.", "Return to the first page, choose Import/Export and keep Export selected.", "Choose Export as JSON - Full data format.", "Inspect the downloaded records and compare their SKU set with the active catalogue across pages. Compare with CSV export without changing records."],
+      "expected": "The full-data backup/migration export contains every active product in the catalogue, not only those currently rendered in the paginated table.",
+      "actual": "The JSON export contains only the 15 products of the visible page and omits active SKUs on other pages. The catalogue initially had 71 active products. CSV export covers the active catalogue; the two export formats are inconsistent.",
+      "comment": "This ticket concerns the offered JSON Full data format and its all-products backup/migration claim. CSV's inclusion of archived records is not this defect. Export all required records independent of table pagination and verify SKU completeness, not just a successful download."
+    },
+    {
+      "id": "P2-BULK-004",
+      "title": "Product CSV inventory export lacks per-branch stock columns and an all-branch total",
+      "priority": "High",
+      "features": ["F02-j"],
+      "steps": ["Open Stores in Nexstock QA Company and inspect the inventory matrix's branch columns and total.", "Note the QA flow product with stock in a branch and the aggregate catalogue stock.", "Open Products, choose Import/Export, then Export as CSV.", "Inspect the CSV header and stock values.", "Attempt to identify a column for every branch and a separate total across all branches."],
+      "expected": "As directly clarified by the user on 25 October, CSV displays one stock column for each branch (all branches) and a total column equal to the sum across branches.",
+      "actual": "The CSV header is SKU, Name, Barcode, Category, Unit, Price, Cost, Stock, Supplier, Description. It has only a generic Stock column, without the branch columns or explicit all-branch total. An observed QA product displayed 10 in the catalogue while this legacy Stock field exported 0.",
+      "comment": "Confirmed against the user's explicit export contract, not an assumed default-branch policy. Add every branch column and a total calculated from the same inventory balances. Retest zero/positive branch values and equality of the total to all branch columns; no missing-column reconciliation is counted passed."
+    }
+  ]
+}
