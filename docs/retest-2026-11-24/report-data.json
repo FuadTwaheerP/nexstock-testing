@@ -1,0 +1,548 @@
+{
+  "reviewComplete": true,
+  "campaignDate": "24 November 2026",
+  "supplemental": [
+    {
+      "id": "queue-membership",
+      "name": "Processing-queue assignee membership validation",
+      "status": "PARTIAL",
+      "detail": "Active current QA owner assignment succeeded and persisted; clear-to-unassigned succeeded. Invalid/nonexistent user control returned 422 without changing the valid assignee. No inactive own-member control was available; inactive-member rejection is not independently certified. Cross-tenant enforcement remains unverified without a second controlled tenant. UI assignment is still absent under P3-QUEUE-001.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\order-queue-1/results.json"
+      ]
+    },
+    {
+      "id": "long-pos-notes",
+      "name": "POS item-description length regression",
+      "status": "PASS",
+      "detail": "Native Special Instructions inputs of 256 and 500 characters produced 363/500-character combined wire notes, both above the old varchar(255) boundary and within the 500-character API limit. Both cash sales returned 201 and their exact Invoices reloaded. Definition-backed customer text/fonts persisted; internal item_description is not exposed for exact readback. No direct database-schema inspection was performed.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\document-design-2\\results.json"
+      ]
+    }
+  ],
+  "unconfirmedObservations": [
+    {
+      "id": "P3-BACKUP-002",
+      "title": "Automated platform backup capability cannot be verified from the tenant UI",
+      "basis": "FEATURES.md F28-f requires Automated Database Backup & JSON Dump Export; it does not mandate a tenant-facing scheduling, retention or history screen. The earlier UI absence does not establish that platform-managed backup jobs are missing.",
+      "needed": "Platform backup schedule/job configuration, dated successful backup artifacts and a safe restore verification in a disposable environment. No production restore will be attempted.",
+      "observed": "Reclassified from the earlier UI-only finding. The fresh Settings inspection exposes no tenant backup schedule/history, but FEATURES.md F28-f does not mandate tenant-facing controls. No platform schedule/job/artifact evidence is available, so absence or failure of automated backups is unconfirmed. This is not a passed backup capability and is excluded from confirmed bugs; native JSON export is tested separately.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\settings-1\\results.json",
+        "blob-report\\archive\\retest-2026-11-24\\automated-backup-observation.json"
+      ]
+    }
+  ],
+  "originalTickets": 32,
+  "counts": {
+    "PASS": 3,
+    "FAIL": 28,
+    "PARTIAL": 0,
+    "BLOCKED": 1,
+    "NOT TESTED": 0
+  },
+  "claimedFixes": 3,
+  "claimedCounts": {
+    "PASS": 3,
+    "FAIL": 0,
+    "PARTIAL": 0,
+    "BLOCKED": 0,
+    "NOT TESTED": 0
+  },
+  "openTickets": 28,
+  "newTickets": 0,
+  "modules": 28,
+  "functionalCases": 57,
+  "supportChecks": 59,
+  "functionalCounts": {
+    "APPLICATION FAIL": 25,
+    "PASS": 19,
+    "PARTIAL": 9,
+    "BLOCKED": 4
+  },
+  "rows": [
+    {
+      "id": "P3-DASH-001",
+      "feature": "1 - Dashboard & Executive Analytics",
+      "title": "Dashboard provides no period-over-period comparison configuration or results",
+      "priority": "Medium",
+      "status": "FAIL",
+      "detail": "Normal Dashboard and the inspected Stat Card/Line Chart configurations expose no current-versus-prior comparison control or comparative result. The Phase 3 comparison workflow cannot be selected.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\dashboard-1\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\dashboard-1\\artifacts\\dashboard-features.ui-F01--5eb65-ns-and-calculation-controls-phase3-dashboard\\P3-DASH-001.png"
+      ],
+      "claimed": false
+    },
+    {
+      "id": "P3-PROD-001",
+      "feature": "2 - Products & Catalog",
+      "title": "Product creation offers no serialized-unit tracking or serial-number assignment",
+      "priority": "Medium",
+      "status": "FAIL",
+      "detail": "The live product form/type options contain no serialized inventory mode or per-unit serial-number controls. Basic variants and per-product custom text fields are not unit-identity tracking.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\products-1\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\products-1\\artifacts\\products-features.ui-F02-a-ea427--and-unit-identity-controls-phase3-products\\P3-PROD-001.png"
+      ],
+      "claimed": false
+    },
+    {
+      "id": "P3-PROD-005",
+      "feature": "2 - Products & Catalog",
+      "title": "Categories have no dynamic field definitions or schema assignment",
+      "priority": "Medium",
+      "status": "FAIL",
+      "detail": "Category management exposes no field/schema definition control. The separate Custom Fields tab configures only an individual product and does not define or inherit category attributes.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\products-1\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\products-1\\artifacts\\products-features.ui-F02-l-e179a-mic-field-schema-management-phase3-products\\P3-PROD-005.png"
+      ],
+      "claimed": false
+    },
+    {
+      "id": "P3-TRF-001",
+      "feature": "5 - Stock Transfers",
+      "title": "Transfers have no printable dispatch manifest or delivery slip",
+      "priority": "Medium",
+      "status": "FAIL",
+      "detail": "No manifest, delivery-slip, PDF/download or print action is exposed at any inspected reachable transfer stage.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\transfers-1\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\transfers-1\\artifacts\\transfers-features.ui-F05--cf8f4-low-at-every-transfer-stage-phase3-transfers\\P3-TRF-001.png"
+      ],
+      "claimed": false
+    },
+    {
+      "id": "P3-TRF-002",
+      "feature": "5 - Stock Transfers",
+      "title": "In-transit receipt has no damage, shortage or discrepancy dispute entry",
+      "priority": "Medium",
+      "status": "FAIL",
+      "detail": "The reachable transfer states provide no damage/shortage/discrepancy input, received-quantity adjustment or dispute action; receipt is a whole-transfer completion action.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\transfers-1\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\transfers-1\\artifacts\\transfers-features.ui-F05--cf8f4-low-at-every-transfer-stage-phase3-transfers\\P3-TRF-002.png"
+      ],
+      "claimed": false
+    },
+    {
+      "id": "P3-COUNT-001",
+      "feature": "6 - Stock Counts",
+      "title": "Stock counts cannot be scheduled or scoped to a category",
+      "priority": "Medium",
+      "status": "FAIL",
+      "detail": "The list offers Start a count only. Its form has Branch and Notes; opening a count always freezes the full branch. No category or scheduling control is available.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\stock-counts-1\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\stock-counts-1\\artifacts\\stock-counts-features.ui-F-d14f5-tegory-cycle-audit-controls-phase3-stock-counts\\P3-COUNT-001.png"
+      ],
+      "claimed": false
+    },
+    {
+      "id": "P3-COUNT-002",
+      "feature": "6 - Stock Counts",
+      "title": "Count sheet has no barcode-driven counting workflow",
+      "priority": "Medium",
+      "status": "FAIL",
+      "detail": "Only per-row numeric inputs are present; there is no barcode target/mode, and the emulated SKU plus Enter leaves every counted value unchanged.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\stock-counts-1\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\stock-counts-1\\artifacts\\stock-counts-features.ui-F-a0fe8-nting-in-a-disposable-draft-phase3-stock-counts\\P3-COUNT-002.png"
+      ],
+      "claimed": false
+    },
+    {
+      "id": "P3-EXP-003",
+      "feature": "7 - Shelf Life",
+      "title": "Expired batches expose delete metadata but no supervised stock disposal workflow",
+      "priority": "Medium",
+      "status": "FAIL",
+      "detail": "Expired rows expose Delete batch only; no disposal/write-off request, supervisor approval or linked disposal ledger is available.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\shelf-life-1\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\shelf-life-1\\artifacts\\shelf-life-features.ui-F07-16998-ation-and-disposal-workflow-phase3-shelf-life\\P3-EXP-003.png"
+      ],
+      "claimed": false
+    },
+    {
+      "id": "P3-GRN-001",
+      "feature": "16 - Goods Receiving / 7 - Shelf Life",
+      "title": "Goods receiving cannot capture manufacturer lots or lot expiry dates",
+      "priority": "Medium",
+      "status": "FAIL",
+      "detail": "The receiving form exposes accepted/rejected quantities and rejection reason only; no manufacturer lot or expiry capture input is available.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\goods-receipts-1\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\goods-receipts-1\\artifacts\\goods-receipts-features.ui-89f2b-ving-lot-and-expiry-capture-phase3-goods-receipts\\P3-GRN-001.png"
+      ],
+      "claimed": false
+    },
+    {
+      "id": "P3-POS-001",
+      "feature": "8 - POS",
+      "title": "Offline checkout fails without storing a durable queued sale",
+      "priority": "High",
+      "status": "FAIL",
+      "detail": "Checkout remains on the payment dialog while offline; no sale confirmation/receipt or IndexedDB database is created to retain a durable queued sale. Online mutation processing may remain paused until reconnection.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\pos-1\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\pos-1\\artifacts\\pos-features.ui-F08-l-offl-d23e0--and-reconnect-prerequisite-phase3-pos\\P3-POS-001.png"
+      ],
+      "claimed": false
+    },
+    {
+      "id": "P3-POS-002",
+      "feature": "8 - POS",
+      "title": "POS has no customer loyalty balance or redemption workflow",
+      "priority": "Medium",
+      "status": "FAIL",
+      "detail": "No loyalty/points balance or redemption control is exposed in the POS cart; no loyalty programme appears in the served POS implementation.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\pos-1\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\pos-1\\artifacts\\pos-features.ui-F08-m-POS-loyalty-redemption-controls-phase3-pos\\P3-POS-002.png"
+      ],
+      "claimed": false
+    },
+    {
+      "id": "P3-QUEUE-001",
+      "feature": "10 - Order Queue",
+      "title": "Processing ticket editor cannot assign a technician, service bay or table",
+      "priority": "Medium",
+      "status": "FAIL",
+      "detail": "The editor provides priority, estimated time, ready date and internal notes only. No assignment selector or table/bay input is present.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\order-queue-1\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\order-queue-1\\artifacts\\order-queue-features.ui-F1-45441-ignment-and-ticket-printing-phase3-order-queue\\P3-QUEUE-001.png"
+      ],
+      "finding": {
+        "id": "P3-QUEUE-001",
+        "feature": "10 - Order Queue",
+        "requirements": [
+          "F10-b"
+        ],
+        "title": "Processing ticket editor cannot assign a technician, service bay or table",
+        "steps": [
+          "Sell an owned processing item through POS.",
+          "Open Orders Queue and Edit / Add Note for the resulting owned ticket.",
+          "Inspect assignment inputs."
+        ],
+        "expected": "Assign and persist a technician/service bay/table association on the ticket.",
+        "actual": "The editor provides priority, estimated time, ready date and internal notes only. No assignment selector or table/bay input is present.",
+        "comment": "The native assignment editor remains absent. Separate explicit API controls accepted and persisted the active current owner, cleared the assignee, and rejected the invalid-ID control without changing the valid assignment. Inactive/cross-business coverage is limited as stated in the summary; no staff account was changed.",
+        "continue": true,
+        "environment": "Production https://nexstock.stylotech.mu/app; Nexstock QA Company; Windows/Chromium/Playwright 1.62.1; 1920 x 1080; 24 November 2026.",
+        "priority": "High",
+        "lastVerified": "2026-11-24T15:57:05.525Z",
+        "stage": "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\order-queue-1",
+        "url": "https://nexstock.stylotech.mu/app/orders",
+        "attachments": [
+          "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\order-queue-1\\artifacts\\order-queue-features.ui-F1-45441-ignment-and-ticket-printing-phase3-order-queue\\P3-QUEUE-001.png"
+        ],
+        "test": "F10-a b c owned processing order live states assignment and ticket printing"
+      },
+      "claimed": false
+    },
+    {
+      "id": "P3-QUEUE-002",
+      "feature": "10 - Order Queue",
+      "title": "Order queue has no thermal work-order ticket generation action",
+      "priority": "Medium",
+      "status": "FAIL",
+      "detail": "The card menu offers Edit / Add Note and Cancel Order only; there is no ticket/print action.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\order-queue-1\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\order-queue-1\\artifacts\\order-queue-features.ui-F1-45441-ignment-and-ticket-printing-phase3-order-queue\\P3-QUEUE-002.png"
+      ],
+      "claimed": false
+    },
+    {
+      "id": "P3-INV-001",
+      "feature": "12 - Invoicing",
+      "title": "Recurring contract billing cannot be configured",
+      "priority": "Medium",
+      "status": "FAIL",
+      "detail": "Recurring contract billing cannot be configured. No corresponding workflow is available on the inspected live forms/settings.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\invoicing-1\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\invoicing-1\\artifacts\\invoicing-features.ui-F12--7f189-automated-reminder-controls-phase3-invoicing\\P3-INV-001.png"
+      ],
+      "claimed": false
+    },
+    {
+      "id": "P3-INV-002",
+      "feature": "12 - Invoicing",
+      "title": "Invoice editor has no per-invoice currency or recorded exchange rate",
+      "priority": "Medium",
+      "status": "FAIL",
+      "detail": "Invoice editor has no per-invoice currency or recorded exchange rate. No corresponding workflow is available on the inspected live forms/settings.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\invoicing-1\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\invoicing-1\\artifacts\\invoicing-features.ui-F12--7f189-automated-reminder-controls-phase3-invoicing\\P3-INV-002.png"
+      ],
+      "claimed": false
+    },
+    {
+      "id": "P3-PO-001",
+      "feature": "15 - Purchase Orders",
+      "title": "Low-stock items have no automatic purchase-order reordering workflow",
+      "priority": "Medium",
+      "status": "FAIL",
+      "detail": "Only manual PO creation and low-stock reporting are available; no automatic reorder policy/schedule or generation workflow is exposed.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\purchase-orders-1\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\purchase-orders-1\\artifacts\\purchase-orders-features.ui-F15-e-automated-reorder-controls-phase3-purchase-orders\\P3-PO-001.png"
+      ],
+      "claimed": false
+    },
+    {
+      "id": "P3-PO-002",
+      "feature": "15 - Purchase Orders",
+      "title": "Purchase-order detail has no direct supplier email transmission action",
+      "priority": "Medium",
+      "status": "FAIL",
+      "detail": "The inspected PO states expose status changes, print and receive controls but no direct supplier email action or transmission status.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\purchase-orders-1\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\purchase-orders-1\\artifacts\\purchase-orders-features.u-bca79-ail-action-across-PO-states-phase3-purchase-orders\\P3-PO-002.png"
+      ],
+      "claimed": false
+    },
+    {
+      "id": "P3-AP-001",
+      "feature": "17 - Bills & AP",
+      "title": "Bill entry provides PO linking but no three-way receipt reconciliation",
+      "priority": "Medium",
+      "status": "FAIL",
+      "detail": "The form has an optional PO reference plus aggregate subtotal/tax. It has no goods-receipt/line matching controls; the list has no match status or reconciliation action.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\bills-payable-1\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\bills-payable-1\\artifacts\\bills-payable-features.ui--e2445--way-bill-matching-workflow-phase3-bills-payable\\P3-AP-001.png"
+      ],
+      "claimed": false
+    },
+    {
+      "id": "P3-SUP-001",
+      "feature": "18 - Suppliers",
+      "title": "Supplier export downloads profile fields rather than an account statement",
+      "priority": "Medium",
+      "status": "FAIL",
+      "detail": "Export downloads supplier profile/contact/credit-term fields. No dated ledger/balance statement or separate statement export action is exposed.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\suppliers-1\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\suppliers-1\\artifacts\\suppliers-features.ui-F18--27752-t-statement-export-contents-phase3-suppliers\\P3-SUP-001.png"
+      ],
+      "claimed": false
+    },
+    {
+      "id": "P3-CUST-001",
+      "feature": "19 - Customers",
+      "title": "Customer groups and automatic pricing tiers cannot be configured",
+      "priority": "Medium",
+      "status": "FAIL",
+      "detail": "The account form has Individual/Business type and status, but no group/tier selector. Settings > Customers provides custom fields only, with no pricing-tier rules.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\customers-1\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\customers-1\\artifacts\\customers-features.ui-F19--e801c-redit-ceiling-configuration-phase3-customers\\P3-CUST-001.png"
+      ],
+      "claimed": false
+    },
+    {
+      "id": "P3-REP-001",
+      "feature": "20 - Reports",
+      "title": "Profit report exposes gross product profit but no net-margin deep dive",
+      "priority": "Medium",
+      "status": "FAIL",
+      "detail": "The report exposes product revenue, cost, profit and gross margin only; there is no net-margin/operating-expense breakdown.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\reports-1\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\reports-1\\artifacts\\reports-features.ui-F20-g--f288b-and-net-margin-availability-phase3-reports\\P3-REP-001.png"
+      ],
+      "claimed": false
+    },
+    {
+      "id": "P3-REP-002",
+      "feature": "20 - Reports",
+      "title": "Aging reports provide receivables but no supplier/creditor aging analysis",
+      "priority": "Medium",
+      "status": "FAIL",
+      "detail": "Customer receivables aging exists, but no supplier/payables aging report appears in the catalogue or Bills controls.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\reports-1\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\reports-1\\artifacts\\reports-features.ui-F20-i--40eb7-creditor-aging-availability-phase3-reports\\P3-REP-002.png"
+      ],
+      "claimed": false
+    },
+    {
+      "id": "P3-RPT-001",
+      "feature": "21 - Custom Reports",
+      "title": "Report builder only saves predefined report choices rather than custom dimensions and metrics",
+      "priority": "Medium",
+      "status": "FAIL",
+      "detail": "The form offers a predefined report type, branch and dates only; no dimension/metric or custom query filter editor is present.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\custom-reports-1\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\custom-reports-1\\artifacts\\custom-reports-features.ui-e4cf0-ensions-metrics-and-filters-phase3-custom-reports\\P3-RPT-001.png"
+      ],
+      "claimed": false
+    },
+    {
+      "id": "P3-DOC-001",
+      "feature": "22 - Document Design",
+      "title": "Document Builder has presets and form controls but no drag-and-drop design canvas",
+      "priority": "Medium",
+      "status": "FAIL",
+      "detail": "The available workflow is preset/form configuration and preview; no editable canvas, element palette or draggable layout elements are exposed.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\document-design-1\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\document-design-1\\artifacts\\document-design-features.u-4348c-ag-and-drop-canvas-designer-phase3-document-design\\P3-DOC-001.png"
+      ],
+      "claimed": false
+    },
+    {
+      "id": "P3-RBAC-001",
+      "feature": "23 - Roles",
+      "title": "Users & Roles has no custom role or granular permission matrix editor",
+      "priority": "Medium",
+      "status": "FAIL",
+      "detail": "No create/add custom role action is present; the Permissions view exposes no editable per-entity matrix.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\roles-1\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\roles-1\\artifacts\\roles-features.ui-F23-f-granular-custom-role-matrix-builder-phase3-roles\\P3-RBAC-001.png"
+      ],
+      "claimed": false
+    },
+    {
+      "id": "P3-API-002",
+      "feature": "26 - Integrations",
+      "title": "API documentation still lacks the required resource endpoint reference",
+      "priority": "Medium",
+      "status": "PASS",
+      "detail": "Expanded all 39 endpoint accordions in all five Products/Inventory/Invoices/Orders/Customers reference sections. Methods/paths, role/key-scope labels, query/body fields and parseable response examples are present; stale notices are absent. Documented X-Api-Key works without a session or business header, with anonymous/invalid/rotated/revoked controls, read-only deny and write-enabled allow. The validation-error example matches a live 422 control; representative resource reads and both Products/Customers documented pagination envelopes matched live responses. Backend ApiReferenceRoutesTest, OpenAPI diff, every write route and non-owner role gates are not independently certified.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\integrations-2\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\integrations-1\\results.json"
+      ],
+      "claimed": true
+    },
+    {
+      "id": "P3-WEB-001",
+      "feature": "26 - Integrations",
+      "title": "Webhook subscriptions omit the three events required by the specification",
+      "priority": "Medium",
+      "status": "FAIL",
+      "detail": "The live catalogue offers invoice.created, credit_note.created, quotation.created, payment.received. Missing required event names: order.created, stock.low, invoice.paid.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\integrations-1\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\integrations-1\\artifacts\\integrations-features.ui-F-b6310--and-delivery-prerequisites-phase3-integrations\\P3-WEB-001.png"
+      ],
+      "claimed": false
+    },
+    {
+      "id": "P3-HW-001",
+      "feature": "27 - Hardware",
+      "title": "Adhesive barcode label generation is explicitly unavailable",
+      "priority": "Medium",
+      "status": "FAIL",
+      "detail": "The live page explicitly states label printing (Zebra ZPL) is not implemented and no label-generation action is exposed.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\hardware-1\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\hardware-1\\artifacts\\hardware-features.ui-F27-c-4e468-nd-requested-physical-skips-phase3-hardware\\P3-HW-001.png"
+      ],
+      "claimed": false
+    },
+    {
+      "id": "P3-BACKUP-002",
+      "feature": "28 - Settings",
+      "title": "Settings has no automated database backup schedule or execution history",
+      "priority": "Medium",
+      "status": "BLOCKED",
+      "detail": "Reclassified from the earlier UI-only finding. The fresh Settings inspection exposes no tenant backup schedule/history, but FEATURES.md F28-f does not mandate tenant-facing controls. No platform schedule/job/artifact evidence is available, so absence or failure of automated backups is unconfirmed. This is not a passed backup capability and is excluded from confirmed bugs; native JSON export is tested separately.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\settings-1\\results.json",
+        "blob-report\\archive\\retest-2026-11-24\\automated-backup-observation.json"
+      ],
+      "claimed": false
+    },
+    {
+      "id": "P3-HELP-001",
+      "feature": "30 - Help",
+      "title": "Help provides searchable FAQs but no video guides",
+      "priority": "Medium",
+      "status": "FAIL",
+      "detail": "Search/FAQ expansion works, but the catalogue contains no video guide, video player or linked video tutorial.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\help-1\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\help-1\\artifacts\\help-features.ui-F30-d-sea-73ff4-e-controls-and-video-guides-phase3-help\\P3-HELP-001.png"
+      ],
+      "claimed": false
+    },
+    {
+      "id": "RET-FONT-001",
+      "feature": "22 - Document Design / Invoice and Quotation",
+      "title": "Uploaded Settings fonts are unavailable in billing custom-text font selectors",
+      "priority": "High",
+      "status": "PASS",
+      "detail": "Fresh tenant TTF uploads were offered and independently selected for both custom fields on Invoice, Quotation, Credit Note editor and POS (two note-boundary runs). No legacy localStorage font list was seeded. Both Invoice/Quotation editors contained one loaded FontFace per uploaded family, and actual Chromium glyphs used the intended Regular/Italic font. Anonymous and invalid-token reads of the owned uploaded font file both returned 401. Credit Note coverage is selector-only; cross-tenant access and physical receipt typography are not certified.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\document-design-2\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\document-design-2\\results.json",
+        "blob-report\\archive\\retest-2026-11-24\\font-workflow-redacted.json",
+        "blob-report\\archive\\retest-2026-11-24\\font-download-auth-controls.json"
+      ],
+      "claimed": true
+    },
+    {
+      "id": "RET-FONT-002",
+      "feature": "22 - Document Design / Billing custom text",
+      "title": "Invoice and Quotation discard submitted customer custom text and omit it from web/PDF output",
+      "priority": "High",
+      "status": "PASS",
+      "detail": "Exact customer text, literal `<b>`/`<tag>` characters, accented É and independent font families survived native Invoice/Quotation create and fresh reads; actual browser glyph fonts and both Modern/Classic native PDF designs passed. Native quotation conversion and both POS sales retained the two definition-backed fields/fonts. Removing a separate owned Italic font retained its text and produced the default PDF fallback. Internal POS note readback is a separate limited control.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\document-design-2\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\document-design-2\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\document-design-1\\results.json",
+        "blob-report\\archive\\retest-2026-11-24\\font-workflow-redacted.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\document-design-2\\artifacts\\document-design-custom-fon-b557c-e-Quotation-and-native-PDFs-phase3-document-design\\attachments\\invoice-native-PDF-551460266032e1b98185402643c916521ffe89e9.pdf",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\document-design-2\\artifacts\\document-design-custom-fon-b557c-e-Quotation-and-native-PDFs-phase3-document-design\\attachments\\quotation-native-PDF-c622b1b1006242c29c1c0fbc20167bdc9053814a.pdf",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\document-design-2\\artifacts\\document-design-custom-fon-dabaa-es-and-quotation-conversion-phase3-document-design\\attachments\\modern-invoice-35ec69ad891532c9befe370e83919c23ade82033.pdf",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\document-design-2\\artifacts\\document-design-custom-fon-dabaa-es-and-quotation-conversion-phase3-document-design\\attachments\\modern-quotation-d7f0cf0f04dcaf73b5d0ba6e763656b114fb8b20.pdf",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\document-design-2\\artifacts\\document-design-custom-fon-dabaa-es-and-quotation-conversion-phase3-document-design\\attachments\\classic-invoice-7a4eb7487a2e9818699133e869429af4299ab0ec.pdf",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\document-design-2\\artifacts\\document-design-custom-fon-dabaa-es-and-quotation-conversion-phase3-document-design\\attachments\\classic-quotation-da7445bc74833e0e093b870d43db716f369d77bf.pdf",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\document-design-2\\artifacts\\document-design-custom-fon-dabaa-es-and-quotation-conversion-phase3-document-design\\attachments\\converted-invoice-c8088306f287f949a14fed70b9cc62e666941c0a.pdf",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\document-design-2\\artifacts\\document-design-custom-fon-dabaa-es-and-quotation-conversion-phase3-document-design\\attachments\\POS-256-invoice-a9885e99b9197dc34c4b7a678fc5b5076fa0f335.pdf",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\document-design-2\\artifacts\\document-design-custom-fon-dabaa-es-and-quotation-conversion-phase3-document-design\\attachments\\POS-500-invoice-9061c6d48f0d89ba2a92622969175704d6ecb282.pdf",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-24\\document-design-1\\artifacts\\document-design-custom-fon-b42c1-ive-PDF-without-losing-text-phase3-document-design\\attachments\\deleted-font-invoice-fe459bc300a3237c8605b3734f53d46f471cd89c.pdf"
+      ],
+      "claimed": true
+    }
+  ],
+  "newRows": [],
+  "initialFrontend": {
+    "path": "/app/assets/index-B9jWytye.js",
+    "bytes": 4158579,
+    "sha256": "2e11154cc577c102f452e204468806049bd11ac0700f8e3379701615318bd4cf"
+  },
+  "finalFrontend": {
+    "path": "/app/assets/index-B9jWytye.js",
+    "bytes": 4158579,
+    "sha256": "2e11154cc577c102f452e204468806049bd11ac0700f8e3379701615318bd4cf"
+  },
+  "limits": [
+    "Physical printers, label output, scanners and cash drawer checks remain skipped at the user's request; software controls and document generation are distinguished from device operation.",
+    "No controlled QA email/SMS inbox or webhook receiver is available. External delivery, signatures/retries and scheduled report delivery are not certified; no external destination or live email schedule is created.",
+    "TOTP enrollment, backup-code replay and recovery login remain blocked without an isolated activated account. The shared primary owner's authentication factors are preserved.",
+    "Valid own-tenant IDs and nonexistent-ID controls can be tested. Cross-tenant enforcement is not certified without a second authorized disposable tenant.",
+    "A missing workflow explicitly required by the feature specification or supplied fix contract is an availability failure. Platform capabilities and unspecified workflow designs cannot be declared broken from UI absence alone; blocked downstream checks remain unverified.",
+    "Credit configuration persistence is distinguished from over-limit or expired-credit checkout enforcement. The latter is not certified by the configuration ticket alone.",
+    "JSON export job/file behavior is distinguished from full data completeness, database restoration and automated platform backup execution; no production restore is attempted.",
+    "This campaign uses Windows/Chromium/Playwright at 1920 x 1080. It is not a fresh full cross-browser, mobile or complete Phase 1/2/3 acceptance campaign.",
+    "Backend application source, migrations, OpenAPI changes and ApiReferenceRoutesTest are not bundled in this QA repository. Live functional behavior and expanded production UI documentation are verified; the developer build test is not independently run.",
+    "Queue membership controls use the current active QA owner, a nonexistent user and an inactive member only if one is already available. Cross-business rejection is not certified without a second controlled tenant. No member account, role or activation state is altered.",
+    "Font tests use licensed Regular/Italic TTF fixtures, invalid TXT and an owned-font removal control. OTF, other font formats and unrelated international writing systems are not certified.",
+    "Credit Note coverage verifies font-selector availability/selection only. Saving/printing Credit Note custom text, physical POS receipt typography, queue drag-and-drop and cross-user timing are not certified by these controls.",
+    "POS item-note boundaries are checked through native wire values above 255/up to 500 and successful persisted sales. The public Invoice resource does not expose internal item_description, so exact internal-note storage cannot be independently read back. Special Instructions are not assumed to be customer-facing custom fields."
+  ]
+}

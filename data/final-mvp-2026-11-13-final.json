@@ -1,0 +1,18 @@
+{
+  "jobs": [
+    [
+      "phase2",
+      "document-templates",
+      "release-custom-fonts.ui.spec.ts"
+    ],
+    [
+      "phase1",
+      "customers",
+      "edit-archive-customer.ui.spec.ts",
+      "--grep",
+      "retains its historical"
+    ]
+  ],
+  "scope": "Final MVP: core Phase 1 browser workflows and adjacent delivered commercial-document/stock flows, plus separately implemented custom-font upload/item-text verification. Phase 3 paused except the explicitly requested font workflow.",
+  "outsideScope": "New paid onboarding/licence, actual credentials/reset/PIN provisioning, legal approval, real physical printers/scanners, payment-provider settlement, live multi-tenant/RBAC certification, and explicitly undelivered Phase 2 capabilities. No full-project acceptance percentage is inferred."
+}

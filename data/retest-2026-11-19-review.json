@@ -1,0 +1,499 @@
+{
+  "campaignDate": "19-20 November 2026",
+  "reviewComplete": true,
+  "claimedFixIds": [
+    "P3-SEC-001",
+    "P3-PROD-007",
+    "P3-EXP-004",
+    "P3-PROD-003",
+    "P3-ADJ-001",
+    "P3-LOOKUP-001",
+    "MVP-CUST-001",
+    "P3-CN-002",
+    "P3-QUEUE-003",
+    "MVP-FONT-002",
+    "P3-SUP-002",
+    "P3-CUST-002",
+    "P3-FONT-001",
+    "P3-RPT-002",
+    "P3-BACKUP-001",
+    "P3-API-002",
+    "P2-DOC-004"
+  ],
+  "tickets": {
+    "P3-DASH-001": {
+      "status": "FAIL",
+      "detail": "Normal Dashboard and the inspected Stat Card/Line Chart configurations expose no current-versus-prior comparison control or comparative result. The Phase 3 comparison workflow cannot be selected.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\dashboard-3\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\dashboard-3\\artifacts\\dashboard-features.ui-F01--5eb65-ns-and-calculation-controls-phase3-dashboard\\P3-DASH-001.png"
+      ]
+    },
+    "P3-PROD-001": {
+      "status": "FAIL",
+      "detail": "The live product form/type options contain no serialized inventory mode or per-unit serial-number controls. Basic variants and per-product custom text fields are not unit-identity tracking.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\products-1\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\products-1\\artifacts\\products-features.ui-F02-a-ea427--and-unit-identity-controls-phase3-products\\P3-PROD-001.png"
+      ]
+    },
+    "P3-PROD-003": {
+      "status": "PASS",
+      "detail": "Native bundle recipe entry refused 0, -1 and 1.5 with inline validation. Fresh reads preserved the valid 2A+3B recipe after every invalid attempt. The valid two-kit cash control then consumed exactly 4A/6B in the verified invoice branch; fixture stock was recovered and products archived.",
+      "evidence": [
+        "blob-report/archive/retest-2026-11-19/products-2/results.json"
+      ]
+    },
+    "P3-PROD-005": {
+      "status": "FAIL",
+      "detail": "Category management exposes no field/schema definition control. The separate Custom Fields tab configures only an individual product and does not define or inherit category attributes.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\products-1\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\products-1\\artifacts\\products-features.ui-F02-l-e179a-mic-field-schema-management-phase3-products\\P3-PROD-005.png"
+      ]
+    },
+    "P3-PROD-007": {
+      "status": "PASS",
+      "detail": "With sale-branch components at zero and another QA branch at A=10/B=8, the normal POS cash attempt returned HTTP 422 pos.insufficient_stock. All branch balances stayed unchanged. The same-branch stocked two-kit positive control passed separately; all owned balances were recovered before archiving.",
+      "evidence": [
+        "blob-report/archive/retest-2026-11-19/products-2/results.json"
+      ]
+    },
+    "P3-ADJ-001": {
+      "status": "PASS",
+      "detail": "The native voucher saved two owned products (+5 and +7) under one persisted audit record. Zero was refused inline; an insufficient-stock multi-item request and nonexistent product/variant IDs returned 422 without changing either balance. Fixture balances were restored to zero and both products archived. Cross-tenant IDs were not probed.",
+      "evidence": [
+        "blob-report/archive/retest-2026-11-19/adjustments-1/results.json"
+      ]
+    },
+    "P3-TRF-001": {
+      "status": "FAIL",
+      "detail": "No manifest, delivery-slip, PDF/download or print action is exposed at any inspected reachable transfer stage.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\transfers-3\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\transfers-3\\artifacts\\transfers-features.ui-F05--cf8f4-low-at-every-transfer-stage-phase3-transfers\\P3-TRF-001.png"
+      ]
+    },
+    "P3-TRF-002": {
+      "status": "FAIL",
+      "detail": "The reachable transfer states provide no damage/shortage/discrepancy input, received-quantity adjustment or dispute action; receipt is a whole-transfer completion action.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\transfers-3\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\transfers-3\\artifacts\\transfers-features.ui-F05--cf8f4-low-at-every-transfer-stage-phase3-transfers\\P3-TRF-002.png"
+      ]
+    },
+    "P3-COUNT-001": {
+      "status": "FAIL",
+      "detail": "The list offers Start a count only. Its form has Branch and Notes; opening a count always freezes the full branch. No category or scheduling control is available.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\stock-counts-1\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\stock-counts-1\\artifacts\\stock-counts-features.ui-F-d14f5-tegory-cycle-audit-controls-phase3-stock-counts\\P3-COUNT-001.png"
+      ]
+    },
+    "P3-COUNT-002": {
+      "status": "FAIL",
+      "detail": "Only per-row numeric inputs are present; there is no barcode target/mode, and the emulated SKU plus Enter leaves every counted value unchanged.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\stock-counts-1\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\stock-counts-1\\artifacts\\stock-counts-features.ui-F-a0fe8-nting-in-a-disposable-draft-phase3-stock-counts\\P3-COUNT-002.png"
+      ]
+    },
+    "P3-EXP-003": {
+      "status": "FAIL",
+      "detail": "Expired rows expose Delete batch only; no disposal/write-off request, supervisor approval or linked disposal ledger is available.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\shelf-life-2\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\shelf-life-2\\artifacts\\shelf-life-features.ui-F07-16998-ation-and-disposal-workflow-phase3-shelf-life\\P3-EXP-003.png"
+      ]
+    },
+    "P3-EXP-004": {
+      "status": "PASS",
+      "detail": "Native batch entry refused 0 and -1 with inline errors and no POST. The same form then saved a positive quantity of 2; a fresh list contained exactly one matching batch with initial_quantity=2. The owned batch was deleted and canonical product stock restored. Separate FIFO/FEFO-compatible allocation, opposed receipt/expiry ordering and lot exhaustion controls also passed.",
+      "evidence": [
+        "blob-report/archive/retest-2026-11-19/shelf-life-1/results.json",
+        "blob-report/archive/retest-2026-11-19/shelf-life-2/results.json"
+      ]
+    },
+    "P3-GRN-001": {
+      "status": "FAIL",
+      "detail": "The receiving form exposes accepted/rejected quantities and rejection reason only; no manufacturer lot or expiry capture input is available.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\goods-receipts-1\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\goods-receipts-1\\artifacts\\goods-receipts-features.ui-89f2b-ving-lot-and-expiry-capture-phase3-goods-receipts\\P3-GRN-001.png"
+      ]
+    },
+    "P3-LOOKUP-001": {
+      "status": "PASS",
+      "detail": "Server-search pickers found newly created products by lower-case SKU in batch creation, Invoice and Quotation; both billing customer pickers found a later-created active contact beyond the old initial page. Inactive contacts were excluded and stale selected contacts were refused by both save endpoints. MVP-LOOKUP-001 is the same capability. This does not certify every search-ranking or pagination boundary.",
+      "evidence": [
+        "blob-report\\archive\\retest-2026-11-19\\shelf-life-2\\results.json",
+        "blob-report\\archive\\retest-2026-11-19\\customers-1\\results.json",
+        "blob-report\\archive\\retest-2026-11-19\\customers-2\\results.json",
+        "blob-report\\archive\\retest-2026-11-19\\document-design-3\\results.json"
+      ]
+    },
+    "P3-POS-001": {
+      "status": "FAIL",
+      "detail": "Checkout remains on the payment dialog while offline; no sale confirmation/receipt or IndexedDB database is created to retain a durable queued sale. Online mutation processing may remain paused until reconnection.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\pos-2\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\pos-2\\artifacts\\pos-features.ui-F08-l-offl-d23e0--and-reconnect-prerequisite-phase3-pos\\P3-POS-001.png"
+      ]
+    },
+    "P3-POS-002": {
+      "status": "FAIL",
+      "detail": "No loyalty/points balance or redemption control is exposed in the POS cart; no loyalty programme appears in the served POS implementation.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\pos-1\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\pos-1\\artifacts\\pos-features.ui-F08-m-POS-loyalty-redemption-controls-phase3-pos\\P3-POS-002.png"
+      ]
+    },
+    "P3-QUEUE-001": {
+      "status": "FAIL",
+      "detail": "The editor provides priority, estimated time, ready date and internal notes only. No assignment selector or table/bay input is present.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\order-queue-1\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\order-queue-1\\artifacts\\order-queue-features.ui-F1-45441-ignment-and-ticket-printing-phase3-order-queue\\P3-QUEUE-001.png"
+      ]
+    },
+    "P3-QUEUE-002": {
+      "status": "FAIL",
+      "detail": "The card menu offers Edit / Add Note and Cancel Order only; there is no ticket/print action.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\order-queue-1\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\order-queue-1\\artifacts\\order-queue-features.ui-F1-45441-ignment-and-ticket-printing-phase3-order-queue\\P3-QUEUE-002.png"
+      ]
+    },
+    "P3-QUEUE-003": {
+      "status": "PASS",
+      "detail": "The native Processing product was saved with processing enabled and its first normal POS cash sale created the owned queue entry, without API repair or a second sale. Live transitions to in_progress, ready and delivered persisted and were reflected by polling. Assignment and thermal-ticket generation remain separate failing tickets; drag-and-drop and cross-user timing are not certified.",
+      "evidence": [
+        "blob-report/archive/retest-2026-11-19/order-queue-1/results.json"
+      ]
+    },
+    "P3-INV-001": {
+      "status": "FAIL",
+      "detail": "Recurring contract billing cannot be configured. No corresponding workflow is available on the inspected live forms/settings.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\invoicing-1\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\invoicing-1\\artifacts\\invoicing-features.ui-F12--7f189-automated-reminder-controls-phase3-invoicing\\P3-INV-001.png"
+      ]
+    },
+    "P3-INV-002": {
+      "status": "FAIL",
+      "detail": "Invoice editor has no per-invoice currency or recorded exchange rate. No corresponding workflow is available on the inspected live forms/settings.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\invoicing-1\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\invoicing-1\\artifacts\\invoicing-features.ui-F12--7f189-automated-reminder-controls-phase3-invoicing\\P3-INV-002.png"
+      ]
+    },
+    "P3-CN-002": {
+      "status": "PASS",
+      "detail": "A standalone native Save as Draft retained status=draft and changed no stock. Issuing Billing correction changed stock by 0; issuing Product return added exactly 1. Repeated issue requests returned 422 and did not restock again. Fresh note/stock reads and stock restoration passed. No refund or external payment was sent.",
+      "evidence": [
+        "blob-report/archive/retest-2026-11-19/credit-notes-1/results.json"
+      ]
+    },
+    "P3-PO-001": {
+      "status": "FAIL",
+      "detail": "Only manual PO creation and low-stock reporting are available; no automatic reorder policy/schedule or generation workflow is exposed.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\purchase-orders-1\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\purchase-orders-1\\artifacts\\purchase-orders-features.ui-F15-e-automated-reorder-controls-phase3-purchase-orders\\P3-PO-001.png"
+      ]
+    },
+    "P3-PO-002": {
+      "status": "FAIL",
+      "detail": "The inspected PO states expose status changes, print and receive controls but no direct supplier email action or transmission status.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\purchase-orders-1\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\purchase-orders-1\\artifacts\\purchase-orders-features.u-bca79-ail-action-across-PO-states-phase3-purchase-orders\\P3-PO-002.png"
+      ]
+    },
+    "P3-AP-001": {
+      "status": "FAIL",
+      "detail": "The form has an optional PO reference plus aggregate subtotal/tax. It has no goods-receipt/line matching controls; the list has no match status or reconciliation action.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\bills-payable-1\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\bills-payable-1\\artifacts\\bills-payable-features.ui--e2445--way-bill-matching-workflow-phase3-bills-payable\\P3-AP-001.png"
+      ]
+    },
+    "P3-SUP-001": {
+      "status": "FAIL",
+      "detail": "Export downloads supplier profile/contact/credit-term fields. No dated ledger/balance statement or separate statement export action is exposed.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\suppliers-1\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\suppliers-1\\artifacts\\suppliers-features.ui-F18--27752-t-statement-export-contents-phase3-suppliers\\P3-SUP-001.png"
+      ]
+    },
+    "P3-SUP-002": {
+      "status": "PASS",
+      "detail": "An owned product-to-supplier mapping persisted supplier_sku, preferred status and lead time. The native supplier catalogue displayed the supplier SKU and found the product by that exact supplier SKU; the mapping was detached and the owned product archived.",
+      "evidence": [
+        "blob-report/archive/retest-2026-11-19/suppliers-1/results.json"
+      ]
+    },
+    "P3-CUST-001": {
+      "status": "FAIL",
+      "detail": "The account form has Individual/Business type and status, but no group/tier selector. Settings > Customers provides custom fields only, with no pricing-tier rules.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\customers-1\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\customers-1\\artifacts\\customers-features.ui-F19--e801c-redit-ceiling-configuration-phase3-customers\\P3-CUST-001.png"
+      ]
+    },
+    "P3-CUST-002": {
+      "status": "PASS",
+      "detail": "Native create persisted creditEnabled=true, limit 25 and future expiry; native edit preserved them, rejected zero while credit was enabled, then persisted limit 50 and the changed expiry after a fresh read. The owned contact was retained inactive. Over-limit/expired-credit checkout enforcement is not certified by this configuration check.",
+      "evidence": [
+        "blob-report/archive/retest-2026-11-19/customers-1/results.json"
+      ]
+    },
+    "P3-REP-001": {
+      "status": "FAIL",
+      "detail": "The report exposes product revenue, cost, profit and gross margin only; there is no net-margin/operating-expense breakdown.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\reports-1\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\reports-1\\artifacts\\reports-features.ui-F20-g--f288b-and-net-margin-availability-phase3-reports\\P3-REP-001.png"
+      ]
+    },
+    "P3-REP-002": {
+      "status": "FAIL",
+      "detail": "Customer receivables aging exists, but no supplier/payables aging report appears in the catalogue or Bills controls.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\reports-1\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\reports-1\\artifacts\\reports-features.ui-F20-i--40eb7-creditor-aging-availability-phase3-reports\\P3-REP-002.png"
+      ]
+    },
+    "P3-RPT-001": {
+      "status": "FAIL",
+      "detail": "The form offers a predefined report type, branch and dates only; no dimension/metric or custom query filter editor is present.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\custom-reports-1\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\custom-reports-1\\artifacts\\custom-reports-features.ui-e4cf0-ensions-metrics-and-filters-phase3-custom-reports\\P3-RPT-001.png"
+      ]
+    },
+    "P3-RPT-002": {
+      "status": "PASS",
+      "detail": "An All-branches report with empty dates returned object filters, stayed visible after a fresh list read and ran successfully through Run now. A dated filtered template also persisted and ran; owned templates were deleted. Scheduled email delivery remains blocked without a controlled inbox. The separate visual query-builder gap remains P3-RPT-001.",
+      "evidence": [
+        "blob-report/archive/retest-2026-11-19/custom-reports-1/results.json"
+      ]
+    },
+    "P3-DOC-001": {
+      "status": "FAIL",
+      "detail": "The available workflow is preset/form configuration and preview; no editable canvas, element palette or draggable layout elements are exposed.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\document-design-1\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\document-design-1\\artifacts\\document-design-features.u-4348c-ag-and-drop-canvas-designer-phase3-document-design\\P3-DOC-001.png"
+      ]
+    },
+    "P3-FONT-001": {
+      "status": "PASS",
+      "detail": "Native Settings upload accepted Regular/Italic TTF files as multipart bodies, persisted both after reload and downloaded byte-identical files (SHA-256 matched fixtures). Invalid TXT was rejected, and the separate management-case font was deleted. MVP-FONT-001 is the same upload defect. Using these fonts in billing remains blocked by new RET-FONT-001; selected-font rendering is not passed.",
+      "evidence": [
+        "blob-report\\archive\\retest-2026-11-19\\document-design-1\\results.json",
+        "blob-report\\archive\\retest-2026-11-19\\document-design-3\\results.json"
+      ]
+    },
+    "P3-RBAC-001": {
+      "status": "FAIL",
+      "detail": "No create/add custom role action is present; the Permissions view exposes no editable per-entity matrix.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\roles-1\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\roles-1\\artifacts\\roles-features.ui-F23-f-granular-custom-role-matrix-builder-phase3-roles\\P3-RBAC-001.png"
+      ]
+    },
+    "P3-SEC-001": {
+      "status": "PASS",
+      "detail": "A valid own-session refresh retained one session row. Targeted revocation returned success, removed that row and made both access and refresh return 401; anonymous access also returned 401. Own logout removed its row. Other sessions/authentication factors were preserved. This verifies live behavior rather than direct Redis configuration.",
+      "evidence": [
+        "blob-report\\archive\\retest-2026-11-19\\security-1\\results.json"
+      ]
+    },
+    "P3-API-002": {
+      "status": "PARTIAL",
+      "detail": "The stale unsupported-API-key notices are corrected, and session-free authentication/rotation/global read-only deny/write-enabled allow/revocation controls passed. The full methods/paths/schemas/resource reference for Products, Inventory, Invoices, Orders and Customers remains unavailable. Per-resource restricted scopes are not certified.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\integrations-1\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\integrations-1\\artifacts\\integrations-features.ui-F-2fbba-d-corrected-API-key-notices-phase3-integrations\\P3-API-002.png"
+      ]
+    },
+    "P3-WEB-001": {
+      "status": "FAIL",
+      "detail": "The live catalogue offers invoice.created, credit_note.created, quotation.created, payment.received. Missing required event names: order.created, stock.low, invoice.paid.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\integrations-1\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\integrations-1\\artifacts\\integrations-features.ui-F-b6310--and-delivery-prerequisites-phase3-integrations\\P3-WEB-001.png"
+      ]
+    },
+    "P3-HW-001": {
+      "status": "FAIL",
+      "detail": "The live page explicitly states label printing (Zebra ZPL) is not implemented and no label-generation action is exposed.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\hardware-1\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\hardware-1\\artifacts\\hardware-features.ui-F27-c-4e468-nd-requested-physical-skips-phase3-hardware\\P3-HW-001.png"
+      ]
+    },
+    "P3-BACKUP-001": {
+      "status": "PASS",
+      "detail": "Native Export JSON returned 201 and created export job 1. The job completed; its own Download JSON action returned a valid 1,119,898-byte JSON file with generated_at/company_id/data and a QA marker. SHA-256 d8cb37ea699c8734f306395985a6a86d48b1de3f49fea98b6beaae66a17cfe55. This verifies job/file functionality, not exhaustive export completeness or restore. Fake toast-only buttons no longer establish a completed export; automated platform backup scheduling remains a separate failure.",
+      "evidence": [
+        "blob-report/archive/retest-2026-11-19/settings-1/results.json"
+      ]
+    },
+    "P3-BACKUP-002": {
+      "status": "FAIL",
+      "detail": "No backup schedule, retention/storage management or execution history is exposed.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\settings-1\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\settings-1\\artifacts\\settings-features.ui-F28-f-4af61-cution-history-availability-phase3-settings\\P3-BACKUP-002.png"
+      ]
+    },
+    "P3-HELP-001": {
+      "status": "FAIL",
+      "detail": "Search/FAQ expansion works, but the catalogue contains no video guide, video player or linked video tutorial.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\help-1\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\help-1\\artifacts\\help-features.ui-F30-d-sea-73ff4-e-controls-and-video-guides-phase3-help\\P3-HELP-001.png"
+      ]
+    },
+    "MVP-FONT-002": {
+      "status": "PASS",
+      "detail": "Two font-capable product Text definitions survived native create, fresh read, native edit/save and another fresh read; both Invoice and Quotation exposed usable corresponding text inputs. This closes product-definition storage only. Their entered billing values are lost separately under new RET-FONT-002.",
+      "evidence": [
+        "blob-report\\archive\\retest-2026-11-19\\document-design-3\\results.json"
+      ]
+    },
+    "MVP-CUST-001": {
+      "status": "PASS",
+      "detail": "Active positive controls and persisted deactivation were exercised. Fresh Invoice and Quotation searches excluded the inactive owned contact. A separate native form selected the contact while active, deactivated it on another page, then received a customer-related HTTP 422 on Save as Draft for both document types. Owned contacts were retained inactive.",
+      "evidence": [
+        "blob-report/archive/retest-2026-11-19/customers-1/results.json",
+        "blob-report/archive/retest-2026-11-19/customers-2/results.json"
+      ]
+    },
+    "P2-DOC-004": {
+      "status": "PASS",
+      "detail": "Classic Invoice, Quotation and Credit Note retained exact #17675e borders and rendered brand text #2e766e against actual #13191b at 3.3256:1, exceeding the ticket minimum 3:1 and developer target 3.1. The readable #15b8a6 control stayed unchanged at 7.1359:1. Template settings were restored after each check; this is not a general accessibility audit.",
+      "evidence": [
+        "blob-report\\archive\\retest-2026-11-19\\document-design-2\\results.json"
+      ]
+    }
+  },
+  "newTickets": {
+    "RET-FONT-001": {
+      "status": "FAIL",
+      "detail": "All four inspected selectors (two fields on Invoice and two on Quotation) offered only Default. Settings fonts 9 (QARETESTFontmwo8nflsRegular) and 10 (QARETESTFontmwo8nflsItalic) were absent despite successful native upload, fresh-list persistence and byte-identical downloads. Product 232 / QA-P3-FONTSERVIC-mwo8oo7b retained both font-capable definitions.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\document-design-3\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\document-design-3\\artifacts\\document-design-custom-fon-b557c-e-Quotation-and-native-PDFs-phase3-document-design\\custom-font-workflow.json"
+      ],
+      "finding": {
+        "id": "RET-FONT-001",
+        "feature": "22 - Document Design / Invoice and Quotation",
+        "requirements": [
+          "F22-f"
+        ],
+        "title": "Uploaded Settings fonts are unavailable in billing custom-text font selectors",
+        "steps": [
+          "In Settings > Advanced, upload the bundled Vera.ttf and VeraIt.ttf as distinct Regular/Italic TTF fonts; reload and download each to verify persistence and exact SHA-256.",
+          "Create a Service with two Text custom fields (QA Engraving and QA Signature), enabling font support on both; save, reopen, save and verify a fresh product read.",
+          "Create an Invoice, find that product using the normal server-search picker and enter distinct text in both fields.",
+          "Open each field font selector and inspect the available options for the uploaded Regular/Italic fonts.",
+          "Repeat both field-selector checks on a new Quotation using the same product."
+        ],
+        "expected": "The uploaded tenant fonts are offered and selectable for each customer-facing custom-text field.",
+        "actual": "All four inspected selectors (two fields on Invoice and two on Quotation) offered only Default. Settings fonts 9 (QARETESTFontmwo8nflsRegular) and 10 (QARETESTFontmwo8nflsItalic) were absent despite successful native upload, fresh-list persistence and byte-identical downloads. Product 232 / QA-P3-FONTSERVIC-mwo8oo7b retained both font-capable definitions.",
+        "comment": "Upload and product-definition fixes passed. No font option was injected and no legacy localStorage font list was seeded (both billing checks observed null). A mismatch between the legacy font cache and server catalogue is a diagnostic hypothesis, not a verified backend cause. Populate both billing selectors from the tenant font catalogue and verify in a fresh session. Selected-font web/PDF output remains blocked before selection; Default controls do not prove an incorrect-font renderer defect. Fonts 9/10 and draft documents are retained for reproduction; the owned service is archived.",
+        "continue": true,
+        "environment": "Production https://nexstock.stylotech.mu/app; Nexstock QA Company; Windows/Chromium/Playwright 1.62.1; 1920 x 1080; 20 November 2026.",
+        "priority": "High",
+        "lastVerified": "2026-11-20T00:28:57.157Z",
+        "stage": "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\document-design-3",
+        "url": "https://nexstock.stylotech.mu/app/create-quotation",
+        "attachments": [
+          "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\document-design-3\\artifacts\\document-design-custom-fon-b557c-e-Quotation-and-native-PDFs-phase3-document-design\\invoice-field-0-font-options.png",
+          "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\document-design-3\\artifacts\\document-design-custom-fon-b557c-e-Quotation-and-native-PDFs-phase3-document-design\\invoice-field-1-font-options.png",
+          "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\document-design-3\\artifacts\\document-design-custom-fon-b557c-e-Quotation-and-native-PDFs-phase3-document-design\\quotation-field-0-font-options.png",
+          "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\document-design-3\\artifacts\\document-design-custom-fon-b557c-e-Quotation-and-native-PDFs-phase3-document-design\\quotation-field-1-font-options.png"
+        ],
+        "test": "MVP-FONT-002 P3-FONT-001 P3-LOOKUP-001 custom text and independently selected fonts on saved Invoice Quotation and native PDFs"
+      }
+    },
+    "RET-FONT-002": {
+      "status": "FAIL",
+      "detail": "Both native POST requests included the two exact values in items[0].customFields. Both returned 201, but the response and fresh detail GET returned items[0].customFields=[]. Invoice 298 / INV-DJY67K and Quotation 40 / QUO-DP3RO0 both omitted the entered text from their customer-facing web view and native one-page PDFs. PDF extraction and visual review agreed. Product definitions remained persisted, so this is distinct from the corrected MVP-FONT-002 product-storage defect.",
+      "evidence": [
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\document-design-3\\results.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\document-design-3\\artifacts\\document-design-custom-fon-b557c-e-Quotation-and-native-PDFs-phase3-document-design\\custom-font-workflow.json",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\document-design-3\\artifacts\\document-design-custom-fon-b557c-e-Quotation-and-native-PDFs-phase3-document-design\\invoice-custom-fonts.pdf",
+        "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\document-design-3\\artifacts\\document-design-custom-fon-b557c-e-Quotation-and-native-PDFs-phase3-document-design\\quotation-custom-fonts.pdf"
+      ],
+      "finding": {
+        "id": "RET-FONT-002",
+        "feature": "22 - Document Design / Billing custom text",
+        "requirements": [
+          "F22-f"
+        ],
+        "title": "Invoice and Quotation discard submitted customer custom text and omit it from web/PDF output",
+        "steps": [
+          "Create/reopen the same Service with persisted QA Engraving and QA Signature Text definitions (font support enabled).",
+          "Add it to a new Invoice through the normal product picker and enter QAREGMWO8NFLS Emile & Co and QAITALICMWO8NFLS Personalised gift in the two fields.",
+          "Leave the available Default font selected; click Save as Draft and capture the native POST request and 201 response.",
+          "Reload the exact Invoice and inspect its fresh item data and customer-facing web document; export its native PDF.",
+          "Repeat the same native flow for a Quotation and inspect the fresh saved record, web document and native PDF."
+        ],
+        "expected": "Both entered text values survive save/reload and appear on the customer-facing web document and native PDF.",
+        "actual": "Both native POST requests included the two exact values in items[0].customFields. Both returned 201, but the response and fresh detail GET returned items[0].customFields=[]. Invoice 298 / INV-DJY67K and Quotation 40 / QUO-DP3RO0 both omitted the entered text from their customer-facing web view and native one-page PDFs. PDF extraction and visual review agreed. Product definitions remained persisted, so this is distinct from the corrected MVP-FONT-002 product-storage defect.",
+        "comment": "Default-font controls isolate text persistence from RET-FONT-001. Fix retention/serialization of billing item custom fields and render the saved text in both document types; then rerun Default controls and independent per-field selected-font browser/PDF checks. Do not close this merely because the editor displays the text before saving. Native draft documents were retained; no customer delivery occurred. Backend storage versus resource serialization is not directly visible from this repository.",
+        "continue": true,
+        "environment": "Production https://nexstock.stylotech.mu/app; Nexstock QA Company; Windows/Chromium/Playwright 1.62.1; 1920 x 1080; 20 November 2026.",
+        "priority": "High",
+        "lastVerified": "2026-11-20T00:29:11.736Z",
+        "stage": "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\document-design-3",
+        "url": "https://nexstock.stylotech.mu/app/quotations/40",
+        "attachments": [
+          "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\document-design-3\\artifacts\\document-design-custom-fon-b557c-e-Quotation-and-native-PDFs-phase3-document-design\\invoice-saved-customer-text.png",
+          "C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\blob-report\\archive\\retest-2026-11-19\\document-design-3\\artifacts\\document-design-custom-fon-b557c-e-Quotation-and-native-PDFs-phase3-document-design\\quotation-saved-customer-text.png"
+        ],
+        "test": "MVP-FONT-002 P3-FONT-001 P3-LOOKUP-001 custom text and independently selected fonts on saved Invoice Quotation and native PDFs"
+      }
+    }
+  },
+  "discardedFindings": {},
+  "limits": [
+    "Physical printers, label output, scanners and cash drawer checks remain skipped at the user's request; software controls and document generation are distinguished from device operation.",
+    "No controlled QA email/SMS inbox or webhook receiver is available. External delivery, signatures/retries and scheduled report delivery are not certified; no external destination or live email schedule is created.",
+    "TOTP enrollment, backup-code replay and recovery login remain blocked without an isolated activated account. The shared primary owner's authentication factors are preserved.",
+    "Valid own-tenant IDs and nonexistent-ID controls can be tested. Cross-tenant enforcement is not certified without a second authorized disposable tenant.",
+    "A missing user workflow is a confirmed availability failure. Its downstream calculations, validation, delivery or persistence cannot be certified merely by inspecting the unavailable controls.",
+    "Credit configuration persistence is distinguished from over-limit or expired-credit checkout enforcement. The latter is not certified by the configuration ticket alone.",
+    "JSON export job/file behavior is distinguished from full data completeness, database restoration and automated platform backup execution; no production restore is attempted.",
+    "This campaign uses Windows/Chromium/Playwright at 1920 x 1080. It is not a fresh full cross-browser, mobile or complete Phase 1/2/3 acceptance campaign.",
+    "Font-upload verification covers the bundled Regular/Italic TTF fixtures and invalid TXT rejection. Other font formats and independent selected-font browser/PDF rendering are not certified: uploaded fonts are absent from both billing selectors. Default-font text controls also fail independently."
+  ],
+  "automationCorrections": [
+    "Corrected the local Playwright browser-cache path and ran the authorized QA browser outside the restricted network sandbox. Browser startup/DNS failures were infrastructure attempts, not application defects.",
+    "Updated the stock-adjustment adapter for its deployed search combobox, multiple rows and signed text quantity fields; superseded failures from native-select/spinbutton assumptions are not application tickets.",
+    "Updated entity selection to use the deployed server-search controls and actual server responses, including lower-case SKU searches. No missing option is injected.",
+    "Updated quantity checks to observe inline rejection without waiting for the old erroneous request. Removed a redundant no-op recipe Save after fresh reads had already proved the valid recipe unchanged.",
+    "Added bounded retries for a transient ERR_NETWORK_CHANGED during read-only page navigation. No business mutation is automatically replayed; the interrupted scenario is rerun after stock recovery.",
+    "Expanded confirmation checks for credit issue/duplicate issue, session refresh/revocation/logout, credit-setting round-trips, unfiltered report runs, actual native JSON export output and per-text font rendering.",
+    "Corrected two cleanup/assertion adapters: inventory search inputs are checked by their value, and offline recovery reopens the verified QA workspace after leaving the offline page. Both affected cases were rerun; their superseded adapter failures are excluded.",
+    "Scoped asynchronous picker searchboxes using the trigger's aria-controls relationship; closing customer and opening product popovers can temporarily expose two searchboxes. The stale-customer Invoice/Quotation check passed on rerun.",
+    "Corrected the font inspection callback to receive the DOM element and test values separately. The prior callback error is superseded by the November 20 confirmation run.",
+    "Waited for the actual saved template response and Classic letterhead before measuring dark-mode styles; the prior Modern fallback measurement was superseded by both passing contrast controls."
+  ],
+  "fixtureSummary": [
+    "Final November 20 live audit passed: all 70 ledger-owned catalogue fixtures are archived, none remain active, every owned archived branch balance is zero, and the canonical product matches its captured all-branch baseline.",
+    "Owned expiry lots, temporary API keys, saved-report templates and QAP3Font management fixtures are absent. The current retest stock-count draft is cancelled; stock/transfer recovery ledgers and template restoration are verified.",
+    "Original MVP font IDs 1 and 2 are preserved. Four QARETESTFont diagnostic fonts (IDs 8, 7, 10, 9) are deliberately retained: 7/8 belong to the superseded callback attempt, 9/10 to the completed confirmation. Native Invoice 298 / INV-DJY67K and Quotation 40 / QUO-DP3RO0 preserve the current text-loss reproduction; earlier draft 297 is retained as attempt history. Their owned stockless catalogue products are archived.",
+    "Owned customer contacts created for credit/search/stale-selection controls are retained inactive. Synthetic QA cash sales, credits/debits, purchase orders and adjustment audit records are retained for traceability. These are test records, not deleted financial history.",
+    "Native JSON export job 1 and its QA-only output were retained locally for validation; the raw export dump is excluded from the portable developer evidence package. No production restore, external payment, customer email/SMS or webhook dispatch was requested.",
+    "Only automation-owned sessions were revoked/logged out; existing owner sessions and authentication factors were preserved."
+  ],
+  "testDates": [
+    "19 November 2026",
+    "20 November 2026"
+  ]
+}

@@ -1,0 +1,641 @@
+{
+  "started": "2026-11-17",
+  "source": "docs/FEATURES.md",
+  "scope": "59 phase-3 matrix rows plus 2 nested Phase 3 requirements omitted from that matrix. Assembly duplication cross-referenced with F02-k. All 28 features in specification order.",
+  "matrixRows": 59,
+  "requirements": 61,
+  "modules": [
+    {
+      "number": 1,
+      "slug": "dashboard",
+      "title": "Dashboard & Executive Analytics",
+      "requirements": [
+        {
+          "id": "F01-b-P3",
+          "title": "Period-over-period comparative analytics",
+          "feature": "Dashboard & Executive Analytics",
+          "number": 1,
+          "criteria": [
+            "Select current/prior periods",
+            "Reconcile absolute and percentage changes against live period totals",
+            "Handle zero prior value, date boundaries and branch scope"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "slug": "products",
+      "title": "Products & Catalog Management",
+      "requirements": [
+        {
+          "id": "F02-a-P3",
+          "title": "Complex assemblies and serialized units",
+          "feature": "Products & Catalog Management",
+          "number": 2,
+          "criteria": [
+            "Assembly capability is cross-covered by F02-k",
+            "Unique serial assignment, receipt/sale traceability and duplicate prevention"
+          ]
+        },
+        {
+          "id": "F02-k",
+          "title": "Product Bundles & Kits (BOM / Composite Items)",
+          "feature": "Products & Catalog Management",
+          "number": 2,
+          "criteria": []
+        },
+        {
+          "id": "F02-l",
+          "title": "Custom Category Fields",
+          "feature": "Products & Catalog Management",
+          "number": 2,
+          "criteria": []
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "slug": "stores",
+      "title": "Stores & Branches (Multi-Location)",
+      "requirements": [
+        {
+          "id": "F03-g",
+          "title": "Comparative Branch Performance Analytics",
+          "feature": "Stores & Branches (Multi-Location)",
+          "number": 3,
+          "criteria": []
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "slug": "adjustments",
+      "title": "Stock Adjustments",
+      "requirements": [
+        {
+          "id": "F04-e",
+          "title": "Multi-Item Batch Adjustment Vouchers",
+          "feature": "Stock Adjustments",
+          "number": 4,
+          "criteria": []
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "slug": "transfers",
+      "title": "Stock Transfers (Inter-Branch)",
+      "requirements": [
+        {
+          "id": "F05-e",
+          "title": "Printable Dispatch Manifests & Delivery Slips",
+          "feature": "Stock Transfers (Inter-Branch)",
+          "number": 5,
+          "criteria": []
+        },
+        {
+          "id": "F05-f",
+          "title": "Transit Damage & Discrepancy Dispute Logging",
+          "feature": "Stock Transfers (Inter-Branch)",
+          "number": 5,
+          "criteria": []
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "slug": "stock-counts",
+      "title": "Stock Counts (Physical Inventory Audits)",
+      "requirements": [
+        {
+          "id": "F06-d",
+          "title": "Scheduled Cycle Count Audits by Category",
+          "feature": "Stock Counts (Physical Inventory Audits)",
+          "number": 6,
+          "criteria": []
+        },
+        {
+          "id": "F06-e",
+          "title": "Live Barcode Scanner Count Auditing",
+          "feature": "Stock Counts (Physical Inventory Audits)",
+          "number": 6,
+          "criteria": []
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "slug": "shelf-life",
+      "title": "Shelf Life & Expiry Tracking (Batches & Lots)",
+      "requirements": [
+        {
+          "id": "F07-a",
+          "title": "Batch / Lot Number Assignment",
+          "feature": "Shelf Life & Expiry Tracking (Batches & Lots)",
+          "number": 7,
+          "criteria": []
+        },
+        {
+          "id": "F07-b",
+          "title": "Expiry Date Tracking",
+          "feature": "Shelf Life & Expiry Tracking (Batches & Lots)",
+          "number": 7,
+          "criteria": []
+        },
+        {
+          "id": "F07-c",
+          "title": "Expiry Warning System",
+          "feature": "Shelf Life & Expiry Tracking (Batches & Lots)",
+          "number": 7,
+          "criteria": []
+        },
+        {
+          "id": "F07-d",
+          "title": "FIFO / FEFO Inventory Rules",
+          "feature": "Shelf Life & Expiry Tracking (Batches & Lots)",
+          "number": 7,
+          "criteria": []
+        },
+        {
+          "id": "F07-e",
+          "title": "Expired Stock Disposal Workflow",
+          "feature": "Shelf Life & Expiry Tracking (Batches & Lots)",
+          "number": 7,
+          "criteria": []
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "slug": "pos",
+      "title": "Point of Sale (POS) & Checkout",
+      "requirements": [
+        {
+          "id": "F08-l",
+          "title": "Offline Resilience (IndexedDB)",
+          "feature": "Point of Sale (POS) & Checkout",
+          "number": 8,
+          "criteria": []
+        },
+        {
+          "id": "F08-m",
+          "title": "Customer Loyalty Points Redemptions at POS",
+          "feature": "Point of Sale (POS) & Checkout",
+          "number": 8,
+          "criteria": []
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "slug": "order-queue",
+      "title": "Orders Queue (Workshop / Kitchen Processing)",
+      "requirements": [
+        {
+          "id": "F10-a",
+          "title": "Live Order Queue Display",
+          "feature": "Orders Queue (Workshop / Kitchen Processing)",
+          "number": 10,
+          "criteria": []
+        },
+        {
+          "id": "F10-b",
+          "title": "Ticket Assignment",
+          "feature": "Orders Queue (Workshop / Kitchen Processing)",
+          "number": 10,
+          "criteria": []
+        },
+        {
+          "id": "F10-c",
+          "title": "Kitchen / Work Order Thermal Printing",
+          "feature": "Orders Queue (Workshop / Kitchen Processing)",
+          "number": 10,
+          "criteria": []
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "slug": "invoicing",
+      "title": "Invoicing & Commercial Sales Billing",
+      "requirements": [
+        {
+          "id": "F12-f",
+          "title": "Automated Recurring Invoicing",
+          "feature": "Invoicing & Commercial Sales Billing",
+          "number": 12,
+          "criteria": []
+        },
+        {
+          "id": "F12-g",
+          "title": "Multi-Currency Billing",
+          "feature": "Invoicing & Commercial Sales Billing",
+          "number": 12,
+          "criteria": []
+        },
+        {
+          "id": "F12-h",
+          "title": "Automated Overdue Payment Email Reminders",
+          "feature": "Invoicing & Commercial Sales Billing",
+          "number": 12,
+          "criteria": []
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "slug": "credit-notes",
+      "title": "Credit Notes",
+      "requirements": [
+        {
+          "id": "F13-f",
+          "title": "Standalone Credit Notes without Invoice Link",
+          "feature": "Credit Notes",
+          "number": 13,
+          "criteria": []
+        }
+      ]
+    },
+    {
+      "number": 14,
+      "slug": "debit-notes",
+      "title": "Debit Notes",
+      "requirements": [
+        {
+          "id": "F14-a",
+          "title": "Issue Debit Note",
+          "feature": "Debit Notes",
+          "number": 14,
+          "criteria": []
+        },
+        {
+          "id": "F14-b",
+          "title": "Invoice Reference Linking",
+          "feature": "Debit Notes",
+          "number": 14,
+          "criteria": []
+        },
+        {
+          "id": "F14-c",
+          "title": "PDF Generation & Dispatch",
+          "feature": "Debit Notes",
+          "number": 14,
+          "criteria": []
+        }
+      ]
+    },
+    {
+      "number": 15,
+      "slug": "purchase-orders",
+      "title": "Purchasing & Purchase Orders (PO)",
+      "requirements": [
+        {
+          "id": "F15-e",
+          "title": "Automated Low-Stock Reordering",
+          "feature": "Purchasing & Purchase Orders (PO)",
+          "number": 15,
+          "criteria": []
+        },
+        {
+          "id": "F15-f",
+          "title": "Direct Supplier Email Transmission",
+          "feature": "Purchasing & Purchase Orders (PO)",
+          "number": 15,
+          "criteria": []
+        }
+      ]
+    },
+    {
+      "number": 16,
+      "slug": "goods-receipts",
+      "title": "Goods Receipt Notes (GRN)",
+      "requirements": [
+        {
+          "id": "F16-e",
+          "title": "Batch & Expiry Capture at Ingestion",
+          "feature": "Goods Receipt Notes (GRN)",
+          "number": 16,
+          "criteria": []
+        }
+      ]
+    },
+    {
+      "number": 17,
+      "slug": "bills-payable",
+      "title": "Bills & Accounts Payable (AP)",
+      "requirements": [
+        {
+          "id": "F17-d",
+          "title": "3-Way Reconciliation (PO vs GRN vs Bill)",
+          "feature": "Bills & Accounts Payable (AP)",
+          "number": 17,
+          "criteria": []
+        }
+      ]
+    },
+    {
+      "number": 18,
+      "slug": "suppliers",
+      "title": "Suppliers & Vendor Management",
+      "requirements": [
+        {
+          "id": "F18-e",
+          "title": "Supplier Product Catalogs & Preferred Vendor SKUs",
+          "feature": "Suppliers & Vendor Management",
+          "number": 18,
+          "criteria": []
+        },
+        {
+          "id": "F18-f",
+          "title": "Supplier Account Statement Export",
+          "feature": "Suppliers & Vendor Management",
+          "number": 18,
+          "criteria": []
+        }
+      ]
+    },
+    {
+      "number": 19,
+      "slug": "customers",
+      "title": "Customers & Accounts Receivable (AR)",
+      "requirements": [
+        {
+          "id": "F19-e",
+          "title": "Customer Groups & Tiers (Retail, Wholesale, VIP)",
+          "feature": "Customers & Accounts Receivable (AR)",
+          "number": 19,
+          "criteria": []
+        },
+        {
+          "id": "F19-f",
+          "title": "Strict Credit Limit Blocking",
+          "feature": "Customers & Accounts Receivable (AR)",
+          "number": 19,
+          "criteria": []
+        }
+      ]
+    },
+    {
+      "number": 20,
+      "slug": "reports",
+      "title": "Reports & Business Intelligence",
+      "requirements": [
+        {
+          "id": "F20-g",
+          "title": "Gross Profit & Net Margin Deep-Dive",
+          "feature": "Reports & Business Intelligence",
+          "number": 20,
+          "criteria": []
+        },
+        {
+          "id": "F20-h",
+          "title": "Stock Movement & Velocity Ledger",
+          "feature": "Reports & Business Intelligence",
+          "number": 20,
+          "criteria": []
+        },
+        {
+          "id": "F20-i",
+          "title": "Customer & Supplier Aging Debtors/Creditors Analysis",
+          "feature": "Reports & Business Intelligence",
+          "number": 20,
+          "criteria": []
+        }
+      ]
+    },
+    {
+      "number": 21,
+      "slug": "custom-reports",
+      "title": "Custom Report Builder & Scheduled Delivery",
+      "requirements": [
+        {
+          "id": "F21-a",
+          "title": "Visual Custom Report Builder",
+          "feature": "Custom Report Builder & Scheduled Delivery",
+          "number": 21,
+          "criteria": []
+        },
+        {
+          "id": "F21-b",
+          "title": "Saved Report Templates",
+          "feature": "Custom Report Builder & Scheduled Delivery",
+          "number": 21,
+          "criteria": []
+        },
+        {
+          "id": "F21-c",
+          "title": "Automated Scheduled Reports via Cron Email",
+          "feature": "Custom Report Builder & Scheduled Delivery",
+          "number": 21,
+          "criteria": []
+        }
+      ]
+    },
+    {
+      "number": 22,
+      "slug": "document-design",
+      "title": "Document Builder & Visual Template Designer",
+      "requirements": [
+        {
+          "id": "F22-e",
+          "title": "Drag-and-Drop Visual Canvas Designer",
+          "feature": "Document Builder & Visual Template Designer",
+          "number": 22,
+          "criteria": []
+        },
+        {
+          "id": "F22-f",
+          "title": "Custom Font Upload & Management",
+          "feature": "Document Builder & Visual Template Designer",
+          "number": 22,
+          "criteria": []
+        }
+      ]
+    },
+    {
+      "number": 23,
+      "slug": "roles",
+      "title": "Users, Roles & Access Control (RBAC)",
+      "requirements": [
+        {
+          "id": "F23-f",
+          "title": "Granular Custom Permission Matrix Builder",
+          "feature": "Users, Roles & Access Control (RBAC)",
+          "number": 23,
+          "criteria": []
+        }
+      ]
+    },
+    {
+      "number": 24,
+      "slug": "security",
+      "title": "Security, Sessions & Authentication",
+      "requirements": [
+        {
+          "id": "F24-d",
+          "title": "Two-Factor Authentication (2FA / TOTP)",
+          "feature": "Security, Sessions & Authentication",
+          "number": 24,
+          "criteria": []
+        },
+        {
+          "id": "F24-e",
+          "title": "Backup Recovery Codes",
+          "feature": "Security, Sessions & Authentication",
+          "number": 24,
+          "criteria": []
+        },
+        {
+          "id": "F24-f",
+          "title": "Remote Active Session Revocation",
+          "feature": "Security, Sessions & Authentication",
+          "number": 24,
+          "criteria": []
+        }
+      ]
+    },
+    {
+      "number": 25,
+      "slug": "audit-logs",
+      "title": "Audit Logs & System Activity",
+      "requirements": [
+        {
+          "id": "F25-c",
+          "title": "Before-and-After Value Diffs",
+          "feature": "Audit Logs & System Activity",
+          "number": 25,
+          "criteria": []
+        },
+        {
+          "id": "F25-d",
+          "title": "Compliance Export (CSV/JSON)",
+          "feature": "Audit Logs & System Activity",
+          "number": 25,
+          "criteria": []
+        }
+      ]
+    },
+    {
+      "number": 26,
+      "slug": "integrations",
+      "title": "Integrations, REST API & Webhooks",
+      "requirements": [
+        {
+          "id": "F26-a",
+          "title": "API Key Management",
+          "feature": "Integrations, REST API & Webhooks",
+          "number": 26,
+          "criteria": []
+        },
+        {
+          "id": "F26-b",
+          "title": "Scoped Permissions per Key",
+          "feature": "Integrations, REST API & Webhooks",
+          "number": 26,
+          "criteria": []
+        },
+        {
+          "id": "F26-c",
+          "title": "Full RESTful API Documentation",
+          "feature": "Integrations, REST API & Webhooks",
+          "number": 26,
+          "criteria": []
+        },
+        {
+          "id": "F26-d",
+          "title": "Real-Time Webhooks",
+          "feature": "Integrations, REST API & Webhooks",
+          "number": 26,
+          "criteria": []
+        },
+        {
+          "id": "F26-e",
+          "title": "Webhook Delivery Logs & Manual Retries",
+          "feature": "Integrations, REST API & Webhooks",
+          "number": 26,
+          "criteria": []
+        }
+      ]
+    },
+    {
+      "number": 27,
+      "slug": "hardware",
+      "title": "Hardware & Printer Configuration",
+      "requirements": [
+        {
+          "id": "F27-c",
+          "title": "Direct ESC/POS Network & Serial Drivers",
+          "feature": "Hardware & Printer Configuration",
+          "number": 27,
+          "criteria": []
+        },
+        {
+          "id": "F27-d",
+          "title": "Cash Drawer RJ11 Auto-Kick Pulse",
+          "feature": "Hardware & Printer Configuration",
+          "number": 27,
+          "criteria": []
+        },
+        {
+          "id": "F27-e",
+          "title": "Adhesive Barcode Label Roll Printers",
+          "feature": "Hardware & Printer Configuration",
+          "number": 27,
+          "criteria": []
+        }
+      ]
+    },
+    {
+      "number": 28,
+      "slug": "settings",
+      "title": "System Settings & Localization",
+      "requirements": [
+        {
+          "id": "F28-f",
+          "title": "Automated Database Backup & JSON Dump Export",
+          "feature": "System Settings & Localization",
+          "number": 28,
+          "criteria": []
+        }
+      ]
+    },
+    {
+      "number": 29,
+      "slug": "notifications",
+      "title": "Notifications & Alerts Center",
+      "requirements": [
+        {
+          "id": "F29-d",
+          "title": "Outgoing Email & SMS Gateway Delivery",
+          "feature": "Notifications & Alerts Center",
+          "number": 29,
+          "criteria": []
+        }
+      ]
+    },
+    {
+      "number": 30,
+      "slug": "help",
+      "title": "Help Center, Legal & Compliance",
+      "requirements": [
+        {
+          "id": "F30-d",
+          "title": "Interactive Searchable Knowledge Base & Video Guides",
+          "feature": "Help Center, Legal & Compliance",
+          "number": 30,
+          "criteria": []
+        },
+        {
+          "id": "F30-e",
+          "title": "System Changelog & Release Notes Feed",
+          "feature": "Help Center, Legal & Compliance",
+          "number": 30,
+          "criteria": []
+        }
+      ]
+    }
+  ],
+  "physicalScope": "User explicitly requests skipping physical device execution on 17 November 2026; report these skips, inspect software controls where available.",
+  "externalDeliveryScope": "User has no controlled email/SMS inbox or webhook receiver at present; no real recipients or arbitrary external endpoints may be used. UI/setup/log checks are separate from actual delivery."
+}

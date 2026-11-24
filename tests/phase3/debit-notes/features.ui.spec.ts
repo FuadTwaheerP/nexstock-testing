@@ -1,0 +1,8 @@
+import {test,expect,main,observedPrintCalls} from '../support/phase3';
+import {readRoute} from '../support/observed';
+import {note} from '../support/notes';
+import {verifyPDF} from '../support/pdf';
+test('F14-a b c linked supplemental note amount identity and printable PDF',async({page},info)=>{
+ info.setTimeout(180_000);const invoices=await readRoute(page,'/invoicing','/app/api/v1/sales/invoices'),source=invoices.find((n:any)=>n.customer==='QA Billing Automation Customer'&&n.status==='paid');expect(source).toBeTruthy();const n=await note(page,info,'debit',source);const row=main(page).getByRole('row').filter({has:page.getByRole('cell',{name:n.debitNoteNumber,exact:true})});const before=observedPrintCalls(page),wait=page.waitForEvent('popup');await row.getByRole('button',{name:'Download PDF',exact:true}).click();const p=await wait;await expect(p.getByRole('main')).toContainText(n.debitNoteNumber);await expect(p.getByRole('main')).toContainText('QA add mv9rtxw1-3b087e');await expect(p.getByRole('main')).toContainText('QA-ADD-mv9rtxw1-3b087e');await expect.poll(()=>observedPrintCalls(page)).toBe(before+1);const path=info.outputPath('debit-note.pdf');await p.pdf({path,format:'A4',printBackground:true});await verifyPDF(path,info,[n.debitNoteNumber,'Nexstock QA Company']);await info.attach('debit-pdf',{path,contentType:'application/pdf'});await p.close();
+ info.annotations.push({type:'partial-coverage',description:'Linked draft, total, product name/SKU and browser-generated A4 PDF checked. Dedicated freight/service lines and issued debit accounting remain partial. Email dispatch blocked: no controlled inbox; physical print skipped by user.'});
+});

@@ -1,0 +1,12 @@
+import {test,expect,main,route} from '../support/phase3';
+import {snapshot,finding} from '../support/evidence';
+test('F12-f g h recurring invoice currency and automated reminder controls',async({page},info)=>{
+ let surfaces='';for(const path of ['/invoicing','/create-invoice']){await route(page,path);await expect(main(page).getByRole('heading',{level:1})).toBeVisible();surfaces+=(await snapshot(page,info,'invoices-'+path.replaceAll('/',''))).body;}
+ await route(page,'/settings');for(const tab of ['Company','Customization','Notifications']){const t=page.getByRole('tab',{name:tab,exact:true});if(await t.count()){await t.click();surfaces+=(await snapshot(page,info,'invoice-settings-'+tab)).body;}}
+ await route(page,'/notifications');await main(page).getByRole('tab',{name:'Settings',exact:true}).click();await expect(main(page).getByRole('heading',{name:'Delivery Channels',exact:true})).toBeVisible();await snapshot(page,info,'actual-overdue-channel-settings');info.annotations.push({type:'blocked',description:'F12-h: Invoice Due Reminders and Email channel controls are available in Notifications > Settings. Actual overdue email dispatch/delivery is blocked without a controlled QA inbox.'});
+ for(const [id,req,title,pattern,expected]of [
+ ['P3-INV-001','F12-f','Recurring contract billing cannot be configured',/recurring|recurrence|billing schedule/i,'Create a recurring contract/retainer schedule, persist its cadence and generate invoices without manual duplication.'],
+ ['P3-INV-002','F12-g','Invoice editor has no per-invoice currency or recorded exchange rate',/exchange rate|invoice currency|billing currency/i,'Issue MUR, USD and EUR invoices with a recorded exchange rate and currency-specific totals.'],
+
+ ]as const){if(!pattern.test(surfaces))await finding(page,info,{id,feature:'12 - Invoicing',requirements:[req],title,steps:['Open invoice list and New Invoice.','Inspect invoice controls and Company/Customization/Notifications settings for the specified advanced workflow.'],expected,actual:title+'. No corresponding workflow is available on the inspected live forms/settings.',comment:req==='F12-g'?'Global display currency does not establish per-document exchange-rate billing. Company currency was not changed.':req==='F12-h'?'In-app overdue alerts and manual send actions do not prove scheduled email. Real email delivery is additionally blocked without a controlled QA inbox.':'No schedule or customer financial record was modified.',continue:true});}
+});

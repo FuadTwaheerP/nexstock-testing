@@ -1,0 +1,5 @@
+import {readFileSync,writeFileSync,existsSync} from 'node:fs';
+import {test,expect} from '../support/phase3';
+import {stock} from '../../phase1/stock-adjustments/support/adjustments';
+import {changeInventory,qaProduct} from '../support/inventory';
+test('recover stock added by the two earlier owned standalone credit attempts',async({page},info)=>{const path='test-results/phase3-credit-legacy-recovery.json';if(!existsSync(path)){info.annotations.push({type:'support-note',description:'No historical one-off credit recovery ledger in this checkout.'});return;}const r=JSON.parse(readFileSync(path,'utf8'));if(r.restored)return;expect(await stock(page,qaProduct.sku,'QA Inspection Store 20261017')).toBe(r.expectedCurrent);await changeInventory(page,'1','QA Inspection Store 20261017',r.target-r.expectedCurrent);expect(await stock(page,qaProduct.sku,'QA Inspection Store 20261017')).toBe(r.target);r.restored=true;writeFileSync(path,JSON.stringify(r,null,2));await info.attach('owned-credit-stock-recovery',{body:JSON.stringify(r),contentType:'application/json'});});

@@ -61,9 +61,17 @@ export async function newAdjustment(page: Page, fixture: InventoryFixture, quant
   await expect(dialog).toBeVisible();
   const selectors = dialog.getByRole('combobox');
   await selectors.nth(0).selectOption({ label: fixture.branch });
-  await selectors.nth(1).selectOption({ label: `${fixture.name} (${fixture.sku})` });
+  const productPicker = selectors.nth(1);
+  if (await productPicker.evaluate(el => el.tagName) === 'SELECT') {
+    await productPicker.selectOption({ label: `${fixture.name} (${fixture.sku})` });
+  } else {
+    await productPicker.fill(fixture.sku);
+    await page.getByRole('option').filter({hasText: fixture.sku}).click();
+  }
   await dialog.getByPlaceholder('e.g. Breakage, Loss, Manual inventory').fill(reason);
-  await dialog.getByRole('spinbutton').fill(String(quantity));
+  const signedQuantity = dialog.getByRole('textbox', {name:'Change for line 1',exact:true});
+  if(await signedQuantity.count())await signedQuantity.fill(String(quantity));
+  else await dialog.getByRole('spinbutton').first().fill(String(quantity));
   await dialog.getByPlaceholder('Additional details...').fill(notes);
   return dialog;
 }

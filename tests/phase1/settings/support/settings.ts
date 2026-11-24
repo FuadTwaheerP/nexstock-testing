@@ -222,7 +222,8 @@ export async function language(page: Page, code: 'en' | 'fr', persist = false) {
 }
 export async function appearance(page: Page, mode: 'light' | 'dark' | 'system') {
   const root = page.locator('html');
-  await page.getByRole('banner').getByRole('button').filter({ hasText: /Admin|Manager|Cashier/ }).last().click();
+  const header = page.getByRole('banner');
+  await header.getByRole('button', { name: 'account', exact: true }).or(header.getByRole('button').filter({ hasText: /Admin|Manager|Cashier/ })).last().click();
   const expected = new RegExp(`^Theme: ${mode[0].toUpperCase() + mode.slice(1)}\\.`);
   operations.set(page.context(), 'theme');
   try {

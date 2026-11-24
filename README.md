@@ -2,7 +2,41 @@
 
 Playwright + TypeScript starter grounded in the supplied `nexstock-staging` source snapshot and your three-phase feature specification. This is a separate QA repository; the application itself is not bundled.
 
-## Current status
+## Latest production fix retest - 24 November 2026
+
+All **32 unique tickets** from the 19–20 November remaining-bug list were revisited across 28 feature domains: **three passed, 28 failed and one remains unverified**. RET-FONT-001, RET-FONT-002 and P3-API-002 passed within their documented scope. The Invoice/Quotation custom-font workflow now preserves customer text through both PDF designs, quotation conversion and POS sales. Native long-note sales also passed; queue membership validation was only partially verifiable. Automated backups are an unconfirmed platform observation, separate from confirmed bugs.
+
+Use the [detailed developer bug file](docs/retest-2026-11-24/REMAINING-BUGS.md), [all-ticket status register](docs/retest-2026-11-24/RETEST-STATUS.md), [retest summary](docs/retest-2026-11-24/SUMMARY.md) and [unconfirmed observation](docs/retest-2026-11-24/OBSERVATIONS.md). The [portable evidence package](output/retest-2026-11-24/NexStock-Production-Fix-Retest-2026-11-24.zip) includes the reports, screenshots, native PDFs and redacted diagnostics. Physical checks remain skipped; delivery, isolated-account, cross-tenant and platform checks retain explicit limits. This is not complete-phase acceptance.
+
+Current composite: **57 functional cases and 59 setup/cleanup/recovery checks**, with zero unresolved automation errors. Use `PHASE3_ARCHIVE_ROOT=blob-report/archive/retest-2026-11-24`, `PHASE3_DOCS_ROOT=docs/retest-2026-11-24` and `PHASE3_TEST_DATE=24 November 2026` when running this campaign. `node scripts/inspect-fix-retest.mjs` rebuilds the execution index; `node scripts/build-nov24-retest.mjs` builds the final reports from `data/retest-2026-11-24-review.json` and refuses incomplete execution or unresolved automation errors. `scripts/package-nov24-retest.py` builds the portable handoff. Earlier dated totals below are historical.
+
+## Historical production fix retest - 19-20 November 2026
+
+All **46 unique tickets** in the combined developer handoff were revisited: **16 passed, one partially fixed and 29 still failed**. The developer's supplied fix notes explicitly address 17 of those tickets; 16 passed and the API-documentation ticket remains partial. Two additional confirmed bugs prevent the requested billing custom-font workflow: uploaded fonts are absent from the selectors, and submitted custom text is discarded from both Invoice and Quotation outputs. **32 unique open tickets** are documented; this is not full-phase acceptance.
+
+Use the [new detailed developer bug file](docs/retest-2026-11-19/REMAINING-BUGS.md), [every-ticket status register](docs/retest-2026-11-19/RETEST-STATUS.md) and [retest summary](docs/retest-2026-11-19/SUMMARY.md). Physical checks remain skipped as requested; external delivery and isolated-account checks remain explicitly limited. Earlier dated campaign totals below are historical and have not been recalculated as whole-phase coverage.
+
+The [portable developer evidence package](output/retest-2026-11-19/NexStock-Production-Fix-Retest-2026-11-19-20.zip) includes the three reports, screenshots, native diagnostic PDFs, redacted execution evidence and reproduction font fixtures. Current composite: **55 functional cases and 59 support/recovery checks**, with **zero unresolved automation errors**.
+
+The retest uses `PHASE3_ARCHIVE_ROOT=blob-report/archive/retest-2026-11-19`, `PHASE3_DOCS_ROOT=docs/retest-2026-11-19` and the actual `PHASE3_TEST_DATE`. Review with `node scripts/inspect-fix-retest.mjs`; generate the reviewed reports with `node scripts/build-fix-retest-report.mjs`. The review ledger is `data/retest-2026-11-19-review.json`. The report generator refuses incomplete execution or unresolved automation errors. Running the original assessor without these retest paths rebuilds the historical November 17 assessment instead.
+
+## Historical Phase 3 QA status - 17 November 2026
+
+Phase 3 has a reviewed disposition for **28 feature domains / 61 requirement entries**. It is **not 100% complete**: 5 fully passed, 7 partial, 41 failed, 6 blocked and 2 physical requirements skipped. The strict unweighted acceptance count is **5/61 (8.2%)**, not a development-effort estimate. There are **43 unique confirmed application tickets** and no unresolved automation errors in the current composite.
+
+Use the [combined developer bug file](docs/DEVELOPER-BUGS-COMBINED.md) for the complete handoff: **46 unique tickets**, covering all 43 Phase 3 tickets and all five remaining MVP findings, with two duplicates merged. Each ticket identifies the test performed, dated failure and evidence. Rebuild this document with `node scripts/build-combined-developer-bugs.mjs` after rebuilding its source reports.
+
+The [Phase 3 summary](docs/phase3/SUMMARY.md), [Phase 3 source bug report](docs/phase3/PHASE3-BUGS.md), [requirement register](docs/phase3/REQUIREMENT-STATUS.md) and [methods/corrections](docs/phase3/REVIEW-NOTES.md) retain the original campaign scope. The PDF is `output/pdf/NexStock-Phase-3-QA-Summary-2026-11-17.pdf`; the curated archive under `output/phase3/` is the earlier Phase 3-only handoff.
+
+Live modules run serially using `node scripts/run-phase3.mjs <module>` or `node scripts/run-phase3-campaign.mjs <modules...>`. Rebuild the current reviewed assessment with `node scripts/check-phase3-collection.mjs` followed by `node scripts/assess-phase3.mjs`. Account/delivery dependencies and user-requested physical skips remain explicit.
+
+## Historical MVP status - 13 November 2026
+
+Final MVP regression and the requested custom-font investigation are complete: **106/109 core functional checks pass**, with three failing cases. The three additional font-workflow cases fail at prerequisites; selected-font output remains blocked. Six failing cases group into five confirmed tickets. All 30 final support checks and 79 offline checks pass. Phase 3 remains paused except this specific font request.
+
+Use [the final MVP summary](docs/final-mvp-2026-11-13/README.md), [confirmed bugs](docs/final-mvp-2026-11-13/remaining-bugs.md) and [project handover](docs/PROJECT-HANDOVER.md). The bootstrap notes below preserve the original setup state and do not describe current execution or Git status.
+
+## Original bootstrap status (historical)
 
 - GitHub clone was attempted, but the remote required authentication unavailable in this workspace. These are newly created project files, **not a checkout of the remote's existing contents**. Nothing was pushed.
 - 175 subfeature entries are tracked in `docs/COVERAGE.md`, including 51 Phase 1 subfeatures. `docs/PHASE1-CASES.md` contains 63 detailed Phase 1 cases.

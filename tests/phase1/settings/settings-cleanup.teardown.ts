@@ -18,7 +18,7 @@ cleanup('restore original QA settings verify journal and log out', async ({ brow
   await openTab(page, 'company');
   await page.locator('#business-registration-number').scrollIntoViewIfNeeded();
   await screenshot(page, info, 'settings-approved-baseline-proof');
-  await page.getByRole('banner').getByRole('button').filter({ hasText: /Admin|Manager|Cashier/ }).last().click();
+  await page.getByRole('banner').getByRole('button', { name: 'account', exact: true }).or(page.getByRole('banner').getByRole('button').filter({ hasText: /Admin|Manager|Cashier/ })).last().click();
   await page.getByRole('menuitem', { name: /^(Log out|Se déconnecter|Déconnexion)$/ }).click();
   await expect(page.getByRole('heading', { name: /^(Welcome Back|Bon retour)$/ })).toBeVisible();
   await screenshot(page, info, 'settings-public-login-proof');
@@ -26,7 +26,7 @@ cleanup('restore original QA settings verify journal and log out', async ({ brow
     await screenshot(page, info, 'settings-recovery-blocked').catch(() => undefined);
     // End only this QA session even if the app prevents baseline restoration.
     try {
-      await page.getByRole('banner').getByRole('button').filter({ hasText: /Admin|Manager|Cashier/ }).last().click();
+      await page.getByRole('banner').getByRole('button', { name: 'account', exact: true }).or(page.getByRole('banner').getByRole('button').filter({ hasText: /Admin|Manager|Cashier/ })).last().click();
       await page.getByRole('menuitem', { name: /^(Log out|Se déconnecter|Déconnexion)$/ }).click();
       await expect(page.getByRole('heading', { name: /^(Welcome Back|Bon retour)$/ })).toBeVisible();
       await screenshot(page, info, 'settings-public-login-after-blocker');

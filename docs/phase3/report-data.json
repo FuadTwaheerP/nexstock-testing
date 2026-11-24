@@ -1,0 +1,3783 @@
+{
+  "generatedAt": "2026-11-17T14:23:55.290Z",
+  "reviewComplete": true,
+  "scope": {
+    "modules": 28,
+    "requirements": 61,
+    "originalMatrixRows": 59,
+    "nestedAdditions": [
+      "F01-b-P3",
+      "F02-a-P3"
+    ],
+    "requirementsAreUnweighted": true
+  },
+  "requirementsCount": {
+    "PASS": 5,
+    "PARTIAL": 7,
+    "FAIL": 41,
+    "BLOCKED": 6,
+    "SKIPPED": 2
+  },
+  "strictAcceptancePercent": 8.2,
+  "bugs": 43,
+  "functionalCounts": {
+    "APPLICATION FAIL": 36,
+    "PARTIAL": 7,
+    "PASS": 1,
+    "BLOCKED": 3
+  },
+  "rawFunctional": {
+    "passed": 11,
+    "failed": 36
+  },
+  "supportCounts": {
+    "SUPPORT PASS": 59
+  },
+  "unresolvedAutomation": [],
+  "requirements": [
+    {
+      "id": "F01-b-P3",
+      "title": "Period-over-period comparative analytics",
+      "feature": "Dashboard & Executive Analytics",
+      "number": 1,
+      "criteria": [
+        "Select current/prior periods",
+        "Reconcile absolute and percentage changes against live period totals",
+        "Handle zero prior value, date boundaries and branch scope"
+      ],
+      "status": "FAIL",
+      "detail": "Dashboard provides no period-over-period comparison configuration or results",
+      "module": "dashboard",
+      "bugs": [
+        "P3-DASH-001"
+      ]
+    },
+    {
+      "id": "F02-a-P3",
+      "title": "Complex assemblies and serialized units",
+      "feature": "Products & Catalog Management",
+      "number": 2,
+      "criteria": [
+        "Assembly capability is cross-covered by F02-k",
+        "Unique serial assignment, receipt/sale traceability and duplicate prevention"
+      ],
+      "status": "FAIL",
+      "detail": "Valid assembly behavior is cross-covered by F02-k, but serialized-unit assignment is unavailable.",
+      "module": "products",
+      "bugs": [
+        "P3-PROD-001"
+      ]
+    },
+    {
+      "id": "F02-k",
+      "title": "Product Bundles & Kits (BOM / Composite Items)",
+      "feature": "Products & Catalog Management",
+      "number": 2,
+      "criteria": [],
+      "status": "FAIL",
+      "detail": "Valid 2A+3B recipe, availability 2, component value 47 and sale of two kits deducting 4A/6B pass; zero input silently becomes one. A cross-branch boundary sale succeeds with no components in the recorded sale branch and drives component stock negative.",
+      "module": "products",
+      "bugs": [
+        "P3-PROD-003",
+        "P3-PROD-007"
+      ]
+    },
+    {
+      "id": "F02-l",
+      "title": "Custom Category Fields",
+      "feature": "Products & Catalog Management",
+      "number": 2,
+      "criteria": [],
+      "status": "FAIL",
+      "detail": "Categories have no dynamic field definitions or schema assignment",
+      "module": "products",
+      "bugs": [
+        "P3-PROD-005"
+      ]
+    },
+    {
+      "id": "F03-g",
+      "title": "Comparative Branch Performance Analytics",
+      "feature": "Stores & Branches (Multi-Location)",
+      "number": 3,
+      "criteria": [],
+      "status": "PARTIAL",
+      "detail": "Branch inventory units/value reconciled against independently paginated products. Period-scoped sales are presented; sales recognition/date-boundary and cross-branch financial eligibility are not fully certified.",
+      "module": "stores",
+      "bugs": []
+    },
+    {
+      "id": "F04-e",
+      "title": "Multi-Item Batch Adjustment Vouchers",
+      "feature": "Stock Adjustments",
+      "number": 4,
+      "criteria": [],
+      "status": "FAIL",
+      "detail": "Positive two-item API voucher and negative-stock atomicity control pass; the native form accepts only one item.",
+      "module": "adjustments",
+      "bugs": [
+        "P3-ADJ-001"
+      ]
+    },
+    {
+      "id": "F05-e",
+      "title": "Printable Dispatch Manifests & Delivery Slips",
+      "feature": "Stock Transfers (Inter-Branch)",
+      "number": 5,
+      "criteria": [],
+      "status": "FAIL",
+      "detail": "Transfers have no printable dispatch manifest or delivery slip",
+      "module": "transfers",
+      "bugs": [
+        "P3-TRF-001"
+      ]
+    },
+    {
+      "id": "F05-f",
+      "title": "Transit Damage & Discrepancy Dispute Logging",
+      "feature": "Stock Transfers (Inter-Branch)",
+      "number": 5,
+      "criteria": [],
+      "status": "FAIL",
+      "detail": "In-transit receipt has no damage, shortage or discrepancy dispute entry",
+      "module": "transfers",
+      "bugs": [
+        "P3-TRF-002"
+      ]
+    },
+    {
+      "id": "F06-d",
+      "title": "Scheduled Cycle Count Audits by Category",
+      "feature": "Stock Counts (Physical Inventory Audits)",
+      "number": 6,
+      "criteria": [],
+      "status": "FAIL",
+      "detail": "Stock counts cannot be scheduled or scoped to a category",
+      "module": "stock-counts",
+      "bugs": [
+        "P3-COUNT-001"
+      ]
+    },
+    {
+      "id": "F06-e",
+      "title": "Live Barcode Scanner Count Auditing",
+      "feature": "Stock Counts (Physical Inventory Audits)",
+      "number": 6,
+      "criteria": [],
+      "status": "FAIL",
+      "detail": "Count sheet has no barcode-driven counting workflow",
+      "module": "stock-counts",
+      "bugs": [
+        "P3-COUNT-002"
+      ]
+    },
+    {
+      "id": "F07-a",
+      "title": "Batch / Lot Number Assignment",
+      "feature": "Shelf Life & Expiry Tracking (Batches & Lots)",
+      "number": 7,
+      "criteria": [],
+      "status": "FAIL",
+      "detail": "Standalone owned lots persist through the diagnostic API; manufacturer-lot capture during receipt is unavailable, and the batch selector cannot reach later-page products.",
+      "module": "shelf-life",
+      "bugs": [
+        "P3-LOOKUP-001",
+        "P3-GRN-001"
+      ]
+    },
+    {
+      "id": "F07-b",
+      "title": "Expiry Date Tracking",
+      "feature": "Shelf Life & Expiry Tracking (Batches & Lots)",
+      "number": 7,
+      "criteria": [],
+      "status": "FAIL",
+      "detail": "Per-lot dates and reload/display pass. Entering zero quantity silently creates a one-unit lot; native product selection also has the first-page limitation.",
+      "module": "shelf-life",
+      "bugs": [
+        "P3-LOOKUP-001",
+        "P3-EXP-004"
+      ]
+    },
+    {
+      "id": "F07-c",
+      "title": "Expiry Warning System",
+      "feature": "Shelf Life & Expiry Tracking (Batches & Lots)",
+      "number": 7,
+      "criteria": [],
+      "status": "PASS",
+      "detail": "Expired, tomorrow-expiry and fresh lots display the expected visual states; matching filters show each owned lot. This requirement asks for visual indicators, not outbound delivery.",
+      "module": "shelf-life",
+      "bugs": []
+    },
+    {
+      "id": "F07-d",
+      "title": "FIFO / FEFO Inventory Rules",
+      "feature": "Shelf Life & Expiry Tracking (Batches & Lots)",
+      "number": 7,
+      "criteria": [],
+      "status": "PASS",
+      "detail": "An owned expiry-enabled product is sold four times with receipt order opposed to expiry order. The native priority is consistent through first-lot exhaustion; remaining lot totals reconcile with independent physical stock. No claim of two separately selectable modes.",
+      "module": "shelf-life",
+      "bugs": []
+    },
+    {
+      "id": "F07-e",
+      "title": "Expired Stock Disposal Workflow",
+      "feature": "Shelf Life & Expiry Tracking (Batches & Lots)",
+      "number": 7,
+      "criteria": [],
+      "status": "FAIL",
+      "detail": "Expired batches expose delete metadata but no supervised stock disposal workflow",
+      "module": "shelf-life",
+      "bugs": [
+        "P3-EXP-003"
+      ]
+    },
+    {
+      "id": "F08-l",
+      "title": "Offline Resilience (IndexedDB)",
+      "feature": "Point of Sale (POS) & Checkout",
+      "number": 8,
+      "criteria": [],
+      "status": "FAIL",
+      "detail": "Offline checkout fails without storing a durable queued sale",
+      "module": "pos",
+      "bugs": [
+        "P3-POS-001"
+      ]
+    },
+    {
+      "id": "F08-m",
+      "title": "Customer Loyalty Points Redemptions at POS",
+      "feature": "Point of Sale (POS) & Checkout",
+      "number": 8,
+      "criteria": [],
+      "status": "FAIL",
+      "detail": "POS has no customer loyalty balance or redemption workflow",
+      "module": "pos",
+      "bugs": [
+        "P3-POS-002"
+      ]
+    },
+    {
+      "id": "F10-a",
+      "title": "Live Order Queue Display",
+      "feature": "Orders Queue (Workshop / Kitchen Processing)",
+      "number": 10,
+      "criteria": [],
+      "status": "FAIL",
+      "detail": "Diagnostic processing-enabled order progresses through queue states. Native Processing product creation saves requires_processing=false and its normal POS sale does not create a ticket.",
+      "module": "order-queue",
+      "bugs": [
+        "P3-QUEUE-003"
+      ]
+    },
+    {
+      "id": "F10-b",
+      "title": "Ticket Assignment",
+      "feature": "Orders Queue (Workshop / Kitchen Processing)",
+      "number": 10,
+      "criteria": [],
+      "status": "FAIL",
+      "detail": "Processing ticket editor cannot assign a technician, service bay or table",
+      "module": "order-queue",
+      "bugs": [
+        "P3-QUEUE-001"
+      ]
+    },
+    {
+      "id": "F10-c",
+      "title": "Kitchen / Work Order Thermal Printing",
+      "feature": "Orders Queue (Workshop / Kitchen Processing)",
+      "number": 10,
+      "criteria": [],
+      "status": "FAIL",
+      "detail": "Order queue has no thermal work-order ticket generation action",
+      "module": "order-queue",
+      "bugs": [
+        "P3-QUEUE-002"
+      ]
+    },
+    {
+      "id": "F12-f",
+      "title": "Automated Recurring Invoicing",
+      "feature": "Invoicing & Commercial Sales Billing",
+      "number": 12,
+      "criteria": [],
+      "status": "FAIL",
+      "detail": "Recurring contract billing cannot be configured",
+      "module": "invoicing",
+      "bugs": [
+        "P3-INV-001"
+      ]
+    },
+    {
+      "id": "F12-g",
+      "title": "Multi-Currency Billing",
+      "feature": "Invoicing & Commercial Sales Billing",
+      "number": 12,
+      "criteria": [],
+      "status": "FAIL",
+      "detail": "Invoice editor has no per-invoice currency or recorded exchange rate",
+      "module": "invoicing",
+      "bugs": [
+        "P3-INV-002"
+      ]
+    },
+    {
+      "id": "F12-h",
+      "title": "Automated Overdue Payment Email Reminders",
+      "feature": "Invoicing & Commercial Sales Billing",
+      "number": 12,
+      "criteria": [],
+      "status": "BLOCKED",
+      "detail": "Invoice Due Reminders and email channel controls exist in Notifications > Settings. Actual overdue email dispatch/delivery cannot be certified without a controlled QA inbox.",
+      "module": "invoicing",
+      "bugs": []
+    },
+    {
+      "id": "F13-f",
+      "title": "Standalone Credit Notes without Invoice Link",
+      "feature": "Credit Notes",
+      "number": 13,
+      "criteria": [],
+      "status": "FAIL",
+      "detail": "Standalone credit creation succeeds, but Save as Draft submits Open and adds stock without a receiving choice; all owned stock changes compensated.",
+      "module": "credit-notes",
+      "bugs": [
+        "P3-CN-002"
+      ]
+    },
+    {
+      "id": "F14-a",
+      "title": "Issue Debit Note",
+      "feature": "Debit Notes",
+      "number": 14,
+      "criteria": [],
+      "status": "PARTIAL",
+      "detail": "A valid supplemental debit draft with total 100 persists. Issued accounting and dedicated freight/service-line coverage are not fully verified.",
+      "module": "debit-notes",
+      "bugs": []
+    },
+    {
+      "id": "F14-b",
+      "title": "Invoice Reference Linking",
+      "feature": "Debit Notes",
+      "number": 14,
+      "criteria": [],
+      "status": "PASS",
+      "detail": "A new owned debit note retains its selected synthetic paid invoice ID after reload and displays that reference on the printable document.",
+      "module": "debit-notes",
+      "bugs": []
+    },
+    {
+      "id": "F14-c",
+      "title": "PDF Generation & Dispatch",
+      "feature": "Debit Notes",
+      "number": 14,
+      "criteria": [],
+      "status": "PARTIAL",
+      "detail": "Authenticated browser print view and A4 PDF preserve the debit number, customer, selected product name/SKU and amount; PDF visually reviewed. Email dispatch lacks a controlled inbox; physical printing skipped.",
+      "module": "debit-notes",
+      "bugs": []
+    },
+    {
+      "id": "F15-e",
+      "title": "Automated Low-Stock Reordering",
+      "feature": "Purchasing & Purchase Orders (PO)",
+      "number": 15,
+      "criteria": [],
+      "status": "FAIL",
+      "detail": "Low-stock items have no automatic purchase-order reordering workflow",
+      "module": "purchase-orders",
+      "bugs": [
+        "P3-PO-001"
+      ]
+    },
+    {
+      "id": "F15-f",
+      "title": "Direct Supplier Email Transmission",
+      "feature": "Purchasing & Purchase Orders (PO)",
+      "number": 15,
+      "criteria": [],
+      "status": "FAIL",
+      "detail": "Purchase-order detail has no direct supplier email transmission action",
+      "module": "purchase-orders",
+      "bugs": [
+        "P3-PO-002"
+      ]
+    },
+    {
+      "id": "F16-e",
+      "title": "Batch & Expiry Capture at Ingestion",
+      "feature": "Goods Receipt Notes (GRN)",
+      "number": 16,
+      "criteria": [],
+      "status": "FAIL",
+      "detail": "Goods receiving cannot capture manufacturer lots or lot expiry dates",
+      "module": "goods-receipts",
+      "bugs": [
+        "P3-GRN-001"
+      ]
+    },
+    {
+      "id": "F17-d",
+      "title": "3-Way Reconciliation (PO vs GRN vs Bill)",
+      "feature": "Bills & Accounts Payable (AP)",
+      "number": 17,
+      "criteria": [],
+      "status": "FAIL",
+      "detail": "Bill entry provides PO linking but no three-way receipt reconciliation",
+      "module": "bills-payable",
+      "bugs": [
+        "P3-AP-001"
+      ]
+    },
+    {
+      "id": "F18-e",
+      "title": "Supplier Product Catalogs & Preferred Vendor SKUs",
+      "feature": "Suppliers & Vendor Management",
+      "number": 18,
+      "criteria": [],
+      "status": "FAIL",
+      "detail": "Owned supplier mapping stores its vendor-specific SKU, preferred flag and lead time; attach/read/detach pass. The native catalogue hides the vendor SKU and searching that SKU returns no product.",
+      "module": "suppliers",
+      "bugs": [
+        "P3-SUP-002"
+      ]
+    },
+    {
+      "id": "F18-f",
+      "title": "Supplier Account Statement Export",
+      "feature": "Suppliers & Vendor Management",
+      "number": 18,
+      "criteria": [],
+      "status": "FAIL",
+      "detail": "Supplier export downloads profile fields rather than an account statement",
+      "module": "suppliers",
+      "bugs": [
+        "P3-SUP-001"
+      ]
+    },
+    {
+      "id": "F19-e",
+      "title": "Customer Groups & Tiers (Retail, Wholesale, VIP)",
+      "feature": "Customers & Accounts Receivable (AR)",
+      "number": 19,
+      "criteria": [],
+      "status": "FAIL",
+      "detail": "Customer groups and automatic pricing tiers cannot be configured",
+      "module": "customers",
+      "bugs": [
+        "P3-CUST-001"
+      ]
+    },
+    {
+      "id": "F19-f",
+      "title": "Strict Credit Limit Blocking",
+      "feature": "Customers & Accounts Receivable (AR)",
+      "number": 19,
+      "criteria": [],
+      "status": "FAIL",
+      "detail": "Customer account UI has no credit enablement or debt ceiling configuration",
+      "module": "customers",
+      "bugs": [
+        "P3-CUST-002"
+      ]
+    },
+    {
+      "id": "F20-g",
+      "title": "Gross Profit & Net Margin Deep-Dive",
+      "feature": "Reports & Business Intelligence",
+      "number": 20,
+      "criteria": [],
+      "status": "FAIL",
+      "detail": "Revenue and revenue-minus-recorded-cost/displayed gross margin arithmetic pass. Net-margin deep dive is missing; catalogue-versus-recorded COGS provenance remains unverified.",
+      "module": "reports",
+      "bugs": [
+        "P3-REP-001"
+      ]
+    },
+    {
+      "id": "F20-h",
+      "title": "Stock Movement & Velocity Ledger",
+      "feature": "Reports & Business Intelligence",
+      "number": 20,
+      "criteria": [],
+      "status": "PARTIAL",
+      "detail": "A controlled +1 adjustment appears as a new stock movement with the correct resulting balance; stock restored. Dedicated velocity metric definitions and historical reconciliation are not fully certified.",
+      "module": "reports",
+      "bugs": []
+    },
+    {
+      "id": "F20-i",
+      "title": "Customer & Supplier Aging Debtors/Creditors Analysis",
+      "feature": "Reports & Business Intelligence",
+      "number": 20,
+      "criteria": [],
+      "status": "FAIL",
+      "detail": "AR buckets are reconstructed from live invoice dates/balances and totals reconcile. Supplier/creditor aging is absent from the report catalogue/Bills controls.",
+      "module": "reports",
+      "bugs": [
+        "P3-REP-002"
+      ]
+    },
+    {
+      "id": "F21-a",
+      "title": "Visual Custom Report Builder",
+      "feature": "Custom Report Builder & Scheduled Delivery",
+      "number": 21,
+      "criteria": [],
+      "status": "FAIL",
+      "detail": "Report builder only saves predefined report choices rather than custom dimensions and metrics",
+      "module": "custom-reports",
+      "bugs": [
+        "P3-RPT-001"
+      ]
+    },
+    {
+      "id": "F21-b",
+      "title": "Saved Report Templates",
+      "feature": "Custom Report Builder & Scheduled Delivery",
+      "number": 21,
+      "criteria": [],
+      "status": "FAIL",
+      "detail": "Filtered saved template create/reload/run/delete passes. Valid unfiltered templates return filters as [] and disappear from the client list.",
+      "module": "custom-reports",
+      "bugs": [
+        "P3-RPT-002"
+      ]
+    },
+    {
+      "id": "F21-c",
+      "title": "Automated Scheduled Reports via Cron Email",
+      "feature": "Custom Report Builder & Scheduled Delivery",
+      "number": 21,
+      "criteria": [],
+      "status": "BLOCKED",
+      "detail": "Cadence/recipient schedule form inspected. No active schedule created without a controlled inbox; cron firing, delivered CSV and retry behavior are unverified.",
+      "module": "custom-reports",
+      "bugs": []
+    },
+    {
+      "id": "F22-e",
+      "title": "Drag-and-Drop Visual Canvas Designer",
+      "feature": "Document Builder & Visual Template Designer",
+      "number": 22,
+      "criteria": [],
+      "status": "FAIL",
+      "detail": "Document Builder has presets and form controls but no drag-and-drop design canvas",
+      "module": "document-design",
+      "bugs": [
+        "P3-DOC-001"
+      ]
+    },
+    {
+      "id": "F22-f",
+      "title": "Custom Font Upload & Management",
+      "feature": "Document Builder & Visual Template Designer",
+      "number": 22,
+      "criteria": [],
+      "status": "FAIL",
+      "detail": "Invalid extension is rejected. Valid native TTF upload loses bytes and returns 422; diagnostic multipart upload/list/exact file-hash/delete pass without changing original fonts.",
+      "module": "document-design",
+      "bugs": [
+        "P3-FONT-001"
+      ]
+    },
+    {
+      "id": "F23-f",
+      "title": "Granular Custom Permission Matrix Builder",
+      "feature": "Users, Roles & Access Control (RBAC)",
+      "number": 23,
+      "criteria": [],
+      "status": "FAIL",
+      "detail": "Users & Roles has no custom role or granular permission matrix editor",
+      "module": "roles",
+      "bugs": [
+        "P3-RBAC-001"
+      ]
+    },
+    {
+      "id": "F24-d",
+      "title": "Two-Factor Authentication (2FA / TOTP)",
+      "feature": "Security, Sessions & Authentication",
+      "number": 24,
+      "criteria": [],
+      "status": "BLOCKED",
+      "detail": "Enable control is available after the real account load. Enrollment/login/time-window/replay tests require an isolated activated account; shared owner factors were preserved.",
+      "module": "security",
+      "bugs": []
+    },
+    {
+      "id": "F24-e",
+      "title": "Backup Recovery Codes",
+      "feature": "Security, Sessions & Authentication",
+      "number": 24,
+      "criteria": [],
+      "status": "BLOCKED",
+      "detail": "Recovery code generation, one-time use and recovery login depend on isolated TOTP enrollment; no suitable activated account is available.",
+      "module": "security",
+      "bugs": []
+    },
+    {
+      "id": "F24-f",
+      "title": "Remote Active Session Revocation",
+      "feature": "Security, Sessions & Authentication",
+      "number": 24,
+      "criteria": [],
+      "status": "FAIL",
+      "detail": "Revoked automation session retains authenticated account access",
+      "module": "security",
+      "bugs": [
+        "P3-SEC-001"
+      ]
+    },
+    {
+      "id": "F25-c",
+      "title": "Before-and-After Value Diffs",
+      "feature": "Audit Logs & System Activity",
+      "number": 25,
+      "criteria": [],
+      "status": "PASS",
+      "detail": "Live campaign product archive transitions contain active-to-archived old/new values; the UI has diff columns and exported values preserve them.",
+      "module": "audit-logs",
+      "bugs": []
+    },
+    {
+      "id": "F25-d",
+      "title": "Compliance Export (CSV/JSON)",
+      "feature": "Audit Logs & System Activity",
+      "number": 25,
+      "criteria": [],
+      "status": "PARTIAL",
+      "detail": "Native filtered CSV export includes Old/New Value columns and its row count matches the complete filtered paginated result. JSON export is not exposed; the slash-format requirement needs confirmation before full acceptance.",
+      "module": "audit-logs",
+      "bugs": []
+    },
+    {
+      "id": "F26-a",
+      "title": "API Key Management",
+      "feature": "Integrations, REST API & Webhooks",
+      "number": 26,
+      "criteria": [],
+      "status": "PASS",
+      "detail": "Owned key naming/create/list/rotate/revoke/delete pass. Secrets are absent from list data; explicit empty-session controls accept the active key and refuse invalid/old/revoked keys. Secrets remain private.",
+      "module": "integrations",
+      "bugs": []
+    },
+    {
+      "id": "F26-b",
+      "title": "Scoped Permissions per Key",
+      "feature": "Integrations, REST API & Webhooks",
+      "number": 26,
+      "criteria": [],
+      "status": "PARTIAL",
+      "detail": "Global read-only denial (403) and write-enabled update (200 plus independent persistence) pass on an owned product. Anonymous/invalid credentials return 401. Per-resource restricted scopes are not exposed/tested.",
+      "module": "integrations",
+      "bugs": []
+    },
+    {
+      "id": "F26-c",
+      "title": "Full RESTful API Documentation",
+      "feature": "Integrations, REST API & Webhooks",
+      "number": 26,
+      "criteria": [],
+      "status": "FAIL",
+      "detail": "API documentation lacks a resource reference and falsely says API keys cannot authenticate",
+      "module": "integrations",
+      "bugs": [
+        "P3-API-002"
+      ]
+    },
+    {
+      "id": "F26-d",
+      "title": "Real-Time Webhooks",
+      "feature": "Integrations, REST API & Webhooks",
+      "number": 26,
+      "criteria": [],
+      "status": "FAIL",
+      "detail": "Webhook subscriptions omit the three events required by the specification",
+      "module": "integrations",
+      "bugs": [
+        "P3-WEB-001"
+      ]
+    },
+    {
+      "id": "F26-e",
+      "title": "Webhook Delivery Logs & Manual Retries",
+      "feature": "Integrations, REST API & Webhooks",
+      "number": 26,
+      "criteria": [],
+      "status": "BLOCKED",
+      "detail": "No controlled webhook receiver exists and no endpoint is registered. Actual signed deliveries, persisted delivery logs and manual retry outcomes are not verified. A page notice is not backend proof.",
+      "module": "integrations",
+      "bugs": []
+    },
+    {
+      "id": "F27-c",
+      "title": "Direct ESC/POS Network & Serial Drivers",
+      "feature": "Hardware & Printer Configuration",
+      "number": 27,
+      "criteria": [],
+      "status": "SKIPPED",
+      "detail": "Physical ESC/POS network/serial connection and paper output skipped at user request. Software connect controls and browser API availability inspected; no hardware mock counted as acceptance.",
+      "module": "hardware",
+      "bugs": []
+    },
+    {
+      "id": "F27-d",
+      "title": "Cash Drawer RJ11 Auto-Kick Pulse",
+      "feature": "Hardware & Printer Configuration",
+      "number": 27,
+      "criteria": [],
+      "status": "SKIPPED",
+      "detail": "Physical RJ11 cash drawer kick/pulse skipped at user request because no drawer/printer is connected.",
+      "module": "hardware",
+      "bugs": []
+    },
+    {
+      "id": "F27-e",
+      "title": "Adhesive Barcode Label Roll Printers",
+      "feature": "Hardware & Printer Configuration",
+      "number": 27,
+      "criteria": [],
+      "status": "FAIL",
+      "detail": "Software label generation is unavailable. Physical label-printer execution is separately skipped at user request.",
+      "module": "hardware",
+      "bugs": [
+        "P3-HW-001"
+      ]
+    },
+    {
+      "id": "F28-f",
+      "title": "Automated Database Backup & JSON Dump Export",
+      "feature": "System Settings & Localization",
+      "number": 28,
+      "criteria": [],
+      "status": "FAIL",
+      "detail": "Advanced JSON export only shows a toast, with no job/download. No automated backup configuration/history workflow is exposed; unseen backend jobs/restoration are not certified.",
+      "module": "settings",
+      "bugs": [
+        "P3-BACKUP-002",
+        "P3-BACKUP-001"
+      ]
+    },
+    {
+      "id": "F29-d",
+      "title": "Outgoing Email & SMS Gateway Delivery",
+      "feature": "Notifications & Alerts Center",
+      "number": 29,
+      "criteria": [],
+      "status": "BLOCKED",
+      "detail": "Actual notification settings/channel preferences inspected without saving changes. No controlled email inbox, SMS number/gateway or delivery receiver is available for end-to-end verification.",
+      "module": "notifications",
+      "bugs": []
+    },
+    {
+      "id": "F30-d",
+      "title": "Interactive Searchable Knowledge Base & Video Guides",
+      "feature": "Help Center, Legal & Compliance",
+      "number": 30,
+      "criteria": [],
+      "status": "FAIL",
+      "detail": "Positive/negative FAQ search and answer expansion pass; no video guides are available.",
+      "module": "help",
+      "bugs": [
+        "P3-HELP-001"
+      ]
+    },
+    {
+      "id": "F30-e",
+      "title": "System Changelog & Release Notes Feed",
+      "feature": "Help Center, Legal & Compliance",
+      "number": 30,
+      "criteria": [],
+      "status": "PARTIAL",
+      "detail": "Changelog route, visible release entries and descending dates pass. The static 2025 history is not certified as current deployment/release provenance; no authoritative backend build revision is available.",
+      "module": "help",
+      "bugs": []
+    }
+  ],
+  "cases": [
+    {
+      "key": "support/auth.setup.ts|authenticate Phase 3 QA workspace|phase3-setup",
+      "file": "support/auth.setup.ts",
+      "title": "authenticate Phase 3 QA workspace",
+      "project": "phase3-setup",
+      "annotations": [],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\dashboard-1",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "dashboard",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "dashboard/features.ui.spec.ts|F01-b-P3 current/prior period comparisons and calculation controls|phase3-dashboard",
+      "file": "dashboard/features.ui.spec.ts",
+      "title": "F01-b-P3 current/prior period comparisons and calculation controls",
+      "project": "phase3-dashboard",
+      "annotations": [
+        {
+          "type": "confirmed-bug",
+          "description": "P3-DASH-001: Normal Dashboard and the inspected Stat Card/Line Chart configurations expose no current-versus-prior comparison control or comparative result. The Phase 3 comparison workflow cannot be selected."
+        }
+      ],
+      "status": "unexpected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\dashboard-1",
+      "support": false,
+      "errors": [
+        "Error: [P3-DASH-001] Normal Dashboard and the inspected Stat Card/Line Chart configurations expose no current-versus-prior comparison control or comparative result. The Phase 3 comparison workflow cannot be selected."
+      ],
+      "classification": "APPLICATION FAIL",
+      "module": "dashboard",
+      "rawStatus": "failed"
+    },
+    {
+      "key": "support/cleanup.teardown.ts|audit Phase 3 scope and end only the QA session|phase3-cleanup",
+      "file": "support/cleanup.teardown.ts",
+      "title": "audit Phase 3 scope and end only the QA session",
+      "project": "phase3-cleanup",
+      "annotations": [],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\dashboard-1",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "dashboard",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "support/auth.setup.ts|authenticate Phase 3 QA workspace|phase3-setup",
+      "file": "support/auth.setup.ts",
+      "title": "authenticate Phase 3 QA workspace",
+      "project": "phase3-setup",
+      "annotations": [],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\products-8",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "products",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "products/archive-audit.ui.spec.ts|support inspect and recover all branches of archived owned BOM fixtures|phase3-products",
+      "file": "products/archive-audit.ui.spec.ts",
+      "title": "support inspect and recover all branches of archived owned BOM fixtures",
+      "project": "phase3-products",
+      "annotations": [
+        {
+          "type": "support-only",
+          "description": "Independent all-branch stock recovery; not a feature pass."
+        }
+      ],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\products-7",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "products",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "products/branch-boundary.ui.spec.ts|F02-k bundle component shortage in the actual sale branch|phase3-products",
+      "file": "products/branch-boundary.ui.spec.ts",
+      "title": "F02-k bundle component shortage in the actual sale branch",
+      "project": "phase3-products",
+      "annotations": [
+        {
+          "type": "confirmed-bug",
+          "description": "P3-PROD-007: POS records a paid sale in branch 1 and leaves its components at A=-2, B=-3. Availability was supplied by another branch."
+        }
+      ],
+      "status": "unexpected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\products-8",
+      "support": false,
+      "errors": [
+        "Error: [P3-PROD-007] POS records a paid sale in branch 1 and leaves its components at A=-2, B=-3. Availability was supplied by another branch."
+      ],
+      "classification": "APPLICATION FAIL",
+      "module": "products",
+      "rawStatus": "failed"
+    },
+    {
+      "key": "products/features.ui.spec.ts|F02-a-P3 serialized unit assignment and unit identity controls|phase3-products",
+      "file": "products/features.ui.spec.ts",
+      "title": "F02-a-P3 serialized unit assignment and unit identity controls",
+      "project": "phase3-products",
+      "annotations": [
+        {
+          "type": "confirmed-bug",
+          "description": "P3-PROD-001: The live product form/type options contain no serialized inventory mode or per-unit serial-number controls. Basic variants and per-product custom text fields are not unit-identity tracking."
+        }
+      ],
+      "status": "unexpected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\products-6",
+      "support": false,
+      "errors": [
+        "Error: [P3-PROD-001] The live product form/type options contain no serialized inventory mode or per-unit serial-number controls. Basic variants and per-product custom text fields are not unit-identity tracking."
+      ],
+      "classification": "APPLICATION FAIL",
+      "module": "products",
+      "rawStatus": "failed"
+    },
+    {
+      "key": "products/features.ui.spec.ts|F02-k bundle recipe persistence availability validation and component sale deduction|phase3-products",
+      "file": "products/features.ui.spec.ts",
+      "title": "F02-k bundle recipe persistence availability validation and component sale deduction",
+      "project": "phase3-products",
+      "annotations": [
+        {
+          "type": "confirmed-bug",
+          "description": "P3-PROD-003: The user-entered 0 was submitted as 1 and the save succeeded, changing the component requirement without validation feedback."
+        }
+      ],
+      "status": "unexpected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\products-8",
+      "support": false,
+      "errors": [
+        "Error: [P3-PROD-003] The user-entered 0 was submitted as 1 and the save succeeded, changing the component requirement without validation feedback."
+      ],
+      "classification": "APPLICATION FAIL",
+      "module": "products",
+      "rawStatus": "failed"
+    },
+    {
+      "key": "products/features.ui.spec.ts|F02-l category-defined dynamic field schema management|phase3-products",
+      "file": "products/features.ui.spec.ts",
+      "title": "F02-l category-defined dynamic field schema management",
+      "project": "phase3-products",
+      "annotations": [
+        {
+          "type": "confirmed-bug",
+          "description": "P3-PROD-005: Category management exposes no field/schema definition control. The separate Custom Fields tab configures only an individual product and does not define or inherit category attributes."
+        }
+      ],
+      "status": "unexpected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\products-6",
+      "support": false,
+      "errors": [
+        "Error: [P3-PROD-005] Category management exposes no field/schema definition control. The separate Custom Fields tab configures only an individual product and does not define or inherit category attributes."
+      ],
+      "classification": "APPLICATION FAIL",
+      "module": "products",
+      "rawStatus": "failed"
+    },
+    {
+      "key": "support/cleanup.teardown.ts|audit Phase 3 scope and end only the QA session|phase3-cleanup",
+      "file": "support/cleanup.teardown.ts",
+      "title": "audit Phase 3 scope and end only the QA session",
+      "project": "phase3-cleanup",
+      "annotations": [],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\products-8",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "products",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "support/auth.setup.ts|authenticate Phase 3 QA workspace|phase3-setup",
+      "file": "support/auth.setup.ts",
+      "title": "authenticate Phase 3 QA workspace",
+      "project": "phase3-setup",
+      "annotations": [],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\stores-2",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "stores",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "stores/features.ui.spec.ts|F03-g comparative branch inventory and period-scoped sales analytics|phase3-stores",
+      "file": "stores/features.ui.spec.ts",
+      "title": "F03-g comparative branch inventory and period-scoped sales analytics",
+      "project": "phase3-stores",
+      "annotations": [
+        {
+          "type": "partial-coverage",
+          "description": "Independent all-page inventory cost/quantity reconciliation and period-scoped sales presentation passed. Sales status eligibility/recognition and all historical interval boundaries are not independently certified by this inventory comparison scenario."
+        }
+      ],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\stores-2",
+      "support": false,
+      "errors": [],
+      "classification": "PARTIAL",
+      "module": "stores",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "support/cleanup.teardown.ts|audit Phase 3 scope and end only the QA session|phase3-cleanup",
+      "file": "support/cleanup.teardown.ts",
+      "title": "audit Phase 3 scope and end only the QA session",
+      "project": "phase3-cleanup",
+      "annotations": [],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\stores-2",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "stores",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "support/auth.setup.ts|authenticate Phase 3 QA workspace|phase3-setup",
+      "file": "support/auth.setup.ts",
+      "title": "authenticate Phase 3 QA workspace",
+      "project": "phase3-setup",
+      "annotations": [],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\adjustments-1",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "adjustments",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "adjustments/features.ui.spec.ts|F04-e multi-item batch voucher availability API atomicity and audit persistence|phase3-adjustments",
+      "file": "adjustments/features.ui.spec.ts",
+      "title": "F04-e multi-item batch voucher availability API atomicity and audit persistence",
+      "project": "phase3-adjustments",
+      "annotations": [
+        {
+          "type": "confirmed-bug",
+          "description": "P3-ADJ-001: The live form exposes one native product selector and one quantity only, without Add item/row or another multi-item entry workflow."
+        }
+      ],
+      "status": "unexpected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\adjustments-1",
+      "support": false,
+      "errors": [
+        "Error: [P3-ADJ-001] The live form exposes one native product selector and one quantity only, without Add item/row or another multi-item entry workflow."
+      ],
+      "classification": "APPLICATION FAIL",
+      "module": "adjustments",
+      "rawStatus": "failed"
+    },
+    {
+      "key": "support/cleanup.teardown.ts|audit Phase 3 scope and end only the QA session|phase3-cleanup",
+      "file": "support/cleanup.teardown.ts",
+      "title": "audit Phase 3 scope and end only the QA session",
+      "project": "phase3-cleanup",
+      "annotations": [],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\adjustments-1",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "adjustments",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "support/auth.setup.ts|authenticate Phase 3 QA workspace|phase3-setup",
+      "file": "support/auth.setup.ts",
+      "title": "authenticate Phase 3 QA workspace",
+      "project": "phase3-setup",
+      "annotations": [],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\transfers-1",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "transfers",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "transfers/features.ui.spec.ts|F05-e F05-f manifests and discrepancy workflow at every transfer stage|phase3-transfers",
+      "file": "transfers/features.ui.spec.ts",
+      "title": "F05-e F05-f manifests and discrepancy workflow at every transfer stage",
+      "project": "phase3-transfers",
+      "annotations": [
+        {
+          "type": "requirements",
+          "description": "F05-e,F05-f"
+        },
+        {
+          "type": "confirmed-bug",
+          "description": "P3-TRF-001: No manifest, delivery-slip, PDF/download or print action is exposed at any inspected reachable transfer stage."
+        },
+        {
+          "type": "confirmed-bug",
+          "description": "P3-TRF-002: The reachable transfer states provide no damage/shortage/discrepancy input, received-quantity adjustment or dispute action; receipt is a whole-transfer completion action."
+        }
+      ],
+      "status": "unexpected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\transfers-1",
+      "support": false,
+      "errors": [
+        "Error: [P3-TRF-001] No manifest, delivery-slip, PDF/download or print action is exposed at any inspected reachable transfer stage.",
+        "Error: [P3-TRF-002] The reachable transfer states provide no damage/shortage/discrepancy input, received-quantity adjustment or dispute action; receipt is a whole-transfer completion action."
+      ],
+      "classification": "APPLICATION FAIL",
+      "module": "transfers",
+      "rawStatus": "failed"
+    },
+    {
+      "key": "support/cleanup.teardown.ts|audit Phase 3 scope and end only the QA session|phase3-cleanup",
+      "file": "support/cleanup.teardown.ts",
+      "title": "audit Phase 3 scope and end only the QA session",
+      "project": "phase3-cleanup",
+      "annotations": [],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\transfers-1",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "transfers",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "support/auth.setup.ts|authenticate Phase 3 QA workspace|phase3-setup",
+      "file": "support/auth.setup.ts",
+      "title": "authenticate Phase 3 QA workspace",
+      "project": "phase3-setup",
+      "annotations": [],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\stock-counts-1",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "stock-counts",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "stock-counts/features.ui.spec.ts|F06-d scheduled category cycle audit controls|phase3-stock-counts",
+      "file": "stock-counts/features.ui.spec.ts",
+      "title": "F06-d scheduled category cycle audit controls",
+      "project": "phase3-stock-counts",
+      "annotations": [
+        {
+          "type": "confirmed-bug",
+          "description": "P3-COUNT-001: The list offers Start a count only. Its form has Branch and Notes; opening a count always freezes the full branch. No category or scheduling control is available."
+        }
+      ],
+      "status": "unexpected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\stock-counts-1",
+      "support": false,
+      "errors": [
+        "Error: [P3-COUNT-001] The list offers Start a count only. Its form has Branch and Notes; opening a count always freezes the full branch. No category or scheduling control is available."
+      ],
+      "classification": "APPLICATION FAIL",
+      "module": "stock-counts",
+      "rawStatus": "failed"
+    },
+    {
+      "key": "stock-counts/features.ui.spec.ts|F06-e software barcode counting in a disposable draft|phase3-stock-counts",
+      "file": "stock-counts/features.ui.spec.ts",
+      "title": "F06-e software barcode counting in a disposable draft",
+      "project": "phase3-stock-counts",
+      "annotations": [
+        {
+          "type": "confirmed-bug",
+          "description": "P3-COUNT-002: Only per-row numeric inputs are present; there is no barcode target/mode, and the emulated SKU plus Enter leaves every counted value unchanged."
+        }
+      ],
+      "status": "unexpected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\stock-counts-1",
+      "support": false,
+      "errors": [
+        "Error: [P3-COUNT-002] Only per-row numeric inputs are present; there is no barcode target/mode, and the emulated SKU plus Enter leaves every counted value unchanged."
+      ],
+      "classification": "APPLICATION FAIL",
+      "module": "stock-counts",
+      "rawStatus": "failed"
+    },
+    {
+      "key": "support/cleanup.teardown.ts|audit Phase 3 scope and end only the QA session|phase3-cleanup",
+      "file": "support/cleanup.teardown.ts",
+      "title": "audit Phase 3 scope and end only the QA session",
+      "project": "phase3-cleanup",
+      "annotations": [],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\stock-counts-1",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "stock-counts",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "support/auth.setup.ts|authenticate Phase 3 QA workspace|phase3-setup",
+      "file": "support/auth.setup.ts",
+      "title": "authenticate Phase 3 QA workspace",
+      "project": "phase3-setup",
+      "annotations": [],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\shelf-life-5",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "shelf-life",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "shelf-life/features.ui.spec.ts|F07-a b c d e batch dates warnings allocation and disposal workflow|phase3-shelf-life",
+      "file": "shelf-life/features.ui.spec.ts",
+      "title": "F07-a b c d e batch dates warnings allocation and disposal workflow",
+      "project": "phase3-shelf-life",
+      "annotations": [
+        {
+          "type": "confirmed-bug",
+          "description": "P3-LOOKUP-001: The new active product is absent. The native Product selector contains only the first 15 entries and has no server search or pagination."
+        },
+        {
+          "type": "confirmed-bug",
+          "description": "P3-EXP-003: Expired rows expose Delete batch only; no disposal/write-off request, supervisor approval or linked disposal ledger is available."
+        }
+      ],
+      "status": "unexpected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\shelf-life-5",
+      "support": false,
+      "errors": [
+        "Error: [P3-LOOKUP-001] The new active product is absent. The native Product selector contains only the first 15 entries and has no server search or pagination.",
+        "Error: [P3-EXP-003] Expired rows expose Delete batch only; no disposal/write-off request, supervisor approval or linked disposal ledger is available."
+      ],
+      "classification": "APPLICATION FAIL",
+      "module": "shelf-life",
+      "rawStatus": "failed"
+    },
+    {
+      "key": "shelf-life/features.ui.spec.ts|F07-b batch quantity rejects zero rather than silently creating stock metadata|phase3-shelf-life",
+      "file": "shelf-life/features.ui.spec.ts",
+      "title": "F07-b batch quantity rejects zero rather than silently creating stock metadata",
+      "project": "phase3-shelf-life",
+      "annotations": [
+        {
+          "type": "confirmed-bug",
+          "description": "P3-EXP-004: The native handler submits initial_quantity=1 and saves the lot successfully, changing the entered quantity without consent."
+        }
+      ],
+      "status": "unexpected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\shelf-life-5",
+      "support": false,
+      "errors": [
+        "Error: [P3-EXP-004] The native handler submits initial_quantity=1 and saves the lot successfully, changing the entered quantity without consent."
+      ],
+      "classification": "APPLICATION FAIL",
+      "module": "shelf-life",
+      "rawStatus": "failed"
+    },
+    {
+      "key": "shelf-life/priority.ui.spec.ts|F07-d allocation priority with opposed receipt/expiry order and first-lot exhaustion|phase3-shelf-life",
+      "file": "shelf-life/priority.ui.spec.ts",
+      "title": "F07-d allocation priority with opposed receipt/expiry order and first-lot exhaustion",
+      "project": "phase3-shelf-life",
+      "annotations": [],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\shelf-life-5",
+      "support": false,
+      "errors": [],
+      "classification": "PASS",
+      "module": "shelf-life",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "support/cleanup.teardown.ts|audit Phase 3 scope and end only the QA session|phase3-cleanup",
+      "file": "support/cleanup.teardown.ts",
+      "title": "audit Phase 3 scope and end only the QA session",
+      "project": "phase3-cleanup",
+      "annotations": [],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\shelf-life-5",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "shelf-life",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "support/auth.setup.ts|authenticate Phase 3 QA workspace|phase3-setup",
+      "file": "support/auth.setup.ts",
+      "title": "authenticate Phase 3 QA workspace",
+      "project": "phase3-setup",
+      "annotations": [],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\pos-3",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "pos",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "pos/features.ui.spec.ts|F08-l offline cash sale durability and reconnect prerequisite|phase3-pos",
+      "file": "pos/features.ui.spec.ts",
+      "title": "F08-l offline cash sale durability and reconnect prerequisite",
+      "project": "phase3-pos",
+      "annotations": [
+        {
+          "type": "confirmed-bug",
+          "description": "P3-POS-001: Checkout remains on the payment dialog while offline; no sale confirmation/receipt or IndexedDB database is created to retain a durable queued sale. Online mutation processing may remain paused until reconnection."
+        }
+      ],
+      "status": "unexpected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\pos-3",
+      "support": false,
+      "errors": [
+        "Error: [P3-POS-001] Checkout remains on the payment dialog while offline; no sale confirmation/receipt or IndexedDB database is created to retain a durable queued sale. Online mutation processing may remain paused until reconnection."
+      ],
+      "classification": "APPLICATION FAIL",
+      "module": "pos",
+      "rawStatus": "failed"
+    },
+    {
+      "key": "pos/features.ui.spec.ts|F08-m POS loyalty redemption controls|phase3-pos",
+      "file": "pos/features.ui.spec.ts",
+      "title": "F08-m POS loyalty redemption controls",
+      "project": "phase3-pos",
+      "annotations": [
+        {
+          "type": "confirmed-bug",
+          "description": "P3-POS-002: No loyalty/points balance or redemption control is exposed in the POS cart; no loyalty programme appears in the served POS implementation."
+        }
+      ],
+      "status": "unexpected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\pos-3",
+      "support": false,
+      "errors": [
+        "Error: [P3-POS-002] No loyalty/points balance or redemption control is exposed in the POS cart; no loyalty programme appears in the served POS implementation."
+      ],
+      "classification": "APPLICATION FAIL",
+      "module": "pos",
+      "rawStatus": "failed"
+    },
+    {
+      "key": "support/cleanup.teardown.ts|audit Phase 3 scope and end only the QA session|phase3-cleanup",
+      "file": "support/cleanup.teardown.ts",
+      "title": "audit Phase 3 scope and end only the QA session",
+      "project": "phase3-cleanup",
+      "annotations": [],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\pos-3",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "pos",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "support/auth.setup.ts|authenticate Phase 3 QA workspace|phase3-setup",
+      "file": "support/auth.setup.ts",
+      "title": "authenticate Phase 3 QA workspace",
+      "project": "phase3-setup",
+      "annotations": [],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\order-queue-2",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "order-queue",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "order-queue/features.ui.spec.ts|F10-a b c owned processing order live states assignment and ticket printing|phase3-order-queue",
+      "file": "order-queue/features.ui.spec.ts",
+      "title": "F10-a b c owned processing order live states assignment and ticket printing",
+      "project": "phase3-order-queue",
+      "annotations": [
+        {
+          "type": "confirmed-bug",
+          "description": "P3-QUEUE-003: The product is saved as type processing but requires_processing=false; the successful sale has no matching queue record."
+        },
+        {
+          "type": "confirmed-bug",
+          "description": "P3-QUEUE-001: The editor provides priority, estimated time, ready date and internal notes only. No assignment selector or table/bay input is present."
+        },
+        {
+          "type": "confirmed-bug",
+          "description": "P3-QUEUE-002: The card menu offers Edit / Add Note and Cancel Order only; there is no ticket/print action."
+        },
+        {
+          "type": "partial-coverage",
+          "description": "Real backend transitions and live polling verified. Drag-and-drop interaction and cross-user delivery timing not independently certified."
+        }
+      ],
+      "status": "unexpected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\order-queue-2",
+      "support": false,
+      "errors": [
+        "Error: [P3-QUEUE-003] The product is saved as type processing but requires_processing=false; the successful sale has no matching queue record.",
+        "Error: [P3-QUEUE-001] The editor provides priority, estimated time, ready date and internal notes only. No assignment selector or table/bay input is present.",
+        "Error: [P3-QUEUE-002] The card menu offers Edit / Add Note and Cancel Order only; there is no ticket/print action."
+      ],
+      "classification": "APPLICATION FAIL",
+      "module": "order-queue",
+      "rawStatus": "failed"
+    },
+    {
+      "key": "support/cleanup.teardown.ts|audit Phase 3 scope and end only the QA session|phase3-cleanup",
+      "file": "support/cleanup.teardown.ts",
+      "title": "audit Phase 3 scope and end only the QA session",
+      "project": "phase3-cleanup",
+      "annotations": [],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\order-queue-2",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "order-queue",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "support/auth.setup.ts|authenticate Phase 3 QA workspace|phase3-setup",
+      "file": "support/auth.setup.ts",
+      "title": "authenticate Phase 3 QA workspace",
+      "project": "phase3-setup",
+      "annotations": [],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\invoicing-2",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "invoicing",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "invoicing/features.ui.spec.ts|F12-f g h recurring invoice currency and automated reminder controls|phase3-invoicing",
+      "file": "invoicing/features.ui.spec.ts",
+      "title": "F12-f g h recurring invoice currency and automated reminder controls",
+      "project": "phase3-invoicing",
+      "annotations": [
+        {
+          "type": "blocked",
+          "description": "F12-h: Invoice Due Reminders and Email channel controls are available in Notifications > Settings. Actual overdue email dispatch/delivery is blocked without a controlled QA inbox."
+        },
+        {
+          "type": "confirmed-bug",
+          "description": "P3-INV-001: Recurring contract billing cannot be configured. No corresponding workflow is available on the inspected live forms/settings."
+        },
+        {
+          "type": "confirmed-bug",
+          "description": "P3-INV-002: Invoice editor has no per-invoice currency or recorded exchange rate. No corresponding workflow is available on the inspected live forms/settings."
+        }
+      ],
+      "status": "unexpected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\invoicing-2",
+      "support": false,
+      "errors": [
+        "Error: [P3-INV-001] Recurring contract billing cannot be configured. No corresponding workflow is available on the inspected live forms/settings.",
+        "Error: [P3-INV-002] Invoice editor has no per-invoice currency or recorded exchange rate. No corresponding workflow is available on the inspected live forms/settings."
+      ],
+      "classification": "APPLICATION FAIL",
+      "module": "invoicing",
+      "rawStatus": "failed"
+    },
+    {
+      "key": "support/cleanup.teardown.ts|audit Phase 3 scope and end only the QA session|phase3-cleanup",
+      "file": "support/cleanup.teardown.ts",
+      "title": "audit Phase 3 scope and end only the QA session",
+      "project": "phase3-cleanup",
+      "annotations": [],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\invoicing-2",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "invoicing",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "support/auth.setup.ts|authenticate Phase 3 QA workspace|phase3-setup",
+      "file": "support/auth.setup.ts",
+      "title": "authenticate Phase 3 QA workspace",
+      "project": "phase3-setup",
+      "annotations": [],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\credit-notes-3",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "credit-notes",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "credit-notes/00-recovery.ui.spec.ts|recover stock added by the two earlier owned standalone credit attempts|phase3-credit-notes",
+      "file": "credit-notes/00-recovery.ui.spec.ts",
+      "title": "recover stock added by the two earlier owned standalone credit attempts",
+      "project": "phase3-credit-notes",
+      "annotations": [],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\credit-notes-3",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "credit-notes",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "credit-notes/features.ui.spec.ts|F13-f standalone credit note persists without invoice reference|phase3-credit-notes",
+      "file": "credit-notes/features.ui.spec.ts",
+      "title": "F13-f standalone credit note persists without invoice reference",
+      "project": "phase3-credit-notes",
+      "annotations": [
+        {
+          "type": "confirmed-bug",
+          "description": "P3-CN-002: Despite Save as Draft, the native mapper posts status=open. The credit reloads Open, and branch stock increases by one without a restock choice or receiving step."
+        }
+      ],
+      "status": "unexpected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\credit-notes-3",
+      "support": false,
+      "errors": [
+        "Error: [P3-CN-002] Despite Save as Draft, the native mapper posts status=open. The credit reloads Open, and branch stock increases by one without a restock choice or receiving step."
+      ],
+      "classification": "APPLICATION FAIL",
+      "module": "credit-notes",
+      "rawStatus": "failed"
+    },
+    {
+      "key": "support/cleanup.teardown.ts|audit Phase 3 scope and end only the QA session|phase3-cleanup",
+      "file": "support/cleanup.teardown.ts",
+      "title": "audit Phase 3 scope and end only the QA session",
+      "project": "phase3-cleanup",
+      "annotations": [],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\credit-notes-3",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "credit-notes",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "support/auth.setup.ts|authenticate Phase 3 QA workspace|phase3-setup",
+      "file": "support/auth.setup.ts",
+      "title": "authenticate Phase 3 QA workspace",
+      "project": "phase3-setup",
+      "annotations": [],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\debit-notes-2",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "debit-notes",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "debit-notes/features.ui.spec.ts|F14-a b c linked supplemental note amount identity and printable PDF|phase3-debit-notes",
+      "file": "debit-notes/features.ui.spec.ts",
+      "title": "F14-a b c linked supplemental note amount identity and printable PDF",
+      "project": "phase3-debit-notes",
+      "annotations": [
+        {
+          "type": "partial-coverage",
+          "description": "Linked draft, total, product name/SKU and browser-generated A4 PDF checked. Dedicated freight/service lines and issued debit accounting remain partial. Email dispatch blocked: no controlled inbox; physical print skipped by user."
+        }
+      ],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\debit-notes-2",
+      "support": false,
+      "errors": [],
+      "classification": "PARTIAL",
+      "module": "debit-notes",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "support/cleanup.teardown.ts|audit Phase 3 scope and end only the QA session|phase3-cleanup",
+      "file": "support/cleanup.teardown.ts",
+      "title": "audit Phase 3 scope and end only the QA session",
+      "project": "phase3-cleanup",
+      "annotations": [],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\debit-notes-2",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "debit-notes",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "support/auth.setup.ts|authenticate Phase 3 QA workspace|phase3-setup",
+      "file": "support/auth.setup.ts",
+      "title": "authenticate Phase 3 QA workspace",
+      "project": "phase3-setup",
+      "annotations": [],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\purchase-orders-1",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "purchase-orders",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "purchase-orders/features.ui.spec.ts|F15-e automated reorder controls|phase3-purchase-orders",
+      "file": "purchase-orders/features.ui.spec.ts",
+      "title": "F15-e automated reorder controls",
+      "project": "phase3-purchase-orders",
+      "annotations": [
+        {
+          "type": "confirmed-bug",
+          "description": "P3-PO-001: Only manual PO creation and low-stock reporting are available; no automatic reorder policy/schedule or generation workflow is exposed."
+        }
+      ],
+      "status": "unexpected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\purchase-orders-1",
+      "support": false,
+      "errors": [
+        "Error: [P3-PO-001] Only manual PO creation and low-stock reporting are available; no automatic reorder policy/schedule or generation workflow is exposed."
+      ],
+      "classification": "APPLICATION FAIL",
+      "module": "purchase-orders",
+      "rawStatus": "failed"
+    },
+    {
+      "key": "purchase-orders/features.ui.spec.ts|F15-f direct supplier email action across PO states|phase3-purchase-orders",
+      "file": "purchase-orders/features.ui.spec.ts",
+      "title": "F15-f direct supplier email action across PO states",
+      "project": "phase3-purchase-orders",
+      "annotations": [
+        {
+          "type": "confirmed-bug",
+          "description": "P3-PO-002: The inspected PO states expose status changes, print and receive controls but no direct supplier email action or transmission status."
+        }
+      ],
+      "status": "unexpected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\purchase-orders-1",
+      "support": false,
+      "errors": [
+        "Error: [P3-PO-002] The inspected PO states expose status changes, print and receive controls but no direct supplier email action or transmission status."
+      ],
+      "classification": "APPLICATION FAIL",
+      "module": "purchase-orders",
+      "rawStatus": "failed"
+    },
+    {
+      "key": "support/cleanup.teardown.ts|audit Phase 3 scope and end only the QA session|phase3-cleanup",
+      "file": "support/cleanup.teardown.ts",
+      "title": "audit Phase 3 scope and end only the QA session",
+      "project": "phase3-cleanup",
+      "annotations": [],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\purchase-orders-1",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "purchase-orders",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "support/auth.setup.ts|authenticate Phase 3 QA workspace|phase3-setup",
+      "file": "support/auth.setup.ts",
+      "title": "authenticate Phase 3 QA workspace",
+      "project": "phase3-setup",
+      "annotations": [],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\goods-receipts-1",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "goods-receipts",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "goods-receipts/features.ui.spec.ts|F07-a F16-e receiving lot and expiry capture|phase3-goods-receipts",
+      "file": "goods-receipts/features.ui.spec.ts",
+      "title": "F07-a F16-e receiving lot and expiry capture",
+      "project": "phase3-goods-receipts",
+      "annotations": [
+        {
+          "type": "confirmed-bug",
+          "description": "P3-GRN-001: The receiving form exposes accepted/rejected quantities and rejection reason only; no manufacturer lot or expiry capture input is available."
+        }
+      ],
+      "status": "unexpected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\goods-receipts-1",
+      "support": false,
+      "errors": [
+        "Error: [P3-GRN-001] The receiving form exposes accepted/rejected quantities and rejection reason only; no manufacturer lot or expiry capture input is available."
+      ],
+      "classification": "APPLICATION FAIL",
+      "module": "goods-receipts",
+      "rawStatus": "failed"
+    },
+    {
+      "key": "support/cleanup.teardown.ts|audit Phase 3 scope and end only the QA session|phase3-cleanup",
+      "file": "support/cleanup.teardown.ts",
+      "title": "audit Phase 3 scope and end only the QA session",
+      "project": "phase3-cleanup",
+      "annotations": [],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\goods-receipts-1",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "goods-receipts",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "support/auth.setup.ts|authenticate Phase 3 QA workspace|phase3-setup",
+      "file": "support/auth.setup.ts",
+      "title": "authenticate Phase 3 QA workspace",
+      "project": "phase3-setup",
+      "annotations": [],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\bills-payable-1",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "bills-payable",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "bills-payable/features.ui.spec.ts|F17-d three-way bill matching workflow|phase3-bills-payable",
+      "file": "bills-payable/features.ui.spec.ts",
+      "title": "F17-d three-way bill matching workflow",
+      "project": "phase3-bills-payable",
+      "annotations": [
+        {
+          "type": "confirmed-bug",
+          "description": "P3-AP-001: The form has an optional PO reference plus aggregate subtotal/tax. It has no goods-receipt/line matching controls; the list has no match status or reconciliation action."
+        }
+      ],
+      "status": "unexpected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\bills-payable-1",
+      "support": false,
+      "errors": [
+        "Error: [P3-AP-001] The form has an optional PO reference plus aggregate subtotal/tax. It has no goods-receipt/line matching controls; the list has no match status or reconciliation action."
+      ],
+      "classification": "APPLICATION FAIL",
+      "module": "bills-payable",
+      "rawStatus": "failed"
+    },
+    {
+      "key": "support/cleanup.teardown.ts|audit Phase 3 scope and end only the QA session|phase3-cleanup",
+      "file": "support/cleanup.teardown.ts",
+      "title": "audit Phase 3 scope and end only the QA session",
+      "project": "phase3-cleanup",
+      "annotations": [],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\bills-payable-1",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "bills-payable",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "support/auth.setup.ts|authenticate Phase 3 QA workspace|phase3-setup",
+      "file": "support/auth.setup.ts",
+      "title": "authenticate Phase 3 QA workspace",
+      "project": "phase3-setup",
+      "annotations": [],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\suppliers-2",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "suppliers",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "suppliers/features.ui.spec.ts|F18-e supplier catalogue and preferred SKU management|phase3-suppliers",
+      "file": "suppliers/features.ui.spec.ts",
+      "title": "F18-e supplier catalogue and preferred SKU management",
+      "project": "phase3-suppliers",
+      "annotations": [
+        {
+          "type": "partial-coverage",
+          "description": "Real supplier catalogue endpoint and UI inspected. Preferred vendor SKU mapping CRUD, vendor-specific pricing and ordering correctness are not fully certified; no invented mapping writes."
+        }
+      ],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\suppliers-1",
+      "support": false,
+      "errors": [],
+      "classification": "PARTIAL",
+      "module": "suppliers",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "suppliers/features.ui.spec.ts|F18-f supplier account statement export contents|phase3-suppliers",
+      "file": "suppliers/features.ui.spec.ts",
+      "title": "F18-f supplier account statement export contents",
+      "project": "phase3-suppliers",
+      "annotations": [
+        {
+          "type": "confirmed-bug",
+          "description": "P3-SUP-001: Export downloads supplier profile/contact/credit-term fields. No dated ledger/balance statement or separate statement export action is exposed."
+        }
+      ],
+      "status": "unexpected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\suppliers-1",
+      "support": false,
+      "errors": [
+        "Error: [P3-SUP-001] Export downloads supplier profile/contact/credit-term fields. No dated ledger/balance statement or separate statement export action is exposed."
+      ],
+      "classification": "APPLICATION FAIL",
+      "module": "suppliers",
+      "rawStatus": "failed"
+    },
+    {
+      "key": "suppliers/preferred-skus.ui.spec.ts|F18-e supplier SKU mapping persistence catalogue search and detach|phase3-suppliers",
+      "file": "suppliers/preferred-skus.ui.spec.ts",
+      "title": "F18-e supplier SKU mapping persistence catalogue search and detach",
+      "project": "phase3-suppliers",
+      "annotations": [
+        {
+          "type": "confirmed-bug",
+          "description": "P3-SUP-002: The server retains supplier_sku=QA-P3-VENDOR-1794924865043, but the catalogue displays the global SKU only and searching the vendor SKU yields no matching product."
+        }
+      ],
+      "status": "unexpected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\suppliers-2",
+      "support": false,
+      "errors": [
+        "Error: [P3-SUP-002] The server retains supplier_sku=QA-P3-VENDOR-1794924865043, but the catalogue displays the global SKU only and searching the vendor SKU yields no matching product."
+      ],
+      "classification": "APPLICATION FAIL",
+      "module": "suppliers",
+      "rawStatus": "failed"
+    },
+    {
+      "key": "support/cleanup.teardown.ts|audit Phase 3 scope and end only the QA session|phase3-cleanup",
+      "file": "support/cleanup.teardown.ts",
+      "title": "audit Phase 3 scope and end only the QA session",
+      "project": "phase3-cleanup",
+      "annotations": [],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\suppliers-2",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "suppliers",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "support/auth.setup.ts|authenticate Phase 3 QA workspace|phase3-setup",
+      "file": "support/auth.setup.ts",
+      "title": "authenticate Phase 3 QA workspace",
+      "project": "phase3-setup",
+      "annotations": [],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\customers-1",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "customers",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "customers/features.ui.spec.ts|F19-e groups tiers and F19-f credit ceiling configuration|phase3-customers",
+      "file": "customers/features.ui.spec.ts",
+      "title": "F19-e groups tiers and F19-f credit ceiling configuration",
+      "project": "phase3-customers",
+      "annotations": [
+        {
+          "type": "confirmed-bug",
+          "description": "P3-CUST-001: The account form has Individual/Business type and status, but no group/tier selector. Settings > Customers provides custom fields only, with no pricing-tier rules."
+        },
+        {
+          "type": "confirmed-bug",
+          "description": "P3-CUST-002: No credit-enable, credit-limit or ceiling input is exposed in the inspected customer account/settings UI."
+        }
+      ],
+      "status": "unexpected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\customers-1",
+      "support": false,
+      "errors": [
+        "Error: [P3-CUST-001] The account form has Individual/Business type and status, but no group/tier selector. Settings > Customers provides custom fields only, with no pricing-tier rules.",
+        "Error: [P3-CUST-002] No credit-enable, credit-limit or ceiling input is exposed in the inspected customer account/settings UI."
+      ],
+      "classification": "APPLICATION FAIL",
+      "module": "customers",
+      "rawStatus": "failed"
+    },
+    {
+      "key": "support/cleanup.teardown.ts|audit Phase 3 scope and end only the QA session|phase3-cleanup",
+      "file": "support/cleanup.teardown.ts",
+      "title": "audit Phase 3 scope and end only the QA session",
+      "project": "phase3-cleanup",
+      "annotations": [],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\customers-1",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "customers",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "support/auth.setup.ts|authenticate Phase 3 QA workspace|phase3-setup",
+      "file": "support/auth.setup.ts",
+      "title": "authenticate Phase 3 QA workspace",
+      "project": "phase3-setup",
+      "annotations": [],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\reports-4",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "reports",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "reports/features.ui.spec.ts|F20-g profit arithmetic and net margin availability|phase3-reports",
+      "file": "reports/features.ui.spec.ts",
+      "title": "F20-g profit arithmetic and net margin availability",
+      "project": "phase3-reports",
+      "annotations": [
+        {
+          "type": "unconfirmed-policy-observation",
+          "description": "Owned catalogue cost 3; report cost 0 for 1 units. Acquisition/weighted-average versus catalogue cost basis must be established before treating this difference as a defect."
+        },
+        {
+          "type": "unconfirmed-policy-observation",
+          "description": "Owned catalogue cost 3; report cost 0 for 1 units. Acquisition/weighted-average versus catalogue cost basis must be established before treating this difference as a defect."
+        },
+        {
+          "type": "unconfirmed-policy-observation",
+          "description": "Owned catalogue cost 3; report cost 0 for 1 units. Acquisition/weighted-average versus catalogue cost basis must be established before treating this difference as a defect."
+        },
+        {
+          "type": "unconfirmed-policy-observation",
+          "description": "Owned catalogue cost 3; report cost 0 for 1 units. Acquisition/weighted-average versus catalogue cost basis must be established before treating this difference as a defect."
+        },
+        {
+          "type": "unconfirmed-policy-observation",
+          "description": "Owned catalogue cost 3; report cost 0 for 1 units. Acquisition/weighted-average versus catalogue cost basis must be established before treating this difference as a defect."
+        },
+        {
+          "type": "confirmed-bug",
+          "description": "P3-REP-001: The report exposes product revenue, cost, profit and gross margin only; there is no net-margin/operating-expense breakdown."
+        }
+      ],
+      "status": "unexpected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\reports-4",
+      "support": false,
+      "errors": [
+        "Error: [P3-REP-001] The report exposes product revenue, cost, profit and gross margin only; there is no net-margin/operating-expense breakdown."
+      ],
+      "classification": "APPLICATION FAIL",
+      "module": "reports",
+      "rawStatus": "failed"
+    },
+    {
+      "key": "reports/features.ui.spec.ts|F20-h stock movement ledger records a controlled stock delta|phase3-reports",
+      "file": "reports/features.ui.spec.ts",
+      "title": "F20-h stock movement ledger records a controlled stock delta",
+      "project": "phase3-reports",
+      "annotations": [
+        {
+          "type": "partial-coverage",
+          "description": "Controlled quantity/balance ledger delta verified. Dedicated turnover/velocity metric definitions and historical reconciliation remain unverified."
+        }
+      ],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\reports-4",
+      "support": false,
+      "errors": [],
+      "classification": "PARTIAL",
+      "module": "reports",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "reports/features.ui.spec.ts|F20-i debtor bucket arithmetic and creditor aging availability|phase3-reports",
+      "file": "reports/features.ui.spec.ts",
+      "title": "F20-i debtor bucket arithmetic and creditor aging availability",
+      "project": "phase3-reports",
+      "annotations": [
+        {
+          "type": "confirmed-bug",
+          "description": "P3-REP-002: Customer receivables aging exists, but no supplier/payables aging report appears in the catalogue or Bills controls."
+        }
+      ],
+      "status": "unexpected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\reports-4",
+      "support": false,
+      "errors": [
+        "Error: [P3-REP-002] Customer receivables aging exists, but no supplier/payables aging report appears in the catalogue or Bills controls."
+      ],
+      "classification": "APPLICATION FAIL",
+      "module": "reports",
+      "rawStatus": "failed"
+    },
+    {
+      "key": "support/cleanup.teardown.ts|audit Phase 3 scope and end only the QA session|phase3-cleanup",
+      "file": "support/cleanup.teardown.ts",
+      "title": "audit Phase 3 scope and end only the QA session",
+      "project": "phase3-cleanup",
+      "annotations": [],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\reports-4",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "reports",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "support/auth.setup.ts|authenticate Phase 3 QA workspace|phase3-setup",
+      "file": "support/auth.setup.ts",
+      "title": "authenticate Phase 3 QA workspace",
+      "project": "phase3-setup",
+      "annotations": [],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\custom-reports-2",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "custom-reports",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "custom-reports/features.ui.spec.ts|F21-a custom dimensions metrics and filters|phase3-custom-reports",
+      "file": "custom-reports/features.ui.spec.ts",
+      "title": "F21-a custom dimensions metrics and filters",
+      "project": "phase3-custom-reports",
+      "annotations": [
+        {
+          "type": "confirmed-bug",
+          "description": "P3-RPT-001: The form offers a predefined report type, branch and dates only; no dimension/metric or custom query filter editor is present."
+        }
+      ],
+      "status": "unexpected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\custom-reports-2",
+      "support": false,
+      "errors": [
+        "Error: [P3-RPT-001] The form offers a predefined report type, branch and dates only; no dimension/metric or custom query filter editor is present."
+      ],
+      "classification": "APPLICATION FAIL",
+      "module": "custom-reports",
+      "rawStatus": "failed"
+    },
+    {
+      "key": "custom-reports/features.ui.spec.ts|F21-b unfiltered saved report remains visible|phase3-custom-reports",
+      "file": "custom-reports/features.ui.spec.ts",
+      "title": "F21-b unfiltered saved report remains visible",
+      "project": "phase3-custom-reports",
+      "annotations": [
+        {
+          "type": "confirmed-bug",
+          "description": "P3-RPT-002: The API persists filters as an empty array while the client schema requires an object; the persisted report is not displayed in the template list."
+        }
+      ],
+      "status": "unexpected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\custom-reports-2",
+      "support": false,
+      "errors": [
+        "Error: [P3-RPT-002] The API persists filters as an empty array while the client schema requires an object; the persisted report is not displayed in the template list."
+      ],
+      "classification": "APPLICATION FAIL",
+      "module": "custom-reports",
+      "rawStatus": "failed"
+    },
+    {
+      "key": "custom-reports/features.ui.spec.ts|F21-b c filtered template persistence run and email scheduling prerequisites|phase3-custom-reports",
+      "file": "custom-reports/features.ui.spec.ts",
+      "title": "F21-b c filtered template persistence run and email scheduling prerequisites",
+      "project": "phase3-custom-reports",
+      "annotations": [
+        {
+          "type": "blocked",
+          "description": "F21-c: schedule form inspected; no active email schedule created because no controlled inbox is available. Cron delivery/retries remain unverified."
+        }
+      ],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\custom-reports-2",
+      "support": false,
+      "errors": [],
+      "classification": "BLOCKED",
+      "module": "custom-reports",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "support/cleanup.teardown.ts|audit Phase 3 scope and end only the QA session|phase3-cleanup",
+      "file": "support/cleanup.teardown.ts",
+      "title": "audit Phase 3 scope and end only the QA session",
+      "project": "phase3-cleanup",
+      "annotations": [],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\custom-reports-2",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "custom-reports",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "support/auth.setup.ts|authenticate Phase 3 QA workspace|phase3-setup",
+      "file": "support/auth.setup.ts",
+      "title": "authenticate Phase 3 QA workspace",
+      "project": "phase3-setup",
+      "annotations": [],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\document-design-1",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "document-design",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "document-design/features.ui.spec.ts|F22-e visual drag and drop canvas designer|phase3-document-design",
+      "file": "document-design/features.ui.spec.ts",
+      "title": "F22-e visual drag and drop canvas designer",
+      "project": "phase3-document-design",
+      "annotations": [
+        {
+          "type": "confirmed-bug",
+          "description": "P3-DOC-001: The available workflow is preset/form configuration and preview; no editable canvas, element palette or draggable layout elements are exposed."
+        }
+      ],
+      "status": "unexpected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\document-design-1",
+      "support": false,
+      "errors": [
+        "Error: [P3-DOC-001] The available workflow is preset/form configuration and preview; no editable canvas, element palette or draggable layout elements are exposed."
+      ],
+      "classification": "APPLICATION FAIL",
+      "module": "document-design",
+      "rawStatus": "failed"
+    },
+    {
+      "key": "document-design/features.ui.spec.ts|F22-f upload validation bytes persistence management and cleanup|phase3-document-design",
+      "file": "document-design/features.ui.spec.ts",
+      "title": "F22-f upload validation bytes persistence management and cleanup",
+      "project": "phase3-document-design",
+      "annotations": [
+        {
+          "type": "confirmed-bug",
+          "description": "P3-FONT-001: The native upload uses application/json (42 request bytes for a 65932-byte font), returning HTTP 422: {\"success\":false,\"code\":422,\"error_key\":\"validation_failed\",\"message\":\"The file field is required.\",\"data\":null,\"errors\":{\"file\":[\"The file field is required.\"]}}"
+        }
+      ],
+      "status": "unexpected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\document-design-1",
+      "support": false,
+      "errors": [
+        "Error: [P3-FONT-001] The native upload uses application/json (42 request bytes for a 65932-byte font), returning HTTP 422: {\"success\":false,\"code\":422,\"error_key\":\"validation_failed\",\"message\":\"The file field is required.\",\"data\":null,\"errors\":{\"file\":[\"The file field is required.\"]}}"
+      ],
+      "classification": "APPLICATION FAIL",
+      "module": "document-design",
+      "rawStatus": "failed"
+    },
+    {
+      "key": "support/cleanup.teardown.ts|audit Phase 3 scope and end only the QA session|phase3-cleanup",
+      "file": "support/cleanup.teardown.ts",
+      "title": "audit Phase 3 scope and end only the QA session",
+      "project": "phase3-cleanup",
+      "annotations": [],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\document-design-1",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "document-design",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "support/auth.setup.ts|authenticate Phase 3 QA workspace|phase3-setup",
+      "file": "support/auth.setup.ts",
+      "title": "authenticate Phase 3 QA workspace",
+      "project": "phase3-setup",
+      "annotations": [],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\roles-2",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "roles",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "roles/features.ui.spec.ts|F23-f granular custom role matrix builder|phase3-roles",
+      "file": "roles/features.ui.spec.ts",
+      "title": "F23-f granular custom role matrix builder",
+      "project": "phase3-roles",
+      "annotations": [
+        {
+          "type": "confirmed-bug",
+          "description": "P3-RBAC-001: No create/add custom role action is present; the Permissions view exposes no editable per-entity matrix."
+        }
+      ],
+      "status": "unexpected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\roles-2",
+      "support": false,
+      "errors": [
+        "Error: [P3-RBAC-001] No create/add custom role action is present; the Permissions view exposes no editable per-entity matrix."
+      ],
+      "classification": "APPLICATION FAIL",
+      "module": "roles",
+      "rawStatus": "failed"
+    },
+    {
+      "key": "support/cleanup.teardown.ts|audit Phase 3 scope and end only the QA session|phase3-cleanup",
+      "file": "support/cleanup.teardown.ts",
+      "title": "audit Phase 3 scope and end only the QA session",
+      "project": "phase3-cleanup",
+      "annotations": [],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\roles-2",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "roles",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "support/auth.setup.ts|authenticate Phase 3 QA workspace|phase3-setup",
+      "file": "support/auth.setup.ts",
+      "title": "authenticate Phase 3 QA workspace",
+      "project": "phase3-setup",
+      "annotations": [],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\security-2",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "security",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "security/features.ui.spec.ts|F24-d e authenticator and recovery prerequisites|phase3-security",
+      "file": "security/features.ui.spec.ts",
+      "title": "F24-d e authenticator and recovery prerequisites",
+      "project": "phase3-security",
+      "annotations": [
+        {
+          "type": "blocked",
+          "description": "F24-d/F24-e: Enrollment/confirmation, TOTP replay/time-window, backup-code one-use and recovery login require an isolated activated account. Only the shared primary QA owner is available; its authentication factors were preserved. Controls are available; loading-disabled probe output is not an application defect."
+        }
+      ],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\security-2",
+      "support": false,
+      "errors": [],
+      "classification": "BLOCKED",
+      "module": "security",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "security/features.ui.spec.ts|F24-f revoke only a newly created automation session|phase3-security",
+      "file": "security/features.ui.spec.ts",
+      "title": "F24-f revoke only a newly created automation session",
+      "project": "phase3-security",
+      "annotations": [
+        {
+          "type": "confirmed-bug",
+          "description": "P3-SEC-001: The target disappears from session management but /auth/me returns HTTP 200."
+        }
+      ],
+      "status": "unexpected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\security-2",
+      "support": false,
+      "errors": [
+        "Error: [P3-SEC-001] The target disappears from session management but /auth/me returns HTTP 200."
+      ],
+      "classification": "APPLICATION FAIL",
+      "module": "security",
+      "rawStatus": "failed"
+    },
+    {
+      "key": "support/cleanup.teardown.ts|audit Phase 3 scope and end only the QA session|phase3-cleanup",
+      "file": "support/cleanup.teardown.ts",
+      "title": "audit Phase 3 scope and end only the QA session",
+      "project": "phase3-cleanup",
+      "annotations": [],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\security-2",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "security",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "support/auth.setup.ts|authenticate Phase 3 QA workspace|phase3-setup",
+      "file": "support/auth.setup.ts",
+      "title": "authenticate Phase 3 QA workspace",
+      "project": "phase3-setup",
+      "annotations": [],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\audit-logs-1",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "audit-logs",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "audit-logs/features.ui.spec.ts|F25-c d live before-after diffs and complete filtered CSV export|phase3-audit-logs",
+      "file": "audit-logs/features.ui.spec.ts",
+      "title": "F25-c d live before-after diffs and complete filtered CSV export",
+      "project": "phase3-audit-logs",
+      "annotations": [
+        {
+          "type": "partial-coverage",
+          "description": "CSV contents and filtered all-page row count checked. No JSON export action is exposed; whether CSV/JSON requires both formats is a requirement interpretation, not a confirmed ticket."
+        }
+      ],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\audit-logs-1",
+      "support": false,
+      "errors": [],
+      "classification": "PARTIAL",
+      "module": "audit-logs",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "support/cleanup.teardown.ts|audit Phase 3 scope and end only the QA session|phase3-cleanup",
+      "file": "support/cleanup.teardown.ts",
+      "title": "audit Phase 3 scope and end only the QA session",
+      "project": "phase3-cleanup",
+      "annotations": [],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\audit-logs-1",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "audit-logs",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "support/auth.setup.ts|authenticate Phase 3 QA workspace|phase3-setup",
+      "file": "support/auth.setup.ts",
+      "title": "authenticate Phase 3 QA workspace",
+      "project": "phase3-setup",
+      "annotations": [],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\integrations-7",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "integrations",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "integrations/features.ui.spec.ts|F26-a b owned key lifecycle and authenticated scope controls without session fallback|phase3-integrations",
+      "file": "integrations/features.ui.spec.ts",
+      "title": "F26-a b owned key lifecycle and authenticated scope controls without session fallback",
+      "project": "phase3-integrations",
+      "annotations": [
+        {
+          "type": "partial-coverage",
+          "description": "F26-b global read-only deny and write-enabled allow are verified against an owned product. Per-resource restricted scopes are not exposed/tested."
+        }
+      ],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\integrations-6",
+      "support": false,
+      "errors": [],
+      "classification": "PARTIAL",
+      "module": "integrations",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "integrations/features.ui.spec.ts|F26-c full endpoint reference documentation|phase3-integrations",
+      "file": "integrations/features.ui.spec.ts",
+      "title": "F26-c full endpoint reference documentation",
+      "project": "phase3-integrations",
+      "annotations": [
+        {
+          "type": "confirmed-bug",
+          "description": "P3-API-002: The page documents generic headers, envelope, errors and pagination only. No resource endpoint/method/schema reference or linked OpenAPI specification is exposed. The API key page and documentation also claim key authentication is unavailable, contradicted by the session-free JSON read/invalid/rotated/revoked controls."
+        }
+      ],
+      "status": "unexpected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\integrations-6",
+      "support": false,
+      "errors": [
+        "Error: [P3-API-002] The page documents generic headers, envelope, errors and pagination only. No resource endpoint/method/schema reference or linked OpenAPI specification is exposed. The API key page and documentation also claim key authentication is unavailable, contradicted by the session-free JSON read/invalid/rotated/revoked controls."
+      ],
+      "classification": "APPLICATION FAIL",
+      "module": "integrations",
+      "rawStatus": "failed"
+    },
+    {
+      "key": "integrations/features.ui.spec.ts|F26-d e webhook registration controls and delivery prerequisites|phase3-integrations",
+      "file": "integrations/features.ui.spec.ts",
+      "title": "F26-d e webhook registration controls and delivery prerequisites",
+      "project": "phase3-integrations",
+      "annotations": [
+        {
+          "type": "blocked",
+          "description": "F26-e actual deliveries/signatures/logs/retries remain unverified without a controlled receiver and configured endpoint. No external destination registered; page notices are not proof of backend transport nonimplementation."
+        },
+        {
+          "type": "confirmed-bug",
+          "description": "P3-WEB-001: The live catalogue offers invoice.created, credit_note.created, quotation.created, payment.received. Missing required event names: order.created, stock.low, invoice.paid."
+        }
+      ],
+      "status": "unexpected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\integrations-7",
+      "support": false,
+      "errors": [
+        "Error: [P3-WEB-001] The live catalogue offers invoice.created, credit_note.created, quotation.created, payment.received. Missing required event names: order.created, stock.low, invoice.paid."
+      ],
+      "classification": "APPLICATION FAIL",
+      "module": "integrations",
+      "rawStatus": "failed"
+    },
+    {
+      "key": "support/cleanup.teardown.ts|audit Phase 3 scope and end only the QA session|phase3-cleanup",
+      "file": "support/cleanup.teardown.ts",
+      "title": "audit Phase 3 scope and end only the QA session",
+      "project": "phase3-cleanup",
+      "annotations": [],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\integrations-7",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "integrations",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "support/auth.setup.ts|authenticate Phase 3 QA workspace|phase3-setup",
+      "file": "support/auth.setup.ts",
+      "title": "authenticate Phase 3 QA workspace",
+      "project": "phase3-setup",
+      "annotations": [],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\hardware-1",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "hardware",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "hardware/features.ui.spec.ts|F27-c d e software printer availability and requested physical skips|phase3-hardware",
+      "file": "hardware/features.ui.spec.ts",
+      "title": "F27-c d e software printer availability and requested physical skips",
+      "project": "phase3-hardware",
+      "annotations": [
+        {
+          "type": "user-requested-skip",
+          "description": "F27-c/F27-d: physical ESC/POS network/serial connection, thermal paper output and cash drawer RJ11 pulse skipped: no connected devices, per user instruction. Software connection controls inspected; no mock is counted as physical acceptance."
+        },
+        {
+          "type": "confirmed-bug",
+          "description": "P3-HW-001: The live page explicitly states label printing (Zebra ZPL) is not implemented and no label-generation action is exposed."
+        }
+      ],
+      "status": "unexpected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\hardware-1",
+      "support": false,
+      "errors": [
+        "Error: [P3-HW-001] The live page explicitly states label printing (Zebra ZPL) is not implemented and no label-generation action is exposed."
+      ],
+      "classification": "APPLICATION FAIL",
+      "module": "hardware",
+      "rawStatus": "failed"
+    },
+    {
+      "key": "support/cleanup.teardown.ts|audit Phase 3 scope and end only the QA session|phase3-cleanup",
+      "file": "support/cleanup.teardown.ts",
+      "title": "audit Phase 3 scope and end only the QA session",
+      "project": "phase3-cleanup",
+      "annotations": [],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\hardware-1",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "hardware",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "support/auth.setup.ts|authenticate Phase 3 QA workspace|phase3-setup",
+      "file": "support/auth.setup.ts",
+      "title": "authenticate Phase 3 QA workspace",
+      "project": "phase3-setup",
+      "annotations": [],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\settings-3",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "settings",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "settings/features.ui.spec.ts|F28-f JSON export action and automated backup controls|phase3-settings",
+      "file": "settings/features.ui.spec.ts",
+      "title": "F28-f JSON export action and automated backup controls",
+      "project": "phase3-settings",
+      "annotations": [
+        {
+          "type": "confirmed-bug",
+          "description": "P3-BACKUP-001: The button displays Data export (JSON) requested! but makes no export request/download and creates no export job."
+        },
+        {
+          "type": "confirmed-bug",
+          "description": "P3-BACKUP-002: No backup schedule, retention/storage management or execution history is exposed."
+        }
+      ],
+      "status": "unexpected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\settings-3",
+      "support": false,
+      "errors": [
+        "Error: [P3-BACKUP-001] The button displays Data export (JSON) requested! but makes no export request/download and creates no export job.",
+        "Error: [P3-BACKUP-002] No backup schedule, retention/storage management or execution history is exposed."
+      ],
+      "classification": "APPLICATION FAIL",
+      "module": "settings",
+      "rawStatus": "failed"
+    },
+    {
+      "key": "support/cleanup.teardown.ts|audit Phase 3 scope and end only the QA session|phase3-cleanup",
+      "file": "support/cleanup.teardown.ts",
+      "title": "audit Phase 3 scope and end only the QA session",
+      "project": "phase3-cleanup",
+      "annotations": [],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\settings-3",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "settings",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "support/auth.setup.ts|authenticate Phase 3 QA workspace|phase3-setup",
+      "file": "support/auth.setup.ts",
+      "title": "authenticate Phase 3 QA workspace",
+      "project": "phase3-setup",
+      "annotations": [],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\notifications-2",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "notifications",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "notifications/features.ui.spec.ts|F29-d outgoing channel configuration and delivery prerequisites|phase3-notifications",
+      "file": "notifications/features.ui.spec.ts",
+      "title": "F29-d outgoing channel configuration and delivery prerequisites",
+      "project": "phase3-notifications",
+      "annotations": [
+        {
+          "type": "blocked",
+          "description": "F29-d: no controlled email inbox, SMS number/gateway or delivery receiver is available. Preferences and channel controls inspected without changing baseline values. Transport dispatch, provider acceptance, delivered content and retry behavior remain unverified."
+        }
+      ],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\notifications-2",
+      "support": false,
+      "errors": [],
+      "classification": "BLOCKED",
+      "module": "notifications",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "support/cleanup.teardown.ts|audit Phase 3 scope and end only the QA session|phase3-cleanup",
+      "file": "support/cleanup.teardown.ts",
+      "title": "audit Phase 3 scope and end only the QA session",
+      "project": "phase3-cleanup",
+      "annotations": [],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\notifications-2",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "notifications",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "support/auth.setup.ts|authenticate Phase 3 QA workspace|phase3-setup",
+      "file": "support/auth.setup.ts",
+      "title": "authenticate Phase 3 QA workspace",
+      "project": "phase3-setup",
+      "annotations": [],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\help-5",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "help",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "help/features.ui.spec.ts|F30-d searchable help positive negative controls and video guides|phase3-help",
+      "file": "help/features.ui.spec.ts",
+      "title": "F30-d searchable help positive negative controls and video guides",
+      "project": "phase3-help",
+      "annotations": [
+        {
+          "type": "confirmed-bug",
+          "description": "P3-HELP-001: Search/FAQ expansion works, but the catalogue contains no video guide, video player or linked video tutorial."
+        }
+      ],
+      "status": "unexpected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\help-4",
+      "support": false,
+      "errors": [
+        "Error: [P3-HELP-001] Search/FAQ expansion works, but the catalogue contains no video guide, video player or linked video tutorial."
+      ],
+      "classification": "APPLICATION FAIL",
+      "module": "help",
+      "rawStatus": "failed"
+    },
+    {
+      "key": "help/features.ui.spec.ts|F30-e changelog route release entries and chronology|phase3-help",
+      "file": "help/features.ui.spec.ts",
+      "title": "F30-e changelog route release entries and chronology",
+      "project": "phase3-help",
+      "annotations": [
+        {
+          "type": "partial-coverage",
+          "description": "Changelog navigation, visible content and date order verified. The displayed static 2025 release history cannot be certified as current deployment provenance; no backend revision/release manifest is available."
+        }
+      ],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\help-4",
+      "support": false,
+      "errors": [],
+      "classification": "PARTIAL",
+      "module": "help",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "help/final-state.ui.spec.ts|support final live fixture and recovery audit|phase3-help",
+      "file": "help/final-state.ui.spec.ts",
+      "title": "support final live fixture and recovery audit",
+      "project": "phase3-help",
+      "annotations": [
+        {
+          "type": "support-only",
+          "description": "Cleanup verification; excluded from feature acceptance percentage."
+        }
+      ],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\help-5",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "help",
+      "rawStatus": "passed"
+    },
+    {
+      "key": "support/cleanup.teardown.ts|audit Phase 3 scope and end only the QA session|phase3-cleanup",
+      "file": "support/cleanup.teardown.ts",
+      "title": "audit Phase 3 scope and end only the QA session",
+      "project": "phase3-cleanup",
+      "annotations": [],
+      "status": "expected",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\help-5",
+      "support": true,
+      "errors": [],
+      "classification": "SUPPORT PASS",
+      "module": "help",
+      "rawStatus": "passed"
+    }
+  ],
+  "attempts": [
+    {
+      "module": "dashboard",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\dashboard-1",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T01:26:34.016Z",
+        "duration": 23572.701,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "products",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\products-1",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T01:41:01.623Z",
+        "duration": 75475.946,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 3,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "products",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\products-2",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T01:46:38.289Z",
+        "duration": 75327.748,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "products",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\products-3",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T01:48:56.959Z",
+        "duration": 85384.20199999999,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "products",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\products-4",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T03:38:01.787Z",
+        "duration": 125199.026,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 4,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "products",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\products-5",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T03:41:34.172Z",
+        "duration": 280456.978,
+        "expected": 3,
+        "skipped": 0,
+        "unexpected": 4,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "products",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\products-6",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T03:49:36.113Z",
+        "duration": 209301.71,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 5,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "products",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\products-7",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T03:55:28.323Z",
+        "duration": 200885.05599999998,
+        "expected": 3,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "products",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\products-8",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T13:58:11.362Z",
+        "duration": 691383.6,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 2,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "stores",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\stores-1",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T02:03:13.360Z",
+        "duration": 21087.464,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "stores",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\stores-2",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T02:05:12.980Z",
+        "duration": 25893.363,
+        "expected": 3,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "adjustments",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\adjustments-1",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T02:05:39.786Z",
+        "duration": 52962.41299999999,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "transfers",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\transfers-1",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T02:06:33.696Z",
+        "duration": 71373.985,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "stock-counts",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\stock-counts-1",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T02:17:05.141Z",
+        "duration": 30061.176,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 2,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "shelf-life",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\shelf-life-1",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T02:18:42.133Z",
+        "duration": 51390.411,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "shelf-life",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\shelf-life-2",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T02:20:26.866Z",
+        "duration": 51148.174,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "shelf-life",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\shelf-life-3",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T02:56:15.165Z",
+        "duration": 63999.575,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 2,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "shelf-life",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\shelf-life-4",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T03:11:30.912Z",
+        "duration": 98654.26299999999,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 3,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "shelf-life",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\shelf-life-5",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T03:15:09.808Z",
+        "duration": 110636.036,
+        "expected": 3,
+        "skipped": 0,
+        "unexpected": 2,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "pos",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\pos-1",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T02:22:06.753Z",
+        "duration": 56849.396,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 2,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "pos",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\pos-2",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T02:23:44.304Z",
+        "duration": 56248.18,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 2,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "pos",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\pos-3",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T02:24:52.683Z",
+        "duration": 45316.168,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 2,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "order-queue",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\order-queue-1",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T02:25:38.932Z",
+        "duration": 39896.585999999996,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "order-queue",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\order-queue-2",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T02:27:53.462Z",
+        "duration": 50887.606,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "invoicing",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\invoicing-1",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T02:28:45.283Z",
+        "duration": 23754.462,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "invoicing",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\invoicing-2",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T02:57:20.119Z",
+        "duration": 25773.255,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "credit-notes",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\credit-notes-1",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T02:29:10.068Z",
+        "duration": 25584.585,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "credit-notes",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\credit-notes-2",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T02:31:08.764Z",
+        "duration": 27272.850000000002,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "credit-notes",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\credit-notes-3",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T02:35:22.276Z",
+        "duration": 41890.278,
+        "expected": 3,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "debit-notes",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\debit-notes-1",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T02:36:05.114Z",
+        "duration": 32860.16,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "debit-notes",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\debit-notes-2",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T02:37:23.934Z",
+        "duration": 28790.217999999997,
+        "expected": 3,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "purchase-orders",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\purchase-orders-1",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T02:37:53.657Z",
+        "duration": 41173.17,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 2,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "goods-receipts",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\goods-receipts-1",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T02:38:35.774Z",
+        "duration": 30103.202999999998,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "bills-payable",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\bills-payable-1",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T02:39:06.822Z",
+        "duration": 21097.595999999998,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "suppliers",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\suppliers-1",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T02:39:28.846Z",
+        "duration": 26026.801,
+        "expected": 3,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "suppliers",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\suppliers-2",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T14:13:52.773Z",
+        "duration": 111407.177,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "customers",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\customers-1",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T02:39:55.846Z",
+        "duration": 22497.289,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "reports",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\reports-1",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T02:40:19.269Z",
+        "duration": 44978.6,
+        "expected": 3,
+        "skipped": 0,
+        "unexpected": 2,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "reports",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\reports-2",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T02:41:49.809Z",
+        "duration": 36868.606,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 3,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "reports",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\reports-3",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T02:44:16.237Z",
+        "duration": 45261.428,
+        "expected": 3,
+        "skipped": 0,
+        "unexpected": 2,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "reports",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\reports-4",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T03:29:55.730Z",
+        "duration": 48290.433999999994,
+        "expected": 3,
+        "skipped": 0,
+        "unexpected": 2,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "custom-reports",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\custom-reports-1",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T02:45:02.446Z",
+        "duration": 36712.746999999996,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "custom-reports",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\custom-reports-2",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T02:48:02.317Z",
+        "duration": 41300.261999999995,
+        "expected": 3,
+        "skipped": 0,
+        "unexpected": 2,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "document-design",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\document-design-1",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T02:48:44.567Z",
+        "duration": 33480.787000000004,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 2,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "roles",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\roles-1",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T02:49:18.993Z",
+        "duration": 2299.4219999999996,
+        "expected": 1,
+        "skipped": 1,
+        "unexpected": 1,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "roles",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\roles-2",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T02:50:45.927Z",
+        "duration": 20182.301000000003,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "security",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\security-1",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T02:51:07.042Z",
+        "duration": 35887.273,
+        "expected": 3,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "security",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\security-2",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T03:05:00.184Z",
+        "duration": 36274.862,
+        "expected": 3,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "audit-logs",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\audit-logs-1",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T02:51:43.875Z",
+        "duration": 22422.682,
+        "expected": 3,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "integrations",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\integrations-1",
+      "globalErrors": [
+        "SyntaxError: C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\tests\\phase3\\integrations\\features.ui.spec.ts: Unexpected token (11:13)"
+      ],
+      "stats": {
+        "startTime": "2026-11-17T02:52:07.203Z",
+        "duration": 145.13300000000004,
+        "expected": 0,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "integrations",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\integrations-2",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T02:57:46.866Z",
+        "duration": 37024.019,
+        "expected": 3,
+        "skipped": 0,
+        "unexpected": 2,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "integrations",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\integrations-3",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T03:02:14.634Z",
+        "duration": 49384.293999999994,
+        "expected": 3,
+        "skipped": 0,
+        "unexpected": 2,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "integrations",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\integrations-4",
+      "globalErrors": [
+        "SyntaxError: C:\\Users\\amiirah\\Documents\\Projects\\nexstock-testing\\tests\\phase3\\integrations\\features.ui.spec.ts: Unexpected token, expected \",\" (19:1078)"
+      ],
+      "stats": {
+        "startTime": "2026-11-17T03:05:37.396Z",
+        "duration": 138.81499999999994,
+        "expected": 0,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "integrations",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\integrations-5",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T03:08:29.763Z",
+        "duration": 55240.957,
+        "expected": 3,
+        "skipped": 0,
+        "unexpected": 2,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "integrations",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\integrations-6",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T03:21:39.535Z",
+        "duration": 56825.985,
+        "expected": 4,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "integrations",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\integrations-7",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T03:25:55.187Z",
+        "duration": 21001.533,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "hardware",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\hardware-1",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T02:52:08.268Z",
+        "duration": 19993.954999999998,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "settings",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\settings-1",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T02:52:29.181Z",
+        "duration": 23202.112999999998,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "settings",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\settings-2",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T02:58:24.849Z",
+        "duration": 22480.796,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "settings",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\settings-3",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T03:03:04.998Z",
+        "duration": 23140.306999999997,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "notifications",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\notifications-1",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T02:52:53.322Z",
+        "duration": 31950.276,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "notifications",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\notifications-2",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T02:58:48.262Z",
+        "duration": 20187.185999999998,
+        "expected": 3,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "help",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\help-1",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T02:59:09.367Z",
+        "duration": 25401.837,
+        "expected": 3,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "help",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\help-2",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T03:17:01.410Z",
+        "duration": 29378.858,
+        "expected": 3,
+        "skipped": 0,
+        "unexpected": 2,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "help",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\help-3",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T03:22:37.298Z",
+        "duration": 43293.998,
+        "expected": 4,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "help",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\help-4",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T03:30:45.029Z",
+        "duration": 39708.602,
+        "expected": 4,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      }
+    },
+    {
+      "module": "help",
+      "stage": "blob-report\\archive\\phase3-2026-11-17\\help-5",
+      "globalErrors": [],
+      "stats": {
+        "startTime": "2026-11-17T14:19:04.378Z",
+        "duration": 106929.26100000001,
+        "expected": 3,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    }
+  ],
+  "modules": [
+    {
+      "slug": "dashboard",
+      "number": 1,
+      "title": "Dashboard & Executive Analytics",
+      "latestStage": "dashboard-1",
+      "summary": "No period comparison workflow."
+    },
+    {
+      "slug": "products",
+      "number": 2,
+      "title": "Products & Catalog Management",
+      "latestStage": "products-8",
+      "summary": "Valid same-branch BOM flow checked; zero coercion, cross-branch negative stock, serialized units and category schema findings."
+    },
+    {
+      "slug": "stores",
+      "number": 3,
+      "title": "Stores & Branches (Multi-Location)",
+      "latestStage": "stores-2",
+      "summary": "Inventory comparison reconciles; full comparative sales acceptance remains partial."
+    },
+    {
+      "slug": "adjustments",
+      "number": 4,
+      "title": "Stock Adjustments",
+      "latestStage": "adjustments-1",
+      "summary": "Two-item API vouchers work; multi-item UI missing."
+    },
+    {
+      "slug": "transfers",
+      "number": 5,
+      "title": "Stock Transfers (Inter-Branch)",
+      "latestStage": "transfers-1",
+      "summary": "Stock lifecycle passes; no manifest or discrepancy workflow."
+    },
+    {
+      "slug": "stock-counts",
+      "number": 6,
+      "title": "Stock Counts (Physical Inventory Audits)",
+      "latestStage": "stock-counts-1",
+      "summary": "Draft/count recovery works; category schedules and software scan workflow missing."
+    },
+    {
+      "slug": "shelf-life",
+      "number": 7,
+      "title": "Shelf Life & Expiry Tracking (Batches & Lots)",
+      "latestStage": "shelf-life-5",
+      "summary": "Date states and native allocation priority work; zero quantity, selector, receipt capture and disposal gaps."
+    },
+    {
+      "slug": "pos",
+      "number": 8,
+      "title": "Point of Sale (POS) & Checkout",
+      "latestStage": "pos-3",
+      "summary": "Offline sale is not durably queued; loyalty redemption missing."
+    },
+    {
+      "slug": "order-queue",
+      "number": 10,
+      "title": "Orders Queue (Workshop / Kitchen Processing)",
+      "latestStage": "order-queue-2",
+      "summary": "Diagnostic queue transitions work; native processing flag, assignment and ticket output fail."
+    },
+    {
+      "slug": "invoicing",
+      "number": 12,
+      "title": "Invoicing & Commercial Sales Billing",
+      "latestStage": "invoicing-2",
+      "summary": "No recurring/per-invoice FX workflow; reminder delivery blocked by inbox dependency."
+    },
+    {
+      "slug": "credit-notes",
+      "number": 13,
+      "title": "Credit Notes",
+      "latestStage": "credit-notes-3",
+      "summary": "Standalone Save as Draft opens credit and increases stock."
+    },
+    {
+      "slug": "debit-notes",
+      "number": 14,
+      "title": "Debit Notes",
+      "latestStage": "debit-notes-2",
+      "summary": "Link/amount/identity/PDF pass; issued service/freight and dispatch coverage partial."
+    },
+    {
+      "slug": "purchase-orders",
+      "number": 15,
+      "title": "Purchasing & Purchase Orders (PO)",
+      "latestStage": "purchase-orders-1",
+      "summary": "Manual QA PO lifecycle works; automatic reorder/supplier email workflow unavailable."
+    },
+    {
+      "slug": "goods-receipts",
+      "number": 16,
+      "title": "Goods Receipt Notes (GRN)",
+      "latestStage": "goods-receipts-1",
+      "summary": "No receipt line lot/expiry capture."
+    },
+    {
+      "slug": "bills-payable",
+      "number": 17,
+      "title": "Bills & Accounts Payable (AP)",
+      "latestStage": "bills-payable-1",
+      "summary": "PO reference exists; three-way receipt reconciliation unavailable."
+    },
+    {
+      "slug": "suppliers",
+      "number": 18,
+      "title": "Suppliers & Vendor Management",
+      "latestStage": "suppliers-2",
+      "summary": "Preferred vendor/SKU API mapping and detach pass; catalogue hides the vendor SKU/search; account export is profile-only."
+    },
+    {
+      "slug": "customers",
+      "number": 19,
+      "title": "Customers & Accounts Receivable (AR)",
+      "latestStage": "customers-1",
+      "summary": "Group/tier and debt-ceiling controls unavailable; over-limit enforcement unverified."
+    },
+    {
+      "slug": "reports",
+      "number": 20,
+      "title": "Reports & Business Intelligence",
+      "latestStage": "reports-4",
+      "summary": "Gross arithmetic, movement delta and AR reconciliation checked; net margin/AP aging missing; cost/velocity limits remain."
+    },
+    {
+      "slug": "custom-reports",
+      "number": 21,
+      "title": "Custom Report Builder & Scheduled Delivery",
+      "latestStage": "custom-reports-2",
+      "summary": "Filtered templates run; unfiltered templates disappear; composer limited; cron delivery blocked."
+    },
+    {
+      "slug": "document-design",
+      "number": 22,
+      "title": "Document Builder & Visual Template Designer",
+      "latestStage": "document-design-1",
+      "summary": "Preset form only; TTF upload loses bytes; diagnostic font API management passes."
+    },
+    {
+      "slug": "roles",
+      "number": 23,
+      "title": "Users, Roles & Access Control (RBAC)",
+      "latestStage": "roles-2",
+      "summary": "No custom role/matrix editor; real staff enforcement unverified."
+    },
+    {
+      "slug": "security",
+      "number": 24,
+      "title": "Security, Sessions & Authentication",
+      "latestStage": "security-2",
+      "summary": "TOTP/recovery blocked by account dependency; revoked session retains authenticated access."
+    },
+    {
+      "slug": "audit-logs",
+      "number": 25,
+      "title": "Audit Logs & System Activity",
+      "latestStage": "audit-logs-1",
+      "summary": "Before/after values and complete filtered CSV pass; JSON format acceptance partial."
+    },
+    {
+      "slug": "integrations",
+      "number": 26,
+      "title": "Integrations, REST API & Webhooks",
+      "latestStage": "integrations-7",
+      "summary": "Key lifecycle/global scopes work; docs stale/incomplete; required webhook events absent; delivery/retries blocked."
+    },
+    {
+      "slug": "hardware",
+      "number": 27,
+      "title": "Hardware & Printer Configuration",
+      "latestStage": "hardware-1",
+      "summary": "Physical checks skipped; software label generation unavailable."
+    },
+    {
+      "slug": "settings",
+      "number": 28,
+      "title": "System Settings & Localization",
+      "latestStage": "settings-3",
+      "summary": "JSON export is a no-op toast; backup workflow unavailable."
+    },
+    {
+      "slug": "notifications",
+      "number": 29,
+      "title": "Notifications & Alerts Center",
+      "latestStage": "notifications-2",
+      "summary": "Channel controls inspected; external delivery blocked."
+    },
+    {
+      "slug": "help",
+      "number": 30,
+      "title": "Help Center, Legal & Compliance",
+      "latestStage": "help-5",
+      "summary": "FAQ search works; videos missing; changelog display works with provenance limits."
+    }
+  ],
+  "deployment": {
+    "checkedAt": "2026-11-17T01:22:12.315Z",
+    "target": "https://nexstock.stylotech.mu/app",
+    "assets": [
+      {
+        "path": "/app/assets/index-Bw0A9VIv.js",
+        "bytes": 4056966,
+        "sha256": "bd0987b86cf20ca4531f81b3f859bb2d32d3d7d41da42386d09a9c377992584c"
+      }
+    ],
+    "previousMainBundleSha256": "bd0987b86cf20ca4531f81b3f859bb2d32d3d7d41da42386d09a9c377992584c",
+    "frontendChanged": false,
+    "scope": "Publicly served frontend fingerprint only; not a deployment-matched commit or backend migration certificate."
+  },
+  "deploymentFinal": {
+    "checkedAt": "2026-11-17T14:22:12.960Z",
+    "target": "https://nexstock.stylotech.mu/app",
+    "assets": [
+      {
+        "path": "/app/assets/index-Bw0A9VIv.js",
+        "bytes": 4056966,
+        "sha256": "bd0987b86cf20ca4531f81b3f859bb2d32d3d7d41da42386d09a9c377992584c"
+      }
+    ],
+    "previousMainBundleSha256": "bd0987b86cf20ca4531f81b3f859bb2d32d3d7d41da42386d09a9c377992584c",
+    "frontendChanged": false,
+    "scope": "Publicly served frontend fingerprint only; not a deployment-matched commit or backend migration certificate."
+  },
+  "notes": {
+    "acceptance": "Unweighted requirement acceptance, not development effort or code completion.",
+    "scope": "28 domains, 61 requirements including two nested omissions from the old matrix."
+  }
+}

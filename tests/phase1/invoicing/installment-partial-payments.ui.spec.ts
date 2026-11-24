@@ -12,7 +12,7 @@ test.describe('Invoicing — Installments & Partial Payments', () => {
     await submitPayment(page, await recordPayment(page, ref, 150));
     await expect((await findInvoice(page, ref)).getByRole('cell').nth(5)).toHaveText('Paid');
     detail = await openInvoice(page, ref);
-    await expect(detail.getByText('Total Amount Due:', { exact: true }).locator('..')).toContainText(/0\.00/);
+    await expect(detail.locator('#receipt-content').getByText('Total Amount Due:', { exact: true }).locator('..')).toContainText(/0\.00/);
   });
 
   for (const amount of [0, -10]) {
@@ -28,7 +28,7 @@ test.describe('Invoicing — Installments & Partial Payments', () => {
       await page.reload();
       await expect((await findInvoice(page, ref)).getByRole('cell').nth(5)).toHaveText('Pending');
       const detail = await openInvoice(page, ref);
-      await expect(detail.getByText('Total Amount Due:', { exact: true }).locator('..')).toContainText('200.00');
+      await expect(detail.locator('#receipt-content').getByText('Total Amount Due:', { exact: true }).locator('..')).toContainText('200.00');
     });
   }
 });

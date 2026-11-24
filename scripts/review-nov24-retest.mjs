@@ -1,0 +1,48 @@
+// Evidence-backed dispositions; this does not mark the overall review complete.
+import assert from 'node:assert/strict';
+import {readFileSync,writeFileSync,existsSync} from 'node:fs';
+import {join} from 'node:path';
+const root='blob-report/archive/retest-2026-11-24',file='data/retest-2026-11-24-review.json';
+const review=JSON.parse(readFileSync(file,'utf8')),index=JSON.parse(readFileSync(join(root,'execution-index.json'),'utf8'));
+const find=prefix=>index.cases.find(c=>c.title.startsWith(prefix));
+const json=(c,name)=>c?.attachments.find(a=>a.name===name)?.json;
+const redacted=value=>Array.isArray(value)?value.map(redacted):value&&typeof value==='object'?Object.fromEntries(Object.entries(value).map(([k,v])=>[k,/password|authorization|plaintextkey|secret|cookie|(?:access|refresh)[_-]?token|^token$/i.test(k)?'[REDACTED]':redacted(v)])):value;
+const result=c=>join(c.stage,'results.json');
+const supplement=value=>{review.supplemental=(review.supplemental||[]).filter(s=>s.id!==value.id);review.supplemental.push(value);};
+const primary=find('MVP-FONT-002 P3-FONT-001'),matrix=find('RET-FONT-002 RET-FONT-001 both PDF designs'),removed=find('RET-FONT-002 deleted tenant font');
+if(primary?.classification==='PASS'&&matrix?.classification==='PASS'&&removed?.classification==='PASS'){
+ const statePath=primary.attachments.find(a=>a.name==='custom-font-workflow-state')?.path;assert.ok(statePath);
+ const state=JSON.parse(readFileSync(statePath,'utf8'));assert.equal(state.campaignRoot,root);
+ const stateEvidencePath=join(root,'font-workflow-redacted.json');writeFileSync(stateEvidencePath,JSON.stringify(redacted(state),null,2)+'\n');
+ assert.ok(['invoice','quotation'].every(k=>state.selections[k].every(s=>s.available)));
+ const extraOptions=matrix.attachments.filter(a=>a.json&&/^(credit-note editor|POS (256|500))-\d-font-options$/.test(a.name));assert.equal(extraOptions.length,6);assert.ok(extraOptions.every(a=>a.json.offered));
+ const registration=Object.values(state.editorFontRegistrations).flat();assert.ok(registration.every(r=>r.faces.length===1&&r.faces[0].status==='loaded'));
+ const removal=json(removed,'deleted-font-negative-control');assert.ok(removal.removed&&removal.retained&&!removal.italicStillUsed);
+ review.tickets['RET-FONT-001']={status:'PASS',detail:'Fresh tenant TTF uploads were offered and independently selected for both custom fields on Invoice, Quotation, Credit Note editor and POS (two note-boundary runs). No legacy localStorage font list was seeded. Both Invoice/Quotation editors contained one loaded FontFace per uploaded family, and actual Chromium glyphs used the intended Regular/Italic font. Anonymous and invalid-token reads of the owned uploaded font file both returned 401. Credit Note coverage is selector-only; cross-tenant access and physical receipt typography are not certified.',evidence:[result(primary),result(matrix),stateEvidencePath,join(root,'font-download-auth-controls.json')]};
+ review.tickets['RET-FONT-002']={status:'PASS',detail:'Exact customer text, literal `<b>`/`<tag>` characters, accented É and independent font families survived native Invoice/Quotation create and fresh reads; actual browser glyph fonts and both Modern/Classic native PDF designs passed. Native quotation conversion and both POS sales retained the two definition-backed fields/fonts. Removing a separate owned Italic font retained its text and produced the default PDF fallback. Internal POS note readback is a separate limited control.',evidence:[result(primary),result(matrix),result(removed),stateEvidencePath,...primary.attachments.filter(a=>a.path&&a.path.endsWith('.pdf')).map(a=>a.path),...matrix.attachments.filter(a=>a.path&&a.path.endsWith('.pdf')).map(a=>a.path),...removed.attachments.filter(a=>a.path&&a.path.endsWith('.pdf')).map(a=>a.path)]};
+ const notes=[256,500].map(length=>({length,...json(matrix,'native-POS-'+length)}));assert.ok(notes.every(n=>n.status===201&&n.request.items[0].note.length>255&&n.request.items[0].note.length<=500));
+ supplement({id:'long-pos-notes',name:'POS item-description length regression',status:'PASS',detail:'Native Special Instructions inputs of 256 and 500 characters produced '+notes.map(n=>n.request.items[0].note.length).join('/')+'-character combined wire notes, both above the old varchar(255) boundary and within the 500-character API limit. Both cash sales returned 201 and their exact Invoices reloaded. Definition-backed customer text/fonts persisted; internal item_description is not exposed for exact readback. No direct database-schema inspection was performed.',evidence:[result(matrix)]});
+ const findingPath=join(root,'findings.json'),findings=JSON.parse(readFileSync(findingPath,'utf8'));
+ const retired=findings.filter(f=>f.id==='RET-FONT-002'&&/document-design-1$/.test(f.stage)&&/PDF omits|omits\/alters|Exact (?:256|500) character Note/.test(f.actual));
+ if(retired.length){writeFileSync(join(root,'retired-automation-findings.json'),JSON.stringify({classification:'Corrected automation findings; not application bugs',reason:'Affected native scenarios passed after correcting PDF reading order and removing an unsupported internal-note/custom-field assertion.',retired},null,2)+'\n');writeFileSync(findingPath,JSON.stringify(findings.filter(f=>!retired.includes(f)),null,2)+'\n');}
+ review.automationEvidence=[join(root,'pdf-reading-order-correction.json'),join(root,'discovery/font-oracle-calibration.json'),...JSON.parse(readFileSync(join(root,'pdf-reading-order-correction.json'),'utf8')).checks.map(c=>c.source),...(existsSync(join(root,'retired-automation-findings.json'))?[join(root,'retired-automation-findings.json')]:[])];
+}
+const documentation=find('F26-c full endpoint reference'),keys=find('F26-a b owned key lifecycle');
+if(documentation&&keys&&['PASS','PARTIAL'].includes(documentation.classification)&&['PASS','PARTIAL'].includes(keys.classification)){
+ const docs=json(documentation,'API-documentation-retest-controls'),auth=json(keys,'key-authentication-controls'),validation=json(documentation,'documented-validation-envelope-control');assert.equal(docs.coverage.length,5);assert.equal(docs.coverage.reduce((n,c)=>n+c.endpoints,0),39);assert.ok(json(documentation,'documented-pagination-envelope-control').every(c=>!c.mismatch));assert.equal(docs.failures.length,0);assert.equal(docs.staleNoticesPresent,false);assert.ok(auth.valid.resource&&auth.keyWithoutBusinessHeader.resource&&!auth.anonymous.resource&&!auth.invalid.resource);assert.equal(validation.status,422);
+ review.tickets['P3-API-002']={status:'PASS',detail:'Expanded all 39 endpoint accordions in all five Products/Inventory/Invoices/Orders/Customers reference sections. Methods/paths, role/key-scope labels, query/body fields and parseable response examples are present; stale notices are absent. Documented X-Api-Key works without a session or business header, with anonymous/invalid/rotated/revoked controls, read-only deny and write-enabled allow. The validation-error example matches a live 422 control; representative resource/read-pagination shapes were recorded. Backend ApiReferenceRoutesTest, OpenAPI diff, every write route and non-owner role gates are not independently certified.',evidence:[result(documentation),result(keys)]};
+ const findingPath=join(root,'findings.json'),findings=JSON.parse(readFileSync(findingPath,'utf8'));
+ const retired=findings.filter(f=>f.id==='P3-API-002'&&/integrations-1$/.test(f.stage)&&/reference lacks a required methods\/paths\/roles\/fields\/response component/.test(f.actual));
+ const retiredPath=join(root,'retired-api-automation-finding.json');
+ if(retired.length){writeFileSync(retiredPath,JSON.stringify({classification:'Corrected automation finding; not an application bug',reason:'Case-sensitive field-label detection failed against CSS-uppercase headings. The full native documentation case passed after a case-insensitive correction.',retired},null,2)+'\n');writeFileSync(findingPath,JSON.stringify(findings.filter(f=>!retired.includes(f)),null,2)+'\n');}
+ if(existsSync(retiredPath))review.automationEvidence.push(retiredPath);
+ review.automationCorrections=review.automationCorrections.map(s=>s.replace('the documentation case is rerun with case-insensitive matching.','the native documentation case passed on rerun with case-insensitive matching.'));
+}
+const backup=find('F28-f automated backup schedule');
+if(backup?.classification==='BLOCKED'){
+ const observed=json(backup,'automated-backup-observation');assert.ok(observed.requirementDoesNotMandateTenantUI);
+ const observationPath=join(root,'automated-backup-observation.json');writeFileSync(observationPath,JSON.stringify(observed,null,2)+'\n');
+ review.tickets['P3-BACKUP-002']={status:'BLOCKED',detail:'Reclassified from the earlier UI-only finding. The fresh Settings inspection '+(observed.controlsPresent?'found backup-related controls':'exposes no tenant backup schedule/history')+', but FEATURES.md F28-f does not mandate tenant-facing controls. No platform schedule/job/artifact evidence is available, so absence or failure of automated backups is unconfirmed. This is not a passed backup capability and is excluded from confirmed bugs; native JSON export is tested separately.',evidence:[result(backup),observationPath]};
+ review.unconfirmedObservations[0].observed=review.tickets['P3-BACKUP-002'].detail;review.unconfirmedObservations[0].evidence=[result(backup),observationPath];
+}
+writeFileSync(file,JSON.stringify(review,null,2)+'\n');console.log(JSON.stringify({counts:Object.fromEntries(['PASS','PARTIAL','FAIL','BLOCKED','PENDING'].map(status=>[status,Object.values(review.tickets).filter(t=>t.status===status).length])),supplemental:review.supplemental.map(s=>({id:s.id,status:s.status}))}));

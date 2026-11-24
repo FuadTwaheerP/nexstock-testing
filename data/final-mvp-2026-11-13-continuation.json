@@ -1,0 +1,82 @@
+{
+  "jobs": [
+    [
+      "phase1",
+      "security",
+      "--grep",
+      "logout blocks back|logout removes access"
+    ],
+    [
+      "phase1",
+      "invoicing",
+      "installment-partial-payments.ui.spec.ts"
+    ],
+    [
+      "phase2",
+      "document-templates",
+      "release-custom-fonts.ui.spec.ts"
+    ],
+    [
+      "phase1",
+      "customers",
+      "add-customer.ui.spec.ts",
+      "edit-archive-customer.ui.spec.ts"
+    ],
+    [
+      "phase1",
+      "settings",
+      "settings-full-flow.ui.spec.ts",
+      "release-persistence.ui.spec.ts"
+    ],
+    [
+      "phase1",
+      "help",
+      "--grep",
+      "public .*without submitting|supports mobile keyboard"
+    ],
+    [
+      "phase1",
+      "hardware",
+      "--grep",
+      "release basic-variant|keyboard HID|Scan action"
+    ],
+    [
+      "phase2",
+      "quotations"
+    ],
+    [
+      "phase2",
+      "pos-extensions"
+    ],
+    [
+      "phase2",
+      "purchase-orders",
+      "purchase-orders-full-flow.ui.spec.ts"
+    ],
+    [
+      "phase2",
+      "stock-counts",
+      "stock-counts-full-flow.ui.spec.ts"
+    ],
+    [
+      "phase2",
+      "credit-notes",
+      "cash-refund.ui.spec.ts",
+      "return-reasons.ui.spec.ts",
+      "pdf-print.ui.spec.ts",
+      "release-debit-print.ui.spec.ts",
+      "release-legacy-debit.ui.spec.ts"
+    ],
+    [
+      "phase2",
+      "document-templates",
+      "brand-theme.ui.spec.ts",
+      "release-contrast.ui.spec.ts",
+      "release-pdf-precedence.ui.spec.ts",
+      "--grep",
+      "saved primary theme|P2-DOC-004|RET-002"
+    ]
+  ],
+  "scope": "Final MVP: core Phase 1 browser workflows and adjacent delivered commercial-document/stock flows, plus separately implemented custom-font upload/item-text verification. Phase 3 paused except the explicitly requested font workflow.",
+  "outsideScope": "New paid onboarding/licence, actual credentials/reset/PIN provisioning, legal approval, real physical printers/scanners, payment-provider settlement, live multi-tenant/RBAC certification, and explicitly undelivered Phase 2 capabilities. No full-project acceptance percentage is inferred."
+}

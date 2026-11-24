@@ -1,0 +1,315 @@
+{
+  "reviewedAt": "2026-11-17",
+  "requirements": {
+    "F01-b-P3": {
+      "status": "FAIL",
+      "detail": "Dashboard provides no period-over-period comparison configuration or results"
+    },
+    "F02-a-P3": {
+      "status": "FAIL",
+      "detail": "Valid assembly behavior is cross-covered by F02-k, but serialized-unit assignment is unavailable."
+    },
+    "F02-k": {
+      "status": "FAIL",
+      "detail": "Valid 2A+3B recipe, availability 2, component value 47 and sale of two kits deducting 4A/6B pass; zero input silently becomes one. A cross-branch boundary sale succeeds with no components in the recorded sale branch and drives component stock negative."
+    },
+    "F02-l": {
+      "status": "FAIL",
+      "detail": "Categories have no dynamic field definitions or schema assignment"
+    },
+    "F03-g": {
+      "status": "PARTIAL",
+      "detail": "Branch inventory units/value reconciled against independently paginated products. Period-scoped sales are presented; sales recognition/date-boundary and cross-branch financial eligibility are not fully certified."
+    },
+    "F04-e": {
+      "status": "FAIL",
+      "detail": "Positive two-item API voucher and negative-stock atomicity control pass; the native form accepts only one item."
+    },
+    "F05-e": {
+      "status": "FAIL",
+      "detail": "Transfers have no printable dispatch manifest or delivery slip"
+    },
+    "F05-f": {
+      "status": "FAIL",
+      "detail": "In-transit receipt has no damage, shortage or discrepancy dispute entry"
+    },
+    "F06-d": {
+      "status": "FAIL",
+      "detail": "Stock counts cannot be scheduled or scoped to a category"
+    },
+    "F06-e": {
+      "status": "FAIL",
+      "detail": "Count sheet has no barcode-driven counting workflow"
+    },
+    "F07-a": {
+      "status": "FAIL",
+      "detail": "Standalone owned lots persist through the diagnostic API; manufacturer-lot capture during receipt is unavailable, and the batch selector cannot reach later-page products."
+    },
+    "F07-b": {
+      "status": "FAIL",
+      "detail": "Per-lot dates and reload/display pass. Entering zero quantity silently creates a one-unit lot; native product selection also has the first-page limitation."
+    },
+    "F07-c": {
+      "status": "PASS",
+      "detail": "Expired, tomorrow-expiry and fresh lots display the expected visual states; matching filters show each owned lot. This requirement asks for visual indicators, not outbound delivery."
+    },
+    "F07-d": {
+      "status": "PASS",
+      "detail": "An owned expiry-enabled product is sold four times with receipt order opposed to expiry order. The native priority is consistent through first-lot exhaustion; remaining lot totals reconcile with independent physical stock. No claim of two separately selectable modes."
+    },
+    "F07-e": {
+      "status": "FAIL",
+      "detail": "Expired batches expose delete metadata but no supervised stock disposal workflow"
+    },
+    "F08-l": {
+      "status": "FAIL",
+      "detail": "Offline checkout fails without storing a durable queued sale"
+    },
+    "F08-m": {
+      "status": "FAIL",
+      "detail": "POS has no customer loyalty balance or redemption workflow"
+    },
+    "F10-a": {
+      "status": "FAIL",
+      "detail": "Diagnostic processing-enabled order progresses through queue states. Native Processing product creation saves requires_processing=false and its normal POS sale does not create a ticket."
+    },
+    "F10-b": {
+      "status": "FAIL",
+      "detail": "Processing ticket editor cannot assign a technician, service bay or table"
+    },
+    "F10-c": {
+      "status": "FAIL",
+      "detail": "Order queue has no thermal work-order ticket generation action"
+    },
+    "F12-f": {
+      "status": "FAIL",
+      "detail": "Recurring contract billing cannot be configured"
+    },
+    "F12-g": {
+      "status": "FAIL",
+      "detail": "Invoice editor has no per-invoice currency or recorded exchange rate"
+    },
+    "F12-h": {
+      "status": "BLOCKED",
+      "detail": "Invoice Due Reminders and email channel controls exist in Notifications > Settings. Actual overdue email dispatch/delivery cannot be certified without a controlled QA inbox."
+    },
+    "F13-f": {
+      "status": "FAIL",
+      "detail": "Standalone credit creation succeeds, but Save as Draft submits Open and adds stock without a receiving choice; all owned stock changes compensated."
+    },
+    "F14-a": {
+      "status": "PARTIAL",
+      "detail": "A valid supplemental debit draft with total 100 persists. Issued accounting and dedicated freight/service-line coverage are not fully verified."
+    },
+    "F14-b": {
+      "status": "PASS",
+      "detail": "A new owned debit note retains its selected synthetic paid invoice ID after reload and displays that reference on the printable document."
+    },
+    "F14-c": {
+      "status": "PARTIAL",
+      "detail": "Authenticated browser print view and A4 PDF preserve the debit number, customer, selected product name/SKU and amount; PDF visually reviewed. Email dispatch lacks a controlled inbox; physical printing skipped."
+    },
+    "F15-e": {
+      "status": "FAIL",
+      "detail": "Low-stock items have no automatic purchase-order reordering workflow"
+    },
+    "F15-f": {
+      "status": "FAIL",
+      "detail": "Purchase-order detail has no direct supplier email transmission action"
+    },
+    "F16-e": {
+      "status": "FAIL",
+      "detail": "Goods receiving cannot capture manufacturer lots or lot expiry dates"
+    },
+    "F17-d": {
+      "status": "FAIL",
+      "detail": "Bill entry provides PO linking but no three-way receipt reconciliation"
+    },
+    "F18-e": {
+      "status": "FAIL",
+      "detail": "Owned supplier mapping stores its vendor-specific SKU, preferred flag and lead time; attach/read/detach pass. The native catalogue hides the vendor SKU and searching that SKU returns no product."
+    },
+    "F18-f": {
+      "status": "FAIL",
+      "detail": "Supplier export downloads profile fields rather than an account statement"
+    },
+    "F19-e": {
+      "status": "FAIL",
+      "detail": "Customer groups and automatic pricing tiers cannot be configured"
+    },
+    "F19-f": {
+      "status": "FAIL",
+      "detail": "Customer account UI has no credit enablement or debt ceiling configuration"
+    },
+    "F20-g": {
+      "status": "FAIL",
+      "detail": "Revenue and revenue-minus-recorded-cost/displayed gross margin arithmetic pass. Net-margin deep dive is missing; catalogue-versus-recorded COGS provenance remains unverified."
+    },
+    "F20-h": {
+      "status": "PARTIAL",
+      "detail": "A controlled +1 adjustment appears as a new stock movement with the correct resulting balance; stock restored. Dedicated velocity metric definitions and historical reconciliation are not fully certified."
+    },
+    "F20-i": {
+      "status": "FAIL",
+      "detail": "AR buckets are reconstructed from live invoice dates/balances and totals reconcile. Supplier/creditor aging is absent from the report catalogue/Bills controls."
+    },
+    "F21-a": {
+      "status": "FAIL",
+      "detail": "Report builder only saves predefined report choices rather than custom dimensions and metrics"
+    },
+    "F21-b": {
+      "status": "FAIL",
+      "detail": "Filtered saved template create/reload/run/delete passes. Valid unfiltered templates return filters as [] and disappear from the client list."
+    },
+    "F21-c": {
+      "status": "BLOCKED",
+      "detail": "Cadence/recipient schedule form inspected. No active schedule created without a controlled inbox; cron firing, delivered CSV and retry behavior are unverified."
+    },
+    "F22-e": {
+      "status": "FAIL",
+      "detail": "Document Builder has presets and form controls but no drag-and-drop design canvas"
+    },
+    "F22-f": {
+      "status": "FAIL",
+      "detail": "Invalid extension is rejected. Valid native TTF upload loses bytes and returns 422; diagnostic multipart upload/list/exact file-hash/delete pass without changing original fonts."
+    },
+    "F23-f": {
+      "status": "FAIL",
+      "detail": "Users & Roles has no custom role or granular permission matrix editor"
+    },
+    "F24-d": {
+      "status": "BLOCKED",
+      "detail": "Enable control is available after the real account load. Enrollment/login/time-window/replay tests require an isolated activated account; shared owner factors were preserved."
+    },
+    "F24-e": {
+      "status": "BLOCKED",
+      "detail": "Recovery code generation, one-time use and recovery login depend on isolated TOTP enrollment; no suitable activated account is available."
+    },
+    "F24-f": {
+      "status": "FAIL",
+      "detail": "Revoked automation session retains authenticated account access"
+    },
+    "F25-c": {
+      "status": "PASS",
+      "detail": "Live campaign product archive transitions contain active-to-archived old/new values; the UI has diff columns and exported values preserve them."
+    },
+    "F25-d": {
+      "status": "PARTIAL",
+      "detail": "Native filtered CSV export includes Old/New Value columns and its row count matches the complete filtered paginated result. JSON export is not exposed; the slash-format requirement needs confirmation before full acceptance."
+    },
+    "F26-a": {
+      "status": "PASS",
+      "detail": "Owned key naming/create/list/rotate/revoke/delete pass. Secrets are absent from list data; explicit empty-session controls accept the active key and refuse invalid/old/revoked keys. Secrets remain private."
+    },
+    "F26-b": {
+      "status": "PARTIAL",
+      "detail": "Global read-only denial (403) and write-enabled update (200 plus independent persistence) pass on an owned product. Anonymous/invalid credentials return 401. Per-resource restricted scopes are not exposed/tested."
+    },
+    "F26-c": {
+      "status": "FAIL",
+      "detail": "API documentation lacks a resource reference and falsely says API keys cannot authenticate"
+    },
+    "F26-d": {
+      "status": "FAIL",
+      "detail": "Webhook subscriptions omit the three events required by the specification"
+    },
+    "F26-e": {
+      "status": "BLOCKED",
+      "detail": "No controlled webhook receiver exists and no endpoint is registered. Actual signed deliveries, persisted delivery logs and manual retry outcomes are not verified. A page notice is not backend proof."
+    },
+    "F27-c": {
+      "status": "SKIPPED",
+      "detail": "Physical ESC/POS network/serial connection and paper output skipped at user request. Software connect controls and browser API availability inspected; no hardware mock counted as acceptance."
+    },
+    "F27-d": {
+      "status": "SKIPPED",
+      "detail": "Physical RJ11 cash drawer kick/pulse skipped at user request because no drawer/printer is connected."
+    },
+    "F27-e": {
+      "status": "FAIL",
+      "detail": "Software label generation is unavailable. Physical label-printer execution is separately skipped at user request."
+    },
+    "F28-f": {
+      "status": "FAIL",
+      "detail": "Advanced JSON export only shows a toast, with no job/download. No automated backup configuration/history workflow is exposed; unseen backend jobs/restoration are not certified."
+    },
+    "F29-d": {
+      "status": "BLOCKED",
+      "detail": "Actual notification settings/channel preferences inspected without saving changes. No controlled email inbox, SMS number/gateway or delivery receiver is available for end-to-end verification."
+    },
+    "F30-d": {
+      "status": "FAIL",
+      "detail": "Positive/negative FAQ search and answer expansion pass; no video guides are available."
+    },
+    "F30-e": {
+      "status": "PARTIAL",
+      "detail": "Changelog route, visible release entries and descending dates pass. The static 2025 history is not certified as current deployment/release provenance; no authoritative backend build revision is available."
+    }
+  },
+  "modules": {
+    "dashboard": "No period comparison workflow.",
+    "products": "Valid same-branch BOM flow checked; zero coercion, cross-branch negative stock, serialized units and category schema findings.",
+    "stores": "Inventory comparison reconciles; full comparative sales acceptance remains partial.",
+    "adjustments": "Two-item API vouchers work; multi-item UI missing.",
+    "transfers": "Stock lifecycle passes; no manifest or discrepancy workflow.",
+    "stock-counts": "Draft/count recovery works; category schedules and software scan workflow missing.",
+    "shelf-life": "Date states and native allocation priority work; zero quantity, selector, receipt capture and disposal gaps.",
+    "pos": "Offline sale is not durably queued; loyalty redemption missing.",
+    "order-queue": "Diagnostic queue transitions work; native processing flag, assignment and ticket output fail.",
+    "invoicing": "No recurring/per-invoice FX workflow; reminder delivery blocked by inbox dependency.",
+    "credit-notes": "Standalone Save as Draft opens credit and increases stock.",
+    "debit-notes": "Link/amount/identity/PDF pass; issued service/freight and dispatch coverage partial.",
+    "purchase-orders": "Manual QA PO lifecycle works; automatic reorder/supplier email workflow unavailable.",
+    "goods-receipts": "No receipt line lot/expiry capture.",
+    "bills-payable": "PO reference exists; three-way receipt reconciliation unavailable.",
+    "suppliers": "Preferred vendor/SKU API mapping and detach pass; catalogue hides the vendor SKU/search; account export is profile-only.",
+    "customers": "Group/tier and debt-ceiling controls unavailable; over-limit enforcement unverified.",
+    "reports": "Gross arithmetic, movement delta and AR reconciliation checked; net margin/AP aging missing; cost/velocity limits remain.",
+    "custom-reports": "Filtered templates run; unfiltered templates disappear; composer limited; cron delivery blocked.",
+    "document-design": "Preset form only; TTF upload loses bytes; diagnostic font API management passes.",
+    "roles": "No custom role/matrix editor; real staff enforcement unverified.",
+    "security": "TOTP/recovery blocked by account dependency; revoked session retains authenticated access.",
+    "audit-logs": "Before/after values and complete filtered CSV pass; JSON format acceptance partial.",
+    "integrations": "Key lifecycle/global scopes work; docs stale/incomplete; required webhook events absent; delivery/retries blocked.",
+    "hardware": "Physical checks skipped; software label generation unavailable.",
+    "settings": "JSON export is a no-op toast; backup workflow unavailable.",
+    "notifications": "Channel controls inspected; external delivery blocked.",
+    "help": "FAQ search works; videos missing; changelog display works with provenance limits."
+  },
+  "positives": [
+    "Valid BOM save, availability and automatic component deductions through POS.",
+    "Positive multi-item API adjustments and atomic negative-stock rejection; transfer stock lifecycle and compensation.",
+    "Lot dates/visual expiry filters and automatic native lot priority through depletion, reconciled to physical balances.",
+    "Debit invoice linkage, amount, product identity and visually reviewed A4 PDF.",
+    "Controlled stock movement entry and invoice-based AR aging reconciliation.",
+    "Filtered saved report persistence/run/delete; before/after audit values and complete filtered CSV export.",
+    "Active API key read and write scopes, negative credentials, rotation, revocation and deletion.",
+    "FAQ positive/negative search and answer expansion.",
+    "Supplier-specific SKU/preferred mapping persists through the API and the owned relation is removed; native vendor SKU display/search has a confirmed gap."
+  ],
+  "dependencies": [
+    "Physical ESC/POS network/serial printing, cash drawer pulse, scanner devices and label paper output were skipped at the user's request. Software availability was still inspected.",
+    "No controlled QA email inbox, SMS receiver/gateway or webhook receiver: overdue email, cron report email, notification transports and webhook delivery/signatures/logs/retries remain unverified.",
+    "No isolated activated account: TOTP enrollment/login/replay and recovery-code generation/one-use/recovery remain blocked. Shared owner authentication factors and unrelated sessions were preserved.",
+    "Per-resource API scopes, full branch sales/velocity analysis, issued service/freight debit accounting and current changelog provenance are partial.",
+    "Gross COGS provenance and whether CSV/JSON requires both formats are observations awaiting policy/requirement confirmation, not additional confirmed bugs."
+  ],
+  "cleanup": "Owned fixture stock was restored across every branch and checked in the archived catalogue, owned products archived with fresh server verification, owned lots/keys/report templates/diagnostic fonts deleted and the owned supplier relation detached, and the owned scan count abandoned. Existing MVP fonts 1/2 remain. An early archive cleanup race was corrected and its single zero-stock owned product repaired. Synthetic QA sales, credits, debit drafts, POs, vendor and audit/adjustment history are retained. No active email schedule or external webhook endpoint was created; no payment gateway, real email/SMS send or physical device command was requested. Each module ends only its own QA login session.",
+  "notes": {
+    "acceptance": "Unweighted requirement acceptance, not development effort or code completion.",
+    "scope": "28 domains, 61 requirements including two nested omissions from the old matrix."
+  },
+  "highPriorityIds": [
+    "P3-PROD-003",
+    "P3-PROD-007",
+    "P3-EXP-004",
+    "P3-LOOKUP-001",
+    "P3-POS-001",
+    "P3-QUEUE-003",
+    "P3-CN-002",
+    "P3-RPT-002",
+    "P3-FONT-001",
+    "P3-SEC-001",
+    "P3-BACKUP-001"
+  ]
+}

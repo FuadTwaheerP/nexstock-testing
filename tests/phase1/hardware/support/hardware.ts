@@ -108,15 +108,17 @@ export async function openPOS(page: Page) {
   await expect(cart(page).getByText('Your order is empty', { exact: true })).toBeVisible();
 }
 export async function confirmCustomization(page: Page, fixture: ScannerFixture) {
-  if (!fixture.customizable) return;
-  const dialog = page.getByRole('dialog', { name: 'Customize Product', exact: true });
-  await expect(dialog).toBeVisible();
+  // Current tiles no longer expose the old Customize badge. Observe the actual
+  // scan outcome before deciding whether the app requires confirmation.
+  const dialog = page.getByRole('dialog', { name: /^Customize product$/i });
+  await expect(dialog.or(line(page, fixture.name)).first()).toBeVisible();
+  if (!await dialog.isVisible()) return;
   await expect(dialog.getByRole('heading', { name: fixture.name, exact: true })).toBeVisible();
   // Do not reset an incorrect quantity to make a duplicate-scan defect pass.
   const quantity = await dialog.innerText();
   expect(quantity.match(/Quantity:\s*×\s*(\d+)/)?.[1], 'One scan must start with one customization unit').toBe('1');
   await expect(dialog.getByRole('radio', { name: 'Standard (No Variant)', exact: true })).toBeChecked();
-  await dialog.getByRole('button', { name: 'Add to Order', exact: true }).click();
+  await dialog.getByRole('button', { name: /^Add to order$/i }).click();
   await expect(dialog).toBeHidden();
 }
 export async function scan(page: Page, fixture: ScannerFixture, quantity: number, delay = 5) {
@@ -127,7 +129,7 @@ export async function scan(page: Page, fixture: ScannerFixture, quantity: number
   await confirmCustomization(page, fixture);
   await expect(line(page, fixture.name)).toHaveCount(1);
   await expect(line(page, fixture.name).locator('span.tabular-nums')).toHaveText(String(quantity));
-  await expect(cart(page).locator('div.group')).toHaveCount(1);
+  await expect(cart(page).getByRole('listitem')).toHaveCount(1);
   const subtotal = cart(page).getByText('Subtotal', { exact: true }).locator('..');
   await expect(subtotal).toContainText((quantity * fixture.selling).toFixed(2));
 }

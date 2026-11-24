@@ -6,7 +6,7 @@ import { validateTarget } from './helpers/safety.mjs';
 
 const envFile = fileURLToPath(new URL('.env', import.meta.url));
 if (existsSync(envFile)) loadEnvFile(envFile);
-const moduleSuiteIgnores = ['**/phase2/**', '**/auth/onboarding-process.ui.spec.ts', '**/products/**', '**/stores/**', '**/stock-adjustments/**', '**/pos/**', '**/invoicing/**', '**/suppliers/**', '**/customers/**', '**/security/**', '**/hardware/**', '**/settings/**', '**/help/**'];
+const moduleSuiteIgnores = ['**/phase3/**', '**/phase2/**', '**/auth/onboarding-process.ui.spec.ts', '**/products/**', '**/stores/**', '**/stock-adjustments/**', '**/pos/**', '**/invoicing/**', '**/suppliers/**', '**/customers/**', '**/security/**', '**/hardware/**', '**/settings/**', '**/help/**'];
 
 validateTarget(process.env.BASE_URL || 'http://localhost:3000');
 export default defineConfig({

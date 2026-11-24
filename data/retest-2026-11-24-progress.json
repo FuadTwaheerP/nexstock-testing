@@ -1,0 +1,21 @@
+{
+  "updatedAt": "2026-11-24T17:18:04.610Z",
+  "status": "Complete: live retest, restoration audit, reviewed reports and verified portable evidence package",
+  "root": "blob-report/archive/retest-2026-11-24",
+  "docs": "docs/retest-2026-11-24",
+  "activeExecSession": null,
+  "modules": 28,
+  "originalTickets": 32,
+  "counts": {
+    "PASS": 3,
+    "FAIL": 28,
+    "BLOCKED": 1
+  },
+  "newConfirmedBugs": 0,
+  "functionalCases": 57,
+  "supportChecks": 59,
+  "unresolvedAutomationErrors": 0,
+  "finalAuditStage": "help-2",
+  "finalAuditFinished": "2026-11-24T17:15:52.587Z",
+  "reviewLedger": "data/retest-2026-11-24-review.json"
+}

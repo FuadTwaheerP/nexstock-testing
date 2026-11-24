@@ -1,0 +1,13 @@
+import {test,expect,route,main,number} from '../support/phase3';
+import {readRoute,allPages} from '../support/observed';
+import {snapshot} from '../support/evidence';
+test('F03-g comparative branch inventory and period-scoped sales analytics',async({page},info)=>{
+ info.setTimeout(150_000);const branches=await readRoute(page,'/stores','/app/api/v1/branches'),first=await readRoute(page,'/stores','/app/api/v1/products'),products=await allPages(page,'/app/api/v1/products',first);
+ const expected=branches.map((branch:any)=>({name:branch.name,id:String(branch.id),units:products.reduce((sum:number,p:any)=>sum+Number((p.branch_stocks||[]).find((b:any)=>String(b.branch_id)===String(branch.id))?.physical_quantity||0),0),value:products.reduce((sum:number,p:any)=>sum+Number((p.branch_stocks||[]).find((b:any)=>String(b.branch_id)===String(branch.id))?.physical_quantity||0)*Number(p.cost_price||0),0)}));
+ await route(page,'/reports');const loaded=page.waitForResponse(r=>r.request().method()==='GET'&&new URL(r.url()).pathname==='/app/api/v1/reporting/reports'&&new URL(r.url()).searchParams.get('type')==='storeComparison').then(async r=>{expect(r.ok()).toBe(true);return{url:r.url(),body:await r.json()};});await main(page).getByRole('tab',{name:'Store Comparison',exact:true}).click();const report=await loaded,rows=report.body.data.rows;expect(rows.length).toBeGreaterThan(1);
+ const panel=page.getByRole('tabpanel',{name:'Store Comparison',exact:true});await expect(panel.getByRole('table')).toBeVisible();await expect(panel.getByRole('columnheader',{name:'Sales',exact:true})).toBeVisible();
+ const matched=[];for(const row of rows){const branch=expected.find((b:any)=>b.name===row.branch);expect(branch,'Report branch must exist in the independent inventory catalogue').toBeTruthy();expect(Number(row.units)).toBe(branch.units);expect(Number(row.stock_value)).toBeCloseTo(branch.value,2);expect(Number.isFinite(Number(row.sales))).toBe(true);matched.push({report:row,inventoryOracle:branch});}
+ await info.attach('independent-branch-comparison',{body:JSON.stringify({productsRead:products.length,report,matched}),contentType:'application/json'});await snapshot(page,info,'branch-comparative-analytics');
+ expect(new URL(report.url).searchParams.has('date_from')).toBe(true);expect(new URL(report.url).searchParams.has('date_to')).toBe(true);
+ info.annotations.push({type:'partial-coverage',description:'Independent all-page inventory cost/quantity reconciliation and period-scoped sales presentation passed. Sales status eligibility/recognition and all historical interval boundaries are not independently certified by this inventory comparison scenario.'});
+});

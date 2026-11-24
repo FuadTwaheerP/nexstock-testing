@@ -37,12 +37,16 @@ test('@phase1 F19-b inactive customer is not offered for a new invoice', async (
   await active.press('Escape');
   await setStatus(page, customer, 'Inactive');
   await invoicePicker(page);
+  if (await page.getByRole('option').filter({ hasText: customer.email }).count()) test.info().annotations.push({ type: 'confirmed-bug', description: 'MVP-CUST-001: Customer deactivated and verified after fresh list read remains offered in a newly loaded invoice customer picker.' });
   await expect(page.getByRole('option').filter({ hasText: customer.email }), 'Archived/inactive customer must not be eligible for a new invoice per P1-050').toHaveCount(0);
 });
 test('@phase1 F19-b later-sorting active customer remains selectable for billing', async ({ page, customer }) => {
   customer.name = `QA CUST ZZZ ${customer.token}`;
   await createCustomer(page, customer);
   await invoicePicker(page);
+  await page.getByRole('option').last().press('End');
+  await test.info().attach('complete-visible-customer-options', { body: JSON.stringify({ ownCustomer: customer, options: await page.getByRole('option').allTextContents(), snapshot: await page.getByRole('listbox').ariaSnapshot() }), contentType: 'application/json' });
+  if (!await page.getByRole('option').filter({ hasText: customer.email }).count()) test.info().annotations.push({ type: 'confirmed-bug', description: 'MVP-LOOKUP-001: A freshly saved later-sorting active customer is unavailable in the billing picker; observed customer-page data and end-of-list snapshot retained.' });
   await expect(page.getByRole('option').filter({ hasText: customer.email }), 'An active QA customer must not disappear because the picker loads only an initial subset; the present QA company has more than fifteen records').toBeVisible();
 });
 test('@phase1 F19-b inactive customer retains its historical draft invoice', async ({ page, customer }) => {

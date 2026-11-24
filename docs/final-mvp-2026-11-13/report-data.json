@@ -1,0 +1,37 @@
+{
+  "reviewComplete": true,
+  "outcome": "MVP sign-off is not recommended yet. Four new tickets and the existing minor contrast issue remain. Custom-font upload and item configuration fail; selected-font Invoice/Quotation output is blocked before selection.",
+  "execution": "Core regression: 106 passed / 3 application-failing cases (109). Font workflow: 3 application-failing prerequisite cases. Support: 30 passed. Offline checks: 79 passed. Six failing functional cases group into five tickets. Latest exact-case results replace earlier attempts; all 28 completed attempts are preserved. No unresolved automation error remains after manual review.",
+  "regressionRows": [
+    ["Area / functional result", "Fresh verification"],
+    ["Catalog and stock\n28 passed", "Products, services, prices/VAT and persistence; branch isolation; stock adjustments, history and valuation."],
+    ["POS\n20 passed", "Search/barcodes, cart/customer, discounts/tax, four tender methods, split payment, change and receipt."],
+    ["Invoicing\n8 passed", "Identity/banking/PDF; commercial terms, issuance, partial/final settlement and invalid payments."],
+    ["Contacts\n11 passed / 2 failed", "Supplier lifecycle passes. Invoice customer eligibility and complete customer lookup fail."],
+    ["Access/settings/browser\n18 passed", "Sign-in/logout, settings/localization, legal navigation, HID emulation and normal variant actions."],
+    ["Delivered Phase 2\n21 passed / 1 failed", "Quotation, POS extensions, purchasing/counts, refunds and debit output pass. Classic contrast remains partial."]
+  ],
+  "fixRows": [
+    ["Ticket", "Result", "Current verification"],
+    ["RET-002", "PASS", "Settings bank text, builder precedence/whitespace fallback and template isolation pass; internal till notes stay excluded."],
+    ["RET-003", "PASS", "Normal Add to order works at 1920 x 1080 and 1440 x 900."],
+    ["P2-QUOTE-002", "PASS", "Customer notes/terms reach PDF; status and one-time conversion pass."],
+    ["REL-DN-001", "PASS", "New/legacy debit web and print output retains product name/SKU; legacy identifiers are strings."],
+    ["P2-DOC-004", "PARTIAL", "Dark text contrast remains 2.991035:1 against the stated 3:1 minimum. Borders/readable-colour control pass."]
+  ],
+  "remaining": "High: MVP-FONT-001 (JSON upload loses file), MVP-FONT-002 (custom fields lost after save), MVP-LOOKUP-001 (only first page of customers/products), MVP-CUST-001 (inactive customer offered). Low: existing P2-DOC-004. Duplicate picker occurrences are one ticket; corrected automation is separate.",
+  "fontRows": [
+    ["Font check", "Result", "Observed evidence"],
+    ["Unsupported TXT", "PASS", "The UI rejects the unsupported extension without an upload request."],
+    ["Settings TTF upload", "FAIL", "Regular and Oblique TTFs repeatedly return 422: The file field is required. Browser JSON contains file:{} and no font bytes."],
+    ["Multipart fixture setup", "DIAGNOSTIC", "Same observed endpoint/session accepts both files with 201. Settings persists them; downloaded SHA-256 hashes match. This is not a UI upload pass."],
+    ["Item custom fields", "FAIL", "Owned service 163 submits two supportsFonts text fields. Fresh GET and reopened Edit Product contain neither definition."],
+    ["Document item selection", "FAIL", "Invoice and Quotation offer 15 of 116 products; owned active product 163 is absent. Invoice customer lookup similarly offers 15 of 68."],
+    ["Selected-font text/PDF", "BLOCKED", "The intended item cannot be selected/configured. No selected-font Invoice/Quotation PDF pass or rendering defect is claimed."]
+  ],
+  "fontMethod": "Used unmodified licensed Bitstream Vera Sans Regular (65,932 bytes) and Oblique (63,684 bytes). Captured actual UI requests, responses, fresh product/font reads and editor/list snapshots. Standard multipart setup was separately labelled and used only the observed own-tenant endpoint. No browser-storage injection, forced option, CSS/JS patch or success-response substitution was used. Browser glyph and native-PDF font inspectors are ready for the post-fix retest.",
+  "cleanup": "All final support checks pass. QA stock, VAT, company preferences/language/theme, invoice text and document template were restored. The interrupted customer attempt was recovered: all nine saved contacts retained inactive. Synthetic financial/history records remain. Two owned diagnostic fonts and stockless product 163 remain for developer reproduction. No font-specific financial document was saved. No external payment/email or physical print job was sent.",
+  "automation": "Corrected account/menu and repeated-customer selectors, duplicate invoice totals, shifted product control, customer profile heading/commercial identity and scanner customization/cart markup; adapted fixture category selection. Affected cases were rerun. The final manually reviewed register resolves generic legacy-assessor review flags for new MVP IDs; original reports are preserved.",
+  "limits": "Scoped browser regression, not acceptance of every Phase 1/2 requirement. Phase 3 remains paused except this font task. Fresh onboarding, credential/reset/PIN changes, gateway settlement, tenant/RBAC certification, physical devices and explicitly undelivered Phase 2 capabilities are outside this run. P2-CN-004 allocation remains previously undelivered; its record-only refunds passed again. Legacy localStorage font reads are a source observation for the next retest, not a newly confirmed selector defect.",
+  "deployment": "Production: https://nexstock.stylotech.mu/app. Frontend stayed index-Bw0A9VIv.js at start/end; SHA-256 bd0987b86cf20ca4531f81b3f859bb2d32d3d7d41da42386d09a9c377992584c. This identifies frontend bytes, not an authoritative deployed backend commit. Detailed tickets include request bodies, page metadata, reproduction steps and screenshots."
+}

@@ -68,7 +68,9 @@ export async function signIn(page: Page) {
   record({ type: 'authenticated', test: base.info().title, company: companyName() });
 }
 export async function openAccountMenu(page: Page) {
-  const button = page.getByRole('banner').getByRole('button').filter({ hasText: /Admin|Manager|Cashier/ }).last();
+  const header = page.getByRole('banner');
+  const button = header.getByRole('button', { name: 'account', exact: true })
+    .or(header.getByRole('button').filter({ hasText: /Admin|Manager|Cashier/ })).last();
   await expect(button).toBeVisible();
   await button.click();
   const menu = page.getByRole('menu');

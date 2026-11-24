@@ -46,7 +46,10 @@ export async function openCustomers(page: Page) {
   await expect(page.getByRole('banner').getByRole('button', { name: companyName(), exact: true }), 'Only the configured disposable company is in scope').toBeVisible();
 }
 export function customerRow(page: Page, customer: Customer) {
-  return main(page).getByRole('row').filter({ has: page.getByRole('button') }).filter({ hasText: customer.token });
+  // The revenue ranking repeats customer names. Identify the management table
+  // by its Actions column so one saved customer cannot match both tables.
+  return main(page).getByRole('table').filter({ has: page.getByRole('columnheader', { name: 'Actions', exact: true }) })
+    .getByRole('row').filter({ has: page.getByRole('cell') }).filter({ hasText: customer.token });
 }
 export async function searchCustomer(page: Page, customer: Customer, mustExist = true) {
   const input = main(page).getByPlaceholder('Search...', { exact: true });
@@ -116,7 +119,7 @@ export async function createCustomer(page: Page, customer: Customer) {
 export async function menu(page: Page, customer: Customer) {
   await openCustomers(page);
   const row = await searchCustomer(page, customer);
-  await row.getByRole('button').click();
+  await row.getByRole('button', { name: 'Actions', exact: true }).click();
   const actions = page.getByRole('menu');
   await expect(actions).toBeVisible();
   return actions;
@@ -136,7 +139,7 @@ export async function saveCustomer(page: Page, form: Locator, customer: Customer
 }
 export async function openProfile(page: Page, customer: Customer) {
   await (await menu(page, customer)).getByRole('menuitem', { name: 'View Details', exact: true }).click();
-  await expect(main(page).getByRole('heading', { name: customer.name, exact: true }).first()).toBeVisible();
+  await expect(main(page).getByRole('heading', { level: 1 }).filter({ hasText: customer.name })).toBeVisible();
   await expect(main(page).getByRole('tab', { name: /^Invoices \(/ })).toBeVisible();
   return main(page);
 }
@@ -163,6 +166,7 @@ export async function invoicePicker(page: Page) {
   const response = await loaded;
   await response.finished();
   expect(response.ok(), 'Invoice customer options must finish loading').toBeTruthy();
+  await base.info().attach('observed-invoice-customer-page', { body: JSON.stringify({ url: response.url(), status: response.status(), body: await response.json() }), contentType: 'application/json' });
   await expect(main(page).getByRole('heading', { name: 'New Invoice', exact: true })).toBeVisible();
   await main(page).getByRole('combobox').first().click();
   return page.getByRole('listbox');
@@ -180,7 +184,7 @@ async function saveDraftDocument(page: Page, customer: Customer, kind: 'Invoice'
   }
   await page.getByRole('option').filter({ hasText: customer.email }).click();
   await main(page).getByRole('button', { name: 'Add Row', exact: true }).click();
-  await main(page).getByRole('combobox').nth(1).click();
+  await main(page).getByRole('combobox').filter({ hasText: 'Choose product...' }).last().click();
   const product = page.getByRole('option', { name: /^QA / }).first();
   await expect(product, 'Draft-history fixture requires an existing synthetic QA product, never a real product').toBeVisible();
   await product.click();
@@ -191,14 +195,21 @@ async function saveDraftDocument(page: Page, customer: Customer, kind: 'Invoice'
   await main(page).locator('input[type="date"]').nth(1).fill(due.toISOString().slice(0, 10));
   await main(page).getByRole('button', { name: `Save ${kind}`, exact: true }).click();
   // Never dispatch an email, take payment, issue a fiscal document or delete it.
+  const endpoint = kind === 'Invoice' ? '/app/api/v1/sales/invoices' : '/app/api/v1/sales/quotations';
+  const persisted = page.waitForResponse(response => response.request().method() === 'POST' && new URL(response.url()).pathname === endpoint)
+    .then(async response => { expect(response.ok()).toBe(true); return (await response.json()).data; });
   await page.getByRole('menuitem', { name: 'Save as Draft', exact: true }).click();
+  const saved = await persisted;
   const notification = page.getByRole('region', { name: 'Notifications alt+T' });
   const savedPath = new URL(appPath(listRoute, required('BASE_URL'))).pathname;
   await expect.poll(async () => new URL(page.url()).pathname.replace(/\/$/, '') === savedPath ? 'saved' : /fail|error|unable/i.test(await notification.innerText()) ? 'failed' : 'pending', { timeout: 20_000 }).not.toBe('pending');
   expect(new URL(page.url()).pathname.replace(/\/$/, ''), `APPLICATION BLOCKER: QA draft ${kind} did not save. ${await notification.innerText()}`).toBe(savedPath);
   const document = main(page).getByRole('row').filter({ hasText: customer.name }).first();
   await expect(document, `Saved QA ${kind} must appear in its register`).toBeVisible();
-  const reference = (await document.getByRole('cell').first().innerText()).trim();
+  await expect(document.getByRole('cell').first()).toHaveText(String(saved.id));
+  // Customer history prints the commercial number, not the internal list ID.
+  const reference = kind === 'Invoice' ? saved.invoiceNumber : saved.quoteNumber;
+  await base.info().attach('saved-customer-draft-identity', { body: JSON.stringify({ kind, id: saved.id, reference, customer: saved.customer }), contentType: 'application/json' });
   expect(reference, 'Saved document must have a reference').not.toBe('');
   const data = journal(); data.drafts.push({ token: customer.token, kind, reference });
   writeFileSync(journalPath, JSON.stringify(data, null, 2));
